@@ -1258,7 +1258,8 @@
     <string name="home_birthday_today">Birthday today</string>
     <string name="home_birthday_turns">Turns %1$d today</string>
     <string name="home_missed_call">Missed Call</string>
-    <string name="home_missed_calls">Missed Calls</string>
+    <string name="home_missed_calls_count">Missed Calls (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Do Not Disturb is on</string>
     <string name="home_dnd_priority_only">Priority only</string>
     <string name="home_dnd_alarms_only">Alarms only</string>

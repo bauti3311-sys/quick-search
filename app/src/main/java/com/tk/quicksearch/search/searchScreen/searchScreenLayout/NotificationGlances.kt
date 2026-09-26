@@ -125,7 +125,7 @@ internal fun launchNotificationTarget(
 }
 
 @Composable
-private fun rememberAppLabel(packageName: String): String {
+internal fun rememberAppLabel(packageName: String): String {
     val context = LocalContext.current
     return remember(packageName) {
         val packageManager = context.packageManager

@@ -43,10 +43,12 @@ internal class ProgressNotification(
     val contentIntent: PendingIntent?,
 )
 
-/** A missed call notification posted by the phone app; [caller] is its title, usually the name or number. */
+/** A missed call notification; [caller] is usually the name or number. */
 internal class MissedCallNotification(
     val key: String,
     val packageName: String,
+    /** Posted by the default phone app rather than a calling app such as WhatsApp. */
+    val fromPhoneApp: Boolean,
     val caller: String?,
     /** When the call came in, or when the notification was posted if the app does not say. */
     val callTime: Long,
@@ -130,6 +132,7 @@ internal object GlanceNotificationsStore {
         return MissedCallNotification(
             key = key,
             packageName = packageName,
+            fromPhoneApp = packageName == dialerPackage,
             caller = missedCallCaller(),
             callTime = notification.`when`.takeIf { it > 0L } ?: postTime,
             contentIntent = notification.contentIntent,

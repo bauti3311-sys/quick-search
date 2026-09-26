@@ -1259,7 +1259,8 @@
     <string name="home_birthday_today">Bugün doğum günü</string>
     <string name="home_birthday_turns">Bugün %1$d yaşına giriyor</string>
     <string name="home_missed_call">Cevapsız arama</string>
-    <string name="home_missed_calls">Cevapsız aramalar</string>
+    <string name="home_missed_calls_count">Cevapsız aramalar (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Rahatsız etmeyin açık</string>
     <string name="home_dnd_priority_only">Yalnızca öncelikli</string>
     <string name="home_dnd_alarms_only">Yalnızca alarmlar</string>

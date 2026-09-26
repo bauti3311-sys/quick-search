@@ -1258,7 +1258,8 @@
     <string name="home_birthday_today">Ulang tahun hari ini</string>
     <string name="home_birthday_turns">Berusia %1$d hari ini</string>
     <string name="home_missed_call">Panggilan tak terjawab</string>
-    <string name="home_missed_calls">Panggilan tak terjawab</string>
+    <string name="home_missed_calls_count">Panggilan tak terjawab (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Jangan Ganggu aktif</string>
     <string name="home_dnd_priority_only">Hanya prioritas</string>
     <string name="home_dnd_alarms_only">Hanya alarm</string>

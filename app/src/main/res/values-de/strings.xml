@@ -1260,7 +1260,8 @@
     <string name="home_birthday_today">Hat heute Geburtstag</string>
     <string name="home_birthday_turns">Wird heute %1$d</string>
     <string name="home_missed_call">Verpasster Anruf</string>
-    <string name="home_missed_calls">Verpasste Anrufe</string>
+    <string name="home_missed_calls_count">Verpasste Anrufe (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">„Nicht stören“ ist aktiv</string>
     <string name="home_dnd_priority_only">Nur wichtige Unterbrechungen</string>
     <string name="home_dnd_alarms_only">Nur Wecker</string>

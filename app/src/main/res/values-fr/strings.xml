@@ -1260,7 +1260,8 @@
     <string name="home_birthday_today">Anniversaire aujourd\'hui</string>
     <string name="home_birthday_turns">Fête ses %1$d ans aujourd\'hui</string>
     <string name="home_missed_call">Appel manqué</string>
-    <string name="home_missed_calls">Appels manqués</string>
+    <string name="home_missed_calls_count">Appels manqués (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Ne pas déranger est activé</string>
     <string name="home_dnd_priority_only">Prioritaires uniquement</string>
     <string name="home_dnd_alarms_only">Alarmes uniquement</string>

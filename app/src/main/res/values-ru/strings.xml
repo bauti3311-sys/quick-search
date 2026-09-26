@@ -1280,7 +1280,8 @@
     <string name="home_birthday_today">День рождения сегодня</string>
     <string name="home_birthday_turns">Сегодня исполняется %1$d</string>
     <string name="home_missed_call">Пропущенный вызов</string>
-    <string name="home_missed_calls">Пропущенные вызовы</string>
+    <string name="home_missed_calls_count">Пропущенные вызовы (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Режим «Не беспокоить» включен</string>
     <string name="home_dnd_priority_only">Только важные</string>
     <string name="home_dnd_alarms_only">Только будильники</string>

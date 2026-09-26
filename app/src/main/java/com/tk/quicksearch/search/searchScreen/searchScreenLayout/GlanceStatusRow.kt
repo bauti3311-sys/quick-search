@@ -37,7 +37,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.tk.quicksearch.R
 import com.tk.quicksearch.shared.ui.theme.DesignTokens
 
-private val GlanceDismissButtonSize = 28.dp
+internal val GlanceDismissButtonSize = 28.dp
 
 /** A counter that bumps every time the screen resumes, for glances that re-read their source then. */
 @Composable

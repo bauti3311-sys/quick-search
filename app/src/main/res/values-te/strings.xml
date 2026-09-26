@@ -1260,7 +1260,8 @@
     <string name="home_birthday_today">ఈరోజు పుట్టినరోజు</string>
     <string name="home_birthday_turns">ఈరోజు %1$d ఏళ్లు నిండుతాయి</string>
     <string name="home_missed_call">మిస్డ్ కాల్</string>
-    <string name="home_missed_calls">మిస్డ్ కాల్‌లు</string>
+    <string name="home_missed_calls_count">మిస్డ్ కాల్‌లు (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">అభ్యంతర పెట్టవద్దు ఆన్‌లో ఉంది</string>
     <string name="home_dnd_priority_only">ప్రాధాన్యత మాత్రమే</string>
     <string name="home_dnd_alarms_only">అలారంలు మాత్రమే</string>

@@ -1260,7 +1260,8 @@
     <string name="home_birthday_today">आज जन्मदिन है</string>
     <string name="home_birthday_turns">आज %1$d वर्ष पूरे</string>
     <string name="home_missed_call">मिस्ड कॉल</string>
-    <string name="home_missed_calls">मिस्ड कॉल</string>
+    <string name="home_missed_calls_count">मिस्ड कॉल (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">डू नॉट डिस्टर्ब चालू है</string>
     <string name="home_dnd_priority_only">सिर्फ़ प्राथमिकता वाले</string>
     <string name="home_dnd_alarms_only">सिर्फ़ अलार्म</string>

@@ -1262,7 +1262,8 @@
     <string name="home_birthday_today">عيد الميلاد اليوم</string>
     <string name="home_birthday_turns">العمر اليوم: %1$d</string>
     <string name="home_missed_call">مكالمة فائتة</string>
-    <string name="home_missed_calls">مكالمات فائتة</string>
+    <string name="home_missed_calls_count">مكالمات فائتة (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">عدم الإزعاج مفعّل</string>
     <string name="home_dnd_priority_only">الأولوية فقط</string>
     <string name="home_dnd_alarms_only">المنبّهات فقط</string>

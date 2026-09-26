@@ -1259,7 +1259,8 @@
     <string name="home_birthday_today">Compie gli anni oggi</string>
     <string name="home_birthday_turns">Compie %1$d anni oggi</string>
     <string name="home_missed_call">Chiamata persa</string>
-    <string name="home_missed_calls">Chiamate perse</string>
+    <string name="home_missed_calls_count">Chiamate perse (%1$s)</string>
+    <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Non disturbare è attivo</string>
     <string name="home_dnd_priority_only">Solo con priorità</string>
     <string name="home_dnd_alarms_only">Solo sveglie</string>
