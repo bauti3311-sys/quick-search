@@ -147,6 +147,7 @@
     <string name="notification_pinned_item_type_note">Notiz</string>
     <string name="action_remove">Entfernen</string>
     <string name="folder_name_placeholder">Ordnernamen hinzufügen</string>
+    <string name="folder_color_title">Ordnerfarbe</string>
     <string name="folder_remove_from_folder">Aus Ordner entfernen</string>
     <string name="app_swipe_current_action">Aktuelle Aktion</string>
     <string name="app_swipe_up_picker_title">Aktion für Nach-oben-Wischen bei %1$s auswählen</string>
@@ -190,6 +191,7 @@
     <string name="dialog_alias_info_tool">Gib diesen Alias am Anfang deiner Suchanfrage ein, um den %1$s-Modus zu aktivieren.</string>
     <string name="dialog_app_shortcut_icon_message">Wähle ein Bild für „%1$s“. Dies ändert nur die Darstellung der Verknüpfung in Quick Search.</string>
     <string name="dialog_cancel">Abbrechen</string>
+    <string name="dialog_reset">Zurücksetzen</string>
     <string name="dialog_choose_contact_action_title">Aktion zum Ersetzen von %1$s auswählen</string>
     <string name="dialog_clear_all_history_message">Möchtest du wirklich den gesamten Suchverlauf löschen? Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="dialog_clear_all_history_title">Gesamten Verlauf löschen?</string>

@@ -147,6 +147,7 @@
     <string name="notification_pinned_item_type_note">Nota</string>
     <string name="action_remove">Remover</string>
     <string name="folder_name_placeholder">Adicionar nome da pasta</string>
+    <string name="folder_color_title">Cor da pasta</string>
     <string name="folder_remove_from_folder">Remover da pasta</string>
     <string name="app_swipe_current_action">Ação atual</string>
     <string name="app_swipe_up_picker_title">Selecionar ação de deslizar para cima para %1$s</string>
@@ -190,6 +191,7 @@
     <string name="dialog_alias_info_tool">Digite este alias no início da sua busca para entrar no modo %1$s.</string>
     <string name="dialog_app_shortcut_icon_message">Escolha uma imagem para \"%1$s\". Isso altera apenas a aparência do atalho no Quick Search.</string>
     <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_reset">Redefinir</string>
     <string name="dialog_choose_contact_action_title">Escolha uma ação para substituir %1$s</string>
     <string name="dialog_clear_all_history_message">Tem certeza de que deseja limpar todo o histórico de pesquisa? Esta ação não pode ser desfeita.</string>
     <string name="dialog_clear_all_history_title">Limpar todo o histórico?</string>

@@ -148,6 +148,7 @@
     <string name="notification_pinned_item_type_note">ملاحظة</string>
     <string name="action_remove">إزالة</string>
     <string name="folder_name_placeholder">أضف اسم المجلد</string>
+    <string name="folder_color_title">لون المجلد</string>
     <string name="folder_remove_from_folder">إزالة من المجلد</string>
     <string name="app_swipe_current_action">الإجراء الحالي</string>
     <string name="app_swipe_up_picker_title">اختر إجراء السحب لأعلى لـ %1$s</string>
@@ -191,6 +192,7 @@
     <string name="dialog_alias_info_tool">اكتب هذا الاسم المستعار في بداية البحث للدخول في وضع %1$s.</string>
     <string name="dialog_app_shortcut_icon_message">اختر صورة لـ \"%1$s\". سيؤدي هذا فقط إلى تغيير مظهر الاختصار في Quick Search.</string>
     <string name="dialog_cancel">إلغاء</string>
+    <string name="dialog_reset">إعادة تعيين</string>
     <string name="dialog_choose_contact_action_title">اختر إجراءً لاستبدال %1$s</string>
     <string name="dialog_clear_all_history_message">هل أنت متأكد من رغبتك في مسح سجل البحث بالكامل؟ لا يمكن التراجع عن هذا الإجراء.</string>
     <string name="dialog_clear_all_history_title">مسح سجل البحث بالكامل؟</string>

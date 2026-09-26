@@ -147,6 +147,7 @@
     <string name="notification_pinned_item_type_note">నోట్</string>
     <string name="action_remove">తొలగించు</string>
     <string name="folder_name_placeholder">ఫోల్డర్ పేరు జోడించండి</string>
+    <string name="folder_color_title">ఫోల్డర్ రంగు</string>
     <string name="folder_remove_from_folder">ఫోల్డర్ నుండి తొలగించు</string>
     <string name="app_swipe_current_action">ప్రస్తుత చర్య</string>
     <string name="app_swipe_up_picker_title">%1$s కోసం పైకి స్వైప్ చర్యను ఎంచుకోండి</string>
@@ -190,6 +191,7 @@
     <string name="dialog_alias_info_tool">%1$s మోడ్‌లోకి ప్రవేశించడానికి మీ ప్రశ్న ప్రారంభంలో ఈ అలియాస్ టైప్ చేయండి.</string>
     <string name="dialog_app_shortcut_icon_message">\"%1$s\" కోసం ఒక చిత్రాన్ని ఎంచుకోండి. ఇది కేవలం Quick Searchలో షార్ట్‌కట్ ఎలా కనిపిస్తుందో మాత్రమే మారుస్తుంది.</string>
     <string name="dialog_cancel">రద్దు చేయి</string>
+    <string name="dialog_reset">రీసెట్ చేయండి</string>
     <string name="dialog_choose_contact_action_title">%1$s స్థానంలో ఉంచడానికి ఒక చర్యను ఎంచుకోండి</string>
     <string name="dialog_clear_all_history_message">మీరు ఖచ్చితంగా శోధన చరిత్ర మొత్తాన్ని క్లియర్ చేయాలనుకుంటున్నారా? ఈ చర్యను మళ్లీ వెనక్కి తీసుకోలేరు.</string>
     <string name="dialog_clear_all_history_title">చరిత్ర మొత్తాన్ని క్లియర్ చేయాలా?</string>

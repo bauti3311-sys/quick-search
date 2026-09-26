@@ -94,6 +94,7 @@ import com.tk.quicksearch.shared.util.performHapticFeedbackSafely
 import sh.calvin.reorderable.ReorderableColumn
 import sh.calvin.reorderable.ReorderableItem
 import sh.calvin.reorderable.rememberReorderableLazyListState
+import com.tk.quicksearch.shared.ui.components.PreserveHostKeyboardStateEffect
 
 private val RecentQueriesDisplayCountOptions = listOf(1, 3, 5, 7, 10)
 
@@ -517,6 +518,7 @@ private fun PinnedNotificationItemsDialog(
                 )
             }
         }
+    PreserveHostKeyboardStateEffect()
     Dialog(onDismissRequest = onDismiss) {
         Surface(
             modifier = Modifier.fillMaxWidth().height(screenHeight * 0.65f),

@@ -163,6 +163,15 @@ class FolderManager(
         saveFolders(folders.map { if (it.id == folderId) it.copy(name = trimmedName) else it })
     }
 
+    fun setFolderColor(
+        folderId: String,
+        color: Int?,
+    ) {
+        val folders = userPreferences.getAppFolders()
+        if (folders.none { it.id == folderId && it.color != color }) return
+        saveFolders(folders.map { if (it.id == folderId) it.copy(color = color) else it })
+    }
+
     /**
      * Prunes uninstalled apps and removed or disabled shortcuts from folders whenever the app or
      * shortcut catalog changes, dissolving folders left with fewer than two members.

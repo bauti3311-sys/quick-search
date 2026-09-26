@@ -147,6 +147,7 @@
 <string name="notification_pinned_item_type_note">Заметка</string>
 <string name="action_remove">Удалить</string>
 <string name="folder_name_placeholder">Добавить название папки</string>
+<string name="folder_color_title">Цвет папки</string>
 <string name="folder_remove_from_folder">Убрать из папки</string>
 <string name="app_swipe_current_action">Текущее действие</string>
 <string name="app_swipe_up_picker_title">Выберите действие для свайпа вверх для %1$s</string>
@@ -190,6 +191,7 @@
 <string name="dialog_alias_info_tool">Введите этот алиас в начале запроса, чтобы переключиться в режим «%1$s».</string>
 <string name="dialog_app_shortcut_icon_message">Выберите изображение для «%1$s». Это изменит внешний вид ярлыка только внутри Quick Search.</string>
 <string name="dialog_cancel">Отмена</string>
+<string name="dialog_reset">Сбросить</string>
 <string name="dialog_choose_contact_action_title">Выберите действие вместо %1$s</string>
 <string name="dialog_clear_all_history_message">Вы уверены, что хотите очистить всю историю поиска? Это действие нельзя отменить.</string>
 <string name="dialog_clear_all_history_title">Очистить всю историю?</string>

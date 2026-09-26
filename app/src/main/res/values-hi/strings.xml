@@ -147,6 +147,7 @@
     <string name="notification_pinned_item_type_note">नोट</string>
     <string name="action_remove">हटाएं</string>
     <string name="folder_name_placeholder">फ़ोल्डर का नाम जोड़ें</string>
+    <string name="folder_color_title">फ़ोल्डर का रंग</string>
     <string name="folder_remove_from_folder">फ़ोल्डर से हटाएं</string>
     <string name="app_swipe_current_action">वर्तमान क्रिया</string>
     <string name="app_swipe_up_picker_title">%1$s के लिए ऊपर स्वाइप क्रिया चुनें</string>
@@ -190,6 +191,7 @@
     <string name="dialog_alias_info_tool">%1$s मोड में जाने के लिए अपनी क्वेरी की शुरुआत में यह उपनाम लिखें।</string>
     <string name="dialog_app_shortcut_icon_message">\"%1$s\" के लिए एक छवि चुनें। इससे केवल Quick Search में शॉर्टकट का दिखना बदलेगा।</string>
     <string name="dialog_cancel">रद्द करें</string>
+    <string name="dialog_reset">रीसेट करें</string>
     <string name="dialog_choose_contact_action_title">%1$s को बदलने के लिए कोई क्रिया चुनें</string>
     <string name="dialog_clear_all_history_message">क्या आप वाकई पूरा खोज इतिहास साफ करना चाहते हैं? यह क्रिया वापस नहीं ली जा सकती।</string>
     <string name="dialog_clear_all_history_title">सारा इतिहास साफ करें?</string>

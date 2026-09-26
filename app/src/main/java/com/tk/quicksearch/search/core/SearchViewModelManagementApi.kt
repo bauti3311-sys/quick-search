@@ -248,6 +248,9 @@ internal interface SearchViewModelManagementApi {
     fun renameAppFolder(folderId: String, name: String) =
         managementApiDelegate.folderManager.renameFolder(folderId, name)
 
+    fun setAppFolderColor(folderId: String, color: Int?) =
+        managementApiDelegate.folderManager.setFolderColor(folderId, color)
+
     fun deleteAppFolder(folderId: String, orderKeys: List<String>) =
         managementApiDelegate.folderManager.deleteFolder(folderId, orderKeys)
 

@@ -16,6 +16,8 @@ data class AppFolder(
     val id: String,
     val name: String = "",
     val memberKeys: List<String> = emptyList(),
+    /** User-picked ARGB color, or null for the default backdrop. Shown as a theme-adjusted tone. */
+    val color: Int? = null,
 ) {
     val gridKey: String get() = folderGridKey(id)
 }
@@ -40,6 +42,7 @@ data class ResolvedAppFolder(
 ) {
     val id: String get() = folder.id
     val name: String get() = folder.name
+    val color: Int? get() = folder.color
 }
 
 fun appFolderMemberKey(app: AppInfo): String = "$APP_MEMBER_PREFIX${app.launchCountKey()}"

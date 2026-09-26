@@ -442,6 +442,7 @@ fun SearchRoute(
                         onUnpinFromFolder = viewModel::unpinFromAppFolder,
                         onReorderFolder = viewModel::reorderAppFolder,
                         onRenameFolder = viewModel::renameAppFolder,
+                        onSetFolderColor = viewModel::setAppFolderColor,
                         onDeleteFolder = viewModel::deleteAppFolder,
                     )
                 },

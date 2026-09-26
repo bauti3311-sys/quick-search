@@ -148,6 +148,7 @@
     <string name="notification_pinned_item_type_note">Notatka</string>
     <string name="action_remove">Usuń</string>
     <string name="folder_name_placeholder">Dodaj nazwę folderu</string>
+    <string name="folder_color_title">Kolor folderu</string>
     <string name="folder_remove_from_folder">Usuń z folderu</string>
     <string name="app_swipe_current_action">Bieżące działanie</string>
     <string name="app_swipe_up_picker_title">Wybierz działanie gestu w górę dla %1$s</string>
@@ -191,6 +192,7 @@
     <string name="dialog_alias_info_tool">Wpisz ten alias na początku zapytania, aby przejść do trybu %1$s.</string>
     <string name="dialog_app_shortcut_icon_message">Wybierz obraz dla "%1$s". Zmienia to tylko wygląd skrótu w Quick Search.</string>
     <string name="dialog_cancel">Anuluj</string>
+    <string name="dialog_reset">Resetuj</string>
     <string name="dialog_choose_contact_action_title">Wybierz działanie zastępujące %1$s</string>
     <string name="dialog_clear_all_history_message">Czy na pewno chcesz wyczyścić całą historię wyszukiwania? Tej operacji nie można cofnąć.</string>
     <string name="dialog_clear_all_history_title">Wyczyścić całą historię?</string>

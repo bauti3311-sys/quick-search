@@ -147,6 +147,7 @@
     <string name="notification_pinned_item_type_note">笔记</string>
     <string name="action_remove">移除</string>
     <string name="folder_name_placeholder">添加文件夹名称</string>
+    <string name="folder_color_title">文件夹颜色</string>
     <string name="folder_remove_from_folder">从文件夹中移除</string>
     <string name="app_swipe_current_action">当前操作</string>
     <string name="app_swipe_up_picker_title">为 %1$s 选择上滑操作</string>
@@ -190,6 +191,7 @@
     <string name="dialog_alias_info_tool">在查询内容的开头输入此别名，即可进入 %1$s 模式。</string>
     <string name="dialog_app_shortcut_icon_message">为“%1$s”选择一张图片。这只会更改该快捷方式在 Quick Search 中的显示外观。</string>
     <string name="dialog_cancel">取消</string>
+    <string name="dialog_reset">重置</string>
     <string name="dialog_choose_contact_action_title">选择一个操作以替换 %1$s</string>
     <string name="dialog_clear_all_history_message">确定要清空所有的搜索历史记录吗？此操作无法撤销。</string>
     <string name="dialog_clear_all_history_title">清空所有历史记录？</string>

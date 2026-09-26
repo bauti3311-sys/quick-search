@@ -147,6 +147,7 @@
     <string name="notification_pinned_item_type_note">Σημείωση</string>
     <string name="action_remove">Κατάργηση</string>
     <string name="folder_name_placeholder">Προσθήκη ονόματος φακέλου</string>
+    <string name="folder_color_title">Χρώμα φακέλου</string>
     <string name="folder_remove_from_folder">Κατάργηση από τον φάκελο</string>
     <string name="app_swipe_current_action">Τρέχουσα ενέργεια</string>
     <string name="app_swipe_up_picker_title">Επιλογή ενέργειας σύρσης προς τα πάνω για %1$s</string>
@@ -190,6 +191,7 @@
     <string name="dialog_alias_info_tool">Πληκτρολογήστε αυτή τη συντομογραφία στην αρχή του ερωτήματός σας για να εισέλθετε στη λειτουργία %1$s.</string>
     <string name="dialog_app_shortcut_icon_message">Επιλέξτε μια εικόνα για το "%1$s". Αυτό αλλάζει μόνο την εμφάνιση της συντόμευσης στο Quick Search.</string>
     <string name="dialog_cancel">Ακύρωση</string>
+    <string name="dialog_reset">Επαναφορά</string>
     <string name="dialog_choose_contact_action_title">Επιλέξτε μια ενέργεια για να αντικαταστήσετε το %1$s</string>
     <string name="dialog_clear_all_history_message">Είστε βέβαιοι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
     <string name="dialog_clear_all_history_title">Εκκαθάριση όλου του ιστορικού;</string>

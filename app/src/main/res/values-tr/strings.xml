@@ -146,6 +146,7 @@
     <string name="notification_pinned_item_type_note">Not</string>
 <string name="action_remove">Kaldır</string>
 <string name="folder_name_placeholder">Klasör adı ekle</string>
+<string name="folder_color_title">Klasör rengi</string>
 <string name="folder_remove_from_folder">Klasörden kaldır</string>
 <string name="app_swipe_current_action">Geçerli eylem</string>
 <string name="app_swipe_up_picker_title">%1$s için yukarı kaydırma eylemini seçin</string>
@@ -189,6 +190,7 @@
 <string name="dialog_alias_info_tool">%1$s moduna geçmek için bu kısaltmayı sorgunuzun başına yazın.</string>
 <string name="dialog_app_shortcut_icon_message">\"%1$s\" için bir simge seçin. Bu işlem yalnızca kısayolun Quick Search içindeki görünümünü değiştirir.</string>
 <string name="dialog_cancel">İptal</string>
+<string name="dialog_reset">Sıfırla</string>
 <string name="dialog_choose_contact_action_title">"%1$s" işlemini değiştirmek için bir eylem seçin</string>
 <string name="dialog_clear_all_history_message">Tüm arama geçmişini temizlemek istediğinizden emin misiniz? Bu işlem geri alınamaz.</string>
 <string name="dialog_clear_all_history_title">Tüm geçmiş temizlensin mi?</string>

@@ -146,6 +146,7 @@
     <string name="notification_pinned_item_type_note">Nota</string>
     <string name="action_remove">Rimuovi</string>
     <string name="folder_name_placeholder">Aggiungi nome cartella</string>
+    <string name="folder_color_title">Colore cartella</string>
     <string name="folder_remove_from_folder">Rimuovi dalla cartella</string>
     <string name="app_swipe_current_action">Azione attuale</string>
     <string name="app_swipe_up_picker_title">Seleziona l\'azione di scorrimento verso l\'alto per %1$s</string>
@@ -189,6 +190,7 @@
     <string name="dialog_alias_info_tool">Digita questo alias all\u2019inizio della query per accedere alla modalità %1$s.</string>
     <string name="dialog_app_shortcut_icon_message">Scegli un\u2019immagine per \"%1$s\". Questo cambierà solo l\u2019aspetto della scorciatoia all\u2019interno di Quick Search.</string>
     <string name="dialog_cancel">Annulla</string>
+    <string name="dialog_reset">Ripristina</string>
     <string name="dialog_choose_contact_action_title">Scegli un\u2019azione per sostituire %1$s</string>
     <string name="dialog_clear_all_history_message">Sei sicuro di voler cancellare tutta la cronologia delle ricerche? Questa azione non può essere annullata.</string>
     <string name="dialog_clear_all_history_title">Cancellare tutta la cronologia?</string>

@@ -19,6 +19,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
 import com.tk.quicksearch.R
+import com.tk.quicksearch.shared.ui.components.PreserveHostKeyboardStateEffect
 
 /**
  * Widget picker opened from Home. The picked widget goes straight to Home, without being added to
@@ -49,6 +50,7 @@ fun HomeAddWidgetSheet(onDismiss: () -> Unit) {
         }
 
     // Home isn't one full-screen box the picker can overlay, so give it a window of its own.
+    PreserveHostKeyboardStateEffect()
     Dialog(
         onDismissRequest = onDismiss,
         properties =

@@ -147,6 +147,7 @@
     <string name="notification_pinned_item_type_note">Nota</string>
     <string name="action_remove">Eliminar</string>
     <string name="folder_name_placeholder">Añadir nombre de carpeta</string>
+    <string name="folder_color_title">Color de la carpeta</string>
     <string name="folder_remove_from_folder">Quitar de la carpeta</string>
     <string name="app_swipe_current_action">Acción actual</string>
     <string name="app_swipe_up_picker_title">Seleccionar acción de deslizar hacia arriba para %1$s</string>
@@ -190,6 +191,7 @@
     <string name="dialog_alias_info_tool">Escribe este alias al principio de tu búsqueda para entrar en el modo %1$s.</string>
     <string name="dialog_app_shortcut_icon_message">Elige una imagen para \"%1$s\". Esto solo cambia la apariencia del acceso directo en Quick Search.</string>
     <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_reset">Restablecer</string>
     <string name="dialog_choose_contact_action_title">Elige una acción para reemplazar %1$s</string>
     <string name="dialog_clear_all_history_message">¿Seguro que quieres borrar todo el historial de búsqueda? Esta acción no se puede deshacer.</string>
     <string name="dialog_clear_all_history_title">¿Borrar todo el historial?</string>

@@ -675,7 +675,7 @@ fun AppGridView(
     if (openFolder != null && folderActions != null) {
         FolderContentsPopup(
                 folder = openFolder,
-                onRename = { name -> folderActions.onRenameFolder(openFolder.id, name) },
+                actions = folderActions,
                 onDismiss = { openFolderId = null },
         ) { removeZone, dismiss ->
             val memberEntries =
