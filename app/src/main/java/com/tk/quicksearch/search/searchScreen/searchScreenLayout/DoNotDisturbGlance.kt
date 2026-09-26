@@ -23,11 +23,8 @@ import androidx.core.content.ContextCompat
 import com.tk.quicksearch.R
 import com.tk.quicksearch.search.data.preferences.GlancePreferences
 
-/** Do Not Disturb while it is on, with its [filter] (one of the NotificationManager interruption filters). */
+/** Do Not Disturb while it is on. */
 internal class DoNotDisturbGlance(
-    val filter: Int,
-    /** Whether a tap can turn it off here rather than opening its settings. */
-    val canTurnOff: Boolean,
     val onClick: () -> Unit,
 )
 
@@ -80,8 +77,6 @@ internal fun rememberDoNotDisturbGlance(enabled: Boolean): DoNotDisturbGlance? {
         Build.VERSION.SDK_INT < Build.VERSION_CODES.VANILLA_ICE_CREAM &&
             runCatching { notificationManager.isNotificationPolicyAccessGranted }.getOrDefault(false)
     return DoNotDisturbGlance(
-        filter = filter,
-        canTurnOff = canTurnOff,
         onClick = {
             if (canTurnOff) {
                 runCatching { notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL) }
@@ -119,15 +114,7 @@ internal fun DoNotDisturbRow(glance: DoNotDisturbGlance) {
             )
         },
         title = stringResource(R.string.home_dnd_on),
-        subtitle =
-            stringResource(
-                when (glance.filter) {
-                    NotificationManager.INTERRUPTION_FILTER_ALARMS -> R.string.home_dnd_alarms_only
-                    NotificationManager.INTERRUPTION_FILTER_NONE -> R.string.home_dnd_total_silence
-                    else -> R.string.home_dnd_priority_only
-                },
-            ),
-        pillText = if (glance.canTurnOff) stringResource(R.string.home_dnd_turn_off) else null,
+        pillText = stringResource(R.string.home_turn_off),
         onClick = glance.onClick,
     )
 }

@@ -835,7 +835,11 @@
     <string name="settings_at_a_glance_storage_desc">మీ స్టోరేజ్‌లో %1$d%% లేదా అంతకంటే తక్కువ ఖాళీగా ఉన్నప్పుడు</string>
     <string name="settings_at_a_glance_missed_calls_title">మిస్డ్ కాల్‌లు</string>
     <string name="settings_at_a_glance_missed_calls_desc">మీ ఫోన్ యాప్ నుండి మిస్డ్ కాల్‌లు</string>
+    <string name="settings_at_a_glance_ongoing_call_title">కొనసాగుతున్న కాల్‌లు</string>
+    <string name="settings_at_a_glance_ongoing_call_desc">మీరు కాల్‌లో ఉన్నప్పుడు కాలర్ మరియు కాల్ వ్యవధి</string>
     <string name="settings_at_a_glance_dnd_desc">అభ్యంతర పెట్టవద్దు ఆన్‌లో ఉన్నప్పుడు</string>
+    <string name="settings_at_a_glance_airplane_desc">ఏరోప్లేన్ మోడ్ ఆన్‌లో ఉన్నప్పుడు</string>
+    <string name="settings_at_a_glance_hotspot_desc">మీ హాట్‌స్పాట్ ఆన్‌లో ఉన్నప్పుడు</string>
     <string name="settings_now_playing_desc">ప్రస్తుతం ప్లే అవుతున్న దాని కోసం ప్లేబ్యాక్ నియంత్రణలు</string>
     <string name="settings_use_system_font_desc">మీ పరికర ఫాంట్ శైలిని అనుసరించండి</string>
     <string name="settings_use_system_font_title">సిస్టమ్ ఫాంట్‌ను ఉపయోగించండి</string>
@@ -1263,10 +1267,11 @@
     <string name="home_missed_calls_count">మిస్డ్ కాల్‌లు (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">అభ్యంతర పెట్టవద్దు ఆన్‌లో ఉంది</string>
-    <string name="home_dnd_priority_only">ప్రాధాన్యత మాత్రమే</string>
-    <string name="home_dnd_alarms_only">అలారంలు మాత్రమే</string>
-    <string name="home_dnd_total_silence">పూర్తి నిశ్శబ్దం</string>
-    <string name="home_dnd_turn_off">ఆఫ్ చేయండి</string>
+    <string name="home_ongoing_call">కొనసాగుతున్న కాల్</string>
+    <string name="home_ongoing_call_hang_up">కాల్ ముగించు</string>
+    <string name="home_airplane_mode_on">ఏరోప్లేన్ మోడ్ ఆన్‌లో ఉంది</string>
+    <string name="home_hotspot_on">హాట్‌స్పాట్ ఆన్‌లో ఉంది</string>
+    <string name="home_turn_off">ఆఫ్ చేయండి</string>
     <string name="settings_tavily_title">వెబ్ సెర్చ్ కోసం Tavily</string>
     <string name="settings_tavily_desc">వెబ్ సెర్చ్‌కు మద్దతు లేని మోడల్‌లకు వెబ్ సెర్చ్ జోడించడానికి Tavily API కీని జోడించండి.</string>
     <string name="settings_tavily_mode_always">వెబ్ సెర్చ్ కోసం ఎల్లప్పుడూ Tavily ఉపయోగించండి</string>

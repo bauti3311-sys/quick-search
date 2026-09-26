@@ -835,7 +835,11 @@
     <string name="settings_at_a_glance_storage_desc">Votre stockage lorsqu\'il reste %1$d%% ou moins d\'espace libre</string>
     <string name="settings_at_a_glance_missed_calls_title">Appels manqués</string>
     <string name="settings_at_a_glance_missed_calls_desc">Appels manqués de votre application Téléphone</string>
+    <string name="settings_at_a_glance_ongoing_call_title">Appels en cours</string>
+    <string name="settings_at_a_glance_ongoing_call_desc">L\'appelant et la durée de l\'appel pendant un appel</string>
     <string name="settings_at_a_glance_dnd_desc">Lorsque Ne pas déranger est activé</string>
+    <string name="settings_at_a_glance_airplane_desc">Lorsque le mode avion est activé</string>
+    <string name="settings_at_a_glance_hotspot_desc">Lorsque votre point d\'accès est activé</string>
 <string name="settings_now_playing_desc">Contrôles de lecture pour ce qui joue actuellement</string>
 <string name="settings_use_system_font_desc">Suivre le style de police de votre appareil</string>
 <string name="settings_use_system_font_title">Utiliser la police système</string>
@@ -1263,10 +1267,11 @@
     <string name="home_missed_calls_count">Appels manqués (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Ne pas déranger est activé</string>
-    <string name="home_dnd_priority_only">Prioritaires uniquement</string>
-    <string name="home_dnd_alarms_only">Alarmes uniquement</string>
-    <string name="home_dnd_total_silence">Aucune interruption</string>
-    <string name="home_dnd_turn_off">Désactiver</string>
+    <string name="home_ongoing_call">Appel en cours</string>
+    <string name="home_ongoing_call_hang_up">Raccrocher</string>
+    <string name="home_airplane_mode_on">Le mode avion est activé</string>
+    <string name="home_hotspot_on">Le point d\'accès est activé</string>
+    <string name="home_turn_off">Désactiver</string>
     <string name="settings_tavily_title">Tavily pour la recherche web</string>
     <string name="settings_tavily_desc">Ajoutez une clé API Tavily pour activer la recherche web sur les modèles qui ne la prennent pas en charge.</string>
     <string name="settings_tavily_mode_always">Toujours utiliser Tavily pour la recherche web</string>

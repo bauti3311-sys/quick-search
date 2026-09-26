@@ -26,9 +26,9 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
 
 /**
  * One row of the home At a Glance card. Today's calendar events are hosted by the calendar card
- * itself; every other glanceable source (battery, missed calls, Do Not Disturb, timers, progress
- * notifications, alarm, reminders, birthdays, tomorrow's events, storage, and future ones)
- * contributes rows here.
+ * itself; every other glanceable source (ongoing calls, battery, missed calls, Do Not Disturb,
+ * airplane mode, hotspot, timers, progress notifications, alarm, reminders, birthdays, tomorrow's
+ * events, storage, and future ones) contributes rows here.
  * Rows sit inside the card's inset and follow CalendarEventRow: 7dp before a 24dp icon, then 12dp
  * to the text.
  */
@@ -55,9 +55,14 @@ internal fun rememberAtAGlanceItems(
     val birthdays = rememberBirthdaysGlance(enabled, onShowContactMethods)
     val lowStorage = rememberLowStorageGlance(enabled)
     val doNotDisturb = rememberDoNotDisturbGlance(enabled)
+    val airplaneMode = rememberAirplaneModeGlance(enabled)
+    val hotspot = rememberHotspotGlance(enabled)
     val tomorrowEvents = rememberTomorrowEventsGlance(enabled)
     val groups =
         listOf(
+            notifications.ongoingCalls.map { call ->
+                AtAGlanceItem(key = "ongoing-call-${call.key}") { OngoingCallRow(call, notifications.nowMillis) }
+            },
             listOfNotNull(battery.lowBattery?.let { AtAGlanceItem(key = "low-battery") { LowBatteryRow(it) } }),
             listOfNotNull(battery.charging?.let { AtAGlanceItem(key = "charging") { ChargingRow(it) } }),
             listOfNotNull(
@@ -66,6 +71,8 @@ internal fun rememberAtAGlanceItems(
                 },
             ),
             listOfNotNull(doNotDisturb?.let { AtAGlanceItem(key = "do-not-disturb") { DoNotDisturbRow(it) } }),
+            listOfNotNull(airplaneMode?.let { AtAGlanceItem(key = "airplane-mode") { AirplaneModeRow(it) } }),
+            listOfNotNull(hotspot?.let { AtAGlanceItem(key = "hotspot") { HotspotRow(it) } }),
             notifications.timers.map { timer ->
                 AtAGlanceItem(key = "timer-${timer.key}") { TimerRow(timer, notifications.nowMillis) }
             },

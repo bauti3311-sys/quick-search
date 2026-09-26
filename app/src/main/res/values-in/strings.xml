@@ -839,7 +839,11 @@
     <string name="settings_at_a_glance_storage_desc">Penyimpanan Anda saat ruang kosong %1$d%% atau kurang</string>
     <string name="settings_at_a_glance_missed_calls_title">Panggilan tak terjawab</string>
     <string name="settings_at_a_glance_missed_calls_desc">Panggilan tak terjawab dari aplikasi telepon Anda</string>
+    <string name="settings_at_a_glance_ongoing_call_title">Panggilan berlangsung</string>
+    <string name="settings_at_a_glance_ongoing_call_desc">Penelepon dan durasi panggilan saat Anda sedang menelepon</string>
     <string name="settings_at_a_glance_dnd_desc">Saat Jangan Ganggu aktif</string>
+    <string name="settings_at_a_glance_airplane_desc">Saat Mode Pesawat aktif</string>
+    <string name="settings_at_a_glance_hotspot_desc">Saat hotspot Anda aktif</string>
     <string name="settings_now_playing_desc">Kontrol pemutaran untuk yang sedang diputar</string>
     <string name="settings_use_system_font_desc">Gunakan gaya font perangkat Anda</string>
     <string name="settings_use_system_font_title">Gunakan Font Sistem</string>
@@ -1261,10 +1265,11 @@
     <string name="home_missed_calls_count">Panggilan tak terjawab (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Jangan Ganggu aktif</string>
-    <string name="home_dnd_priority_only">Hanya prioritas</string>
-    <string name="home_dnd_alarms_only">Hanya alarm</string>
-    <string name="home_dnd_total_silence">Senyap total</string>
-    <string name="home_dnd_turn_off">Nonaktifkan</string>
+    <string name="home_ongoing_call">Panggilan berlangsung</string>
+    <string name="home_ongoing_call_hang_up">Tutup</string>
+    <string name="home_airplane_mode_on">Mode Pesawat aktif</string>
+    <string name="home_hotspot_on">Hotspot aktif</string>
+    <string name="home_turn_off">Nonaktifkan</string>
     <string name="settings_tavily_title">Tavily untuk Penelusuran Web</string>
     <string name="settings_tavily_desc">Tambahkan kunci API Tavily untuk menambahkan penelusuran web pada model yang tidak mendukungnya.</string>
     <string name="settings_tavily_mode_always">Selalu gunakan Tavily untuk penelusuran web</string>

@@ -834,7 +834,11 @@
     <string name="settings_at_a_glance_storage_desc">Boş depolama alanı %%%1$d veya altına düştüğünde</string>
     <string name="settings_at_a_glance_missed_calls_title">Cevapsız aramalar</string>
     <string name="settings_at_a_glance_missed_calls_desc">Telefon uygulamanızdaki cevapsız aramalar</string>
+    <string name="settings_at_a_glance_ongoing_call_title">Devam eden aramalar</string>
+    <string name="settings_at_a_glance_ongoing_call_desc">Görüşme sırasında arayan kişi ve arama süresi</string>
     <string name="settings_at_a_glance_dnd_desc">Rahatsız etmeyin açıkken</string>
+    <string name="settings_at_a_glance_airplane_desc">Uçak modu açıkken</string>
+    <string name="settings_at_a_glance_hotspot_desc">Hotspot açıkken</string>
 <string name="settings_now_playing_desc">O anda çalan içerik için oynatma kontrolleri</string>
 <string name="settings_use_system_font_desc">Cihazının yazı tipi stilini takip et</string>
 <string name="settings_use_system_font_title">Sistem yazı tipini kullan</string>
@@ -1262,10 +1266,11 @@
     <string name="home_missed_calls_count">Cevapsız aramalar (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Rahatsız etmeyin açık</string>
-    <string name="home_dnd_priority_only">Yalnızca öncelikli</string>
-    <string name="home_dnd_alarms_only">Yalnızca alarmlar</string>
-    <string name="home_dnd_total_silence">Tam sessizlik</string>
-    <string name="home_dnd_turn_off">Kapat</string>
+    <string name="home_ongoing_call">Devam eden arama</string>
+    <string name="home_ongoing_call_hang_up">Kapat</string>
+    <string name="home_airplane_mode_on">Uçak modu açık</string>
+    <string name="home_hotspot_on">Hotspot açık</string>
+    <string name="home_turn_off">Kapat</string>
     <string name="settings_tavily_title">Web Araması için Tavily</string>
     <string name="settings_tavily_desc">Web aramasını desteklemeyen modellere web araması eklemek için Tavily API anahtarı ekleyin.</string>
     <string name="settings_tavily_mode_always">Web araması için her zaman Tavily kullan</string>

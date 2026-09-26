@@ -69,7 +69,8 @@ internal fun glanceNeutralPillColors() =
 
 /**
  * The common At a Glance row layout, matching [LowBatteryRow]: a 24dp icon, a title with an
- * optional subtitle and extra content below it, and an optional value pill or dismiss button.
+ * optional subtitle and extra content below it, an optional value pill, and an optional [trailing]
+ * action or dismiss button outside the row's tap target.
  */
 @Composable
 internal fun GlanceStatusRow(
@@ -81,6 +82,7 @@ internal fun GlanceStatusRow(
     pillColors: GlancePillColors = glanceNeutralPillColors(),
     onDismiss: (() -> Unit)? = null,
     belowText: (@Composable () -> Unit)? = null,
+    trailing: (@Composable () -> Unit)? = null,
 ) {
     Row(
         modifier =
@@ -137,6 +139,9 @@ internal fun GlanceStatusRow(
                     )
                 }
             }
+        }
+        if (trailing != null) {
+            Box(modifier = Modifier.padding(start = DesignTokens.SpacingSmall)) { trailing() }
         }
         if (onDismiss != null) {
             IconButton(

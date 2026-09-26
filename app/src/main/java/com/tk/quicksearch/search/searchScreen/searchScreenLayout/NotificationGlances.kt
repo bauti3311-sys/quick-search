@@ -8,9 +8,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.AvTimer
+import androidx.compose.material.icons.rounded.Call
+import androidx.compose.material.icons.rounded.CallEnd
+import androidx.compose.material3.FilledIconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material.icons.rounded.Timer
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
@@ -32,6 +37,7 @@ import com.tk.quicksearch.search.apps.notificationDots.NotificationDotsPermissio
 import com.tk.quicksearch.search.apps.rememberAppIcon
 import com.tk.quicksearch.search.data.GlanceNotificationsStore
 import com.tk.quicksearch.search.data.MissedCallNotification
+import com.tk.quicksearch.search.data.OngoingCallNotification
 import com.tk.quicksearch.search.data.ProgressNotification
 import com.tk.quicksearch.search.data.TimerNotification
 import com.tk.quicksearch.search.data.preferences.GlancePreferences
@@ -42,7 +48,7 @@ import kotlinx.coroutines.delay
 /** At most this many progress notifications show on home, newest first. */
 private const val MAX_PROGRESS_ROWS = 3
 
-/** Running clock-app timers, live progress notifications and missed calls for the home At a Glance card. */
+/** Running clock-app timers, live progress notifications, missed and ongoing calls for the home At a Glance card. */
 internal class NotificationGlances(
     val timers: List<TimerNotification>,
     val progress: List<ProgressNotification>,
@@ -50,7 +56,8 @@ internal class NotificationGlances(
     val missedCalls: List<MissedCallNotification>,
     /** Hides the missed calls row until a newer missed call comes in. */
     val dismissMissedCalls: () -> Unit,
-    /** Wall clock the timer rows count from; ticks every second while a timer shows. */
+    val ongoingCalls: List<OngoingCallNotification>,
+    /** Wall clock the timer and call rows count from; ticks every second while one shows. */
     val nowMillis: Long,
 )
 
@@ -66,10 +73,12 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     val allTimers by GlanceNotificationsStore.timers.collectAsState()
     val allProgress by GlanceNotificationsStore.progress.collectAsState()
     val allMissedCalls by GlanceNotificationsStore.missedCalls.collectAsState()
+    val allOngoingCalls by GlanceNotificationsStore.ongoingCalls.collectAsState()
     val hasAccess = remember(refreshKey) { NotificationDotsPermission.hasNotificationListenerAccess(context) }
     val showTimers = remember(refreshKey) { preferences.isShowTimersEnabled() }
     val showProgress = remember(refreshKey) { preferences.isShowProgressNotificationsEnabled() }
     val showMissedCalls = remember(refreshKey) { preferences.isShowMissedCallsEnabled() }
+    val showOngoingCalls = remember(refreshKey) { preferences.isShowOngoingCallEnabled() }
     val available = enabled && hasAccess
     val timers = if (available && showTimers) allTimers else emptyList()
     val progress = if (available && showProgress) allProgress.take(MAX_PROGRESS_ROWS) else emptyList()
@@ -81,9 +90,12 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
             emptyList()
         }
 
+    val ongoingCalls = if (available && showOngoingCalls) allOngoingCalls else emptyList()
+
     var nowMillis by remember { mutableLongStateOf(System.currentTimeMillis()) }
-    LaunchedEffect(timers.isNotEmpty()) {
-        while (timers.isNotEmpty()) {
+    val ticking = timers.isNotEmpty() || ongoingCalls.any { it.startTime != null }
+    LaunchedEffect(ticking) {
+        while (ticking) {
             nowMillis = System.currentTimeMillis()
             delay(1_000L - nowMillis % 1_000L)
         }
@@ -98,6 +110,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
                 missedCallsDismissedAt = newest
             }
         },
+        ongoingCalls = ongoingCalls,
         nowMillis = nowMillis,
     )
 }
@@ -161,6 +174,55 @@ internal fun TimerRow(
         subtitle = rememberAppLabel(timer.packageName),
         pillText = DateUtils.formatElapsedTime(seconds),
         onClick = { openNotificationTarget(context, timer.packageName, timer.contentIntent) },
+    )
+}
+
+/**
+ * A connected call with the caller (or the calling app when it doesn't say), its duration, and a
+ * hang up button when the notification offers one.
+ */
+@Composable
+internal fun OngoingCallRow(
+    call: OngoingCallNotification,
+    nowMillis: Long,
+) {
+    val context = LocalContext.current
+    val subtitle = call.caller ?: rememberAppLabel(call.packageName)
+    GlanceStatusRow(
+        icon = {
+            Icon(
+                imageVector = Icons.Rounded.Call,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+        },
+        title = stringResource(R.string.home_ongoing_call),
+        subtitle = subtitle,
+        pillText =
+            call.startTime?.let { start ->
+                DateUtils.formatElapsedTime(((nowMillis - start).coerceAtLeast(0L)) / 1_000L)
+            },
+        onClick = { openNotificationTarget(context, call.packageName, call.contentIntent) },
+        trailing =
+            call.hangUpIntent?.let { hangUpIntent ->
+                {
+                    FilledIconButton(
+                        onClick = { hangUpIntent.sendFromUserTap() },
+                        modifier = Modifier.size(32.dp),
+                        colors =
+                            IconButtonDefaults.filledIconButtonColors(
+                                containerColor = MaterialTheme.colorScheme.error,
+                                contentColor = MaterialTheme.colorScheme.onError,
+                            ),
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.CallEnd,
+                            contentDescription = stringResource(R.string.home_ongoing_call_hang_up),
+                            modifier = Modifier.size(18.dp),
+                        )
+                    }
+                }
+            },
     )
 }
 

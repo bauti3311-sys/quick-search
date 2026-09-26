@@ -2,6 +2,7 @@ package com.tk.quicksearch.search.data
 
 import android.app.Notification
 import android.app.PendingIntent
+import android.app.Person
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -55,6 +56,17 @@ internal class MissedCallNotification(
     val contentIntent: PendingIntent?,
 )
 
+/** A call in progress; [caller] is usually the name or number. */
+internal class OngoingCallNotification(
+    val key: String,
+    val packageName: String,
+    val caller: String?,
+    /** Wall-clock time the call connected, when the notification shows its duration. */
+    val startTime: Long?,
+    val contentIntent: PendingIntent?,
+    /** The call style notification's own hang up action, if it has one. */
+    val hangUpIntent: PendingIntent?,
+)
 
 /**
  * The At a Glance view of the posted notifications, fed by
@@ -65,14 +77,19 @@ internal object GlanceNotificationsStore {
     private val timersState = MutableStateFlow<List<TimerNotification>>(emptyList())
     private val progressState = MutableStateFlow<List<ProgressNotification>>(emptyList())
     private val missedCallsState = MutableStateFlow<List<MissedCallNotification>>(emptyList())
+    private val ongoingCallsState = MutableStateFlow<List<OngoingCallNotification>>(emptyList())
     private var clockPackages: Set<String>? = null
 
     /** Timers read from custom chronometer views, by notification key, reused until the notification changes. */
     private val remoteTimerCache = mutableMapOf<String, Pair<Long, TimerNotification?>>()
 
+    /** Call start times read from custom chronometer views, by notification key, reused until the notification changes. */
+    private val remoteCallStartCache = mutableMapOf<String, Pair<Long, Long?>>()
+
     val timers: StateFlow<List<TimerNotification>> = timersState.asStateFlow()
     val progress: StateFlow<List<ProgressNotification>> = progressState.asStateFlow()
     val missedCalls: StateFlow<List<MissedCallNotification>> = missedCallsState.asStateFlow()
+    val ongoingCalls: StateFlow<List<OngoingCallNotification>> = ongoingCallsState.asStateFlow()
 
     fun update(
         context: Context,
@@ -86,7 +103,9 @@ internal object GlanceNotificationsStore {
             }
         // Clock apps need not mark a running timer ongoing (Google Clock does not), so any of their
         // notifications with a chronometer counts.
-        remoteTimerCache.keys.retainAll(posted.map { it.key }.toSet())
+        val postedKeys = posted.map { it.key }.toSet()
+        remoteTimerCache.keys.retainAll(postedKeys)
+        remoteCallStartCache.keys.retainAll(postedKeys)
         val timerNotifications = posted.mapNotNull { it.toTimer(context, clocks) }
         val timerKeys = timerNotifications.map { it.key }.toSet()
         timersState.value = timerNotifications.sortedBy { it.chronometerBase }
@@ -102,15 +121,19 @@ internal object GlanceNotificationsStore {
         val dialerPackage = defaultDialerPackage(context)
         missedCallsState.value =
             posted.mapNotNull { it.toMissedCall(dialerPackage) }.sortedByDescending { it.callTime }
+        ongoingCallsState.value =
+            posted.mapNotNull { it.toOngoingCall(context) }.sortedByDescending { it.startTime ?: 0L }
     }
 
     /** Drops cached state when notification access is lost; clock apps are resolved again on reconnect. */
     fun clear() {
         clockPackages = null
         remoteTimerCache.clear()
+        remoteCallStartCache.clear()
         timersState.value = emptyList()
         progressState.value = emptyList()
         missedCallsState.value = emptyList()
+        ongoingCallsState.value = emptyList()
     }
 
     private fun defaultDialerPackage(context: Context): String? =
@@ -157,6 +180,105 @@ internal object GlanceNotificationsStore {
             .firstOrNull { it !in labels }
     }
 
+    /**
+     * A connected call. Call style notifications (Android 12+) say whether the call is ringing or
+     * connected; otherwise a ringing call is told apart by its full-screen intent, which connected
+     * calls don't use.
+     */
+    private fun StatusBarNotification.toOngoingCall(context: Context): OngoingCallNotification? {
+        if (notification.flags and Notification.FLAG_ONGOING_EVENT == 0) return null
+        if (notification.category != Notification.CATEGORY_CALL) return toTelegramCall()
+        val extras = notification.extras ?: return null
+        val callType = extras.getInt(EXTRA_CALL_TYPE, CALL_TYPE_UNKNOWN)
+        val isConnected =
+            if (callType != CALL_TYPE_UNKNOWN) callType == CALL_TYPE_ONGOING else notification.fullScreenIntent == null
+        if (!isConnected) return null
+        return OngoingCallNotification(
+            key = key,
+            packageName = packageName,
+            caller =
+                (callPersonName(extras) ?: extras.getCharSequence(Notification.EXTRA_TITLE))
+                    ?.toString()
+                    ?.trim()
+                    ?.takeIf(String::isNotEmpty),
+            startTime = callStartTime(context, extras),
+            contentIntent = notification.contentIntent,
+            hangUpIntent = hangUpIntent(extras),
+        )
+    }
+
+    /**
+     * Telegram (and its forks) posts its ongoing call as a plain foreground service notification with
+     * no call category, always under the same id; the title is a localized "Ongoing Telegram call",
+     * the text the caller, `when` the time the call started, and the only action ends the call.
+     */
+    private fun StatusBarNotification.toTelegramCall(): OngoingCallNotification? {
+        if (!packageName.startsWith(TELEGRAM_PACKAGE_PREFIX) || id != TELEGRAM_ONGOING_CALL_ID) return null
+        if (notification.flags and Notification.FLAG_FOREGROUND_SERVICE == 0) return null
+        val extras = notification.extras ?: return null
+        return OngoingCallNotification(
+            key = key,
+            packageName = packageName,
+            caller = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString()?.trim()?.takeIf(String::isNotEmpty),
+            startTime = notification.`when`.takeIf { it > 0L },
+            contentIntent = notification.contentIntent,
+            hangUpIntent = notification.actions?.singleOrNull()?.actionIntent,
+        )
+    }
+
+    /**
+     * When the call connected: the standard chronometer's `when`, or else the base of a running
+     * chronometer in a custom layout, as Samsung's in-call screen uses. Null while it doesn't count,
+     * such as while dialing.
+     */
+    private fun StatusBarNotification.callStartTime(
+        context: Context,
+        extras: Bundle,
+    ): Long? {
+        if (extras.getBoolean(Notification.EXTRA_SHOW_CHRONOMETER)) return notification.`when`.takeIf { it > 0L }
+        val cached = remoteCallStartCache[key]
+        if (cached != null && cached.first == postTime) return cached.second
+        val chronometer = findRemoteChronometer(context, extras)
+        val start =
+            chronometer
+                ?.takeIf { !it.isCountDown && it.isStarted() != false }
+                ?.let { System.currentTimeMillis() - (SystemClock.elapsedRealtime() - it.base) }
+        remoteCallStartCache[key] = postTime to start
+        return start
+    }
+
+    /**
+     * The hang up action, unless it is the same intent as the notification's tap target: Samsung's
+     * phone app sets both to open its call screen, so it wouldn't hang up.
+     */
+    @Suppress("DEPRECATION")
+    private fun StatusBarNotification.hangUpIntent(extras: Bundle): PendingIntent? =
+        runCatching { extras.getParcelable<PendingIntent>(EXTRA_HANG_UP_INTENT) }
+            .getOrNull()
+            ?.takeIf { it != notification.contentIntent && it != notification.fullScreenIntent }
+
+    @Suppress("DEPRECATION")
+    private fun callPersonName(extras: Bundle): CharSequence? =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            runCatching { extras.getParcelable<Person>(EXTRA_CALL_PERSON)?.name }.getOrNull()
+        } else {
+            null
+        }
+
+    /**
+     * [Notification.EXTRA_CALL_TYPE] with its values, [Notification.EXTRA_CALL_PERSON] and
+     * [Notification.EXTRA_HANG_UP_INTENT]; only defined from Android 12.
+     */
+    private const val EXTRA_CALL_TYPE = "android.callType"
+    private const val EXTRA_CALL_PERSON = "android.callPerson"
+    private const val EXTRA_HANG_UP_INTENT = "android.hangUpIntent"
+
+    /** Telegram's package (and its official builds' prefix) and its VoIPService ongoing call notification id. */
+    private const val TELEGRAM_PACKAGE_PREFIX = "org.telegram.messenger"
+    private const val TELEGRAM_ONGOING_CALL_ID = 201
+    private const val CALL_TYPE_UNKNOWN = 0
+    private const val CALL_TYPE_ONGOING = 2
+
     private fun Notification.channelIdOrNull(): String? =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) channelId else null
 
@@ -199,27 +321,13 @@ internal object GlanceNotificationsStore {
      * Many clock apps leave the standard chronometer extras unset and show the live count in a
      * chronometer view instead: Samsung Clock in an extra of its own (its `when` is only the post
      * time), Google Clock and other AOSP-based clocks in a custom notification layout. Inflating the
-     * first view that has one gives the chronometer's base and direction. Runs on the listener's
-     * main thread, as view inflation needs.
+     * first view that has one gives the chronometer's base and direction.
      */
-    @Suppress("DEPRECATION")
     private fun StatusBarNotification.toRemoteViewTimer(
         context: Context,
         extras: Bundle,
     ): TimerNotification? {
-        val tag = extras.getString(EXTRA_SAMSUNG_CHRONOMETER_TAG)
-        val chronometer =
-            listOfNotNull(
-                extras.getParcelable<RemoteViews>(EXTRA_SAMSUNG_CHRONOMETER_VIEW),
-                notification.contentView,
-                notification.bigContentView,
-                notification.headsUpContentView,
-            ).firstNotNullOfOrNull { remoteViews ->
-                runCatching {
-                    val view = remoteViews.apply(context, FrameLayout(context))
-                    (tag?.let { view.findViewWithTag<View>(it) } as? Chronometer) ?: view.findChronometer()
-                }.getOrNull()
-            } ?: return null
+        val chronometer = findRemoteChronometer(context, extras) ?: return null
         val elapsedNow = SystemClock.elapsedRealtime()
         val isCountDown = chronometer.isCountDown
         val base = System.currentTimeMillis() - (elapsedNow - chronometer.base)
@@ -237,6 +345,29 @@ internal object GlanceNotificationsStore {
                     null
                 },
         )
+    }
+
+    /**
+     * The first chronometer view in the notification's Samsung chronometer extra or its custom
+     * layouts. Runs on the listener's main thread, as view inflation needs.
+     */
+    @Suppress("DEPRECATION")
+    private fun StatusBarNotification.findRemoteChronometer(
+        context: Context,
+        extras: Bundle,
+    ): Chronometer? {
+        val tag = extras.getString(EXTRA_SAMSUNG_CHRONOMETER_TAG)
+        return listOfNotNull(
+            extras.getParcelable<RemoteViews>(EXTRA_SAMSUNG_CHRONOMETER_VIEW),
+            notification.contentView,
+            notification.bigContentView,
+            notification.headsUpContentView,
+        ).firstNotNullOfOrNull { remoteViews ->
+            runCatching {
+                val view = remoteViews.apply(context, FrameLayout(context))
+                (tag?.let { view.findViewWithTag<View>(it) } as? Chronometer) ?: view.findChronometer()
+            }.getOrNull()
+        }
     }
 
     private fun View.findChronometer(): Chronometer? {

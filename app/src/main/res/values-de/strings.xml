@@ -835,7 +835,11 @@
     <string name="settings_at_a_glance_storage_desc">Dein Speicher, wenn %1$d%% oder weniger frei sind</string>
     <string name="settings_at_a_glance_missed_calls_title">Verpasste Anrufe</string>
     <string name="settings_at_a_glance_missed_calls_desc">Verpasste Anrufe aus deiner Telefon-App</string>
+    <string name="settings_at_a_glance_ongoing_call_title">Laufende Anrufe</string>
+    <string name="settings_at_a_glance_ongoing_call_desc">Anrufer und Anrufdauer während eines Anrufs</string>
     <string name="settings_at_a_glance_dnd_desc">Wenn „Nicht stören“ aktiv ist</string>
+    <string name="settings_at_a_glance_airplane_desc">Wenn der Flugmodus aktiv ist</string>
+    <string name="settings_at_a_glance_hotspot_desc">Wenn dein Hotspot aktiv ist</string>
     <string name="settings_now_playing_desc">Wiedergabesteuerung für das, was gerade läuft</string>
     <string name="settings_use_system_font_desc">Schriftstil des Geräts übernehmen</string>
     <string name="settings_use_system_font_title">Systemschrift verwenden</string>
@@ -1263,10 +1267,11 @@
     <string name="home_missed_calls_count">Verpasste Anrufe (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">„Nicht stören“ ist aktiv</string>
-    <string name="home_dnd_priority_only">Nur wichtige Unterbrechungen</string>
-    <string name="home_dnd_alarms_only">Nur Wecker</string>
-    <string name="home_dnd_total_silence">Lautlos</string>
-    <string name="home_dnd_turn_off">Ausschalten</string>
+    <string name="home_ongoing_call">Laufender Anruf</string>
+    <string name="home_ongoing_call_hang_up">Auflegen</string>
+    <string name="home_airplane_mode_on">Flugmodus ist aktiv</string>
+    <string name="home_hotspot_on">Hotspot ist aktiv</string>
+    <string name="home_turn_off">Ausschalten</string>
     <string name="settings_tavily_title">Tavily für die Websuche</string>
     <string name="settings_tavily_desc">Füge einen Tavily-API-Schlüssel hinzu, um Modellen ohne Websuche eine Websuche zu ermöglichen.</string>
     <string name="settings_tavily_mode_always">Immer Tavily für die Websuche verwenden</string>

@@ -835,7 +835,11 @@
     <string name="settings_at_a_glance_storage_desc">Ο αποθηκευτικός χώρος σας όταν είναι ελεύθερο το %1$d%% ή λιγότερο</string>
     <string name="settings_at_a_glance_missed_calls_title">Αναπάντητες κλήσεις</string>
     <string name="settings_at_a_glance_missed_calls_desc">Αναπάντητες κλήσεις από την εφαρμογή τηλεφώνου σας</string>
+    <string name="settings_at_a_glance_ongoing_call_title">Κλήσεις σε εξέλιξη</string>
+    <string name="settings_at_a_glance_ongoing_call_desc">Ο καλών και η διάρκεια κλήσης όσο μιλάτε</string>
     <string name="settings_at_a_glance_dnd_desc">Όταν είναι ενεργό το Μην ενοχλείτε</string>
+    <string name="settings_at_a_glance_airplane_desc">Όταν είναι ενεργή η λειτουργία πτήσης</string>
+    <string name="settings_at_a_glance_hotspot_desc">Όταν είναι ενεργό το hotspot σας</string>
     <string name="settings_now_playing_desc">Χειριστήρια αναπαραγωγής για ό,τι παίζει αυτήν τη στιγμή</string>
     <string name="settings_use_system_font_desc">Χρήση του στυλ γραμματοσειράς της συσκευής</string>
     <string name="settings_use_system_font_title">Χρήση γραμματοσειράς συστήματος</string>
@@ -1263,10 +1267,11 @@
     <string name="home_missed_calls_count">Αναπάντητες κλήσεις (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>
     <string name="home_dnd_on">Το Μην ενοχλείτε είναι ενεργό</string>
-    <string name="home_dnd_priority_only">Μόνο προτεραιότητας</string>
-    <string name="home_dnd_alarms_only">Μόνο ξυπνητήρια</string>
-    <string name="home_dnd_total_silence">Πλήρης σίγαση</string>
-    <string name="home_dnd_turn_off">Απενεργοποίηση</string>
+    <string name="home_ongoing_call">Κλήση σε εξέλιξη</string>
+    <string name="home_ongoing_call_hang_up">Τερματισμός</string>
+    <string name="home_airplane_mode_on">Η λειτουργία πτήσης είναι ενεργή</string>
+    <string name="home_hotspot_on">Το hotspot είναι ενεργό</string>
+    <string name="home_turn_off">Απενεργοποίηση</string>
     <string name="settings_tavily_title">Tavily για αναζήτηση ιστού</string>
     <string name="settings_tavily_desc">Προσθέστε κλειδί API του Tavily για υποστήριξη αναζήτησης ιστού σε μοντέλα που δεν την υποστηρίζουν.</string>
     <string name="settings_tavily_mode_always">Να χρησιμοποιείται πάντα το Tavily για αναζήτηση ιστού</string>

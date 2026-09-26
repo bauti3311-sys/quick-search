@@ -152,6 +152,9 @@ fun AtAGlanceSettingsSection(
     var showLowStorage by remember { mutableStateOf(glancePreferences.isShowLowStorageEnabled()) }
     var showMissedCalls by remember { mutableStateOf(glancePreferences.isShowMissedCallsEnabled()) }
     var showDoNotDisturb by remember { mutableStateOf(glancePreferences.isShowDoNotDisturbEnabled()) }
+    var showOngoingCall by remember { mutableStateOf(glancePreferences.isShowOngoingCallEnabled()) }
+    var showAirplaneMode by remember { mutableStateOf(glancePreferences.isShowAirplaneModeEnabled()) }
+    var showHotspot by remember { mutableStateOf(glancePreferences.isShowHotspotEnabled()) }
     var hasNotificationAccess by remember {
         mutableStateOf(NotificationDotsPermission.hasNotificationListenerAccess(context))
     }
@@ -202,6 +205,11 @@ fun AtAGlanceSettingsSection(
         rememberNotificationDotsCheckedChange { enabled ->
             showMissedCalls = enabled
             glancePreferences.setShowMissedCallsEnabled(enabled)
+        }
+    val onShowOngoingCallCheckedChange =
+        rememberNotificationDotsCheckedChange { enabled ->
+            showOngoingCall = enabled
+            glancePreferences.setShowOngoingCallEnabled(enabled)
         }
 
     /** A toggle that needs notification access; its description gives way to the permission hint. */
@@ -281,6 +289,12 @@ fun AtAGlanceSettingsSection(
                 calendarPreferences.setShowTodayEvents(enabled)
             },
             notificationToggle(
+                title = stringResource(R.string.settings_at_a_glance_ongoing_call_title),
+                description = stringResource(R.string.settings_at_a_glance_ongoing_call_desc),
+                checked = showOngoingCall,
+                onCheckedChange = onShowOngoingCallCheckedChange,
+            ),
+            notificationToggle(
                 title = stringResource(R.string.settings_at_a_glance_missed_calls_title),
                 description = stringResource(R.string.settings_at_a_glance_missed_calls_desc),
                 checked = showMissedCalls,
@@ -293,6 +307,22 @@ fun AtAGlanceSettingsSection(
             ) { enabled ->
                 showDoNotDisturb = enabled
                 glancePreferences.setShowDoNotDisturbEnabled(enabled)
+            },
+            simpleToggle(
+                title = stringResource(R.string.settings_shortcut_airplane),
+                description = stringResource(R.string.settings_at_a_glance_airplane_desc),
+                checked = showAirplaneMode,
+            ) { enabled ->
+                showAirplaneMode = enabled
+                glancePreferences.setShowAirplaneModeEnabled(enabled)
+            },
+            simpleToggle(
+                title = stringResource(R.string.settings_shortcut_hotspot),
+                description = stringResource(R.string.settings_at_a_glance_hotspot_desc),
+                checked = showHotspot,
+            ) { enabled ->
+                showHotspot = enabled
+                glancePreferences.setShowHotspotEnabled(enabled)
             },
             GlanceToggle("$alarmsTitle $alarmsDescription") { isFirst, isLast ->
                 SettingsToggleRow(
