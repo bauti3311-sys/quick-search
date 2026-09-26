@@ -411,6 +411,7 @@ fun ContentLayout(
         rememberAtAGlanceItems(
             enabled = !hasQuery,
             reversed = isReversed,
+            onShowContactMethods = effectiveContactsParams.onShowContactMethods,
         )
     val atAGlanceContent: (@Composable (dividerBefore: Boolean, dividerAfter: Boolean) -> Unit)? =
         if (atAGlanceItems.isNotEmpty()) {

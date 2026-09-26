@@ -821,6 +821,16 @@
     <string name="settings_upcoming_reminders_desc">Reminders due within 30 minutes or overdue</string>
     <string name="settings_at_a_glance_low_battery_title">Low Battery</string>
     <string name="settings_low_battery_desc">Your battery when it\'s at %1$d%% or lower</string>
+    <string name="settings_at_a_glance_timers_title">Timers &amp; Stopwatch</string>
+    <string name="settings_at_a_glance_timers_desc">Running timers and stopwatches from your clock app</string>
+    <string name="settings_at_a_glance_birthdays_title">Birthdays</string>
+    <string name="settings_at_a_glance_birthdays_desc">Contacts with a birthday today</string>
+    <string name="settings_at_a_glance_progress_title">Live Progress</string>
+    <string name="settings_at_a_glance_progress_desc">Ongoing notifications with a progress bar, like deliveries and downloads</string>
+    <string name="settings_at_a_glance_charging_title">Charging</string>
+    <string name="settings_at_a_glance_charging_desc">Battery level and time until full while plugged in</string>
+    <string name="settings_at_a_glance_storage_title">Low Storage</string>
+    <string name="settings_at_a_glance_storage_desc">Your storage when %1$d%% or less is free</string>
     <string name="settings_now_playing_desc">Playback controls for whatever\'s currently playing</string>
     <string name="settings_use_system_font_desc">Follow your device font style</string>
     <string name="settings_use_system_font_title">Use System Font</string>
@@ -1235,6 +1245,15 @@
     <string name="home_upcoming_alarm_hide_app">Hide alarms from %1$s</string>
     <string name="home_low_battery_saver_off">Tap to turn on Battery Saver</string>
     <string name="home_low_battery_saver_on">Battery Saver is on</string>
+    <string name="home_charged">Fully Charged</string>
+    <string name="home_charging_full_in">Full in %1$s</string>
+    <string name="home_charging_paused">Charging Paused</string>
+    <string name="home_timer">Timer</string>
+    <string name="home_stopwatch">Stopwatch</string>
+    <string name="home_storage_almost_full">Storage Almost Full</string>
+    <string name="home_storage_free">%1$s free of %2$s</string>
+    <string name="home_birthday_today">Birthday today</string>
+    <string name="home_birthday_turns">Turns %1$d today</string>
     <!-- Reminders -->
     <string name="section_reminders">Reminders</string>
     <string name="reminders_notification_channel_name">Reminders</string>

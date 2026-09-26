@@ -95,6 +95,7 @@ internal fun SettingsNestedDetailScreen(
     var appShortcutsSearchQuery by remember { mutableStateOf("") }
     var appManagementSearchQuery by remember { mutableStateOf("") }
     var calendarEventsSearchQuery by remember { mutableStateOf("") }
+    var atAGlanceSearchQuery by remember { mutableStateOf("") }
     var remindersSearchQuery by remember { mutableStateOf("") }
     var notesSearchQuery by remember { mutableStateOf("") }
     var notificationHistorySearchQuery by remember { mutableStateOf("") }
@@ -430,15 +431,15 @@ internal fun SettingsNestedDetailScreen(
                             .settingsContentWidth()
                             .fillMaxHeight()
                             .align(androidx.compose.ui.Alignment.CenterHorizontally)
-                            .verticalScroll(scrollState)
+                            .then(if (detailType == SettingsDetailType.AT_A_GLANCE) Modifier else Modifier.verticalScroll(scrollState))
                             .padding(
                                 start = DesignTokens.ContentHorizontalPadding,
                                 end = DesignTokens.ContentHorizontalPadding,
                                 bottom =
-                                    if (detailType == SettingsDetailType.APP_SHORTCUTS) {
-                                        96.dp
-                                    } else {
-                                        DesignTokens.SectionTopPadding
+                                    when (detailType) {
+                                        SettingsDetailType.APP_SHORTCUTS -> 96.dp
+                                        SettingsDetailType.AT_A_GLANCE -> 92.dp
+                                        else -> DesignTokens.SectionTopPadding
                                     },
                             ),
                 ) {
@@ -626,7 +627,7 @@ internal fun SettingsNestedDetailScreen(
                         }
 
                         SettingsDetailType.AT_A_GLANCE -> {
-                            AtAGlanceSettingsSection(modifier = Modifier.fillMaxWidth())
+                            AtAGlanceSettingsSection(modifier = Modifier.fillMaxWidth().weight(1f), searchQuery = atAGlanceSearchQuery)
                         }
 
                         SettingsDetailType.EDGE_GESTURE -> {
@@ -739,11 +740,12 @@ internal fun SettingsNestedDetailScreen(
                     .align(Alignment.BottomCenter)
                     .fillMaxWidth(),
             )
-        } else if (detailType == SettingsDetailType.CALENDAR_EVENTS) {
+        } else if (detailType == SettingsDetailType.CALENDAR_EVENTS || detailType == SettingsDetailType.AT_A_GLANCE) {
+            val isCalendar = detailType == SettingsDetailType.CALENDAR_EVENTS
             SettingsManagementSearchBar(
-                query = calendarEventsSearchQuery,
-                onQueryChange = { calendarEventsSearchQuery = it },
-                onClear = { calendarEventsSearchQuery = "" },
+                query = if (isCalendar) calendarEventsSearchQuery else atAGlanceSearchQuery,
+                onQueryChange = { if (isCalendar) calendarEventsSearchQuery = it else atAGlanceSearchQuery = it },
+                onClear = { if (isCalendar) calendarEventsSearchQuery = "" else atAGlanceSearchQuery = "" },
                 modifier = Modifier.align(Alignment.BottomEnd),
             )
         }
