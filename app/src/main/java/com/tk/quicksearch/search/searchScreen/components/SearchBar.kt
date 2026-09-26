@@ -18,6 +18,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardActions
@@ -34,6 +36,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -51,6 +54,7 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import android.content.res.Configuration
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.key.Key
@@ -63,6 +67,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.ImeAction
@@ -222,6 +227,16 @@ internal fun PersistentSearchBar(
     var previousLeadingIconState by remember { mutableStateOf(leadingIconState) }
     var hasCompletedStartupAutoFocus by remember { mutableStateOf(!autoFocusOnStart) }
     val searchBarInteractionSource = remember { MutableInteractionSource() }
+    // A caret with no way to type is noise: hide it while the soft keyboard is closed, unless a
+    // hardware keyboard can still type into the field.
+    val density = LocalDensity.current
+    val imeInsets = WindowInsets.ime
+    val isImeVisible by remember(imeInsets, density) {
+        derivedStateOf { imeInsets.getBottom(density) > 0 }
+    }
+    val hasHardwareKeyboard =
+        LocalConfiguration.current.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO
+    val showCursor = isImeVisible || hasHardwareKeyboard
     fun submitSearchAction() {
         val keepKeyboardFromAction = onSearchAction()
         if (!keepKeyboardFromAction && query.isNotBlank()) {
@@ -427,7 +442,6 @@ internal fun PersistentSearchBar(
     }
     // Palettes are centralized in AppColors to keep color tokens out of feature files.
     val activeColors = AppColors.SearchFieldGooglePalette
-    val density = LocalDensity.current
     val aliasMorphHorizontalTravelPx = with(density) { AliasMorphHorizontalTravel.toPx() }
     val aliasMorphVerticalTravelPx = with(density) { AliasMorphVerticalTravel.toPx() }
 
@@ -736,6 +750,7 @@ internal fun PersistentSearchBar(
                     disabledContainerColor = AppColors.AppBackgroundTransparent,
                     focusedTextColor = iconAndTextColor,
                     unfocusedTextColor = iconAndTextColor,
+                    cursorColor = if (showCursor) MaterialTheme.colorScheme.primary else Color.Transparent,
                 ),
             visualTransformation = aliasVisualTransformation,
             interactionSource = searchBarInteractionSource,
