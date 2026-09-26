@@ -944,6 +944,8 @@
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">गणितीय व्यंजक दर्ज करें</string>
     <string name="calculator_invalid_or_unsupported_expression">अमान्य या असमर्थित व्यंजक</string>
+    <string name="calculator_copy_result">कॉपी करें</string>
+    <string name="calculator_use_result">खोज में जोड़ें</string>
     <string name="calculator_toggle_desc">बुनियादी गणितीय व्यंजकों के परिणाम</string>
     <string name="calculator_toggle_title">कैलकुलेटर</string>
     <string name="currency_converter_invalid_input">अमान्य मुद्रा रूपांतरण इनपुट</string>

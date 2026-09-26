@@ -1,11 +1,24 @@
 package com.tk.quicksearch.tools.calculator
 
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Check
+import androidx.compose.material.icons.rounded.ContentCopy
+import androidx.compose.material.icons.rounded.NorthWest
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.staticCompositionLocalOf
+import kotlinx.coroutines.delay
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
@@ -36,6 +49,15 @@ import com.tk.quicksearch.tools.aiSearch.CalculatorAttributionRow
 
 private val unitResultRegex = Regex("^([+-]?(?:\\d+(?:\\.\\d+)?|\\.\\d+))(?:\\s+(.+))?$")
 private val dateNumberRegex = Regex("(\\d+)")
+private const val COPY_CONFIRMATION_MILLIS = 1500L
+private const val ACTION_CHIP_BACKGROUND_ALPHA = 0.08f
+private val ACTION_CHIP_ICON_SIZE = 14.dp
+private val ACTION_CHIP_VERTICAL_PADDING = 6.dp
+// 48dp chip touch target plus the bottom inset and a small gap above it.
+private val ACTION_ROW_RESERVED_HEIGHT = 56.dp
+
+/** Replaces the search query; provided by the search screen so the calculator can reuse its result. */
+internal val LocalCalculatorResultQueryHandler = staticCompositionLocalOf<((String) -> Unit)?> { null }
 
 @OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
@@ -79,9 +101,28 @@ fun CalculatorResult(
     @Suppress("DEPRECATION")
     val clipboardManager = LocalClipboardManager.current
     val copyText = timeResultLabel ?: absoluteDateLabel ?: dateDiffLabel ?: dateLabel ?: result
-    val onLongClick: (() -> Unit)? =
+    var showCopyConfirmation by remember { mutableStateOf(false) }
+    val onCopy: (() -> Unit)? =
             if (copyText != null) {
-                { clipboardManager.setText(AnnotatedString(copyText)) }
+                {
+                    clipboardManager.setText(AnnotatedString(copyText))
+                    showCopyConfirmation = true
+                }
+            } else {
+                null
+            }
+    LaunchedEffect(showCopyConfirmation) {
+        if (showCopyConfirmation) {
+            delay(COPY_CONFIRMATION_MILLIS)
+            showCopyConfirmation = false
+        }
+    }
+    val queryHandler = LocalCalculatorResultQueryHandler.current
+    val onUseResult: (() -> Unit)? =
+            if (calculatorState.toolType == SearchToolType.CALCULATOR &&
+                    result != null &&
+                    queryHandler != null) {
+                { queryHandler(result) }
             } else {
                 null
             }
@@ -90,7 +131,8 @@ fun CalculatorResult(
             modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
     ) {
-        val cardMinHeight = 175.dp
+        // With the action chips the card sizes to its content; the fixed minimum only pads empty states.
+        val cardMinHeight = if (onCopy != null) 0.dp else 175.dp
         androidx.compose.foundation.layout.Column(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
@@ -101,24 +143,53 @@ fun CalculatorResult(
                                     .heightIn(min = cardMinHeight)
                                     .combinedClickable(
                                             onClick = {},
-                                            onLongClick = onLongClick,
+                                            onLongClick = onCopy,
                                     ),
                     showWallpaperBackground = showWallpaperBackground,
             ) {
-                CalculatorResultContent(
-                        calculatorState = calculatorState,
-                        result = result,
-                        dateLabel = dateLabel,
-                        absoluteDateLabel = absoluteDateLabel,
-                        dateDiffLabel = dateDiffLabel,
-                        timeResultLabel = timeResultLabel,
-                        timeContextLabel = timeContextLabel,
-                        timeResultLabel2 = timeResultLabel2,
-                        timeContextLabel2 = timeContextLabel2,
-                        isTimeAbsoluteResult = isTimeAbsoluteResult,
-                        dayOfWeek = dayOfWeek,
-                        showInvalidExpression = showInvalidExpression,
-                )
+                Box(modifier = Modifier.fillMaxWidth().heightIn(min = cardMinHeight)) {
+                    Column(
+                            modifier =
+                                    Modifier.align(Alignment.CenterStart)
+                                            .padding(
+                                                    start = DesignTokens.SpacingLarge,
+                                                    end = DesignTokens.SpacingLarge,
+                                                    top = DesignTokens.SpacingLarge,
+                                                    bottom =
+                                                            if (onCopy != null) ACTION_ROW_RESERVED_HEIGHT
+                                                            else DesignTokens.SpacingLarge,
+                                            ),
+                    ) {
+                        CalculatorResultContent(
+                                calculatorState = calculatorState,
+                                result = result,
+                                dateLabel = dateLabel,
+                                absoluteDateLabel = absoluteDateLabel,
+                                dateDiffLabel = dateDiffLabel,
+                                timeResultLabel = timeResultLabel,
+                                timeContextLabel = timeContextLabel,
+                                timeResultLabel2 = timeResultLabel2,
+                                timeContextLabel2 = timeContextLabel2,
+                                isTimeAbsoluteResult = isTimeAbsoluteResult,
+                                dayOfWeek = dayOfWeek,
+                                showInvalidExpression = showInvalidExpression,
+                        )
+                    }
+                    if (onCopy != null) {
+                        CalculatorResultActions(
+                                // Chips carry their own 48dp touch-target slack below them.
+                                modifier =
+                                        Modifier.align(Alignment.BottomStart)
+                                                .padding(
+                                                        start = DesignTokens.SpacingLarge,
+                                                        bottom = DesignTokens.SpacingXSmall,
+                                                ),
+                                showCopyConfirmation = showCopyConfirmation,
+                                onCopy = onCopy,
+                                onUseResult = onUseResult,
+                        )
+                    }
+                }
             }
         }
 
@@ -126,6 +197,63 @@ fun CalculatorResult(
                 modifier = Modifier.fillMaxWidth(),
                 toolType = calculatorState.toolType,
         )
+    }
+}
+
+@Composable
+private fun CalculatorResultActions(
+        modifier: Modifier,
+        showCopyConfirmation: Boolean,
+        onCopy: () -> Unit,
+        onUseResult: (() -> Unit)?,
+) {
+    Row(
+            modifier = modifier,
+            horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
+    ) {
+        CalculatorActionChip(
+                icon = if (showCopyConfirmation) Icons.Rounded.Check else Icons.Rounded.ContentCopy,
+                label = stringResource(R.string.calculator_copy_result),
+                onClick = onCopy,
+        )
+        if (onUseResult != null) {
+            CalculatorActionChip(
+                    icon = Icons.Rounded.NorthWest,
+                    label = stringResource(R.string.calculator_use_result),
+                    onClick = onUseResult,
+            )
+        }
+    }
+}
+
+@Composable
+private fun CalculatorActionChip(
+        icon: ImageVector,
+        label: String,
+        onClick: () -> Unit,
+) {
+    Surface(
+            onClick = onClick,
+            shape = DesignTokens.ShapeFull,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = ACTION_CHIP_BACKGROUND_ALPHA),
+            contentColor = MaterialTheme.colorScheme.onSurface,
+    ) {
+        Row(
+                modifier =
+                        Modifier.padding(
+                                horizontal = DesignTokens.SpacingMedium,
+                                vertical = ACTION_CHIP_VERTICAL_PADDING,
+                        ),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingXSmall),
+        ) {
+            Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(ACTION_CHIP_ICON_SIZE),
+            )
+            Text(text = label, style = MaterialTheme.typography.labelMedium)
+        }
     }
 }
 
@@ -144,10 +272,7 @@ private fun CalculatorResultContent(
         dayOfWeek: String?,
         showInvalidExpression: Boolean,
 ) {
-    Column(
-            modifier = Modifier.fillMaxWidth().fillMaxHeight().padding(DesignTokens.SpacingLarge),
-            verticalArrangement = Arrangement.Center,
-    ) {
+    Column(modifier = Modifier.fillMaxWidth()) {
         when {
             timeResultLabel != null && timeResultLabel2 != null -> {
                 Column(
@@ -189,11 +314,7 @@ private fun CalculatorResultContent(
                 if (calculatorState.toolType == SearchToolType.UNIT_CONVERTER) {
                     UnitConverterResultText(result = result)
                 } else {
-                    Text(
-                            text = "= $result",
-                            style = MaterialTheme.typography.displayMedium,
-                            color = MaterialTheme.colorScheme.onSurface,
-                    )
+                    CalculatorValueText(result = result)
                 }
             }
             showInvalidExpression -> {
@@ -219,6 +340,35 @@ private fun CalculatorResultContent(
                 // Intentionally empty while in tool mode with no expression.
             }
         }
+    }
+}
+
+/** Steps the result down through smaller styles until it fits on one line; wraps at the smallest. */
+@Composable
+private fun CalculatorValueText(result: String) {
+    // Non-breaking space keeps "=" on the same line as the number when a long result wraps.
+    val text = "=\u00A0$result"
+    val typography = MaterialTheme.typography
+    val styles =
+            listOf(
+                    typography.displayMedium,
+                    typography.displaySmall,
+                    typography.headlineLarge,
+                    typography.headlineMedium,
+            )
+    BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+        val textMeasurer = rememberTextMeasurer()
+        val maxWidthPx = constraints.maxWidth
+        val style =
+                styles.firstOrNull {
+                    textMeasurer.measure(text = text, style = it, maxLines = 1).size.width <=
+                            maxWidthPx
+                } ?: styles.last()
+        Text(
+                text = text,
+                style = style,
+                color = MaterialTheme.colorScheme.onSurface,
+        )
     }
 }
 

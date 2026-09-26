@@ -943,6 +943,8 @@
      ============================================================================ -->
 <string name="calculator_enter_math_expression_hint">Matematiksel bir ifade gir</string>
 <string name="calculator_invalid_or_unsupported_expression">Geçersiz veya desteklenmeyen ifade</string>
+<string name="calculator_copy_result">Kopyala</string>
+<string name="calculator_use_result">Aramaya ekle</string>
 <string name="calculator_toggle_desc">Temel matematiksel ifadelerin sonuçları</string>
 <string name="calculator_toggle_title">Hesap makinesi</string>
 <string name="currency_converter_invalid_input">Geçersiz döviz çevirme girdisi</string>

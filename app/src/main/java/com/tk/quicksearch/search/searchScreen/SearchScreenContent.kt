@@ -637,6 +637,7 @@ internal fun SearchScreenContent(
         LocalSearchColorTheme provides searchColorTheme,
         LocalAmoledThemeActive provides amoledSurfacesActive,
         LocalSearchResultQuery provides state.query.trim(),
+        com.tk.quicksearch.tools.calculator.LocalCalculatorResultQueryHandler provides onQueryChanged,
     ) {
     Column(modifier = contentModifier, verticalArrangement = Arrangement.Top) {
         if (showSearchField && !showBottomSearchBar) {

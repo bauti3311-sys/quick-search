@@ -944,6 +944,8 @@
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">గణిత సమీకరణాన్ని నమోదు చేయండి</string>
     <string name="calculator_invalid_or_unsupported_expression">చెల్లని లేదా మద్దతు లేని సమీకరణం</string>
+    <string name="calculator_copy_result">కాపీ చేయండి</string>
+    <string name="calculator_use_result">శోధనకు జోడించండి</string>
     <string name="calculator_toggle_desc">ప్రాథమిక గణిత సమీకరణాల ఫలితాలు</string>
     <string name="calculator_toggle_title">క్యాలిక్యులేటర్</string>
     <string name="currency_converter_invalid_input">చెల్లని కరెన్సీ మార్పిడి ఇన్‌పుట్</string>

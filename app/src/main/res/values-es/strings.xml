@@ -944,6 +944,8 @@
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">Introduce una expresión matemática</string>
     <string name="calculator_invalid_or_unsupported_expression">Expresión no válida o no compatible</string>
+    <string name="calculator_copy_result">Copiar</string>
+    <string name="calculator_use_result">Añadir a la búsqueda</string>
     <string name="calculator_toggle_desc">Resultados para expresiones matemáticas básicas</string>
     <string name="calculator_toggle_title">Calculadora</string>
     <string name="currency_converter_invalid_input">Entrada de conversión de divisa no válida</string>

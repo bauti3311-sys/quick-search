@@ -944,6 +944,8 @@
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">Εισαγάγετε μια μαθηματική παράσταση</string>
     <string name="calculator_invalid_or_unsupported_expression">Μη έγκυρη ή μη υποστηριζόμενη παράσταση</string>
+    <string name="calculator_copy_result">Αντιγραφή</string>
+    <string name="calculator_use_result">Προσθήκη στην αναζήτηση</string>
     <string name="calculator_toggle_desc">Αποτελέσματα για βασικές μαθηματικές παραστάσεις</string>
     <string name="calculator_toggle_title">Αριθμομηχανή</string>
     <string name="currency_converter_invalid_input">Μη έγκυρα δεδομένα μετατροπής νομίσματος</string>

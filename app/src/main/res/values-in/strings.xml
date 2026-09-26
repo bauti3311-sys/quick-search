@@ -948,6 +948,8 @@
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">Masukkan ekspresi matematika</string>
     <string name="calculator_invalid_or_unsupported_expression">Ekspresi tidak valid atau tidak didukung</string>
+    <string name="calculator_copy_result">Salin</string>
+    <string name="calculator_use_result">Tambahkan ke pencarian</string>
     <string name="calculator_toggle_desc">Hasil untuk ekspresi matematika dasar</string>
     <string name="calculator_toggle_title">Kalkulator</string>
     <string name="currency_converter_invalid_input">Input konversi mata uang tidak valid</string>

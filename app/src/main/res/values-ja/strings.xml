@@ -955,6 +955,8 @@ www.google.com/search?q={{query}}</string>
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">数式を入力</string>
     <string name="calculator_invalid_or_unsupported_expression">無効またはサポートされていない数式です</string>
+    <string name="calculator_copy_result">コピー</string>
+    <string name="calculator_use_result">検索に追加</string>
     <string name="calculator_toggle_desc">基本的な計算結果を表示</string>
     <string name="calculator_toggle_title">電卓</string>
     <string name="currency_converter_invalid_input">無効な通貨換算の入力です</string>

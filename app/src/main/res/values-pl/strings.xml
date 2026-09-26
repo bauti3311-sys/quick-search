@@ -975,6 +975,8 @@ www.google.com/search?q={{query}}</string>
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">Wpisz wyrażenie matematyczne</string>
     <string name="calculator_invalid_or_unsupported_expression">Nieprawidłowe lub nieobsługiwane wyrażenie</string>
+    <string name="calculator_copy_result">Kopiuj</string>
+    <string name="calculator_use_result">Dodaj do wyszukiwania</string>
     <string name="calculator_toggle_desc">Wyniki dla podstawowych wyrażeń matematycznych</string>
     <string name="calculator_toggle_title">Kalkulator</string>
     <string name="currency_converter_invalid_input">Nieprawidłowe dane przeliczania walut</string>

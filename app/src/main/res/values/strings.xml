@@ -948,6 +948,8 @@
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">Enter a math expression</string>
     <string name="calculator_invalid_or_unsupported_expression">Invalid or unsupported expression</string>
+    <string name="calculator_copy_result">Copy</string>
+    <string name="calculator_use_result">Add to Search</string>
     <string name="calculator_toggle_desc">Results for basic math expressions</string>
     <string name="calculator_toggle_title">Calculator</string>
     <string name="currency_converter_invalid_input">Invalid currency conversion input</string>

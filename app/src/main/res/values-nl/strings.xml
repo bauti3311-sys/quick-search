@@ -986,6 +986,8 @@ www.google.com/search?q={{query}}</string>
 
     <string name="calculator_enter_math_expression_hint">Voer een wiskundige berekening in</string>
     <string name="calculator_invalid_or_unsupported_expression">Ongeldige of niet-ondersteunde berekening</string>
+    <string name="calculator_copy_result">Kopiëren</string>
+    <string name="calculator_use_result">Toevoegen aan zoekopdracht</string>
     <string name="calculator_toggle_desc">Resultaten voor eenvoudige wiskundige berekeningen</string>
     <string name="calculator_toggle_title">Rekenmachine</string>
     <string name="currency_converter_invalid_input">Ongeldige valuta-invoer</string>

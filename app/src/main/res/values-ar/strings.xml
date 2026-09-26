@@ -945,6 +945,8 @@
          ============================================================================ -->
     <string name="calculator_enter_math_expression_hint">أدخل تعبيراً رياضياً</string>
     <string name="calculator_invalid_or_unsupported_expression">عملية حسابية غير صالحة أو غير مدعومة</string>
+    <string name="calculator_copy_result">نسخ</string>
+    <string name="calculator_use_result">إضافة إلى البحث</string>
     <string name="calculator_toggle_desc">عرض نتائج العمليات الحسابية البسيطة</string>
     <string name="calculator_toggle_title">الآلة الحاسبة</string>
     <string name="currency_converter_invalid_input">بيانات تحويل العملة غير صالحة</string>
