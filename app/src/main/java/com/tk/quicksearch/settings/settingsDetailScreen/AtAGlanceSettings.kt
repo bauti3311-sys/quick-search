@@ -150,6 +150,8 @@ fun AtAGlanceSettingsSection(
     var showTimers by remember { mutableStateOf(glancePreferences.isShowTimersEnabled()) }
     var showProgress by remember { mutableStateOf(glancePreferences.isShowProgressNotificationsEnabled()) }
     var showLowStorage by remember { mutableStateOf(glancePreferences.isShowLowStorageEnabled()) }
+    var showMissedCalls by remember { mutableStateOf(glancePreferences.isShowMissedCallsEnabled()) }
+    var showDoNotDisturb by remember { mutableStateOf(glancePreferences.isShowDoNotDisturbEnabled()) }
     var hasNotificationAccess by remember {
         mutableStateOf(NotificationDotsPermission.hasNotificationListenerAccess(context))
     }
@@ -195,6 +197,11 @@ fun AtAGlanceSettingsSection(
         rememberNotificationDotsCheckedChange { enabled ->
             showProgress = enabled
             glancePreferences.setShowProgressNotificationsEnabled(enabled)
+        }
+    val onShowMissedCallsCheckedChange =
+        rememberNotificationDotsCheckedChange { enabled ->
+            showMissedCalls = enabled
+            glancePreferences.setShowMissedCallsEnabled(enabled)
         }
 
     /** A toggle that needs notification access; its description gives way to the permission hint. */
@@ -272,6 +279,20 @@ fun AtAGlanceSettingsSection(
             ) { enabled ->
                 showTodayEvents = enabled
                 calendarPreferences.setShowTodayEvents(enabled)
+            },
+            notificationToggle(
+                title = stringResource(R.string.settings_at_a_glance_missed_calls_title),
+                description = stringResource(R.string.settings_at_a_glance_missed_calls_desc),
+                checked = showMissedCalls,
+                onCheckedChange = onShowMissedCallsCheckedChange,
+            ),
+            simpleToggle(
+                title = stringResource(R.string.settings_shortcut_do_not_disturb),
+                description = stringResource(R.string.settings_at_a_glance_dnd_desc),
+                checked = showDoNotDisturb,
+            ) { enabled ->
+                showDoNotDisturb = enabled
+                glancePreferences.setShowDoNotDisturbEnabled(enabled)
             },
             GlanceToggle("$alarmsTitle $alarmsDescription") { isFirst, isLast ->
                 SettingsToggleRow(

@@ -3,9 +3,9 @@ package com.tk.quicksearch.search.data.preferences
 import android.content.Context
 
 /**
- * Stores the home At a Glance toggles for contact birthdays, low storage, running timers and live
- * progress notifications, plus the birthdays dismissed for the current day and the low storage
- * row's dismissal.
+ * Stores the home At a Glance toggles for contact birthdays, low storage, running timers, live
+ * progress notifications, missed calls and Do Not Disturb, plus the birthdays dismissed for the
+ * current day, tomorrow's events dismissed tonight and the low storage row's dismissal.
  */
 class GlancePreferences(context: Context) : BasePreferences(context) {
     fun isShowBirthdaysEnabled(): Boolean = getBooleanPref(KEY_SHOW_BIRTHDAYS, true)
@@ -25,19 +25,45 @@ class GlancePreferences(context: Context) : BasePreferences(context) {
     fun setShowProgressNotificationsEnabled(enabled: Boolean) =
         setBooleanPref(KEY_SHOW_PROGRESS_NOTIFICATIONS, enabled)
 
+    fun isShowMissedCallsEnabled(): Boolean = getBooleanPref(KEY_SHOW_MISSED_CALLS, true)
+
+    fun setShowMissedCallsEnabled(enabled: Boolean) = setBooleanPref(KEY_SHOW_MISSED_CALLS, enabled)
+
+    fun isShowDoNotDisturbEnabled(): Boolean = getBooleanPref(KEY_SHOW_DO_NOT_DISTURB, true)
+
+    fun setShowDoNotDisturbEnabled(enabled: Boolean) = setBooleanPref(KEY_SHOW_DO_NOT_DISTURB, enabled)
+
+    /** Call time of the newest missed call when the row was dismissed; only later calls bring it back. */
+    fun getMissedCallsDismissedAt(): Long = prefs.getLong(KEY_MISSED_CALLS_DISMISSED_AT, 0L)
+
+    fun setMissedCallsDismissedAt(callTime: Long) = prefs.edit().putLong(KEY_MISSED_CALLS_DISMISSED_AT, callTime).apply()
+
     /** Contact ids dismissed on [day] (an ISO date); dismissals from earlier days are ignored. */
     fun getDismissedBirthdays(day: String): Set<Long> =
-        if (prefs.getString(KEY_DISMISSED_BIRTHDAYS_DAY, null) == day) {
-            getStringSet(KEY_DISMISSED_BIRTHDAYS).mapNotNull { it.toLongOrNull() }.toSet()
+        getDayScopedIds(KEY_DISMISSED_BIRTHDAYS_DAY, KEY_DISMISSED_BIRTHDAYS, day)
+
+    fun dismissBirthday(day: String, contactId: Long) =
+        addDayScopedId(KEY_DISMISSED_BIRTHDAYS_DAY, KEY_DISMISSED_BIRTHDAYS, day, contactId)
+
+    /** Event ids of [day]'s (an ISO date) all-day events dismissed from the evening before. */
+    fun getDismissedTomorrowEvents(day: String): Set<Long> =
+        getDayScopedIds(KEY_DISMISSED_TOMORROW_EVENTS_DAY, KEY_DISMISSED_TOMORROW_EVENTS, day)
+
+    fun dismissTomorrowEvent(day: String, eventId: Long) =
+        addDayScopedId(KEY_DISMISSED_TOMORROW_EVENTS_DAY, KEY_DISMISSED_TOMORROW_EVENTS, day, eventId)
+
+    private fun getDayScopedIds(dayKey: String, idsKey: String, day: String): Set<Long> =
+        if (prefs.getString(dayKey, null) == day) {
+            getStringSet(idsKey).mapNotNull { it.toLongOrNull() }.toSet()
         } else {
             emptySet()
         }
 
-    fun dismissBirthday(day: String, contactId: Long) {
-        val dismissed = getDismissedBirthdays(day) + contactId
+    private fun addDayScopedId(dayKey: String, idsKey: String, day: String, id: Long) {
+        val ids = getDayScopedIds(dayKey, idsKey, day) + id
         prefs.edit()
-            .putString(KEY_DISMISSED_BIRTHDAYS_DAY, day)
-            .putStringSet(KEY_DISMISSED_BIRTHDAYS, dismissed.map { it.toString() }.toSet())
+            .putString(dayKey, day)
+            .putStringSet(idsKey, ids.map { it.toString() }.toSet())
             .apply()
     }
 
@@ -72,6 +98,11 @@ class GlancePreferences(context: Context) : BasePreferences(context) {
         private const val KEY_SHOW_PROGRESS_NOTIFICATIONS = "home_show_progress_notifications"
         private const val KEY_DISMISSED_BIRTHDAYS_DAY = "home_dismissed_birthdays_day"
         private const val KEY_DISMISSED_BIRTHDAYS = "home_dismissed_birthdays"
+        private const val KEY_SHOW_MISSED_CALLS = "home_show_missed_calls"
+        private const val KEY_MISSED_CALLS_DISMISSED_AT = "home_missed_calls_dismissed_at"
+        private const val KEY_SHOW_DO_NOT_DISTURB = "home_show_do_not_disturb"
+        private const val KEY_DISMISSED_TOMORROW_EVENTS_DAY = "home_dismissed_tomorrow_events_day"
+        private const val KEY_DISMISSED_TOMORROW_EVENTS = "home_dismissed_tomorrow_events"
         private const val KEY_LOW_STORAGE_DISMISSED_FREE_PERCENT = "home_low_storage_dismissed_free_percent"
     }
 }

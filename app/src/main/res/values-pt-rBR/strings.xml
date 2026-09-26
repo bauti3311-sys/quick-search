@@ -819,7 +819,7 @@
     <string name="settings_at_a_glance_alarms_title">Alarmes</string>
     <string name="settings_upcoming_alarm_desc">Seu próximo alarme quando faltar menos de 45 minutos</string>
     <string name="settings_hidden_alarm_apps_title">Apps de alarmes ocultos</string>
-    <string name="settings_at_a_glance_events_desc">Eventos de calendário de hoje</string>
+    <string name="settings_at_a_glance_events_desc">Eventos de calendário de hoje e, à noite, os eventos de dia inteiro de amanhã</string>
     <string name="settings_upcoming_reminders_desc">Lembretes que vencem em 30 minutos ou estão atrasados</string>
     <string name="settings_at_a_glance_low_battery_title">Bateria fraca</string>
     <string name="settings_low_battery_desc">Sua bateria quando estiver em %1$d%% ou menos</string>
@@ -833,6 +833,9 @@
     <string name="settings_at_a_glance_charging_desc">Nível da bateria e tempo até a carga completa enquanto conectado</string>
     <string name="settings_at_a_glance_storage_title">Armazenamento baixo</string>
     <string name="settings_at_a_glance_storage_desc">Seu armazenamento quando %1$d%% ou menos estiver livre</string>
+    <string name="settings_at_a_glance_missed_calls_title">Chamadas perdidas</string>
+    <string name="settings_at_a_glance_missed_calls_desc">Chamadas perdidas do seu app de telefone</string>
+    <string name="settings_at_a_glance_dnd_desc">Quando o Não perturbe estiver ativado</string>
     <string name="settings_now_playing_desc">Controles de reprodução para o que está tocando no momento</string>
     <string name="settings_use_system_font_desc">Seguir o estilo de fonte do seu dispositivo</string>
     <string name="settings_use_system_font_title">Usar fonte do sistema</string>
@@ -1256,6 +1259,13 @@
     <string name="home_storage_free">%1$s livres de %2$s</string>
     <string name="home_birthday_today">Aniversário hoje</string>
     <string name="home_birthday_turns">Faz %1$d anos hoje</string>
+    <string name="home_missed_call">Chamada perdida</string>
+    <string name="home_missed_calls">Chamadas perdidas</string>
+    <string name="home_dnd_on">Não perturbe está ativado</string>
+    <string name="home_dnd_priority_only">Somente prioridade</string>
+    <string name="home_dnd_alarms_only">Somente alarmes</string>
+    <string name="home_dnd_total_silence">Silêncio total</string>
+    <string name="home_dnd_turn_off">Desativar</string>
     <string name="settings_tavily_title">Tavily para pesquisa na web</string>
     <string name="settings_tavily_desc">Adicione uma chave de API do Tavily para dar pesquisa na web aos modelos que não oferecem suporte.</string>
     <string name="settings_tavily_mode_always">Sempre usar o Tavily para pesquisa na web</string>

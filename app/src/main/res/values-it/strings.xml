@@ -818,7 +818,7 @@
     <string name="settings_at_a_glance_alarms_title">Sveglie</string>
     <string name="settings_upcoming_alarm_desc">La prossima sveglia quando mancano meno di 45 minuti</string>
     <string name="settings_hidden_alarm_apps_title">App sveglie nascoste</string>
-    <string name="settings_at_a_glance_events_desc">Eventi del calendario di oggi</string>
+    <string name="settings_at_a_glance_events_desc">Eventi del calendario di oggi e, la sera, gli eventi di tutto il giorno di domani</string>
     <string name="settings_upcoming_reminders_desc">Promemoria in scadenza entro 30 minuti o scaduti</string>
     <string name="settings_at_a_glance_low_battery_title">Batteria scarica</string>
     <string name="settings_low_battery_desc">La batteria quando è al %1$d%% o meno</string>
@@ -832,6 +832,9 @@
     <string name="settings_at_a_glance_charging_desc">Livello della batteria e tempo alla carica completa quando è collegato</string>
     <string name="settings_at_a_glance_storage_title">Spazio di archiviazione scarso</string>
     <string name="settings_at_a_glance_storage_desc">Lo spazio di archiviazione quando è libero il %1$d%% o meno</string>
+    <string name="settings_at_a_glance_missed_calls_title">Chiamate perse</string>
+    <string name="settings_at_a_glance_missed_calls_desc">Chiamate perse dall\'app Telefono</string>
+    <string name="settings_at_a_glance_dnd_desc">Quando Non disturbare è attivo</string>
     <string name="settings_now_playing_desc">Controlli di riproduzione per ciò che è attualmente in riproduzione</string>
     <string name="settings_use_system_font_desc">Usa lo stile del carattere del dispositivo</string>
     <string name="settings_use_system_font_title">Usa carattere di sistema</string>
@@ -1255,6 +1258,13 @@
     <string name="home_storage_free">%1$s liberi su %2$s</string>
     <string name="home_birthday_today">Compie gli anni oggi</string>
     <string name="home_birthday_turns">Compie %1$d anni oggi</string>
+    <string name="home_missed_call">Chiamata persa</string>
+    <string name="home_missed_calls">Chiamate perse</string>
+    <string name="home_dnd_on">Non disturbare è attivo</string>
+    <string name="home_dnd_priority_only">Solo con priorità</string>
+    <string name="home_dnd_alarms_only">Solo sveglie</string>
+    <string name="home_dnd_total_silence">Silenzio totale</string>
+    <string name="home_dnd_turn_off">Disattiva</string>
     <string name="settings_tavily_title">Tavily per la ricerca web</string>
     <string name="settings_tavily_desc">Aggiungi una chiave API Tavily per abilitare la ricerca web nei modelli che non la supportano.</string>
     <string name="settings_tavily_mode_always">Usa sempre Tavily per la ricerca web</string>

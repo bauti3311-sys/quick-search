@@ -820,7 +820,7 @@
     <string name="settings_at_a_glance_alarms_title">المنبهات</string>
     <string name="settings_upcoming_alarm_desc">المنبه التالي عندما يكون خلال 45 دقيقة</string>
     <string name="settings_hidden_alarm_apps_title">تطبيقات المنبهات المخفية</string>
-    <string name="settings_at_a_glance_events_desc">أحداث تقويم اليوم</string>
+    <string name="settings_at_a_glance_events_desc">أحداث تقويم اليوم، بالإضافة إلى أحداث الغد التي تستمر طوال اليوم في المساء</string>
     <string name="settings_upcoming_reminders_desc">التذكيرات المستحقة خلال 30 دقيقة أو المتأخرة</string>
     <string name="settings_at_a_glance_low_battery_title">البطارية منخفضة</string>
     <string name="settings_low_battery_desc">البطارية عندما تكون %1$d%% أو أقل</string>
@@ -834,6 +834,9 @@
     <string name="settings_at_a_glance_charging_desc">مستوى البطارية والوقت المتبقي حتى الامتلاء أثناء التوصيل بالشاحن</string>
     <string name="settings_at_a_glance_storage_title">مساحة تخزين منخفضة</string>
     <string name="settings_at_a_glance_storage_desc">مساحة التخزين عندما تكون المساحة الحرة %1$d%% أو أقل</string>
+    <string name="settings_at_a_glance_missed_calls_title">المكالمات الفائتة</string>
+    <string name="settings_at_a_glance_missed_calls_desc">المكالمات الفائتة من تطبيق الهاتف</string>
+    <string name="settings_at_a_glance_dnd_desc">عند تفعيل عدم الإزعاج</string>
     <string name="settings_now_playing_desc">أزرار التحكم بالتشغيل لما يتم تشغيله حاليًا</string>
     <string name="settings_use_system_font_desc">اتباع خط النظام الافتراضي للجهاز</string>
     <string name="settings_use_system_font_title">استخدام خط النظام</string>
@@ -1258,6 +1261,13 @@
     <string name="home_storage_free">%1$s متاحة من أصل %2$s</string>
     <string name="home_birthday_today">عيد الميلاد اليوم</string>
     <string name="home_birthday_turns">العمر اليوم: %1$d</string>
+    <string name="home_missed_call">مكالمة فائتة</string>
+    <string name="home_missed_calls">مكالمات فائتة</string>
+    <string name="home_dnd_on">عدم الإزعاج مفعّل</string>
+    <string name="home_dnd_priority_only">الأولوية فقط</string>
+    <string name="home_dnd_alarms_only">المنبّهات فقط</string>
+    <string name="home_dnd_total_silence">صمت تام</string>
+    <string name="home_dnd_turn_off">إيقاف</string>
     <string name="settings_tavily_title">Tavily للبحث على الويب</string>
     <string name="settings_tavily_desc">أضف مفتاح Tavily API لإضافة دعم البحث على الويب للنماذج التي لا تدعمه.</string>
     <string name="settings_tavily_mode_always">استخدم Tavily دائمًا للبحث على الويب</string>

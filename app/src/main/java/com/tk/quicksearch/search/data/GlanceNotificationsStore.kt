@@ -4,10 +4,12 @@ import android.app.Notification
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.provider.AlarmClock
 import android.service.notification.StatusBarNotification
+import android.telecom.TelecomManager
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Chronometer
@@ -41,6 +43,17 @@ internal class ProgressNotification(
     val contentIntent: PendingIntent?,
 )
 
+/** A missed call notification posted by the phone app; [caller] is its title, usually the name or number. */
+internal class MissedCallNotification(
+    val key: String,
+    val packageName: String,
+    val caller: String?,
+    /** When the call came in, or when the notification was posted if the app does not say. */
+    val callTime: Long,
+    val contentIntent: PendingIntent?,
+)
+
+
 /**
  * The At a Glance view of the posted notifications, fed by
  * [com.tk.quicksearch.search.apps.notificationDots.NotificationDotsListenerService] so it shares
@@ -49,6 +62,7 @@ internal class ProgressNotification(
 internal object GlanceNotificationsStore {
     private val timersState = MutableStateFlow<List<TimerNotification>>(emptyList())
     private val progressState = MutableStateFlow<List<ProgressNotification>>(emptyList())
+    private val missedCallsState = MutableStateFlow<List<MissedCallNotification>>(emptyList())
     private var clockPackages: Set<String>? = null
 
     /** Timers read from custom chronometer views, by notification key, reused until the notification changes. */
@@ -56,6 +70,7 @@ internal object GlanceNotificationsStore {
 
     val timers: StateFlow<List<TimerNotification>> = timersState.asStateFlow()
     val progress: StateFlow<List<ProgressNotification>> = progressState.asStateFlow()
+    val missedCalls: StateFlow<List<MissedCallNotification>> = missedCallsState.asStateFlow()
 
     fun update(
         context: Context,
@@ -82,6 +97,9 @@ internal object GlanceNotificationsStore {
                 }
                 .mapNotNull { it.toProgress() }
                 .sortedByDescending { it.postTime }
+        val dialerPackage = defaultDialerPackage(context)
+        missedCallsState.value =
+            posted.mapNotNull { it.toMissedCall(dialerPackage) }.sortedByDescending { it.callTime }
     }
 
     /** Drops cached state when notification access is lost; clock apps are resolved again on reconnect. */
@@ -90,7 +108,58 @@ internal object GlanceNotificationsStore {
         remoteTimerCache.clear()
         timersState.value = emptyList()
         progressState.value = emptyList()
+        missedCallsState.value = emptyList()
     }
+
+    private fun defaultDialerPackage(context: Context): String? =
+        runCatching { context.getSystemService(TelecomManager::class.java)?.defaultDialerPackage }.getOrNull()
+
+    /**
+     * Phone apps mark missed calls with the missed call category (Android 10+), and older ones at
+     * least post them to a channel named for it, so the default dialer's channel id is checked too.
+     */
+    private fun StatusBarNotification.toMissedCall(dialerPackage: String?): MissedCallNotification? {
+        if (notification.flags and Notification.FLAG_ONGOING_EVENT != 0) return null
+        val isMissedCall =
+            notification.category == CATEGORY_MISSED_CALL ||
+                (
+                    packageName == dialerPackage &&
+                        notification.channelIdOrNull()?.contains("missed", ignoreCase = true) == true
+                )
+        if (!isMissedCall) return null
+        return MissedCallNotification(
+            key = key,
+            packageName = packageName,
+            caller = missedCallCaller(),
+            callTime = notification.`when`.takeIf { it > 0L } ?: postTime,
+            contentIntent = notification.contentIntent,
+        )
+    }
+
+    /**
+     * The caller's name or number. Phone apps put it in the title (Google) or the text (Samsung),
+     * with a generic "Missed call" label in the other. The lock screen version leaves the caller
+     * out, so a field that also appears there is the label, not the caller.
+     */
+    private fun StatusBarNotification.missedCallCaller(): String? {
+        val extras = notification.extras ?: return null
+        val publicExtras = notification.publicVersion?.extras
+        val labels =
+            listOfNotNull(
+                publicExtras?.getCharSequence(Notification.EXTRA_TITLE),
+                publicExtras?.getCharSequence(Notification.EXTRA_TEXT),
+            ).map { it.toString().trim() }.toSet()
+        return listOf(Notification.EXTRA_TITLE, Notification.EXTRA_TEXT)
+            .mapNotNull { extras.getCharSequence(it)?.toString()?.trim()?.takeIf(String::isNotEmpty) }
+            .firstOrNull { it !in labels }
+    }
+
+    private fun Notification.channelIdOrNull(): String? =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) channelId else null
+
+
+    /** [Notification.CATEGORY_MISSED_CALL], which is only defined from Android 10. */
+    private const val CATEGORY_MISSED_CALL = "missed_call"
 
     /** Apps that handle the standard timer or alarm intents; only their chronometers count as timers. */
     private fun resolveClockPackages(context: Context): Set<String> {

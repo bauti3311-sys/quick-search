@@ -31,6 +31,7 @@ import com.tk.quicksearch.search.apps.appLock.AppLockGate
 import com.tk.quicksearch.search.apps.notificationDots.NotificationDotsPermission
 import com.tk.quicksearch.search.apps.rememberAppIcon
 import com.tk.quicksearch.search.data.GlanceNotificationsStore
+import com.tk.quicksearch.search.data.MissedCallNotification
 import com.tk.quicksearch.search.data.ProgressNotification
 import com.tk.quicksearch.search.data.TimerNotification
 import com.tk.quicksearch.search.data.preferences.GlancePreferences
@@ -41,10 +42,14 @@ import kotlinx.coroutines.delay
 /** At most this many progress notifications show on home, newest first. */
 private const val MAX_PROGRESS_ROWS = 3
 
-/** Running clock-app timers and live progress notifications for the home At a Glance card. */
+/** Running clock-app timers, live progress notifications and missed calls for the home At a Glance card. */
 internal class NotificationGlances(
     val timers: List<TimerNotification>,
     val progress: List<ProgressNotification>,
+    /** Newest first; shown as a single summary row. */
+    val missedCalls: List<MissedCallNotification>,
+    /** Hides the missed calls row until a newer missed call comes in. */
+    val dismissMissedCalls: () -> Unit,
     /** Wall clock the timer rows count from; ticks every second while a timer shows. */
     val nowMillis: Long,
 )
@@ -60,12 +65,21 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     val refreshKey = rememberResumeRefreshKey()
     val allTimers by GlanceNotificationsStore.timers.collectAsState()
     val allProgress by GlanceNotificationsStore.progress.collectAsState()
+    val allMissedCalls by GlanceNotificationsStore.missedCalls.collectAsState()
     val hasAccess = remember(refreshKey) { NotificationDotsPermission.hasNotificationListenerAccess(context) }
     val showTimers = remember(refreshKey) { preferences.isShowTimersEnabled() }
     val showProgress = remember(refreshKey) { preferences.isShowProgressNotificationsEnabled() }
-    val timers = if (enabled && hasAccess && showTimers) allTimers else emptyList()
-    val progress =
-        if (enabled && hasAccess && showProgress) allProgress.take(MAX_PROGRESS_ROWS) else emptyList()
+    val showMissedCalls = remember(refreshKey) { preferences.isShowMissedCallsEnabled() }
+    val available = enabled && hasAccess
+    val timers = if (available && showTimers) allTimers else emptyList()
+    val progress = if (available && showProgress) allProgress.take(MAX_PROGRESS_ROWS) else emptyList()
+    var missedCallsDismissedAt by remember { mutableLongStateOf(preferences.getMissedCallsDismissedAt()) }
+    val missedCalls =
+        if (available && showMissedCalls) {
+            allMissedCalls.filter { it.callTime > missedCallsDismissedAt }
+        } else {
+            emptyList()
+        }
 
     var nowMillis by remember { mutableLongStateOf(System.currentTimeMillis()) }
     LaunchedEffect(timers.isNotEmpty()) {
@@ -74,20 +88,40 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
             delay(1_000L - nowMillis % 1_000L)
         }
     }
-    return NotificationGlances(timers = timers, progress = progress, nowMillis = nowMillis)
+    return NotificationGlances(
+        timers = timers,
+        progress = progress,
+        missedCalls = missedCalls,
+        dismissMissedCalls = {
+            missedCalls.maxOfOrNull { it.callTime }?.let { newest ->
+                preferences.setMissedCallsDismissedAt(newest)
+                missedCallsDismissedAt = newest
+            }
+        },
+        nowMillis = nowMillis,
+    )
 }
 
 /** Opens the notification's own target, behind the app lock, falling back to launching the app. */
-private fun openNotificationTarget(
+internal fun openNotificationTarget(
     context: Context,
     packageName: String,
     contentIntent: PendingIntent?,
 ) {
     AppLockGate.runAfterUnlock(context, packageName) {
-        if (contentIntent?.sendFromUserTap() == true) return@runAfterUnlock
-        val launchIntent = context.packageManager.getLaunchIntentForPackage(packageName) ?: return@runAfterUnlock
-        runCatching { context.startActivity(launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
+        launchNotificationTarget(context, packageName, contentIntent)
     }
+}
+
+/** [openNotificationTarget] for callers already past the app lock. */
+internal fun launchNotificationTarget(
+    context: Context,
+    packageName: String,
+    contentIntent: PendingIntent?,
+) {
+    if (contentIntent?.sendFromUserTap() == true) return
+    val launchIntent = context.packageManager.getLaunchIntentForPackage(packageName) ?: return
+    runCatching { context.startActivity(launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
 }
 
 @Composable
@@ -136,23 +170,8 @@ internal fun ProgressNotificationRow(notification: ProgressNotification) {
     val appLabel = rememberAppLabel(notification.packageName)
     val fraction = notification.progress.toFloat() / notification.progressMax
     val percentLabel = remember(fraction) { NumberFormat.getPercentInstance().format(fraction.toDouble()) }
-    val appIcon = rememberAppIcon(packageName = notification.packageName).bitmap
     GlanceStatusRow(
-        icon = {
-            if (appIcon != null) {
-                Image(
-                    bitmap = appIcon,
-                    contentDescription = null,
-                    modifier = Modifier.fillMaxSize(),
-                )
-            } else {
-                Icon(
-                    imageVector = Icons.Rounded.Apps,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        },
+        icon = { NotificationAppIcon(notification.packageName) },
         title = notification.title ?: appLabel,
         subtitle = notification.text ?: appLabel.takeIf { notification.title != null },
         pillText = percentLabel,
@@ -166,4 +185,23 @@ internal fun ProgressNotificationRow(notification: ProgressNotification) {
             )
         },
     )
+}
+
+/** The posting app's icon for a notification row, or a generic app icon while it loads. */
+@Composable
+internal fun NotificationAppIcon(packageName: String) {
+    val appIcon = rememberAppIcon(packageName = packageName).bitmap
+    if (appIcon != null) {
+        Image(
+            bitmap = appIcon,
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+        )
+    } else {
+        Icon(
+            imageVector = Icons.Rounded.Apps,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
 }

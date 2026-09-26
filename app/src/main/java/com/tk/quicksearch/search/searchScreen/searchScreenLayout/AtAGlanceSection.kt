@@ -26,8 +26,9 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
 
 /**
  * One row of the home At a Glance card. Today's calendar events are hosted by the calendar card
- * itself; every other glanceable source (battery, timers, progress notifications, alarm, reminders,
- * birthdays, storage, and future ones) contributes rows here.
+ * itself; every other glanceable source (battery, missed calls, Do Not Disturb, timers, progress
+ * notifications, alarm, reminders, birthdays, tomorrow's events, storage, and future ones)
+ * contributes rows here.
  * Rows sit inside the card's inset and follow CalendarEventRow: 7dp before a 24dp icon, then 12dp
  * to the text.
  */
@@ -53,10 +54,18 @@ internal fun rememberAtAGlanceItems(
     val reminders = rememberUpcomingRemindersGlance(enabled)
     val birthdays = rememberBirthdaysGlance(enabled, onShowContactMethods)
     val lowStorage = rememberLowStorageGlance(enabled)
+    val doNotDisturb = rememberDoNotDisturbGlance(enabled)
+    val tomorrowEvents = rememberTomorrowEventsGlance(enabled)
     val groups =
         listOf(
             listOfNotNull(battery.lowBattery?.let { AtAGlanceItem(key = "low-battery") { LowBatteryRow(it) } }),
             listOfNotNull(battery.charging?.let { AtAGlanceItem(key = "charging") { ChargingRow(it) } }),
+            listOfNotNull(
+                notifications.missedCalls.takeIf { it.isNotEmpty() }?.let { calls ->
+                    AtAGlanceItem(key = "missed-calls") { MissedCallsRow(calls, notifications.dismissMissedCalls) }
+                },
+            ),
+            listOfNotNull(doNotDisturb?.let { AtAGlanceItem(key = "do-not-disturb") { DoNotDisturbRow(it) } }),
             notifications.timers.map { timer ->
                 AtAGlanceItem(key = "timer-${timer.key}") { TimerRow(timer, notifications.nowMillis) }
             },
@@ -82,6 +91,15 @@ internal fun rememberAtAGlanceItems(
                         birthday = birthday,
                         onClick = { birthdays.open(birthday) },
                         onDismiss = { birthdays.dismiss(birthday) },
+                    )
+                }
+            },
+            tomorrowEvents.events.map { event ->
+                AtAGlanceItem(key = "tomorrow-event-${event.eventId}") {
+                    TomorrowEventRow(
+                        event = event,
+                        onClick = { tomorrowEvents.open(event) },
+                        onDismiss = { tomorrowEvents.dismiss(event) },
                     )
                 }
             },
