@@ -869,6 +869,7 @@
     <string name="settings_at_a_glance_otp_desc">Kody jednorazowe z wiadomości i e-maili, gotowe do skopiowania</string>
     <string name="settings_at_a_glance_workouts_title">Treningi</string>
     <string name="settings_at_a_glance_workouts_desc">Status treningu na żywo z Google Health i Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Bieżąca pogoda i alerty z powiadomień aplikacji pogodowej</string>
     <string name="settings_at_a_glance_dnd_desc">Gdy tryb Nie przeszkadzać jest włączony</string>
     <string name="settings_at_a_glance_airplane_desc">Gdy tryb samolotowy jest włączony</string>
     <string name="settings_at_a_glance_hotspot_desc">Gdy hotspot jest włączony</string>

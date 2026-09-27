@@ -840,6 +840,7 @@
     <string name="settings_at_a_glance_otp_desc">Codici monouso da messaggi ed email, pronti da copiare</string>
     <string name="settings_at_a_glance_workouts_title">Allenamenti</string>
     <string name="settings_at_a_glance_workouts_desc">Stato in tempo reale dell\'allenamento da Google Health e Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Condizioni attuali e allerte dalle notifiche della tua app meteo</string>
     <string name="settings_at_a_glance_dnd_desc">Quando Non disturbare è attivo</string>
     <string name="settings_at_a_glance_airplane_desc">Quando la modalità aereo è attiva</string>
     <string name="settings_at_a_glance_hotspot_desc">Quando l\'hotspot è attivo</string>

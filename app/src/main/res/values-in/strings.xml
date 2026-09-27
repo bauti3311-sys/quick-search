@@ -845,6 +845,7 @@
     <string name="settings_at_a_glance_otp_desc">Kode sekali pakai dari pesan dan email, siap disalin</string>
     <string name="settings_at_a_glance_workouts_title">Olahraga</string>
     <string name="settings_at_a_glance_workouts_desc">Status langsung olahraga dari Google Health dan Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Kondisi saat ini dan peringatan dari notifikasi aplikasi cuaca</string>
     <string name="settings_at_a_glance_dnd_desc">Saat Jangan Ganggu aktif</string>
     <string name="settings_at_a_glance_airplane_desc">Saat Mode Pesawat aktif</string>
     <string name="settings_at_a_glance_hotspot_desc">Saat hotspot Anda aktif</string>

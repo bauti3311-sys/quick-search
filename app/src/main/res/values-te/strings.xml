@@ -841,6 +841,7 @@
     <string name="settings_at_a_glance_otp_desc">సందేశాలు, ఇమెయిల్‌ల నుండి వన్-టైమ్ కోడ్‌లు, కాపీ చేయడానికి సిద్ధంగా</string>
     <string name="settings_at_a_glance_workouts_title">వర్కౌట్‌లు</string>
     <string name="settings_at_a_glance_workouts_desc">Google Health మరియు Samsung Health నుండి వర్కౌట్ లైవ్ స్థితి</string>
+    <string name="settings_at_a_glance_weather_desc">మీ వాతావరణ యాప్ నోటిఫికేషన్‌ల నుండి ప్రస్తుత పరిస్థితులు మరియు హెచ్చరికలు</string>
     <string name="settings_at_a_glance_dnd_desc">అభ్యంతర పెట్టవద్దు ఆన్‌లో ఉన్నప్పుడు</string>
     <string name="settings_at_a_glance_airplane_desc">ఏరోప్లేన్ మోడ్ ఆన్‌లో ఉన్నప్పుడు</string>
     <string name="settings_at_a_glance_hotspot_desc">మీ హాట్‌స్పాట్ ఆన్‌లో ఉన్నప్పుడు</string>

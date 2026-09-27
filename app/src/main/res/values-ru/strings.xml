@@ -861,6 +861,7 @@
     <string name="settings_at_a_glance_otp_desc">Одноразовые коды из сообщений и писем, готовые к копированию</string>
     <string name="settings_at_a_glance_workouts_title">Тренировки</string>
     <string name="settings_at_a_glance_workouts_desc">Статус тренировки в реальном времени из Google Health и Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Текущая погода и предупреждения из уведомлений приложения погоды</string>
     <string name="settings_at_a_glance_dnd_desc">Когда включен режим «Не беспокоить»</string>
     <string name="settings_at_a_glance_airplane_desc">Когда включен режим полета</string>
     <string name="settings_at_a_glance_hotspot_desc">Когда включена точка доступа</string>

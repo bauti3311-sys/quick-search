@@ -842,6 +842,7 @@
     <string name="settings_at_a_glance_otp_desc">رموز المرة الواحدة من الرسائل والبريد الإلكتروني، جاهزة للنسخ</string>
     <string name="settings_at_a_glance_workouts_title">التمارين</string>
     <string name="settings_at_a_glance_workouts_desc">الحالة المباشرة للتمرين من Google Health وSamsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">الأحوال الحالية والتنبيهات من إشعارات تطبيق الطقس</string>
     <string name="settings_at_a_glance_dnd_desc">عند تفعيل عدم الإزعاج</string>
     <string name="settings_at_a_glance_airplane_desc">عند تفعيل وضع الطائرة</string>
     <string name="settings_at_a_glance_hotspot_desc">عند تفعيل نقطة الاتصال</string>

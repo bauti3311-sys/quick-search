@@ -831,6 +831,7 @@
     <string name="settings_at_a_glance_otp_desc">来自短信和邮件的一次性验证码，可直接复制</string>
     <string name="settings_at_a_glance_workouts_title">锻炼</string>
     <string name="settings_at_a_glance_workouts_desc">来自 Google Health 和 Samsung Health 的锻炼实时状态</string>
+    <string name="settings_at_a_glance_weather_desc">来自天气应用通知的当前天气和预警</string>
     <string name="settings_at_a_glance_dnd_desc">开启请勿打扰时</string>
     <string name="settings_at_a_glance_airplane_desc">开启飞行模式时</string>
     <string name="settings_at_a_glance_hotspot_desc">开启热点时</string>

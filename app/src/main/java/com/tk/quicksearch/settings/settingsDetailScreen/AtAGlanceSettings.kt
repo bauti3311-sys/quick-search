@@ -155,6 +155,7 @@ fun AtAGlanceSettingsSection(
     var showOngoingCall by remember { mutableStateOf(glancePreferences.isShowOngoingCallEnabled()) }
     var showWorkouts by remember { mutableStateOf(glancePreferences.isShowWorkoutsEnabled()) }
     var showOtpCodes by remember { mutableStateOf(glancePreferences.isShowOtpCodesEnabled()) }
+    var showWeather by remember { mutableStateOf(glancePreferences.isShowWeatherEnabled()) }
     var showAirplaneMode by remember { mutableStateOf(glancePreferences.isShowAirplaneModeEnabled()) }
     var showHotspot by remember { mutableStateOf(glancePreferences.isShowHotspotEnabled()) }
     var showWifiSignIn by remember { mutableStateOf(glancePreferences.isShowWifiSignInEnabled()) }
@@ -223,6 +224,11 @@ fun AtAGlanceSettingsSection(
         rememberNotificationDotsCheckedChange { enabled ->
             showOtpCodes = enabled
             glancePreferences.setShowOtpCodesEnabled(enabled)
+        }
+    val onShowWeatherCheckedChange =
+        rememberNotificationDotsCheckedChange { enabled ->
+            showWeather = enabled
+            glancePreferences.setShowWeatherEnabled(enabled)
         }
 
     /** A toggle that needs notification access; its description gives way to the permission hint. */
@@ -377,6 +383,12 @@ fun AtAGlanceSettingsSection(
                     isLastItem = isLast,
                 )
             },
+            notificationToggle(
+                title = stringResource(R.string.weather_toggle_title),
+                description = stringResource(R.string.settings_at_a_glance_weather_desc),
+                checked = showWeather,
+                onCheckedChange = onShowWeatherCheckedChange,
+            ),
             notificationToggle(
                 title = stringResource(R.string.settings_at_a_glance_workouts_title),
                 description = stringResource(R.string.settings_at_a_glance_workouts_desc),

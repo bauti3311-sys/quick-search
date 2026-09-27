@@ -849,6 +849,7 @@
     <string name="settings_at_a_glance_otp_desc">メッセージやメールのワンタイムコードをすぐにコピー</string>
     <string name="settings_at_a_glance_workouts_title">ワークアウト</string>
     <string name="settings_at_a_glance_workouts_desc">Google Health と Samsung Health のワークアウトのリアルタイム状況</string>
+    <string name="settings_at_a_glance_weather_desc">天気アプリの通知から現在の天気と警報を表示</string>
     <string name="settings_at_a_glance_dnd_desc">サイレントモードがオンのとき</string>
     <string name="settings_at_a_glance_airplane_desc">機内モードがオンのとき</string>
     <string name="settings_at_a_glance_hotspot_desc">アクセスポイントがオンのとき</string>

@@ -5,10 +5,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.os.Build
 import android.service.notification.StatusBarNotification
-import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.TextView
 
 /** A workout being tracked by a fitness app, with the live stats its notification shows. */
 internal class WorkoutNotification(
@@ -107,9 +103,7 @@ internal object WorkoutNotifications {
         val extras = notification.extras
         val texts =
             listOfNotNull(notification.contentView, notification.bigContentView).firstNotNullOfOrNull { remoteViews ->
-                runCatching { remoteViews.apply(context, FrameLayout(context)).readTexts() }
-                    .getOrNull()
-                    ?.takeIf { it.title != null || it.content != null }
+                remoteViews.readLayoutTexts(context)?.toWorkoutTexts()?.takeIf { it.title != null || it.content != null }
             }
         val title =
             texts?.title ?: extras?.getCharSequence(Notification.EXTRA_TITLE)?.toString()?.trim()?.takeIf(String::isNotEmpty)
@@ -135,26 +129,12 @@ internal object WorkoutNotifications {
         val content: String?,
     )
 
-    /** The views named title and content, or else the first two non-blank text views in order. */
-    private fun View.readTexts(): LayoutTexts {
-        val textViews = mutableListOf<TextView>().also { collectTextViews(it) }
-        fun TextView.value() = text?.toString()?.trim()?.takeIf(String::isNotEmpty)
-        fun named(name: String) = textViews.firstOrNull { it.entryName() == name }?.value()
+    /** The views named title and content, or else the first two text views in order. */
+    private fun List<LayoutText>.toWorkoutTexts(): LayoutTexts {
+        fun named(name: String) = firstOrNull { it.idName == name }?.text
         val named = LayoutTexts(named("title"), named("content"))
         if (named.title != null || named.content != null) return named
-        val values = textViews.mapNotNull { it.value() }
-        return LayoutTexts(values.getOrNull(0), values.getOrNull(1))
-    }
-
-    private fun View.entryName(): String? =
-        if (id == View.NO_ID) null else runCatching { resources.getResourceEntryName(id) }.getOrNull()
-
-    private fun View.collectTextViews(into: MutableList<TextView>) {
-        if (visibility != View.VISIBLE) return
-        if (this is TextView) into += this
-        if (this is ViewGroup) {
-            for (index in 0 until childCount) getChildAt(index).collectTextViews(into)
-        }
+        return LayoutTexts(getOrNull(0)?.text, getOrNull(1)?.text)
     }
 
     private const val GOOGLE_HEALTH_PACKAGE = "com.fitbit.FitbitMobile"

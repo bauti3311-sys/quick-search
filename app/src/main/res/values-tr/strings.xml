@@ -840,6 +840,7 @@
     <string name="settings_at_a_glance_otp_desc">Mesaj ve e-postalardaki tek kullanımlık kodlar, kopyalanmaya hazır</string>
     <string name="settings_at_a_glance_workouts_title">Antrenmanlar</string>
     <string name="settings_at_a_glance_workouts_desc">Google Health ve Samsung Health\'ten canlı antrenman durumu</string>
+    <string name="settings_at_a_glance_weather_desc">Hava durumu uygulamanızın bildirimlerinden anlık durum ve uyarılar</string>
     <string name="settings_at_a_glance_dnd_desc">Rahatsız etmeyin açıkken</string>
     <string name="settings_at_a_glance_airplane_desc">Uçak modu açıkken</string>
     <string name="settings_at_a_glance_hotspot_desc">Hotspot açıkken</string>

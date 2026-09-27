@@ -841,6 +841,7 @@
     <string name="settings_at_a_glance_otp_desc">Codes à usage unique des messages et e-mails, prêts à copier</string>
     <string name="settings_at_a_glance_workouts_title">Entraînements</string>
     <string name="settings_at_a_glance_workouts_desc">Statut en direct de l\'entraînement depuis Google Health et Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Conditions actuelles et alertes issues des notifications de votre app météo</string>
     <string name="settings_at_a_glance_dnd_desc">Lorsque Ne pas déranger est activé</string>
     <string name="settings_at_a_glance_airplane_desc">Lorsque le mode avion est activé</string>
     <string name="settings_at_a_glance_hotspot_desc">Lorsque votre point d\'accès est activé</string>

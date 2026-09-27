@@ -43,6 +43,7 @@ import com.tk.quicksearch.search.data.OtpNotification
 import com.tk.quicksearch.search.data.OtpNotifications
 import com.tk.quicksearch.search.data.ProgressNotification
 import com.tk.quicksearch.search.data.TimerNotification
+import com.tk.quicksearch.search.data.WeatherNotification
 import com.tk.quicksearch.search.data.WorkoutNotification
 import com.tk.quicksearch.search.data.preferences.GlancePreferences
 import com.tk.quicksearch.shared.util.sendFromUserTap
@@ -52,7 +53,10 @@ import kotlinx.coroutines.delay
 /** At most this many ongoing (progress and Live Update) and finished ones show on home, running ones first. */
 private const val MAX_PROGRESS_ROWS = 3
 
-/** Running clock-app timers, live and finished progress notifications, missed and ongoing calls, workouts and one-time codes for the home At a Glance card. */
+/** At most this many weather notifications show on home, current conditions first. */
+private const val MAX_WEATHER_ROWS = 2
+
+/** Running clock-app timers, live and finished progress notifications, missed and ongoing calls, workouts, one-time codes and weather for the home At a Glance card. */
 internal class NotificationGlances(
     val timers: List<TimerNotification>,
     val progress: List<ProgressNotification>,
@@ -68,6 +72,8 @@ internal class NotificationGlances(
     /** The newest one-time code, until its notification goes or it is [OtpNotifications.LIFETIME_MILLIS] old. */
     val otp: OtpNotification?,
     val dismissOtp: (OtpNotification) -> Unit,
+    /** Read from weather apps' own notifications; no weather service is queried. */
+    val weather: List<WeatherNotification>,
     /** Wall clock the timer and call rows count from; ticks every second while one shows. */
     val nowMillis: Long,
 )
@@ -88,6 +94,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     val allOngoingCalls by GlanceNotificationsStore.ongoingCalls.collectAsState()
     val allWorkouts by GlanceNotificationsStore.workouts.collectAsState()
     val allOtps by GlanceNotificationsStore.otps.collectAsState()
+    val allWeather by GlanceNotificationsStore.weather.collectAsState()
     val hasAccess = remember(refreshKey) { NotificationDotsPermission.hasNotificationListenerAccess(context) }
     val showTimers = remember(refreshKey) { preferences.isShowTimersEnabled() }
     val showProgress = remember(refreshKey) { preferences.isShowProgressNotificationsEnabled() }
@@ -95,6 +102,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     val showOngoingCalls = remember(refreshKey) { preferences.isShowOngoingCallEnabled() }
     val showWorkouts = remember(refreshKey) { preferences.isShowWorkoutsEnabled() }
     val showOtpCodes = remember(refreshKey) { preferences.isShowOtpCodesEnabled() }
+    val showWeather = remember(refreshKey) { preferences.isShowWeatherEnabled() }
     val available = enabled && hasAccess
     val timers = if (available && showTimers) allTimers else emptyList()
     val progress = if (available && showProgress) allProgress.take(MAX_PROGRESS_ROWS) else emptyList()
@@ -110,6 +118,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
 
     val ongoingCalls = if (available && showOngoingCalls) allOngoingCalls else emptyList()
     val workouts = if (available && showWorkouts) allWorkouts else emptyList()
+    val weather = if (available && showWeather) allWeather.take(MAX_WEATHER_ROWS) else emptyList()
     var otpClock by remember { mutableLongStateOf(System.currentTimeMillis()) }
     val otp =
         if (available && showOtpCodes) {
@@ -149,6 +158,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
         workouts = workouts,
         otp = otp,
         dismissOtp = GlanceNotificationsStore::dismissOtp,
+        weather = weather,
         nowMillis = nowMillis,
     )
 }
@@ -275,6 +285,20 @@ internal fun WorkoutRow(workout: WorkoutNotification) {
         subtitle = workout.stats ?: appLabel.takeIf { workout.title != null },
         pillText = workout.duration,
         onClick = { openNotificationTarget(context, workout.packageName, workout.contentIntent) },
+    )
+}
+
+/** A weather app's current conditions or alert, with the temperature it shows in the pill. */
+@Composable
+internal fun WeatherRow(weather: WeatherNotification) {
+    val context = LocalContext.current
+    val appLabel = rememberAppLabel(weather.packageName)
+    GlanceStatusRow(
+        icon = { NotificationAppIcon(weather.packageName) },
+        title = weather.title ?: appLabel,
+        subtitle = weather.text ?: appLabel.takeIf { weather.title != null },
+        pillText = weather.temperature,
+        onClick = { openNotificationTarget(context, weather.packageName, weather.contentIntent) },
     )
 }
 

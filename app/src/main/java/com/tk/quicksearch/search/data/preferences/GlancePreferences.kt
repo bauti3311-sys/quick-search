@@ -4,7 +4,7 @@ import android.content.Context
 
 /**
  * Stores the home At a Glance toggles for contact birthdays, low storage, running timers, live
- * ongoing (progress and Live Update) notifications, missed calls, ongoing calls, workouts, one-time codes, Do Not Disturb, airplane mode, hotspot
+ * ongoing (progress and Live Update) notifications, missed calls, ongoing calls, workouts, one-time codes, weather, Do Not Disturb, airplane mode, hotspot
  * and Wi-Fi sign-in, plus the birthdays dismissed for the current day, tomorrow's events dismissed tonight and the low storage row's dismissal.
  */
 class GlancePreferences(context: Context) : BasePreferences(context) {
@@ -40,6 +40,10 @@ class GlancePreferences(context: Context) : BasePreferences(context) {
     fun isShowWorkoutsEnabled(): Boolean = getBooleanPref(KEY_SHOW_WORKOUTS, true)
 
     fun setShowWorkoutsEnabled(enabled: Boolean) = setBooleanPref(KEY_SHOW_WORKOUTS, enabled)
+
+    fun isShowWeatherEnabled(): Boolean = getBooleanPref(KEY_SHOW_WEATHER, true)
+
+    fun setShowWeatherEnabled(enabled: Boolean) = setBooleanPref(KEY_SHOW_WEATHER, enabled)
 
     fun isShowOtpCodesEnabled(): Boolean = getBooleanPref(KEY_SHOW_OTP_CODES, true)
 
@@ -128,6 +132,7 @@ class GlancePreferences(context: Context) : BasePreferences(context) {
         private const val KEY_SHOW_ONGOING_CALL = "home_show_ongoing_call"
         private const val KEY_SHOW_WORKOUTS = "home_show_workouts"
         private const val KEY_SHOW_OTP_CODES = "home_show_otp_codes"
+        private const val KEY_SHOW_WEATHER = "home_show_weather"
         private const val KEY_SHOW_AIRPLANE_MODE = "home_show_airplane_mode"
         private const val KEY_SHOW_HOTSPOT = "home_show_hotspot"
         private const val KEY_SHOW_WIFI_SIGN_IN = "home_show_wifi_sign_in"

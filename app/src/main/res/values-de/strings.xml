@@ -841,6 +841,7 @@
     <string name="settings_at_a_glance_otp_desc">Einmalcodes aus Nachrichten und E-Mails, bereit zum Kopieren</string>
     <string name="settings_at_a_glance_workouts_title">Workouts</string>
     <string name="settings_at_a_glance_workouts_desc">Live-Status deines Workouts aus Google Health und Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Aktuelles Wetter und Warnungen aus den Benachrichtigungen deiner Wetter-App</string>
     <string name="settings_at_a_glance_dnd_desc">Wenn „Nicht stören“ aktiv ist</string>
     <string name="settings_at_a_glance_airplane_desc">Wenn der Flugmodus aktiv ist</string>
     <string name="settings_at_a_glance_hotspot_desc">Wenn dein Hotspot aktiv ist</string>

@@ -839,6 +839,7 @@
     <string name="settings_at_a_glance_otp_desc">One-time codes from messages and emails, ready to copy</string>
     <string name="settings_at_a_glance_workouts_title">Workouts</string>
     <string name="settings_at_a_glance_workouts_desc">Workout live status from Google Health and Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Current conditions and alerts from your weather app\'s notifications</string>
     <string name="settings_at_a_glance_dnd_desc">When Do Not Disturb is on</string>
     <string name="settings_at_a_glance_airplane_desc">When airplane mode is on</string>
     <string name="settings_at_a_glance_hotspot_desc">When your hotspot is on</string>

@@ -841,6 +841,7 @@
     <string name="settings_at_a_glance_otp_desc">Códigos de un solo uso de mensajes y correos, listos para copiar</string>
     <string name="settings_at_a_glance_workouts_title">Entrenamientos</string>
     <string name="settings_at_a_glance_workouts_desc">Estado en vivo del entrenamiento desde Google Health y Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Condiciones actuales y alertas de las notificaciones de tu app del tiempo</string>
     <string name="settings_at_a_glance_dnd_desc">Cuando No molestar está activado</string>
     <string name="settings_at_a_glance_airplane_desc">Cuando el modo avión está activado</string>
     <string name="settings_at_a_glance_hotspot_desc">Cuando tu punto de acceso está activado</string>

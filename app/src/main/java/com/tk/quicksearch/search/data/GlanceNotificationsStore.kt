@@ -70,6 +70,7 @@ internal object GlanceNotificationsStore {
     private val ongoingCallsState = MutableStateFlow<List<OngoingCallNotification>>(emptyList())
     private val workoutsState = MutableStateFlow<List<WorkoutNotification>>(emptyList())
     private val otpsState = MutableStateFlow<List<OtpNotification>>(emptyList())
+    private val weatherState = MutableStateFlow<List<WeatherNotification>>(emptyList())
     private var clockPackages: Set<String>? = null
 
     /** Timers read from custom chronometer views, by notification key, reused until the notification changes. */
@@ -85,6 +86,7 @@ internal object GlanceNotificationsStore {
     val ongoingCalls: StateFlow<List<OngoingCallNotification>> = ongoingCallsState.asStateFlow()
     val workouts: StateFlow<List<WorkoutNotification>> = workoutsState.asStateFlow()
     val otps: StateFlow<List<OtpNotification>> = otpsState.asStateFlow()
+    val weather: StateFlow<List<WeatherNotification>> = weatherState.asStateFlow()
 
     fun update(
         context: Context,
@@ -117,6 +119,7 @@ internal object GlanceNotificationsStore {
         progressState.value = progressTracker.progress
         finishedProgressState.value = progressTracker.finished
         otpsState.value = OtpNotifications.parse(posted)
+        weatherState.value = WeatherNotifications.parse(context, posted)
     }
 
     /** Drops cached state when notification access is lost; clock apps are resolved again on reconnect. */
@@ -126,6 +129,7 @@ internal object GlanceNotificationsStore {
         remoteCallStartCache.clear()
         WorkoutNotifications.clear()
         OtpNotifications.clear()
+        WeatherNotifications.clear()
         timersState.value = emptyList()
         progressTracker.clear()
         progressState.value = emptyList()
@@ -134,6 +138,7 @@ internal object GlanceNotificationsStore {
         ongoingCallsState.value = emptyList()
         workoutsState.value = emptyList()
         otpsState.value = emptyList()
+        weatherState.value = emptyList()
     }
 
     /** Hides a one-time code and any older ones from At a Glance, leaving their notifications posted. */

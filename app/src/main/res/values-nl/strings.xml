@@ -874,6 +874,7 @@
     <string name="settings_at_a_glance_otp_desc">Eenmalige codes uit berichten en e-mails, klaar om te kopiëren</string>
     <string name="settings_at_a_glance_workouts_title">Workouts</string>
     <string name="settings_at_a_glance_workouts_desc">Livestatus van je workout uit Google Health en Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Huidige omstandigheden en waarschuwingen uit de meldingen van je weer-app</string>
     <string name="settings_at_a_glance_dnd_desc">Als Niet storen aan staat</string>
     <string name="settings_at_a_glance_airplane_desc">Als vliegtuigmodus aan staat</string>
     <string name="settings_at_a_glance_hotspot_desc">Als je hotspot aan staat</string>

@@ -841,6 +841,7 @@
     <string name="settings_at_a_glance_otp_desc">Κωδικοί μίας χρήσης από μηνύματα και email, έτοιμοι για αντιγραφή</string>
     <string name="settings_at_a_glance_workouts_title">Προπονήσεις</string>
     <string name="settings_at_a_glance_workouts_desc">Ζωντανή κατάσταση προπόνησης από το Google Health και το Samsung Health</string>
+    <string name="settings_at_a_glance_weather_desc">Τρέχουσες συνθήκες και ειδοποιήσεις από τις ειδοποιήσεις της εφαρμογής καιρού</string>
     <string name="settings_at_a_glance_dnd_desc">Όταν είναι ενεργό το Μην ενοχλείτε</string>
     <string name="settings_at_a_glance_airplane_desc">Όταν είναι ενεργή η λειτουργία πτήσης</string>
     <string name="settings_at_a_glance_hotspot_desc">Όταν είναι ενεργό το hotspot σας</string>
