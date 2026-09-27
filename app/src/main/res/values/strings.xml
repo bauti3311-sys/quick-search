@@ -830,6 +830,9 @@
     <string name="custom_info_title">Custom Info</string>
     <string name="custom_info_prompt">Prompt</string>
     <string name="custom_info_set_date_time">Set date and time</string>
+    <string name="custom_info_desc">AI answers to your prompts on Home, at the times you choose</string>
+    <string name="custom_info_repeat_never">Does not repeat</string>
+    <string name="custom_info_repeat_every">Repeat every</string>
     <string name="custom_info_send_notification">Also send notification</string>
     <string name="custom_info_test">Test</string>
     <string name="custom_info_test_response">Test Response</string>

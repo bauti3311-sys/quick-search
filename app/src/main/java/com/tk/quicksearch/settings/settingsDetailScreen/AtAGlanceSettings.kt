@@ -46,15 +46,16 @@ import com.tk.quicksearch.search.apps.notificationDots.NotificationDotsPermissio
 import com.tk.quicksearch.search.apps.notificationDots.rememberNotificationDotsCheckedChange
 import com.tk.quicksearch.search.data.preferences.BatteryPreferences
 import com.tk.quicksearch.search.data.preferences.CalendarPreferences
+import com.tk.quicksearch.customInfo.CustomInfoActivity
+import com.tk.quicksearch.customInfo.CustomInfoItem
+import com.tk.quicksearch.customInfo.CustomInfoRepository
+import com.tk.quicksearch.customInfo.CustomInfoScheduler
+import com.tk.quicksearch.customInfo.customInfoRepeatLabel
 import com.tk.quicksearch.search.data.preferences.GlancePreferences
 import com.tk.quicksearch.search.data.preferences.MediaPreferences
 import com.tk.quicksearch.search.data.preferences.ReminderPreferences
 import com.tk.quicksearch.search.data.preferences.UpcomingAlarmPreferences
-import com.tk.quicksearch.search.data.CustomInfoItem
-import com.tk.quicksearch.search.data.CustomInfoRepository
-import com.tk.quicksearch.search.data.CustomInfoScheduler
 import com.tk.quicksearch.search.data.userAppPreferences.UserAppPreferences
-import com.tk.quicksearch.settings.customTools.CustomInfoActivity
 import com.tk.quicksearch.settings.shared.SettingsCard
 import com.tk.quicksearch.settings.shared.SettingsToggleRow
 import com.tk.quicksearch.shared.permissions.PermissionHelper
@@ -321,18 +322,20 @@ fun AtAGlanceSettingsSection(
     val alarmsDescription = stringResource(R.string.settings_upcoming_alarm_desc)
     val hiddenAlarmAppsLabel = stringResource(R.string.settings_hidden_alarm_apps_title)
     val customInfoToggles = customInfoItems.asReversed().map { item ->
-        val scheduledDateTime = item.dueMillis?.let { due ->
-            DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(due))
-        }
-        GlanceToggle("${item.title} ${scheduledDateTime.orEmpty()}") { isFirst, isLast ->
+        // Next run, or the last one once a one-time item has run.
+        val scheduleText = listOfNotNull(
+            (item.dueMillis ?: item.lastRunMillis)?.let { millis ->
+                DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(millis))
+            },
+            customInfoRepeatLabel(item.repeat),
+        ).joinToString(" · ").ifBlank { null }
+        GlanceToggle("${item.title} ${scheduleText.orEmpty()}") { isFirst, isLast ->
             SettingsToggleRow(
                 title = item.title,
-                subtitle = scheduledDateTime,
+                subtitle = scheduleText,
                 subtitleTextStyle = MaterialTheme.typography.bodyMedium,
-                checked = item.showOnHome,
-                onCheckedChange = { visible ->
-                    customInfoRepository.update(item.id) { it.copy(showOnHome = visible) }
-                },
+                checked = item.enabled,
+                onCheckedChange = { enabled -> CustomInfoScheduler.setEnabled(appContext, item.id, enabled) },
                 trailingAction = {
                     IconButton(onClick = { itemToDelete = item }) {
                         Icon(

@@ -830,6 +830,9 @@
 <string name="custom_info_title">Özel Bilgi</string>
 <string name="custom_info_prompt">İstem</string>
 <string name="custom_info_set_date_time">Tarih ve saat ayarla</string>
+<string name="custom_info_desc">İstemlerinize yapay zekâ yanıtları, seçtiğiniz saatlerde ana ekranda</string>
+<string name="custom_info_repeat_never">Tekrarlanmaz</string>
+<string name="custom_info_repeat_every">Tekrarlama aralığı</string>
 <string name="custom_info_send_notification">Bildirim de gönder</string>
 <string name="custom_info_test">Test et</string>
 <string name="custom_info_test_response">Test yanıtı</string>

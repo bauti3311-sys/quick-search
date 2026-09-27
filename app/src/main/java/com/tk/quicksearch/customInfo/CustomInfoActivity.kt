@@ -1,4 +1,4 @@
-package com.tk.quicksearch.settings.customTools
+package com.tk.quicksearch.customInfo
 
 import android.Manifest
 import android.content.Context
@@ -22,6 +22,12 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.CalendarMonth
+import androidx.compose.material3.Icon
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -46,10 +52,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.tk.quicksearch.R
 import com.tk.quicksearch.reminders.ReminderPermissions
-import com.tk.quicksearch.search.data.CustomInfoItem
-import com.tk.quicksearch.search.data.CustomInfoRepository
-import com.tk.quicksearch.search.data.CustomInfoScheduler
-import com.tk.quicksearch.search.data.fetchCustomInfoAnswer
 import com.tk.quicksearch.search.data.userAppPreferences.UserAppPreferences
 import com.tk.quicksearch.settings.settingsDetailScreen.ReminderFormDialog
 import com.tk.quicksearch.settings.settingsDetailScreen.SettingsDetailHeader
@@ -127,8 +129,8 @@ class CustomInfoActivity : ComponentActivity() {
                     modifier = Modifier.background(MaterialTheme.colorScheme.background),
                 ) {
                     CustomInfoEditor(preferences, onBack = ::finishWithSlide) { item ->
-                        CustomInfoRepository(applicationContext).add(item)
-                        CustomInfoScheduler.schedule(applicationContext, item)
+                        val stored = CustomInfoRepository(applicationContext).add(item)
+                        CustomInfoScheduler.schedule(applicationContext, stored)
                         finishWithSlide()
                     }
                 }
@@ -152,6 +154,7 @@ private fun CustomInfoEditor(
     var webSearch by remember { mutableStateOf(false) }
     var dueMillis by remember { mutableStateOf<Long?>(null) }
     var hasExplicitTime by remember { mutableStateOf(false) }
+    var repeat by remember { mutableStateOf<CustomInfoRepeat?>(null) }
     var showDateDialog by remember { mutableStateOf(false) }
     var sendNotification by remember { mutableStateOf(false) }
     var configuredIds by remember { mutableStateOf(emptySet<AiSearchLlmProviderId>()) }
@@ -174,9 +177,8 @@ private fun CustomInfoEditor(
             AiSearchLlmProviderRegistry.get(id, context).fallbackTextModels
         }
         modelsByProvider = catalogs
-        modelId = preferences.getLlmModel(providerId).takeIf { selected ->
-            catalogs[providerId]?.any { it.id == selected } == true
-        } ?: catalogs[providerId]?.firstOrNull()?.id.orEmpty()
+        // The saved model may exist only in the live catalog, so keep it until that list arrives.
+        modelId = preferences.getLlmModel(providerId).ifBlank { catalogs[providerId]?.firstOrNull()?.id.orEmpty() }
         thinking = preferences.isLlmThinkingEnabled(providerId)
         webSearch = preferences.isLlmGroundingEnabled(providerId)
         ids.forEach { id ->
@@ -187,7 +189,11 @@ private fun CustomInfoEditor(
                         .getOrElse { provider.fallbackTextModels }
                 }
                 modelsByProvider = modelsByProvider + (id to liveModels)
-                if (id == providerId && liveModels.none { it.id == modelId }) modelId = ""
+                if (id == providerId && liveModels.none { it.id == modelId }) {
+                    val saved = preferences.getLlmModel(id)
+                    modelId = saved.takeIf { selected -> liveModels.any { it.id == selected } }
+                        ?: liveModels.firstOrNull()?.id.orEmpty()
+                }
             }
         }
     }
@@ -250,11 +256,19 @@ private fun CustomInfoEditor(
                     colors = dialogTextFieldColors(),
                 )
                 OutlinedButton(onClick = { showDateDialog = true }, modifier = Modifier.fillMaxWidth()) {
+                    Icon(Icons.Rounded.CalendarMonth, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(Modifier.width(8.dp))
                     Text(
                         dueMillis?.let { DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(it)) }
                             ?: stringResource(R.string.custom_info_set_date_time),
+                        modifier = Modifier.weight(1f),
                     )
                 }
+                CustomInfoRepeatButton(
+                    repeat = repeat,
+                    onRepeatChange = { repeat = it },
+                    modifier = Modifier.fillMaxWidth(),
+                )
                 SettingsCheckboxPill(
                     label = stringResource(R.string.custom_info_send_notification),
                     checked = sendNotification,
@@ -297,7 +311,7 @@ private fun CustomInfoEditor(
                 onClick = {
                     onSave(
                         CustomInfoItem(
-                            id = (System.currentTimeMillis() % 1_000_000_000L).toInt(),
+                            id = 0,
                             title = title.trim(),
                             prompt = prompt.trim(),
                             providerId = providerId,
@@ -306,6 +320,7 @@ private fun CustomInfoEditor(
                             thinking = thinking && supportsThinkingControl(providerId, modelId),
                             dueMillis = dueMillis,
                             sendNotification = sendNotification && ReminderPermissions.hasPostNotifications(context),
+                            repeat = repeat,
                         ),
                     )
                 },

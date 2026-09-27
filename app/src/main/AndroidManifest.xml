@@ -84,11 +84,11 @@
         android:theme="@style/Theme.QuickSearch">
 
         <activity
-            android:name=".settings.customTools.CustomInfoActivity"
+            android:name=".customInfo.CustomInfoActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickSearch.SettingsOpaque" />
-        <receiver android:name=".search.data.CustomInfoAlarmReceiver" android:exported="false" />
-        <service android:name=".search.data.CustomInfoJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true" />
+        <receiver android:name=".customInfo.CustomInfoAlarmReceiver" android:exported="false" />
+        <service android:name=".customInfo.CustomInfoJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true" />
 
         <receiver
             android:name=".search.data.AppCatalogChangeReceiver"

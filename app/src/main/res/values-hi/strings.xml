@@ -831,6 +831,9 @@
     <string name="custom_info_title">कस्टम जानकारी</string>
     <string name="custom_info_prompt">प्रॉम्प्ट</string>
     <string name="custom_info_set_date_time">तारीख और समय सेट करें</string>
+    <string name="custom_info_desc">आपके चुने समय पर होम पर आपके प्रॉम्प्ट के AI जवाब</string>
+    <string name="custom_info_repeat_never">दोहराया नहीं जाता</string>
+    <string name="custom_info_repeat_every">दोहराने का अंतराल</string>
     <string name="custom_info_send_notification">सूचना भी भेजें</string>
     <string name="custom_info_test">परीक्षण करें</string>
     <string name="custom_info_test_response">परीक्षण प्रतिक्रिया</string>

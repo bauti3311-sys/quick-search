@@ -108,4 +108,6 @@ both flavors when changing typography.
 | `AppPill` | Small pill labels |
 | `AppVoiceCallIcon` | App logo plus phone icon for call actions |
 | `dialogTextFieldColors()` | Text fields inside dialogs |
-| `SettingsCard` and `Settings*Row` (`settings/shared/`) | Settings cards, toggle/checkbox/navigation rows |
+| `SettingsCard` and `Settings*Row` (`settings/shared/`) | Settings cards, toggle/checkbox/navigation rows. `SettingsToggleRow` takes `subtitleTextStyle` (default `bodySmall`) and a `trailingAction` placed after the switch, such as a delete button |
+| `GlanceStatusRow` (`searchScreenLayout/`) | Home At a Glance rows: icon, title, subtitle or `belowText`, optional pill, trailing action, dismiss |
+| `MarkdownText` (`shared/util/MarkdownRenderer.kt`) | Short Markdown such as AI answers rendered as body text; `RenderMarkdownDocument` is for full documents |

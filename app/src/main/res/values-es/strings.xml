@@ -831,6 +831,9 @@
     <string name="custom_info_title">Información personalizada</string>
     <string name="custom_info_prompt">Instrucción</string>
     <string name="custom_info_set_date_time">Establecer fecha y hora</string>
+    <string name="custom_info_desc">Respuestas de IA a tus instrucciones en Inicio, a las horas que elijas</string>
+    <string name="custom_info_repeat_never">No se repite</string>
+    <string name="custom_info_repeat_every">Repetir cada</string>
     <string name="custom_info_send_notification">Enviar también una notificación</string>
     <string name="custom_info_test">Probar</string>
     <string name="custom_info_test_response">Respuesta de prueba</string>

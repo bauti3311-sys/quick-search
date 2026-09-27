@@ -851,6 +851,9 @@
 <string name="custom_info_title">Своя информация</string>
 <string name="custom_info_prompt">Запрос</string>
 <string name="custom_info_set_date_time">Установить дату и время</string>
+<string name="custom_info_desc">Ответы ИИ на ваши запросы на главном экране в выбранное время</string>
+<string name="custom_info_repeat_never">Не повторять</string>
+<string name="custom_info_repeat_every">Повторять каждые</string>
 <string name="custom_info_send_notification">Также отправить уведомление</string>
 <string name="custom_info_test">Проверить</string>
 <string name="custom_info_test_response">Тестовый ответ</string>

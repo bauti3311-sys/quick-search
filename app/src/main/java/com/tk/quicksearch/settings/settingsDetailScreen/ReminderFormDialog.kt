@@ -123,7 +123,6 @@ internal fun ReminderFormDialog(
     titleVisualTransformation: VisualTransformation = VisualTransformation.None,
     titleMaxLines: Int = 1,
     showTitleInput: Boolean = true,
-    requireTime: Boolean = false,
     requireExplicitDateOrTime: Boolean = false,
 ) {
     val context = LocalContext.current
@@ -160,7 +159,7 @@ internal fun ReminderFormDialog(
     var hasTime by remember { mutableStateOf(!initialAllDay) }
 
     val canSave = (!showTitleInput || reminderTitle.isNotBlank()) && selectedDateMillis != null &&
-        (!requireTime || hasTime) && (!requireExplicitDateOrTime || dateOrTimeChosen)
+        (!requireExplicitDateOrTime || dateOrTimeChosen)
 
     val titleFocusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -302,7 +301,7 @@ internal fun ReminderFormDialog(
                                     text = formatPickedTime(timePickerState.hour, timePickerState.minute),
                                     modifier = Modifier.weight(1f),
                                 )
-                                if (!requireTime) IconButton(
+                                IconButton(
                                     onClick = { hasTime = false },
                                     modifier = Modifier.size(24.dp),
                                 ) {

@@ -197,7 +197,7 @@ fun SettingsToggleRow(
                     if (subtitle != null) {
                         Text(
                             text = subtitle,
-                            style = MaterialTheme.typography.bodySmall,
+                            style = subtitleTextStyle,
                             color =
                                 if (enabled) {
                                     MaterialTheme.colorScheme.onSurfaceVariant

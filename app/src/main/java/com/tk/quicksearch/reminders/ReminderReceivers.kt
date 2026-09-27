@@ -4,8 +4,8 @@ import android.app.AlarmManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import com.tk.quicksearch.customInfo.CustomInfoScheduler
 import com.tk.quicksearch.search.data.ReminderRepository
-import com.tk.quicksearch.search.data.CustomInfoScheduler
 
 /** Fires when a reminder is due and posts its notification. */
 class ReminderAlarmReceiver : BroadcastReceiver() {

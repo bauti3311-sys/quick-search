@@ -839,6 +839,9 @@
     <string name="custom_info_title">カスタム情報</string>
     <string name="custom_info_prompt">プロンプト</string>
     <string name="custom_info_set_date_time">日時を設定</string>
+    <string name="custom_info_desc">選んだ時刻に、プロンプトへのAIの回答をホームに表示</string>
+    <string name="custom_info_repeat_never">繰り返さない</string>
+    <string name="custom_info_repeat_every">繰り返し間隔</string>
     <string name="custom_info_send_notification">通知も送信</string>
     <string name="custom_info_test">テスト</string>
     <string name="custom_info_test_response">テスト結果</string>
