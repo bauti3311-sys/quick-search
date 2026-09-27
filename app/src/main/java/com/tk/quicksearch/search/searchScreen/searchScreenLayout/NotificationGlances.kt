@@ -40,6 +40,7 @@ import com.tk.quicksearch.search.data.MissedCallNotification
 import com.tk.quicksearch.search.data.OngoingCallNotification
 import com.tk.quicksearch.search.data.ProgressNotification
 import com.tk.quicksearch.search.data.TimerNotification
+import com.tk.quicksearch.search.data.WorkoutNotification
 import com.tk.quicksearch.search.data.preferences.GlancePreferences
 import com.tk.quicksearch.shared.util.sendFromUserTap
 import java.text.NumberFormat
@@ -48,7 +49,7 @@ import kotlinx.coroutines.delay
 /** At most this many progress notifications show on home, newest first. */
 private const val MAX_PROGRESS_ROWS = 3
 
-/** Running clock-app timers, live progress notifications, missed and ongoing calls for the home At a Glance card. */
+/** Running clock-app timers, live progress notifications, missed and ongoing calls and workouts for the home At a Glance card. */
 internal class NotificationGlances(
     val timers: List<TimerNotification>,
     val progress: List<ProgressNotification>,
@@ -57,6 +58,7 @@ internal class NotificationGlances(
     /** Hides the missed calls row until a newer missed call comes in. */
     val dismissMissedCalls: () -> Unit,
     val ongoingCalls: List<OngoingCallNotification>,
+    val workouts: List<WorkoutNotification>,
     /** Wall clock the timer and call rows count from; ticks every second while one shows. */
     val nowMillis: Long,
 )
@@ -74,11 +76,13 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     val allProgress by GlanceNotificationsStore.progress.collectAsState()
     val allMissedCalls by GlanceNotificationsStore.missedCalls.collectAsState()
     val allOngoingCalls by GlanceNotificationsStore.ongoingCalls.collectAsState()
+    val allWorkouts by GlanceNotificationsStore.workouts.collectAsState()
     val hasAccess = remember(refreshKey) { NotificationDotsPermission.hasNotificationListenerAccess(context) }
     val showTimers = remember(refreshKey) { preferences.isShowTimersEnabled() }
     val showProgress = remember(refreshKey) { preferences.isShowProgressNotificationsEnabled() }
     val showMissedCalls = remember(refreshKey) { preferences.isShowMissedCallsEnabled() }
     val showOngoingCalls = remember(refreshKey) { preferences.isShowOngoingCallEnabled() }
+    val showWorkouts = remember(refreshKey) { preferences.isShowWorkoutsEnabled() }
     val available = enabled && hasAccess
     val timers = if (available && showTimers) allTimers else emptyList()
     val progress = if (available && showProgress) allProgress.take(MAX_PROGRESS_ROWS) else emptyList()
@@ -91,6 +95,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
         }
 
     val ongoingCalls = if (available && showOngoingCalls) allOngoingCalls else emptyList()
+    val workouts = if (available && showWorkouts) allWorkouts else emptyList()
 
     var nowMillis by remember { mutableLongStateOf(System.currentTimeMillis()) }
     val ticking = timers.isNotEmpty() || ongoingCalls.any { it.startTime != null }
@@ -111,6 +116,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
             }
         },
         ongoingCalls = ongoingCalls,
+        workouts = workouts,
         nowMillis = nowMillis,
     )
 }
@@ -223,6 +229,20 @@ internal fun OngoingCallRow(
                     }
                 }
             },
+    )
+}
+
+/** A workout in progress with its live stats and the duration the app last posted. */
+@Composable
+internal fun WorkoutRow(workout: WorkoutNotification) {
+    val context = LocalContext.current
+    val appLabel = rememberAppLabel(workout.packageName)
+    GlanceStatusRow(
+        icon = { NotificationAppIcon(workout.packageName) },
+        title = workout.title ?: appLabel,
+        subtitle = workout.stats ?: appLabel.takeIf { workout.title != null },
+        pillText = workout.duration,
+        onClick = { openNotificationTarget(context, workout.packageName, workout.contentIntent) },
     )
 }
 

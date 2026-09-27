@@ -837,6 +837,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Αναπάντητες κλήσεις από την εφαρμογή τηλεφώνου σας</string>
     <string name="settings_at_a_glance_ongoing_call_title">Κλήσεις σε εξέλιξη</string>
     <string name="settings_at_a_glance_ongoing_call_desc">Ο καλών και η διάρκεια κλήσης όσο μιλάτε</string>
+    <string name="settings_at_a_glance_workouts_title">Προπονήσεις</string>
+    <string name="settings_at_a_glance_workouts_desc">Ζωντανή κατάσταση προπόνησης από το Google Health και το Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">Όταν είναι ενεργό το Μην ενοχλείτε</string>
     <string name="settings_at_a_glance_airplane_desc">Όταν είναι ενεργή η λειτουργία πτήσης</string>
     <string name="settings_at_a_glance_hotspot_desc">Όταν είναι ενεργό το hotspot σας</string>

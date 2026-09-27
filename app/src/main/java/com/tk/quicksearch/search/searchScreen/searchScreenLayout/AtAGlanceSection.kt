@@ -27,7 +27,7 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
 /**
  * One row of the home At a Glance card. Today's calendar events are hosted by the calendar card
  * itself; every other glanceable source (ongoing calls, battery, missed calls, Do Not Disturb,
- * airplane mode, hotspot, timers, progress notifications, alarm, reminders, birthdays, tomorrow's
+ * airplane mode, hotspot, workouts, timers, progress notifications, alarm, reminders, birthdays, tomorrow's
  * events, storage, and future ones) contributes rows here.
  * Rows sit inside the card's inset and follow CalendarEventRow: 7dp before a 24dp icon, then 12dp
  * to the text.
@@ -73,6 +73,9 @@ internal fun rememberAtAGlanceItems(
             listOfNotNull(doNotDisturb?.let { AtAGlanceItem(key = "do-not-disturb") { DoNotDisturbRow(it) } }),
             listOfNotNull(airplaneMode?.let { AtAGlanceItem(key = "airplane-mode") { AirplaneModeRow(it) } }),
             listOfNotNull(hotspot?.let { AtAGlanceItem(key = "hotspot") { HotspotRow(it) } }),
+            notifications.workouts.map { workout ->
+                AtAGlanceItem(key = "workout-${workout.key}") { WorkoutRow(workout) }
+            },
             notifications.timers.map { timer ->
                 AtAGlanceItem(key = "timer-${timer.key}") { TimerRow(timer, notifications.nowMillis) }
             },

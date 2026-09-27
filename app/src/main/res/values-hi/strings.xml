@@ -837,6 +837,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">आपके फ़ोन ऐप से मिस्ड कॉल</string>
     <string name="settings_at_a_glance_ongoing_call_title">चालू कॉल</string>
     <string name="settings_at_a_glance_ongoing_call_desc">कॉल के दौरान कॉल करने वाला और कॉल की अवधि</string>
+    <string name="settings_at_a_glance_workouts_title">वर्कआउट</string>
+    <string name="settings_at_a_glance_workouts_desc">Google Health और Samsung Health से वर्कआउट की लाइव स्थिति</string>
     <string name="settings_at_a_glance_dnd_desc">जब डू नॉट डिस्टर्ब चालू हो</string>
     <string name="settings_at_a_glance_airplane_desc">जब विमान मोड चालू हो</string>
     <string name="settings_at_a_glance_hotspot_desc">जब आपका हॉटस्पॉट चालू हो</string>

@@ -865,6 +865,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Nieodebrane połączenia z aplikacji Telefon</string>
     <string name="settings_at_a_glance_ongoing_call_title">Trwające połączenia</string>
     <string name="settings_at_a_glance_ongoing_call_desc">Rozmówca i czas trwania podczas połączenia</string>
+    <string name="settings_at_a_glance_workouts_title">Treningi</string>
+    <string name="settings_at_a_glance_workouts_desc">Status treningu na żywo z Google Health i Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">Gdy tryb Nie przeszkadzać jest włączony</string>
     <string name="settings_at_a_glance_airplane_desc">Gdy tryb samolotowy jest włączony</string>
     <string name="settings_at_a_glance_hotspot_desc">Gdy hotspot jest włączony</string>

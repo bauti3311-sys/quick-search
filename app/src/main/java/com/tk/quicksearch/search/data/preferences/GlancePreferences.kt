@@ -4,7 +4,7 @@ import android.content.Context
 
 /**
  * Stores the home At a Glance toggles for contact birthdays, low storage, running timers, live
- * progress notifications, missed calls, ongoing calls, Do Not Disturb, airplane mode and hotspot,
+ * progress notifications, missed calls, ongoing calls, workouts, Do Not Disturb, airplane mode and hotspot,
  * plus the birthdays dismissed for the current day, tomorrow's events dismissed tonight and the low storage row's dismissal.
  */
 class GlancePreferences(context: Context) : BasePreferences(context) {
@@ -36,6 +36,10 @@ class GlancePreferences(context: Context) : BasePreferences(context) {
     fun isShowOngoingCallEnabled(): Boolean = getBooleanPref(KEY_SHOW_ONGOING_CALL, true)
 
     fun setShowOngoingCallEnabled(enabled: Boolean) = setBooleanPref(KEY_SHOW_ONGOING_CALL, enabled)
+
+    fun isShowWorkoutsEnabled(): Boolean = getBooleanPref(KEY_SHOW_WORKOUTS, true)
+
+    fun setShowWorkoutsEnabled(enabled: Boolean) = setBooleanPref(KEY_SHOW_WORKOUTS, enabled)
 
     fun isShowAirplaneModeEnabled(): Boolean = getBooleanPref(KEY_SHOW_AIRPLANE_MODE, true)
 
@@ -114,6 +118,7 @@ class GlancePreferences(context: Context) : BasePreferences(context) {
         private const val KEY_MISSED_CALLS_DISMISSED_AT = "home_missed_calls_dismissed_at"
         private const val KEY_SHOW_DO_NOT_DISTURB = "home_show_do_not_disturb"
         private const val KEY_SHOW_ONGOING_CALL = "home_show_ongoing_call"
+        private const val KEY_SHOW_WORKOUTS = "home_show_workouts"
         private const val KEY_SHOW_AIRPLANE_MODE = "home_show_airplane_mode"
         private const val KEY_SHOW_HOTSPOT = "home_show_hotspot"
         private const val KEY_DISMISSED_TOMORROW_EVENTS_DAY = "home_dismissed_tomorrow_events_day"

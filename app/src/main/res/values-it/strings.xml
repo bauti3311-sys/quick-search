@@ -836,6 +836,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Chiamate perse dall\'app Telefono</string>
     <string name="settings_at_a_glance_ongoing_call_title">Chiamate in corso</string>
     <string name="settings_at_a_glance_ongoing_call_desc">Il chiamante e la durata mentre sei in chiamata</string>
+    <string name="settings_at_a_glance_workouts_title">Allenamenti</string>
+    <string name="settings_at_a_glance_workouts_desc">Stato in tempo reale dell\'allenamento da Google Health e Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">Quando Non disturbare è attivo</string>
     <string name="settings_at_a_glance_airplane_desc">Quando la modalità aereo è attiva</string>
     <string name="settings_at_a_glance_hotspot_desc">Quando l\'hotspot è attivo</string>

@@ -857,6 +857,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Пропущенные вызовы из приложения «Телефон»</string>
     <string name="settings_at_a_glance_ongoing_call_title">Текущие вызовы</string>
     <string name="settings_at_a_glance_ongoing_call_desc">Собеседник и длительность во время вызова</string>
+    <string name="settings_at_a_glance_workouts_title">Тренировки</string>
+    <string name="settings_at_a_glance_workouts_desc">Статус тренировки в реальном времени из Google Health и Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">Когда включен режим «Не беспокоить»</string>
     <string name="settings_at_a_glance_airplane_desc">Когда включен режим полета</string>
     <string name="settings_at_a_glance_hotspot_desc">Когда включена точка доступа</string>

@@ -835,6 +835,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Missed calls from your phone app</string>
     <string name="settings_at_a_glance_ongoing_call_title">Ongoing Calls</string>
     <string name="settings_at_a_glance_ongoing_call_desc">The caller and call duration while you\'re on a call</string>
+    <string name="settings_at_a_glance_workouts_title">Workouts</string>
+    <string name="settings_at_a_glance_workouts_desc">Workout live status from Google Health and Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">When Do Not Disturb is on</string>
     <string name="settings_at_a_glance_airplane_desc">When airplane mode is on</string>
     <string name="settings_at_a_glance_hotspot_desc">When your hotspot is on</string>

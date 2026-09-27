@@ -837,6 +837,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Verpasste Anrufe aus deiner Telefon-App</string>
     <string name="settings_at_a_glance_ongoing_call_title">Laufende Anrufe</string>
     <string name="settings_at_a_glance_ongoing_call_desc">Anrufer und Anrufdauer während eines Anrufs</string>
+    <string name="settings_at_a_glance_workouts_title">Workouts</string>
+    <string name="settings_at_a_glance_workouts_desc">Live-Status deines Workouts aus Google Health und Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">Wenn „Nicht stören“ aktiv ist</string>
     <string name="settings_at_a_glance_airplane_desc">Wenn der Flugmodus aktiv ist</string>
     <string name="settings_at_a_glance_hotspot_desc">Wenn dein Hotspot aktiv ist</string>

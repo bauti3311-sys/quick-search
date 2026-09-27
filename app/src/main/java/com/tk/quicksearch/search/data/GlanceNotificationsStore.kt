@@ -78,6 +78,7 @@ internal object GlanceNotificationsStore {
     private val progressState = MutableStateFlow<List<ProgressNotification>>(emptyList())
     private val missedCallsState = MutableStateFlow<List<MissedCallNotification>>(emptyList())
     private val ongoingCallsState = MutableStateFlow<List<OngoingCallNotification>>(emptyList())
+    private val workoutsState = MutableStateFlow<List<WorkoutNotification>>(emptyList())
     private var clockPackages: Set<String>? = null
 
     /** Timers read from custom chronometer views, by notification key, reused until the notification changes. */
@@ -90,6 +91,7 @@ internal object GlanceNotificationsStore {
     val progress: StateFlow<List<ProgressNotification>> = progressState.asStateFlow()
     val missedCalls: StateFlow<List<MissedCallNotification>> = missedCallsState.asStateFlow()
     val ongoingCalls: StateFlow<List<OngoingCallNotification>> = ongoingCallsState.asStateFlow()
+    val workouts: StateFlow<List<WorkoutNotification>> = workoutsState.asStateFlow()
 
     fun update(
         context: Context,
@@ -123,6 +125,7 @@ internal object GlanceNotificationsStore {
             posted.mapNotNull { it.toMissedCall(dialerPackage) }.sortedByDescending { it.callTime }
         ongoingCallsState.value =
             posted.mapNotNull { it.toOngoingCall(context) }.sortedByDescending { it.startTime ?: 0L }
+        workoutsState.value = WorkoutNotifications.parse(context, posted)
     }
 
     /** Drops cached state when notification access is lost; clock apps are resolved again on reconnect. */
@@ -130,10 +133,12 @@ internal object GlanceNotificationsStore {
         clockPackages = null
         remoteTimerCache.clear()
         remoteCallStartCache.clear()
+        WorkoutNotifications.clear()
         timersState.value = emptyList()
         progressState.value = emptyList()
         missedCallsState.value = emptyList()
         ongoingCallsState.value = emptyList()
+        workoutsState.value = emptyList()
     }
 
     private fun defaultDialerPackage(context: Context): String? =

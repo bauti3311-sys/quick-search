@@ -85,7 +85,7 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_at_a_glance_title,
                 descriptionRes = R.string.settings_at_a_glance_desc,
                 destination = AppSettingsDestination.AT_A_GLANCE,
-                keywords = listOf("today", "calendar", "events", "alarm", "reminders", "home", "media", "music", "playback", "birthday", "charging", "battery", "timer", "stopwatch", "storage", "progress", "delivery", "download", "missed", "calls", "ongoing call", "do not disturb", "dnd", "airplane", "flight", "hotspot", "tethering", "tomorrow"),
+                keywords = listOf("today", "calendar", "events", "alarm", "reminders", "home", "media", "music", "playback", "birthday", "charging", "battery", "timer", "stopwatch", "storage", "progress", "delivery", "download", "missed", "calls", "ongoing call", "do not disturb", "dnd", "airplane", "flight", "hotspot", "tethering", "workout", "exercise", "fitness", "google health", "fitbit", "samsung health", "tomorrow"),
             )
             if (isTaskerInstalled()) {
                 addNavigation(

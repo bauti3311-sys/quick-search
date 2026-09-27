@@ -838,6 +838,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">المكالمات الفائتة من تطبيق الهاتف</string>
     <string name="settings_at_a_glance_ongoing_call_title">المكالمات الجارية</string>
     <string name="settings_at_a_glance_ongoing_call_desc">المتصل ومدة المكالمة أثناء إجرائها</string>
+    <string name="settings_at_a_glance_workouts_title">التمارين</string>
+    <string name="settings_at_a_glance_workouts_desc">الحالة المباشرة للتمرين من Google Health وSamsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">عند تفعيل عدم الإزعاج</string>
     <string name="settings_at_a_glance_airplane_desc">عند تفعيل وضع الطائرة</string>
     <string name="settings_at_a_glance_hotspot_desc">عند تفعيل نقطة الاتصال</string>

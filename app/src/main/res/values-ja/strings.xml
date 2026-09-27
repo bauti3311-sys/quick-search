@@ -845,6 +845,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">電話アプリの不在着信</string>
     <string name="settings_at_a_glance_ongoing_call_title">通話中</string>
     <string name="settings_at_a_glance_ongoing_call_desc">通話中の相手と通話時間</string>
+    <string name="settings_at_a_glance_workouts_title">ワークアウト</string>
+    <string name="settings_at_a_glance_workouts_desc">Google Health と Samsung Health のワークアウトのリアルタイム状況</string>
     <string name="settings_at_a_glance_dnd_desc">サイレントモードがオンのとき</string>
     <string name="settings_at_a_glance_airplane_desc">機内モードがオンのとき</string>
     <string name="settings_at_a_glance_hotspot_desc">アクセスポイントがオンのとき</string>

@@ -837,6 +837,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">మీ ఫోన్ యాప్ నుండి మిస్డ్ కాల్‌లు</string>
     <string name="settings_at_a_glance_ongoing_call_title">కొనసాగుతున్న కాల్‌లు</string>
     <string name="settings_at_a_glance_ongoing_call_desc">మీరు కాల్‌లో ఉన్నప్పుడు కాలర్ మరియు కాల్ వ్యవధి</string>
+    <string name="settings_at_a_glance_workouts_title">వర్కౌట్‌లు</string>
+    <string name="settings_at_a_glance_workouts_desc">Google Health మరియు Samsung Health నుండి వర్కౌట్ లైవ్ స్థితి</string>
     <string name="settings_at_a_glance_dnd_desc">అభ్యంతర పెట్టవద్దు ఆన్‌లో ఉన్నప్పుడు</string>
     <string name="settings_at_a_glance_airplane_desc">ఏరోప్లేన్ మోడ్ ఆన్‌లో ఉన్నప్పుడు</string>
     <string name="settings_at_a_glance_hotspot_desc">మీ హాట్‌స్పాట్ ఆన్‌లో ఉన్నప్పుడు</string>

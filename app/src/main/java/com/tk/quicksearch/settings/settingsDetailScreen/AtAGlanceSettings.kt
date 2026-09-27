@@ -153,6 +153,7 @@ fun AtAGlanceSettingsSection(
     var showMissedCalls by remember { mutableStateOf(glancePreferences.isShowMissedCallsEnabled()) }
     var showDoNotDisturb by remember { mutableStateOf(glancePreferences.isShowDoNotDisturbEnabled()) }
     var showOngoingCall by remember { mutableStateOf(glancePreferences.isShowOngoingCallEnabled()) }
+    var showWorkouts by remember { mutableStateOf(glancePreferences.isShowWorkoutsEnabled()) }
     var showAirplaneMode by remember { mutableStateOf(glancePreferences.isShowAirplaneModeEnabled()) }
     var showHotspot by remember { mutableStateOf(glancePreferences.isShowHotspotEnabled()) }
     var hasNotificationAccess by remember {
@@ -210,6 +211,11 @@ fun AtAGlanceSettingsSection(
         rememberNotificationDotsCheckedChange { enabled ->
             showOngoingCall = enabled
             glancePreferences.setShowOngoingCallEnabled(enabled)
+        }
+    val onShowWorkoutsCheckedChange =
+        rememberNotificationDotsCheckedChange { enabled ->
+            showWorkouts = enabled
+            glancePreferences.setShowWorkoutsEnabled(enabled)
         }
 
     /** A toggle that needs notification access; its description gives way to the permission hint. */
@@ -350,6 +356,12 @@ fun AtAGlanceSettingsSection(
                     isLastItem = isLast,
                 )
             },
+            notificationToggle(
+                title = stringResource(R.string.settings_at_a_glance_workouts_title),
+                description = stringResource(R.string.settings_at_a_glance_workouts_desc),
+                checked = showWorkouts,
+                onCheckedChange = onShowWorkoutsCheckedChange,
+            ),
             notificationToggle(
                 title = stringResource(R.string.settings_at_a_glance_timers_title),
                 description = stringResource(R.string.settings_at_a_glance_timers_desc),
