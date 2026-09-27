@@ -2,16 +2,24 @@ package com.tk.quicksearch.search.data
 
 import android.app.Notification
 import android.app.PendingIntent
+import android.os.Build
 import android.service.notification.StatusBarNotification
 
-/** An ongoing notification with a determinate progress bar, such as a delivery or a download. */
+/**
+ * An ongoing notification with a determinate progress bar, such as a delivery or a download, or an
+ * Android 16 Live Update (a promoted ongoing notification) such as a ride's "Driver 3 min away",
+ * which need not have a bar.
+ */
 internal class ProgressNotification(
     val key: String,
     val packageName: String,
     val title: String?,
     val text: String?,
     val progress: Int,
+    /** 0 when the notification is a Live Update without a progress bar. */
     val progressMax: Int,
+    /** A Live Update's short status for its status bar chip, such as "3 min". */
+    val shortCriticalText: String?,
     val postTime: Long,
     val contentIntent: PendingIntent?,
 )
@@ -144,8 +152,8 @@ internal class ProgressNotificationTracker {
         if (notification.category == Notification.CATEGORY_TRANSPORT) return null
         if (extras.containsKey(Notification.EXTRA_MEDIA_SESSION)) return null
         if (extras.getBoolean(Notification.EXTRA_PROGRESS_INDETERMINATE)) return null
-        val max = extras.getInt(Notification.EXTRA_PROGRESS_MAX, 0)
-        if (max <= 0) return null
+        val max = extras.getInt(Notification.EXTRA_PROGRESS_MAX, 0).coerceAtLeast(0)
+        if (max == 0 && !isBarlessLiveUpdate()) return null
         return ProgressNotification(
             key = key,
             packageName = packageName,
@@ -153,12 +161,29 @@ internal class ProgressNotificationTracker {
             text = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString()?.takeIf { it.isNotBlank() },
             progress = extras.getInt(Notification.EXTRA_PROGRESS, 0).coerceIn(0, max),
             progressMax = max,
+            shortCriticalText =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
+                    notification.shortCriticalText?.trim()?.takeIf(String::isNotEmpty)
+                } else {
+                    null
+                },
             postTime = postTime,
             contentIntent = notification.contentIntent,
         )
     }
 
+    /** A Live Update without a progress bar; ongoing calls have their own At a Glance row. */
+    private fun StatusBarNotification.isBarlessLiveUpdate(): Boolean {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.BAKLAVA) return false
+        if (notification.flags and Notification.FLAG_PROMOTED_ONGOING == 0) return false
+        if (notification.category == Notification.CATEGORY_CALL) return false
+        if (notification.extras?.getString(Notification.EXTRA_TEMPLATE) == CALL_STYLE_TEMPLATE) return false
+        return hasContent()
+    }
+
     private companion object {
+        const val CALL_STYLE_TEMPLATE = "android.app.Notification\$CallStyle"
+
         /** How long after a progress notification disappears a new one from its app counts as its finish. */
         const val FINISH_GRACE_MILLIS = 5_000L
     }

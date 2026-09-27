@@ -860,8 +860,8 @@
     <string name="settings_at_a_glance_timers_desc">Lopende timers en stopwatches uit je klok-app</string>
     <string name="settings_at_a_glance_birthdays_title">Verjaardagen</string>
     <string name="settings_at_a_glance_birthdays_desc">Contacten die vandaag jarig zijn</string>
-    <string name="settings_at_a_glance_progress_title">Live voortgang</string>
-    <string name="settings_at_a_glance_progress_desc">Lopende meldingen met een voortgangsbalk, zoals bezorgingen en downloads</string>
+    <string name="settings_at_a_glance_progress_title">Lopende meldingen</string>
+    <string name="settings_at_a_glance_progress_desc">Live-updates zoals ritten, bezorgingen en downloads</string>
     <string name="settings_at_a_glance_charging_title">Opladen</string>
     <string name="settings_at_a_glance_charging_desc">Batterijniveau en tijd tot vol terwijl het apparaat is aangesloten</string>
     <string name="settings_at_a_glance_storage_title">Weinig opslagruimte</string>

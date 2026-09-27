@@ -855,8 +855,8 @@
     <string name="settings_at_a_glance_timers_desc">Uruchomione minutniki i stopery z aplikacji zegara</string>
     <string name="settings_at_a_glance_birthdays_title">Urodziny</string>
     <string name="settings_at_a_glance_birthdays_desc">Kontakty, które mają dziś urodziny</string>
-    <string name="settings_at_a_glance_progress_title">Postęp na żywo</string>
-    <string name="settings_at_a_glance_progress_desc">Bieżące powiadomienia z paskiem postępu, np. dostawy i pobierania</string>
+    <string name="settings_at_a_glance_progress_title">Bieżące powiadomienia</string>
+    <string name="settings_at_a_glance_progress_desc">Aktualizacje na żywo, np. przejazdy, dostawy i pobierania</string>
     <string name="settings_at_a_glance_charging_title">Ładowanie</string>
     <string name="settings_at_a_glance_charging_desc">Poziom baterii i czas do pełnego naładowania podczas ładowania</string>
     <string name="settings_at_a_glance_storage_title">Mało miejsca</string>

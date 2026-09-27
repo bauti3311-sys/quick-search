@@ -828,8 +828,8 @@
     <string name="settings_at_a_glance_timers_desc">المؤقتات وساعات الإيقاف قيد التشغيل من تطبيق الساعة</string>
     <string name="settings_at_a_glance_birthdays_title">أعياد الميلاد</string>
     <string name="settings_at_a_glance_birthdays_desc">جهات الاتصال التي يصادف عيد ميلادها اليوم</string>
-    <string name="settings_at_a_glance_progress_title">التقدم المباشر</string>
-    <string name="settings_at_a_glance_progress_desc">الإشعارات الجارية التي تحتوي على شريط تقدم، مثل التوصيلات والتنزيلات</string>
+    <string name="settings_at_a_glance_progress_title">الإشعارات الجارية</string>
+    <string name="settings_at_a_glance_progress_desc">تحديثات مباشرة مثل الرحلات والتوصيلات والتنزيلات</string>
     <string name="settings_at_a_glance_charging_title">الشحن</string>
     <string name="settings_at_a_glance_charging_desc">مستوى البطارية والوقت المتبقي حتى الامتلاء أثناء التوصيل بالشاحن</string>
     <string name="settings_at_a_glance_storage_title">مساحة تخزين منخفضة</string>

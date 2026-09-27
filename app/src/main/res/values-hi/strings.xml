@@ -827,8 +827,8 @@
     <string name="settings_at_a_glance_timers_desc">आपके क्लॉक ऐप से चल रहे टाइमर और स्टॉपवॉच</string>
     <string name="settings_at_a_glance_birthdays_title">जन्मदिन</string>
     <string name="settings_at_a_glance_birthdays_desc">जिन संपर्कों का आज जन्मदिन है</string>
-    <string name="settings_at_a_glance_progress_title">लाइव प्रगति</string>
-    <string name="settings_at_a_glance_progress_desc">प्रगति बार वाली चालू सूचनाएं, जैसे डिलीवरी और डाउनलोड</string>
+    <string name="settings_at_a_glance_progress_title">चालू सूचनाएं</string>
+    <string name="settings_at_a_glance_progress_desc">राइड, डिलीवरी और डाउनलोड जैसे लाइव अपडेट</string>
     <string name="settings_at_a_glance_charging_title">चार्ज हो रहा है</string>
     <string name="settings_at_a_glance_charging_desc">प्लग इन रहने पर बैटरी स्तर और पूरा चार्ज होने में लगने वाला समय</string>
     <string name="settings_at_a_glance_storage_title">कम स्टोरेज</string>

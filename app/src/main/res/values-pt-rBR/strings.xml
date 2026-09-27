@@ -827,8 +827,8 @@
     <string name="settings_at_a_glance_timers_desc">Timers e cronômetros em execução do seu app de relógio</string>
     <string name="settings_at_a_glance_birthdays_title">Aniversários</string>
     <string name="settings_at_a_glance_birthdays_desc">Contatos que fazem aniversário hoje</string>
-    <string name="settings_at_a_glance_progress_title">Progresso ao vivo</string>
-    <string name="settings_at_a_glance_progress_desc">Notificações em andamento com barra de progresso, como entregas e downloads</string>
+    <string name="settings_at_a_glance_progress_title">Notificações em andamento</string>
+    <string name="settings_at_a_glance_progress_desc">Atualizações ao vivo como corridas, entregas e downloads</string>
     <string name="settings_at_a_glance_charging_title">Carregando</string>
     <string name="settings_at_a_glance_charging_desc">Nível da bateria e tempo até a carga completa enquanto conectado</string>
     <string name="settings_at_a_glance_storage_title">Armazenamento baixo</string>

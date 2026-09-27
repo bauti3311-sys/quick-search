@@ -4,7 +4,7 @@ import android.content.Context
 
 /**
  * Stores the home At a Glance toggles for contact birthdays, low storage, running timers, live
- * progress notifications, missed calls, ongoing calls, workouts, one-time codes, Do Not Disturb, airplane mode, hotspot
+ * ongoing (progress and Live Update) notifications, missed calls, ongoing calls, workouts, one-time codes, Do Not Disturb, airplane mode, hotspot
  * and Wi-Fi sign-in, plus the birthdays dismissed for the current day, tomorrow's events dismissed tonight and the low storage row's dismissal.
  */
 class GlancePreferences(context: Context) : BasePreferences(context) {

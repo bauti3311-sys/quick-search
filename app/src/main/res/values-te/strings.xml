@@ -827,8 +827,8 @@
     <string name="settings_at_a_glance_timers_desc">మీ క్లాక్ యాప్ నుండి నడుస్తున్న టైమర్‌లు మరియు స్టాప్‌వాచ్‌లు</string>
     <string name="settings_at_a_glance_birthdays_title">పుట్టినరోజులు</string>
     <string name="settings_at_a_glance_birthdays_desc">ఈరోజు పుట్టినరోజు ఉన్న పరిచయాలు</string>
-    <string name="settings_at_a_glance_progress_title">ప్రత్యక్ష పురోగతి</string>
-    <string name="settings_at_a_glance_progress_desc">డెలివరీలు, డౌన్‌లోడ్‌ల వంటి ప్రోగ్రెస్ బార్ ఉన్న కొనసాగుతున్న నోటిఫికేషన్‌లు</string>
+    <string name="settings_at_a_glance_progress_title">కొనసాగుతున్న నోటిఫికేషన్‌లు</string>
+    <string name="settings_at_a_glance_progress_desc">రైడ్‌లు, డెలివరీలు, డౌన్‌లోడ్‌ల వంటి లైవ్ అప్‌డేట్‌లు</string>
     <string name="settings_at_a_glance_charging_title">ఛార్జ్ అవుతోంది</string>
     <string name="settings_at_a_glance_charging_desc">ప్లగ్ ఇన్ చేసినప్పుడు బ్యాటరీ స్థాయి మరియు పూర్తిగా ఛార్జ్ అయ్యే సమయం</string>
     <string name="settings_at_a_glance_storage_title">తక్కువ స్టోరేజ్</string>

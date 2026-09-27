@@ -826,8 +826,8 @@
     <string name="settings_at_a_glance_timers_desc">Timer e cronometri in corso dall\'app Orologio</string>
     <string name="settings_at_a_glance_birthdays_title">Compleanni</string>
     <string name="settings_at_a_glance_birthdays_desc">Contatti che compiono gli anni oggi</string>
-    <string name="settings_at_a_glance_progress_title">Avanzamento in tempo reale</string>
-    <string name="settings_at_a_glance_progress_desc">Notifiche in corso con barra di avanzamento, come consegne e download</string>
+    <string name="settings_at_a_glance_progress_title">Notifiche in corso</string>
+    <string name="settings_at_a_glance_progress_desc">Aggiornamenti in tempo reale come corse, consegne e download</string>
     <string name="settings_at_a_glance_charging_title">In carica</string>
     <string name="settings_at_a_glance_charging_desc">Livello della batteria e tempo alla carica completa quando è collegato</string>
     <string name="settings_at_a_glance_storage_title">Spazio di archiviazione scarso</string>

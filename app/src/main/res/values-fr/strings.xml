@@ -827,8 +827,8 @@
     <string name="settings_at_a_glance_timers_desc">Minuteurs et chronomètres en cours de votre application Horloge</string>
     <string name="settings_at_a_glance_birthdays_title">Anniversaires</string>
     <string name="settings_at_a_glance_birthdays_desc">Contacts dont c\'est l\'anniversaire aujourd\'hui</string>
-    <string name="settings_at_a_glance_progress_title">Progression en direct</string>
-    <string name="settings_at_a_glance_progress_desc">Notifications en cours avec une barre de progression, comme les livraisons et les téléchargements</string>
+    <string name="settings_at_a_glance_progress_title">Notifications en cours</string>
+    <string name="settings_at_a_glance_progress_desc">Mises à jour en direct comme les trajets, les livraisons et les téléchargements</string>
     <string name="settings_at_a_glance_charging_title">En charge</string>
     <string name="settings_at_a_glance_charging_desc">Niveau de batterie et temps restant avant la charge complète lorsque l\'appareil est branché</string>
     <string name="settings_at_a_glance_storage_title">Stockage faible</string>

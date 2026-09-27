@@ -104,15 +104,18 @@ internal object GlanceNotificationsStore {
         val timerNotifications = posted.mapNotNull { it.toTimer(context, clocks) }
         val timerKeys = timerNotifications.map { it.key }.toSet()
         timersState.value = timerNotifications.sortedBy { it.chronometerBase }
-        progressTracker.update(posted.filter { it.key !in timerKeys })
-        progressState.value = progressTracker.progress
-        finishedProgressState.value = progressTracker.finished
         val dialerPackage = defaultDialerPackage(context)
         missedCallsState.value =
             posted.mapNotNull { it.toMissedCall(dialerPackage) }.sortedByDescending { it.callTime }
         ongoingCallsState.value =
             posted.mapNotNull { it.toOngoingCall(context) }.sortedByDescending { it.startTime ?: 0L }
-        workoutsState.value = WorkoutNotifications.parse(context, posted)
+        val workouts = WorkoutNotifications.parse(context, posted)
+        workoutsState.value = workouts
+        // Workouts can be Live Updates too; they keep their own row.
+        val workoutKeys = workouts.map { it.key }.toSet()
+        progressTracker.update(posted.filter { it.key !in timerKeys && it.key !in workoutKeys })
+        progressState.value = progressTracker.progress
+        finishedProgressState.value = progressTracker.finished
         otpsState.value = OtpNotifications.parse(posted)
     }
 

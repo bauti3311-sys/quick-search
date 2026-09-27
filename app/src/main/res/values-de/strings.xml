@@ -827,8 +827,8 @@
     <string name="settings_at_a_glance_timers_desc">Laufende Timer und Stoppuhren aus deiner Uhr-App</string>
     <string name="settings_at_a_glance_birthdays_title">Geburtstage</string>
     <string name="settings_at_a_glance_birthdays_desc">Kontakte, die heute Geburtstag haben</string>
-    <string name="settings_at_a_glance_progress_title">Live-Fortschritt</string>
-    <string name="settings_at_a_glance_progress_desc">Laufende Benachrichtigungen mit Fortschrittsbalken, z. B. Lieferungen und Downloads</string>
+    <string name="settings_at_a_glance_progress_title">Laufende Benachrichtigungen</string>
+    <string name="settings_at_a_glance_progress_desc">Live-Updates wie Fahrten, Lieferungen und Downloads</string>
     <string name="settings_at_a_glance_charging_title">Wird geladen</string>
     <string name="settings_at_a_glance_charging_desc">Akkustand und Zeit bis voll, während das Gerät lädt</string>
     <string name="settings_at_a_glance_storage_title">Wenig Speicher</string>

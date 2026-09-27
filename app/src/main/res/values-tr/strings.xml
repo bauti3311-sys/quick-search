@@ -826,8 +826,8 @@
     <string name="settings_at_a_glance_timers_desc">Saat uygulamanızda çalışan zamanlayıcılar ve kronometreler</string>
     <string name="settings_at_a_glance_birthdays_title">Doğum günleri</string>
     <string name="settings_at_a_glance_birthdays_desc">Bugün doğum günü olan kişiler</string>
-    <string name="settings_at_a_glance_progress_title">Canlı ilerleme</string>
-    <string name="settings_at_a_glance_progress_desc">Teslimatlar ve indirmeler gibi ilerleme çubuğu olan devam eden bildirimler</string>
+    <string name="settings_at_a_glance_progress_title">Devam eden bildirimler</string>
+    <string name="settings_at_a_glance_progress_desc">Yolculuklar, teslimatlar ve indirmeler gibi canlı güncellemeler</string>
     <string name="settings_at_a_glance_charging_title">Şarj oluyor</string>
     <string name="settings_at_a_glance_charging_desc">Şarja takılıyken pil seviyesi ve dolmasına kalan süre</string>
     <string name="settings_at_a_glance_storage_title">Düşük depolama alanı</string>

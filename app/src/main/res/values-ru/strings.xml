@@ -847,8 +847,8 @@
     <string name="settings_at_a_glance_timers_desc">Запущенные таймеры и секундомеры из приложения «Часы»</string>
     <string name="settings_at_a_glance_birthdays_title">Дни рождения</string>
     <string name="settings_at_a_glance_birthdays_desc">Контакты, у которых сегодня день рождения</string>
-    <string name="settings_at_a_glance_progress_title">Прогресс в реальном времени</string>
-    <string name="settings_at_a_glance_progress_desc">Текущие уведомления с индикатором прогресса, например доставки и загрузки</string>
+    <string name="settings_at_a_glance_progress_title">Текущие уведомления</string>
+    <string name="settings_at_a_glance_progress_desc">Обновления в реальном времени, например поездки, доставки и загрузки</string>
     <string name="settings_at_a_glance_charging_title">Зарядка</string>
     <string name="settings_at_a_glance_charging_desc">Уровень заряда и время до полной зарядки, пока устройство подключено</string>
     <string name="settings_at_a_glance_storage_title">Мало памяти</string>

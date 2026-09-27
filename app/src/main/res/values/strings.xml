@@ -825,8 +825,8 @@
     <string name="settings_at_a_glance_timers_desc">Running timers and stopwatches from your clock app</string>
     <string name="settings_at_a_glance_birthdays_title">Birthdays</string>
     <string name="settings_at_a_glance_birthdays_desc">Contacts with a birthday today</string>
-    <string name="settings_at_a_glance_progress_title">Live Progress</string>
-    <string name="settings_at_a_glance_progress_desc">Ongoing notifications with a progress bar, like deliveries and downloads</string>
+    <string name="settings_at_a_glance_progress_title">Ongoing Notifications</string>
+    <string name="settings_at_a_glance_progress_desc">Live updates like rides, deliveries and downloads</string>
     <string name="settings_at_a_glance_charging_title">Charging</string>
     <string name="settings_at_a_glance_charging_desc">Battery level and time until full while plugged in</string>
     <string name="settings_at_a_glance_storage_title">Low Storage</string>

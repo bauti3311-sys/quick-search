@@ -835,8 +835,8 @@
     <string name="settings_at_a_glance_timers_desc">時計アプリで動作中のタイマーとストップウォッチ</string>
     <string name="settings_at_a_glance_birthdays_title">誕生日</string>
     <string name="settings_at_a_glance_birthdays_desc">今日が誕生日の連絡先</string>
-    <string name="settings_at_a_glance_progress_title">ライブ進行状況</string>
-    <string name="settings_at_a_glance_progress_desc">配達やダウンロードなど、進行状況バー付きの継続中の通知</string>
+    <string name="settings_at_a_glance_progress_title">継続中の通知</string>
+    <string name="settings_at_a_glance_progress_desc">配車、配達、ダウンロードなどのライブアップデート</string>
     <string name="settings_at_a_glance_charging_title">充電中</string>
     <string name="settings_at_a_glance_charging_desc">充電中のバッテリー残量とフル充電までの時間</string>
     <string name="settings_at_a_glance_storage_title">ストレージ容量不足</string>

@@ -827,8 +827,8 @@
     <string name="settings_at_a_glance_timers_desc">Χρονοδιακόπτες και χρονόμετρα σε λειτουργία από την εφαρμογή ρολογιού σας</string>
     <string name="settings_at_a_glance_birthdays_title">Γενέθλια</string>
     <string name="settings_at_a_glance_birthdays_desc">Επαφές που έχουν γενέθλια σήμερα</string>
-    <string name="settings_at_a_glance_progress_title">Ζωντανή πρόοδος</string>
-    <string name="settings_at_a_glance_progress_desc">Συνεχείς ειδοποιήσεις με γραμμή προόδου, όπως παραδόσεις και λήψεις</string>
+    <string name="settings_at_a_glance_progress_title">Συνεχείς ειδοποιήσεις</string>
+    <string name="settings_at_a_glance_progress_desc">Ζωντανές ενημερώσεις όπως διαδρομές, παραδόσεις και λήψεις</string>
     <string name="settings_at_a_glance_charging_title">Φόρτιση</string>
     <string name="settings_at_a_glance_charging_desc">Επίπεδο μπαταρίας και χρόνος έως την πλήρη φόρτιση όταν είναι συνδεδεμένη</string>
     <string name="settings_at_a_glance_storage_title">Χαμηλός αποθηκευτικός χώρος</string>

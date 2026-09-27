@@ -831,8 +831,8 @@
     <string name="settings_at_a_glance_timers_desc">Timer dan stopwatch yang berjalan dari aplikasi jam Anda</string>
     <string name="settings_at_a_glance_birthdays_title">Ulang tahun</string>
     <string name="settings_at_a_glance_birthdays_desc">Kontak yang berulang tahun hari ini</string>
-    <string name="settings_at_a_glance_progress_title">Progres langsung</string>
-    <string name="settings_at_a_glance_progress_desc">Notifikasi berjalan dengan bilah progres, seperti pengiriman dan unduhan</string>
+    <string name="settings_at_a_glance_progress_title">Notifikasi berjalan</string>
+    <string name="settings_at_a_glance_progress_desc">Pembaruan langsung seperti perjalanan, pengiriman, dan unduhan</string>
     <string name="settings_at_a_glance_charging_title">Mengisi daya</string>
     <string name="settings_at_a_glance_charging_desc">Level baterai dan waktu hingga penuh saat terhubung ke pengisi daya</string>
     <string name="settings_at_a_glance_storage_title">Penyimpanan rendah</string>

@@ -49,7 +49,7 @@ import com.tk.quicksearch.shared.util.sendFromUserTap
 import java.text.NumberFormat
 import kotlinx.coroutines.delay
 
-/** At most this many progress and finished progress notifications show on home, running ones first. */
+/** At most this many ongoing (progress and Live Update) and finished ones show on home, running ones first. */
 private const val MAX_PROGRESS_ROWS = 3
 
 /** Running clock-app timers, live and finished progress notifications, missed and ongoing calls, workouts and one-time codes for the home At a Glance card. */
@@ -282,6 +282,19 @@ internal fun WorkoutRow(workout: WorkoutNotification) {
 internal fun ProgressNotificationRow(notification: ProgressNotification) {
     val context = LocalContext.current
     val appLabel = rememberAppLabel(notification.packageName)
+    if (notification.progressMax == 0) {
+        // A Live Update without a bar, such as a ride's "Driver 3 min away".
+        GlanceStatusRow(
+            icon = { NotificationAppIcon(notification.packageName) },
+            title = notification.title ?: appLabel,
+            subtitle = notification.text ?: appLabel.takeIf { notification.title != null },
+            pillText = notification.shortCriticalText,
+            onClick = {
+                openNotificationTarget(context, notification.packageName, notification.contentIntent)
+            },
+        )
+        return
+    }
     val fraction = notification.progress.toFloat() / notification.progressMax
     val percentLabel = remember(fraction) { NumberFormat.getPercentInstance().format(fraction.toDouble()) }
     val fullLabel = remember { NumberFormat.getPercentInstance().format(1.0) }
