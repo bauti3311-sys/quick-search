@@ -81,7 +81,12 @@ internal fun rememberAtAGlanceItems(
             },
             notifications.progress.map { progress ->
                 AtAGlanceItem(key = "progress-${progress.key}") { ProgressNotificationRow(progress) }
-            },
+            } +
+                notifications.finishedProgress.map { finished ->
+                    AtAGlanceItem(key = "finished-progress-${finished.key}") {
+                        FinishedProgressNotificationRow(finished) { notifications.dismissFinishedProgress(finished) }
+                    }
+                },
             listOfNotNull(alarm?.let { AtAGlanceItem(key = "alarm") { UpcomingAlarmRow(it) } }),
             reminders.reminders.map { reminder ->
                 AtAGlanceItem(key = "reminder-${reminder.reminderId}") {

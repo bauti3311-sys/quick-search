@@ -35,6 +35,7 @@ import com.tk.quicksearch.R
 import com.tk.quicksearch.search.apps.appLock.AppLockGate
 import com.tk.quicksearch.search.apps.notificationDots.NotificationDotsPermission
 import com.tk.quicksearch.search.apps.rememberAppIcon
+import com.tk.quicksearch.search.data.FinishedProgressNotification
 import com.tk.quicksearch.search.data.GlanceNotificationsStore
 import com.tk.quicksearch.search.data.MissedCallNotification
 import com.tk.quicksearch.search.data.OngoingCallNotification
@@ -46,13 +47,16 @@ import com.tk.quicksearch.shared.util.sendFromUserTap
 import java.text.NumberFormat
 import kotlinx.coroutines.delay
 
-/** At most this many progress notifications show on home, newest first. */
+/** At most this many progress and finished progress notifications show on home, running ones first. */
 private const val MAX_PROGRESS_ROWS = 3
 
-/** Running clock-app timers, live progress notifications, missed and ongoing calls and workouts for the home At a Glance card. */
+/** Running clock-app timers, live and finished progress notifications, missed and ongoing calls and workouts for the home At a Glance card. */
 internal class NotificationGlances(
     val timers: List<TimerNotification>,
     val progress: List<ProgressNotification>,
+    /** What progress notifications left when they finished, until the app removes them or they're dismissed. */
+    val finishedProgress: List<FinishedProgressNotification>,
+    val dismissFinishedProgress: (FinishedProgressNotification) -> Unit,
     /** Newest first; shown as a single summary row. */
     val missedCalls: List<MissedCallNotification>,
     /** Hides the missed calls row until a newer missed call comes in. */
@@ -74,6 +78,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     val refreshKey = rememberResumeRefreshKey()
     val allTimers by GlanceNotificationsStore.timers.collectAsState()
     val allProgress by GlanceNotificationsStore.progress.collectAsState()
+    val allFinishedProgress by GlanceNotificationsStore.finishedProgress.collectAsState()
     val allMissedCalls by GlanceNotificationsStore.missedCalls.collectAsState()
     val allOngoingCalls by GlanceNotificationsStore.ongoingCalls.collectAsState()
     val allWorkouts by GlanceNotificationsStore.workouts.collectAsState()
@@ -86,6 +91,8 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     val available = enabled && hasAccess
     val timers = if (available && showTimers) allTimers else emptyList()
     val progress = if (available && showProgress) allProgress.take(MAX_PROGRESS_ROWS) else emptyList()
+    val finishedProgress =
+        if (available && showProgress) allFinishedProgress.take(MAX_PROGRESS_ROWS - progress.size) else emptyList()
     var missedCallsDismissedAt by remember { mutableLongStateOf(preferences.getMissedCallsDismissedAt()) }
     val missedCalls =
         if (available && showMissedCalls) {
@@ -108,6 +115,8 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     return NotificationGlances(
         timers = timers,
         progress = progress,
+        finishedProgress = finishedProgress,
+        dismissFinishedProgress = { GlanceNotificationsStore.dismissFinishedProgress(it.key) },
         missedCalls = missedCalls,
         dismissMissedCalls = {
             missedCalls.maxOfOrNull { it.callTime }?.let { newest ->
@@ -252,11 +261,13 @@ internal fun ProgressNotificationRow(notification: ProgressNotification) {
     val appLabel = rememberAppLabel(notification.packageName)
     val fraction = notification.progress.toFloat() / notification.progressMax
     val percentLabel = remember(fraction) { NumberFormat.getPercentInstance().format(fraction.toDouble()) }
+    val fullLabel = remember { NumberFormat.getPercentInstance().format(1.0) }
     GlanceStatusRow(
         icon = { NotificationAppIcon(notification.packageName) },
         title = notification.title ?: appLabel,
         subtitle = notification.text ?: appLabel.takeIf { notification.title != null },
         pillText = percentLabel,
+        pillWidthText = fullLabel,
         onClick = {
             openNotificationTarget(context, notification.packageName, notification.contentIntent)
         },
@@ -266,6 +277,26 @@ internal fun ProgressNotificationRow(notification: ProgressNotification) {
                 modifier = Modifier.fillMaxWidth().padding(top = 4.dp, end = 4.dp),
             )
         },
+    )
+}
+
+/** The notification an app left when its progress finished, with a button to hide it from home. */
+@Composable
+internal fun FinishedProgressNotificationRow(
+    notification: FinishedProgressNotification,
+    onDismiss: () -> Unit,
+) {
+    val context = LocalContext.current
+    val appLabel = rememberAppLabel(notification.packageName)
+    GlanceStatusRow(
+        icon = { NotificationAppIcon(notification.packageName) },
+        title = notification.title ?: appLabel,
+        subtitle = notification.text ?: appLabel.takeIf { notification.title != null },
+        pillText = stringResource(R.string.reminder_status_done),
+        onClick = {
+            openNotificationTarget(context, notification.packageName, notification.contentIntent)
+        },
+        onDismiss = onDismiss,
     )
 }
 
