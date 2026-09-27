@@ -828,6 +828,15 @@
     <string name="settings_tools_info_examples_header">శోధన పట్టీలో మీరు అడగగలిగే వాటికి కొన్ని ఉదాహరణలు ఇక్కడ ఉన్నాయి</string>
     <string name="settings_tools_title">సాధనాలు</string>
     <string name="settings_at_a_glance_title">ఒక్క చూపులో</string>
+    <string name="custom_info_title">అనుకూల సమాచారం</string>
+    <string name="custom_info_prompt">ప్రాంప్ట్</string>
+    <string name="custom_info_set_date_time">తేదీ మరియు సమయం సెట్ చేయండి</string>
+    <string name="custom_info_desc">మీరు ఎంచుకున్న సమయాల్లో హోమ్‌లో మీ ప్రాంప్ట్‌లకు AI సమాధానాలు</string>
+    <string name="custom_info_repeat_never">పునరావృతం కాదు</string>
+    <string name="custom_info_repeat_every">పునరావృత వ్యవధి</string>
+    <string name="custom_info_send_notification">నోటిఫికేషన్ కూడా పంపండి</string>
+    <string name="custom_info_test">పరీక్షించు</string>
+    <string name="custom_info_test_response">పరీక్ష ప్రతిస్పందన</string>
     <string name="settings_at_a_glance_desc">సరైన సమయంలో మీ హోమ్ స్క్రీన్‌లో కనిపించే ఉపయోగకరమైన సమాచారం</string>
     <string name="settings_at_a_glance_alarms_title">అలారాలు</string>
     <string name="settings_upcoming_alarm_desc">45 నిమిషాల్లోపు ఉన్నప్పుడు మీ తదుపరి అలారం</string>

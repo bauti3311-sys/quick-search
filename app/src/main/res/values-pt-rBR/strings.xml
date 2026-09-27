@@ -828,6 +828,15 @@
     <string name="settings_tools_info_examples_header">Aqui estão alguns exemplos de coisas que você pode perguntar na barra de pesquisa</string>
     <string name="settings_tools_title">Ferramentas</string>
     <string name="settings_at_a_glance_title">Visão rápida</string>
+    <string name="custom_info_title">Informações personalizadas</string>
+    <string name="custom_info_prompt">Prompt</string>
+    <string name="custom_info_set_date_time">Definir data e hora</string>
+    <string name="custom_info_desc">Respostas de IA aos seus prompts na tela inicial, nos horários que você escolher</string>
+    <string name="custom_info_repeat_never">Não se repete</string>
+    <string name="custom_info_repeat_every">Repetir a cada</string>
+    <string name="custom_info_send_notification">Enviar notificação também</string>
+    <string name="custom_info_test">Testar</string>
+    <string name="custom_info_test_response">Resposta do teste</string>
     <string name="settings_at_a_glance_desc">Informações úteis que aparecem na tela inicial nos momentos certos</string>
     <string name="settings_at_a_glance_alarms_title">Alarmes</string>
     <string name="settings_upcoming_alarm_desc">Seu próximo alarme quando faltar menos de 45 minutos</string>

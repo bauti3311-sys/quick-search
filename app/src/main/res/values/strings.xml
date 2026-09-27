@@ -827,6 +827,15 @@
     <string name="settings_tools_info_examples_header">Here are some examples of things you can ask in the search bar</string>
     <string name="settings_tools_title">Tools</string>
     <string name="settings_at_a_glance_title">At a Glance</string>
+    <string name="custom_info_title">Custom Info</string>
+    <string name="custom_info_prompt">Prompt</string>
+    <string name="custom_info_set_date_time">Set date and time</string>
+    <string name="custom_info_desc">AI answers to your prompts on Home, at the times you choose</string>
+    <string name="custom_info_repeat_never">Does not repeat</string>
+    <string name="custom_info_repeat_every">Repeat every</string>
+    <string name="custom_info_send_notification">Also send notification</string>
+    <string name="custom_info_test">Test</string>
+    <string name="custom_info_test_response">Test Response</string>
     <string name="settings_at_a_glance_desc">Useful information that appears on your home screen at relevant times</string>
     <string name="settings_at_a_glance_alarms_title">Alarms</string>
     <string name="settings_upcoming_alarm_desc">Your next alarm when it\'s within 45 minutes</string>

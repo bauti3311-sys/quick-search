@@ -828,6 +828,15 @@
 <string name="settings_tools_info_examples_header">Voici quelques exemples de requêtes que vous pouvez formuler dans la barre de recherche</string>
 <string name="settings_tools_title">Outils</string>
 <string name="settings_at_a_glance_title">En un coup d\'œil</string>
+<string name="custom_info_title">Infos personnalisées</string>
+<string name="custom_info_prompt">Consigne</string>
+<string name="custom_info_set_date_time">Définir la date et l’heure</string>
+<string name="custom_info_desc">Des réponses IA à vos consignes sur l’accueil, aux heures de votre choix</string>
+<string name="custom_info_repeat_never">Ne se répète pas</string>
+<string name="custom_info_repeat_every">Répéter tous les</string>
+<string name="custom_info_send_notification">Envoyer aussi une notification</string>
+<string name="custom_info_test">Tester</string>
+<string name="custom_info_test_response">Réponse du test</string>
 <string name="settings_at_a_glance_desc">Des informations utiles qui apparaissent sur votre écran d\'accueil au bon moment</string>
 <string name="settings_at_a_glance_alarms_title">Alarmes</string>
 <string name="settings_upcoming_alarm_desc">Votre prochaine alarme lorsqu\'elle sonne dans moins de 45 minutes</string>

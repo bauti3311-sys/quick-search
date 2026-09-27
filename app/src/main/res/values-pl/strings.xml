@@ -856,6 +856,15 @@
     <string name="settings_tools_info_examples_header">Oto kilka przykładów zapytań, które możesz wpisać w pasku wyszukiwania</string>
     <string name="settings_tools_title">Narzędzia</string>
     <string name="settings_at_a_glance_title">W skrócie</string>
+    <string name="custom_info_title">Własne informacje</string>
+    <string name="custom_info_prompt">Polecenie</string>
+    <string name="custom_info_set_date_time">Ustaw datę i godzinę</string>
+    <string name="custom_info_desc">Odpowiedzi AI na Twoje polecenia na ekranie głównym, w wybranych przez Ciebie porach</string>
+    <string name="custom_info_repeat_never">Nie powtarza się</string>
+    <string name="custom_info_repeat_every">Powtarzaj co</string>
+    <string name="custom_info_send_notification">Wyślij też powiadomienie</string>
+    <string name="custom_info_test">Testuj</string>
+    <string name="custom_info_test_response">Odpowiedź testowa</string>
     <string name="settings_at_a_glance_desc">Przydatne informacje, które pojawiają się na ekranie głównym we właściwym czasie</string>
     <string name="settings_at_a_glance_alarms_title">Alarmy</string>
     <string name="settings_upcoming_alarm_desc">Następny alarm, gdy zadzwoni w ciągu 45 minut</string>

@@ -87,6 +87,13 @@ class AppSettingsRepository(
                 destination = AppSettingsDestination.AT_A_GLANCE,
                 keywords = listOf("today", "calendar", "events", "alarm", "reminders", "home", "media", "music", "playback", "birthday", "charging", "battery", "timer", "stopwatch", "storage", "progress", "ongoing notifications", "live updates", "ride", "delivery", "download", "missed", "calls", "ongoing call", "otp", "one-time password", "verification code", "2fa", "sms code", "do not disturb", "dnd", "airplane", "flight", "hotspot", "tethering", "wifi", "wi-fi", "sign in", "captive portal", "hotel wifi", "flashlight", "torch", "weather", "temperature", "forecast", "weather alerts", "workout", "exercise", "fitness", "google health", "fitbit", "samsung health", "tomorrow"),
             )
+            addNavigation(
+                id = "app_settings_custom_info",
+                titleRes = R.string.custom_info_title,
+                descriptionRes = R.string.custom_info_desc,
+                destination = AppSettingsDestination.AT_A_GLANCE,
+                keywords = listOf("ai", "prompt", "scheduled", "daily", "briefing", "recurring", "at a glance"),
+            )
             if (isTaskerInstalled()) {
                 addNavigation(
                     id = "app_settings_tasker_integration",

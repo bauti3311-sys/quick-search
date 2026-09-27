@@ -828,6 +828,15 @@
     <string name="settings_tools_info_examples_header">Ακολουθούν μερικά παραδείγματα για το τι μπορείτε να ζητήσετε στη γραμμή αναζήτησης</string>
     <string name="settings_tools_title">Εργαλεία</string>
     <string name="settings_at_a_glance_title">Με μια ματιά</string>
+    <string name="custom_info_title">Προσαρμοσμένες πληροφορίες</string>
+    <string name="custom_info_prompt">Προτροπή</string>
+    <string name="custom_info_set_date_time">Ορισμός ημερομηνίας και ώρας</string>
+    <string name="custom_info_desc">Απαντήσεις AI στις προτροπές σας στην αρχική οθόνη, τις ώρες που επιλέγετε</string>
+    <string name="custom_info_repeat_never">Χωρίς επανάληψη</string>
+    <string name="custom_info_repeat_every">Επανάληψη κάθε</string>
+    <string name="custom_info_send_notification">Αποστολή ειδοποίησης επίσης</string>
+    <string name="custom_info_test">Δοκιμή</string>
+    <string name="custom_info_test_response">Απάντηση δοκιμής</string>
     <string name="settings_at_a_glance_desc">Χρήσιμες πληροφορίες που εμφανίζονται στην αρχική σας οθόνη τη σωστή στιγμή</string>
     <string name="settings_at_a_glance_alarms_title">Ξυπνητήρια</string>
     <string name="settings_upcoming_alarm_desc">Το επόμενο ξυπνητήρι όταν είναι εντός 45 λεπτών</string>

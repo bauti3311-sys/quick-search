@@ -432,9 +432,7 @@ class AiSearchHandler(
                                 modelId = selectedModelId,
                                 useGroundingWithGoogleSearch = webSearch.useNativeSearch,
                                 thinkingEnabled =
-                                    thinkingEnabled &&
-                                        activeProviderId != AiSearchLlmProviderId.OPENAI &&
-                                        !activeProviderId.isCustom,
+                                    thinkingEnabled && isThinkingRequestSupported(activeProviderId),
                                 useSystemInstruction =
                                     selectedModel?.supportsSystemInstructions != false,
                                 systemInstruction =
@@ -587,9 +585,7 @@ class AiSearchHandler(
                                 modelId = modelId,
                                 useGroundingWithGoogleSearch = webSearch.useNativeSearch,
                                 thinkingEnabled =
-                                    thinkingEnabled &&
-                                        providerId != AiSearchLlmProviderId.OPENAI &&
-                                        !providerId.isCustom,
+                                    thinkingEnabled && isThinkingRequestSupported(providerId),
                                 useSystemInstruction = useSystemInstruction,
                                 systemInstruction = resolvedSystemInstruction,
                                 advancedPayloadJson = advancedPayloadJson,

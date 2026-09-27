@@ -848,6 +848,15 @@
 <string name="settings_tools_info_examples_header">Вот несколько примеров того, что можно ввести в поисковой строке</string>
 <string name="settings_tools_title">Инструменты</string>
 <string name="settings_at_a_glance_title">Кратко</string>
+<string name="custom_info_title">Своя информация</string>
+<string name="custom_info_prompt">Запрос</string>
+<string name="custom_info_set_date_time">Установить дату и время</string>
+<string name="custom_info_desc">Ответы ИИ на ваши запросы на главном экране в выбранное время</string>
+<string name="custom_info_repeat_never">Не повторять</string>
+<string name="custom_info_repeat_every">Повторять каждые</string>
+<string name="custom_info_send_notification">Также отправить уведомление</string>
+<string name="custom_info_test">Проверить</string>
+<string name="custom_info_test_response">Тестовый ответ</string>
 <string name="settings_at_a_glance_desc">Полезная информация, которая появляется на главном экране в нужное время</string>
 <string name="settings_at_a_glance_alarms_title">Будильники</string>
 <string name="settings_upcoming_alarm_desc">Следующий будильник, если он сработает в течение 45 минут</string>

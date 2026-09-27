@@ -28,7 +28,7 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
  * One row of the home At a Glance card. Today's calendar events are hosted by the calendar card
  * itself; every other glanceable source (ongoing calls, one-time codes, battery, missed calls, flashlight, Wi-Fi sign-in, Do Not Disturb,
  * airplane mode, hotspot, weather, workouts, timers, progress notifications, alarm, reminders, birthdays, tomorrow's
- * events, storage, and future ones) contributes rows here.
+ * events, storage, Custom Info, and future ones) contributes rows here.
  * Rows sit inside the card's inset and follow CalendarEventRow: 7dp before a 24dp icon, then 12dp
  * to the text.
  */
@@ -60,6 +60,7 @@ internal fun rememberAtAGlanceItems(
     val airplaneMode = rememberAirplaneModeGlance(enabled)
     val hotspot = rememberHotspotGlance(enabled)
     val tomorrowEvents = rememberTomorrowEventsGlance(enabled)
+    val customInfo = rememberCustomInfoGlance(enabled)
     val groups =
         listOf(
             notifications.ongoingCalls.map { call ->
@@ -131,6 +132,15 @@ internal fun rememberAtAGlanceItems(
                 }
             },
             listOfNotNull(lowStorage?.let { AtAGlanceItem(key = "low-storage") { LowStorageRow(it) } }),
+            customInfo.items.map { item ->
+                AtAGlanceItem(key = "custom-info-${item.id}") {
+                    CustomInfoRow(
+                        item = item,
+                        onDismiss = { customInfo.dismiss(item) },
+                        onRetry = { customInfo.retry(item) },
+                    )
+                }
+            },
         )
     return (if (reversed) groups.asReversed() else groups).flatten()
 }

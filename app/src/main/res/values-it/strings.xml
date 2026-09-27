@@ -827,6 +827,15 @@
     <string name="settings_tools_info_examples_header">Ecco alcuni esempi di cose che puoi chiedere nella barra di ricerca</string>
     <string name="settings_tools_title">Strumenti</string>
     <string name="settings_at_a_glance_title">In breve</string>
+    <string name="custom_info_title">Informazioni personalizzate</string>
+    <string name="custom_info_prompt">Prompt</string>
+    <string name="custom_info_set_date_time">Imposta data e ora</string>
+    <string name="custom_info_desc">Risposte IA ai tuoi prompt nella Home, agli orari che scegli</string>
+    <string name="custom_info_repeat_never">Non si ripete</string>
+    <string name="custom_info_repeat_every">Ripeti ogni</string>
+    <string name="custom_info_send_notification">Invia anche una notifica</string>
+    <string name="custom_info_test">Prova</string>
+    <string name="custom_info_test_response">Risposta di prova</string>
     <string name="settings_at_a_glance_desc">Informazioni utili che compaiono nella schermata iniziale al momento giusto</string>
     <string name="settings_at_a_glance_alarms_title">Sveglie</string>
     <string name="settings_upcoming_alarm_desc">La prossima sveglia quando mancano meno di 45 minuti</string>
