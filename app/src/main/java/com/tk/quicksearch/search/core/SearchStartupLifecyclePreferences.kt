@@ -201,10 +201,45 @@ internal suspend fun SearchStartupLifecycleDelegate.publishCurrentStartupAppSugg
         }
     }
 
+// Pinned apps don't depend on usage metadata, so when the Pinned tab is the one on screen it can
+// show from the cached startup surface instead of waiting for the usage refresh behind recents.
+// Folders need the full app catalog to resolve, so a grid with folders waits for it.
+internal suspend fun SearchStartupLifecycleDelegate.publishStartupPinnedApps() {
+        val hasAppFolders = userPreferences.getAppFolders().isNotEmpty()
+        withContext(Dispatchers.Main.immediate) {
+            updateResultsState { state ->
+                if (
+                    hasAppFolders ||
+                        state.appsSectionState is AppsSectionVisibility.ShowingResults ||
+                        !canShowStartupPinnedTab(state)
+                ) {
+                    state
+                } else {
+                    state.copy(
+                        screenState = ScreenVisibilityState.Content,
+                        appsSectionState = AppsSectionVisibility.ShowingResults(hasPinned = true),
+                    )
+                }
+            }
+            StartupTrace.mark("QS.Home.PinnedAppsPublished")
+        }
+    }
+
+private fun SearchStartupLifecycleDelegate.canShowStartupPinnedTab(state: SearchResultsState): Boolean {
+        val config = configStateProvider()
+        return state.query.isBlank() &&
+            state.pinnedApps.isNotEmpty() &&
+            config.selectedAppSuggestionTab == AppSuggestionTabType.PINNED &&
+            AppSuggestionTabType.PINNED in config.enabledAppSuggestionTabs
+    }
+
 internal suspend fun SearchStartupLifecycleDelegate.publishStartupAppSuggestions() {
         withContext(Dispatchers.Main.immediate) {
             updateResultsState { state ->
-                if (state.query.isNotBlank() || state.recentApps.isEmpty()) {
+                if (
+                    state.query.isNotBlank() ||
+                        (state.recentApps.isEmpty() && !canShowStartupPinnedTab(state))
+                ) {
                     state
                 } else {
                     state.copy(
