@@ -835,6 +835,8 @@
     <string name="settings_at_a_glance_dnd_desc">开启请勿打扰时</string>
     <string name="settings_at_a_glance_airplane_desc">开启飞行模式时</string>
     <string name="settings_at_a_glance_hotspot_desc">开启热点时</string>
+    <string name="settings_at_a_glance_flashlight_title">手电筒</string>
+    <string name="settings_at_a_glance_flashlight_desc">开启手电筒时</string>
     <string name="settings_at_a_glance_wifi_sign_in_title">WLAN 登录</string>
     <string name="settings_at_a_glance_wifi_sign_in_desc">WLAN 网络需要登录时</string>
     <string name="settings_now_playing_desc">控制当前正在播放的内容</string>
@@ -1268,6 +1270,7 @@
     <string name="home_ongoing_call_hang_up">挂断</string>
     <string name="home_airplane_mode_on">飞行模式已开启</string>
     <string name="home_hotspot_on">热点已开启</string>
+    <string name="home_flashlight_on">手电筒已开启</string>
     <string name="home_wifi_sign_in">登录 WLAN 网络</string>
     <string name="home_sign_in">登录</string>
     <string name="home_turn_off">关闭</string>

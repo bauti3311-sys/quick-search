@@ -873,6 +873,8 @@
     <string name="settings_at_a_glance_dnd_desc">Gdy tryb Nie przeszkadzać jest włączony</string>
     <string name="settings_at_a_glance_airplane_desc">Gdy tryb samolotowy jest włączony</string>
     <string name="settings_at_a_glance_hotspot_desc">Gdy hotspot jest włączony</string>
+    <string name="settings_at_a_glance_flashlight_title">Latarka</string>
+    <string name="settings_at_a_glance_flashlight_desc">Gdy latarka jest włączona</string>
     <string name="settings_at_a_glance_wifi_sign_in_title">Logowanie do Wi-Fi</string>
     <string name="settings_at_a_glance_wifi_sign_in_desc">Gdy sieć Wi-Fi wymaga zalogowania</string>
     <string name="settings_now_playing_desc">Sterowanie odtwarzaniem tego, co jest aktualnie odtwarzane</string>
@@ -1305,6 +1307,7 @@ www.google.com/search?q={{query}}</string>
     <string name="home_ongoing_call_hang_up">Rozłącz</string>
     <string name="home_airplane_mode_on">Tryb samolotowy jest włączony</string>
     <string name="home_hotspot_on">Hotspot jest włączony</string>
+    <string name="home_flashlight_on">Latarka jest włączona</string>
     <string name="home_wifi_sign_in">Zaloguj się do sieci Wi-Fi</string>
     <string name="home_sign_in">Zaloguj</string>
     <string name="home_turn_off">Wyłącz</string>

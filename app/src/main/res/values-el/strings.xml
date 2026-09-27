@@ -845,6 +845,8 @@
     <string name="settings_at_a_glance_dnd_desc">Όταν είναι ενεργό το Μην ενοχλείτε</string>
     <string name="settings_at_a_glance_airplane_desc">Όταν είναι ενεργή η λειτουργία πτήσης</string>
     <string name="settings_at_a_glance_hotspot_desc">Όταν είναι ενεργό το hotspot σας</string>
+    <string name="settings_at_a_glance_flashlight_title">Φακός</string>
+    <string name="settings_at_a_glance_flashlight_desc">Όταν ο φακός είναι αναμμένος</string>
     <string name="settings_at_a_glance_wifi_sign_in_title">Σύνδεση σε Wi-Fi</string>
     <string name="settings_at_a_glance_wifi_sign_in_desc">Όταν ένα δίκτυο Wi-Fi απαιτεί σύνδεση</string>
     <string name="settings_now_playing_desc">Χειριστήρια αναπαραγωγής για ό,τι παίζει αυτήν τη στιγμή</string>
@@ -1278,6 +1280,7 @@
     <string name="home_ongoing_call_hang_up">Τερματισμός</string>
     <string name="home_airplane_mode_on">Η λειτουργία πτήσης είναι ενεργή</string>
     <string name="home_hotspot_on">Το hotspot είναι ενεργό</string>
+    <string name="home_flashlight_on">Ο φακός είναι αναμμένος</string>
     <string name="home_wifi_sign_in">Συνδεθείτε στο δίκτυο Wi-Fi</string>
     <string name="home_sign_in">Σύνδεση</string>
     <string name="home_turn_off">Απενεργοποίηση</string>

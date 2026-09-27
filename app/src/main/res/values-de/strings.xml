@@ -845,6 +845,8 @@
     <string name="settings_at_a_glance_dnd_desc">Wenn „Nicht stören“ aktiv ist</string>
     <string name="settings_at_a_glance_airplane_desc">Wenn der Flugmodus aktiv ist</string>
     <string name="settings_at_a_glance_hotspot_desc">Wenn dein Hotspot aktiv ist</string>
+    <string name="settings_at_a_glance_flashlight_title">Taschenlampe</string>
+    <string name="settings_at_a_glance_flashlight_desc">Wenn deine Taschenlampe an ist</string>
     <string name="settings_at_a_glance_wifi_sign_in_title">WLAN-Anmeldung</string>
     <string name="settings_at_a_glance_wifi_sign_in_desc">Wenn ein WLAN eine Anmeldung von dir verlangt</string>
     <string name="settings_now_playing_desc">Wiedergabesteuerung für das, was gerade läuft</string>
@@ -1278,6 +1280,7 @@
     <string name="home_ongoing_call_hang_up">Auflegen</string>
     <string name="home_airplane_mode_on">Flugmodus ist aktiv</string>
     <string name="home_hotspot_on">Hotspot ist aktiv</string>
+    <string name="home_flashlight_on">Taschenlampe ist an</string>
     <string name="home_wifi_sign_in">Im WLAN anmelden</string>
     <string name="home_sign_in">Anmelden</string>
     <string name="home_turn_off">Ausschalten</string>

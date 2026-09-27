@@ -844,6 +844,8 @@
     <string name="settings_at_a_glance_dnd_desc">Rahatsız etmeyin açıkken</string>
     <string name="settings_at_a_glance_airplane_desc">Uçak modu açıkken</string>
     <string name="settings_at_a_glance_hotspot_desc">Hotspot açıkken</string>
+    <string name="settings_at_a_glance_flashlight_title">El feneri</string>
+    <string name="settings_at_a_glance_flashlight_desc">El feneri açıkken</string>
     <string name="settings_at_a_glance_wifi_sign_in_title">Wi-Fi oturum açma</string>
     <string name="settings_at_a_glance_wifi_sign_in_desc">Bir Wi-Fi ağı oturum açmanızı istediğinde</string>
 <string name="settings_now_playing_desc">O anda çalan içerik için oynatma kontrolleri</string>
@@ -1277,6 +1279,7 @@
     <string name="home_ongoing_call_hang_up">Kapat</string>
     <string name="home_airplane_mode_on">Uçak modu açık</string>
     <string name="home_hotspot_on">Hotspot açık</string>
+    <string name="home_flashlight_on">El feneri açık</string>
     <string name="home_wifi_sign_in">Wi-Fi ağında oturum açın</string>
     <string name="home_sign_in">Oturum aç</string>
     <string name="home_turn_off">Kapat</string>

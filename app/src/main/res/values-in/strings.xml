@@ -849,6 +849,8 @@
     <string name="settings_at_a_glance_dnd_desc">Saat Jangan Ganggu aktif</string>
     <string name="settings_at_a_glance_airplane_desc">Saat Mode Pesawat aktif</string>
     <string name="settings_at_a_glance_hotspot_desc">Saat hotspot Anda aktif</string>
+    <string name="settings_at_a_glance_flashlight_title">Senter</string>
+    <string name="settings_at_a_glance_flashlight_desc">Saat senter Anda menyala</string>
     <string name="settings_at_a_glance_wifi_sign_in_title">Masuk Wi-Fi</string>
     <string name="settings_at_a_glance_wifi_sign_in_desc">Saat jaringan Wi-Fi meminta Anda masuk</string>
     <string name="settings_now_playing_desc">Kontrol pemutaran untuk yang sedang diputar</string>
@@ -1276,6 +1278,7 @@
     <string name="home_ongoing_call_hang_up">Tutup</string>
     <string name="home_airplane_mode_on">Mode Pesawat aktif</string>
     <string name="home_hotspot_on">Hotspot aktif</string>
+    <string name="home_flashlight_on">Senter menyala</string>
     <string name="home_wifi_sign_in">Masuk ke jaringan Wi-Fi</string>
     <string name="home_sign_in">Masuk</string>
     <string name="home_turn_off">Nonaktifkan</string>

@@ -844,6 +844,8 @@
     <string name="settings_at_a_glance_dnd_desc">Quando Non disturbare è attivo</string>
     <string name="settings_at_a_glance_airplane_desc">Quando la modalità aereo è attiva</string>
     <string name="settings_at_a_glance_hotspot_desc">Quando l\'hotspot è attivo</string>
+    <string name="settings_at_a_glance_flashlight_title">Torcia</string>
+    <string name="settings_at_a_glance_flashlight_desc">Quando la torcia è accesa</string>
     <string name="settings_at_a_glance_wifi_sign_in_title">Accesso Wi-Fi</string>
     <string name="settings_at_a_glance_wifi_sign_in_desc">Quando una rete Wi-Fi richiede l\'accesso</string>
     <string name="settings_now_playing_desc">Controlli di riproduzione per ciò che è attualmente in riproduzione</string>
@@ -1277,6 +1279,7 @@
     <string name="home_ongoing_call_hang_up">Riaggancia</string>
     <string name="home_airplane_mode_on">La modalità aereo è attiva</string>
     <string name="home_hotspot_on">L\'hotspot è attivo</string>
+    <string name="home_flashlight_on">La torcia è accesa</string>
     <string name="home_wifi_sign_in">Accedi alla rete Wi-Fi</string>
     <string name="home_sign_in">Accedi</string>
     <string name="home_turn_off">Disattiva</string>
