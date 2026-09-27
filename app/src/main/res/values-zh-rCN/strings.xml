@@ -818,6 +818,12 @@
     <string name="settings_tools_info_examples_header">以下是您可以在搜索栏中尝试输入的一些示例</string>
     <string name="settings_tools_title">实用工具</string>
     <string name="settings_at_a_glance_title">一览</string>
+    <string name="custom_info_title">自定义信息</string>
+    <string name="custom_info_prompt">提示词</string>
+    <string name="custom_info_set_date_time">设置日期和时间</string>
+    <string name="custom_info_send_notification">同时发送通知</string>
+    <string name="custom_info_test">测试</string>
+    <string name="custom_info_test_response">测试回复</string>
     <string name="settings_at_a_glance_desc">在合适的时间出现在主屏幕上的实用信息</string>
     <string name="settings_at_a_glance_alarms_title">闹钟</string>
     <string name="settings_upcoming_alarm_desc">45 分钟内响铃的下一个闹钟</string>

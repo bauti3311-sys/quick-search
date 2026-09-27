@@ -1,6 +1,8 @@
 package com.tk.quicksearch.settings.settingsDetailScreen
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -12,14 +14,21 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Delete
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -41,11 +50,21 @@ import com.tk.quicksearch.search.data.preferences.GlancePreferences
 import com.tk.quicksearch.search.data.preferences.MediaPreferences
 import com.tk.quicksearch.search.data.preferences.ReminderPreferences
 import com.tk.quicksearch.search.data.preferences.UpcomingAlarmPreferences
+import com.tk.quicksearch.search.data.CustomInfoItem
+import com.tk.quicksearch.search.data.CustomInfoRepository
+import com.tk.quicksearch.search.data.CustomInfoScheduler
+import com.tk.quicksearch.search.data.userAppPreferences.UserAppPreferences
+import com.tk.quicksearch.settings.customTools.CustomInfoActivity
 import com.tk.quicksearch.settings.shared.SettingsCard
 import com.tk.quicksearch.settings.shared.SettingsToggleRow
 import com.tk.quicksearch.shared.permissions.PermissionHelper
 import com.tk.quicksearch.shared.ui.components.AppAlertDialog
 import com.tk.quicksearch.shared.ui.theme.DesignTokens
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.text.DateFormat
+import java.util.Date
 
 /** One At a Glance toggle; [searchText] is what the page's search bar matches against. */
 private class GlanceToggle(
@@ -136,6 +155,13 @@ fun AtAGlanceSettingsSection(
     val mediaPreferences = remember(context) { MediaPreferences(appContext) }
     val batteryPreferences = remember(context) { BatteryPreferences(appContext) }
     val glancePreferences = remember(context) { GlancePreferences(appContext) }
+    val customInfoRepository = remember(context) { CustomInfoRepository(appContext) }
+    val customInfoChange by CustomInfoRepository.changes.collectAsState()
+    var customInfoItems by remember { mutableStateOf(emptyList<CustomInfoItem>()) }
+    var itemToDelete by remember { mutableStateOf<CustomInfoItem?>(null) }
+    LaunchedEffect(customInfoRepository, customInfoChange) {
+        customInfoItems = withContext(Dispatchers.IO) { customInfoRepository.all() }
+    }
     var showTodayEvents by remember { mutableStateOf(calendarPreferences.getShowTodayEvents()) }
     var showUpcomingAlarm by remember { mutableStateOf(alarmPreferences.isShowUpcomingAlarmEnabled()) }
     var hiddenAlarmPackages by remember { mutableStateOf(alarmPreferences.getHiddenPackages()) }
@@ -242,6 +268,7 @@ fun AtAGlanceSettingsSection(
         SettingsToggleRow(
             title = title,
             subtitle = if (hasNotificationAccess) description else needsPermissionText,
+            subtitleTextStyle = MaterialTheme.typography.bodyMedium,
             checked = checked && hasNotificationAccess,
             onCheckedChange = onCheckedChange,
             enabled = hasNotificationAccess,
@@ -262,6 +289,7 @@ fun AtAGlanceSettingsSection(
         SettingsToggleRow(
             title = title,
             subtitle = if (gate.hasAccess) description else needsPermissionText,
+            subtitleTextStyle = MaterialTheme.typography.bodyMedium,
             checked = checked && gate.hasAccess,
             onCheckedChange = onCheckedChange,
             enabled = gate.hasAccess,
@@ -281,6 +309,7 @@ fun AtAGlanceSettingsSection(
         SettingsToggleRow(
             title = title,
             subtitle = description,
+            subtitleTextStyle = MaterialTheme.typography.bodyMedium,
             checked = checked,
             onCheckedChange = onCheckedChange,
             isFirstItem = isFirst,
@@ -291,8 +320,35 @@ fun AtAGlanceSettingsSection(
     val alarmsTitle = stringResource(R.string.settings_at_a_glance_alarms_title)
     val alarmsDescription = stringResource(R.string.settings_upcoming_alarm_desc)
     val hiddenAlarmAppsLabel = stringResource(R.string.settings_hidden_alarm_apps_title)
+    val customInfoToggles = customInfoItems.asReversed().map { item ->
+        val scheduledDateTime = item.dueMillis?.let { due ->
+            DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(due))
+        }
+        GlanceToggle("${item.title} ${scheduledDateTime.orEmpty()}") { isFirst, isLast ->
+            SettingsToggleRow(
+                title = item.title,
+                subtitle = scheduledDateTime,
+                subtitleTextStyle = MaterialTheme.typography.bodyMedium,
+                checked = item.showOnHome,
+                onCheckedChange = { visible ->
+                    customInfoRepository.update(item.id) { it.copy(showOnHome = visible) }
+                },
+                trailingAction = {
+                    IconButton(onClick = { itemToDelete = item }) {
+                        Icon(
+                            imageVector = Icons.Rounded.Delete,
+                            contentDescription = stringResource(R.string.dialog_delete),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                },
+                isFirstItem = isFirst,
+                isLastItem = isLast,
+            )
+        }
+    }
     val toggles =
-        listOf(
+        customInfoToggles + listOf(
             notificationToggle(
                 title = stringResource(R.string.section_media),
                 description = stringResource(R.string.settings_now_playing_desc),
@@ -370,6 +426,7 @@ fun AtAGlanceSettingsSection(
                 SettingsToggleRow(
                     title = alarmsTitle,
                     subtitle = if (hiddenAlarmPackages.isEmpty()) alarmsDescription else null,
+                    subtitleTextStyle = MaterialTheme.typography.bodyMedium,
                     subtitleContent =
                         if (hiddenAlarmPackages.isEmpty()) {
                             null
@@ -377,7 +434,7 @@ fun AtAGlanceSettingsSection(
                             {
                                 Text(
                                     text = hiddenAlarmAppsLabel,
-                                    style = MaterialTheme.typography.bodySmall,
+                                    style = MaterialTheme.typography.bodyMedium,
                                     color = MaterialTheme.colorScheme.primary,
                                     modifier = Modifier.clickable { showHiddenAlarmAppsDialog = true },
                                 )
@@ -508,6 +565,71 @@ fun AtAGlanceSettingsSection(
             onDismiss = { showHiddenAlarmAppsDialog = false },
         )
     }
+    itemToDelete?.let { item ->
+        AppAlertDialog(
+            onDismissRequest = { itemToDelete = null },
+            title = { Text(stringResource(R.string.dialog_delete)) },
+            text = { Text(item.title) },
+            confirmButton = {
+                TextButton(onClick = {
+                    CustomInfoScheduler.cancel(context, item.id)
+                    customInfoRepository.delete(item.id)
+                    itemToDelete = null
+                }) {
+                    Text(stringResource(R.string.dialog_delete))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { itemToDelete = null }) {
+                    Text(stringResource(R.string.dialog_cancel))
+                }
+            },
+        )
+    }
+}
+
+/** Uses the same compact search and add action layout as Notes settings. */
+@Composable
+fun AtAGlanceSettingsBottomBar(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    onClear: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val context = LocalContext.current
+    val preferences = remember(context) { UserAppPreferences(context.applicationContext) }
+    val scope = rememberCoroutineScope()
+    val lifecycleOwner = LocalLifecycleOwner.current
+    var hasAiKey by remember { mutableStateOf(false) }
+
+    LaunchedEffect(preferences) {
+        hasAiKey = withContext(Dispatchers.IO) { preferences.hasAnyLlmApiKey() }
+    }
+    DisposableEffect(lifecycleOwner, preferences) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                scope.launch {
+                    hasAiKey = withContext(Dispatchers.IO) { preferences.hasAnyLlmApiKey() }
+                }
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+
+    CalendarEventsBottomBar(
+        query = query,
+        onQueryChange = onQueryChange,
+        onClear = onClear,
+        onNewEvent = {
+            context.startActivity(Intent(context, CustomInfoActivity::class.java))
+            @Suppress("DEPRECATION")
+            (context as? Activity)?.overridePendingTransition(R.anim.custom_info_slide_in_right, R.anim.custom_info_slide_out_left)
+        },
+        newItemLabelResId = R.string.custom_info_title,
+        showNewItem = hasAiKey,
+        modifier = modifier,
+    )
 }
 
 /** Lists the apps whose alarms were hidden from At a Glance, each with an Unhide action. */

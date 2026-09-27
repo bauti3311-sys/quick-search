@@ -47,6 +47,7 @@ internal fun rememberAtAGlanceItems(
     enabled: Boolean,
     reversed: Boolean,
     onShowContactMethods: (ContactInfo) -> Unit,
+    customInfo: CustomInfoGlance,
 ): List<AtAGlanceItem> {
     val battery = rememberBatteryGlances(enabled)
     val notifications = rememberNotificationGlances(enabled)
@@ -131,6 +132,9 @@ internal fun rememberAtAGlanceItems(
                 }
             },
             listOfNotNull(lowStorage?.let { AtAGlanceItem(key = "low-storage") { LowStorageRow(it) } }),
+            customInfo.items.map { item ->
+                AtAGlanceItem(key = "custom-info-${item.id}") { CustomInfoRow(item) }
+            },
         )
     return (if (reversed) groups.asReversed() else groups).flatten()
 }

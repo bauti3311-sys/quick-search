@@ -122,11 +122,15 @@ internal fun ReminderFormDialog(
     titleDateTimeSuggestion: ((String) -> FormDateTimeSuggestion?)? = null,
     titleVisualTransformation: VisualTransformation = VisualTransformation.None,
     titleMaxLines: Int = 1,
+    showTitleInput: Boolean = true,
+    requireTime: Boolean = false,
+    requireExplicitDateOrTime: Boolean = false,
 ) {
     val context = LocalContext.current
     var reminderTitle by remember { mutableStateOf(initialTitle) }
     var showDatePicker by remember { mutableStateOf(false) }
     var showTimePicker by remember { mutableStateOf(false) }
+    var dateOrTimeChosen by remember { mutableStateOf(initialDateTimeMillis != null) }
 
     val initialUtcMillis = remember(initialDateTimeMillis) {
         initialDateTimeMillis?.let { localMidnightToUtcMidnight(it) }
@@ -155,12 +159,13 @@ internal fun ReminderFormDialog(
     // hasTime drives allDay: if user added a time, allDay = false
     var hasTime by remember { mutableStateOf(!initialAllDay) }
 
-    val canSave = reminderTitle.isNotBlank() && selectedDateMillis != null
+    val canSave = (!showTitleInput || reminderTitle.isNotBlank()) && selectedDateMillis != null &&
+        (!requireTime || hasTime) && (!requireExplicitDateOrTime || dateOrTimeChosen)
 
     val titleFocusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current
     LaunchedEffect(autoFocusTitle) {
-        if (autoFocusTitle) {
+        if (autoFocusTitle && showTitleInput) {
             titleFocusRequester.requestFocus()
             keyboardController?.show()
         }
@@ -171,7 +176,7 @@ internal fun ReminderFormDialog(
             DatePickerDialog(
                 onDismissRequest = { showDatePicker = false },
                 confirmButton = {
-                    TextButton(onClick = { showDatePicker = false }) {
+                    TextButton(onClick = { dateOrTimeChosen = true; showDatePicker = false }) {
                         Text(stringResource(R.string.dialog_save))
                     }
                 },
@@ -191,6 +196,7 @@ internal fun ReminderFormDialog(
                 confirmButton = {
                     TextButton(onClick = {
                         hasTime = true
+                        dateOrTimeChosen = true
                         showTimePicker = false
                     }) {
                         Text(stringResource(R.string.dialog_save))
@@ -233,7 +239,7 @@ internal fun ReminderFormDialog(
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
                         }
-                        OutlinedTextField(
+                        if (showTitleInput) OutlinedTextField(
                             value = reminderTitle,
                             onValueChange = { value ->
                                 reminderTitle = value
@@ -296,7 +302,7 @@ internal fun ReminderFormDialog(
                                     text = formatPickedTime(timePickerState.hour, timePickerState.minute),
                                     modifier = Modifier.weight(1f),
                                 )
-                                IconButton(
+                                if (!requireTime) IconButton(
                                     onClick = { hasTime = false },
                                     modifier = Modifier.size(24.dp),
                                 ) {

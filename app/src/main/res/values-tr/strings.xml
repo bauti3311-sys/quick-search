@@ -827,6 +827,12 @@
 <string name="settings_tools_info_examples_header">Arama çubuğunda sorabileceğin şeylere dair some örnekler</string>
 <string name="settings_tools_title">Araçlar</string>
 <string name="settings_at_a_glance_title">Bir Bakışta</string>
+<string name="custom_info_title">Özel Bilgi</string>
+<string name="custom_info_prompt">İstem</string>
+<string name="custom_info_set_date_time">Tarih ve saat ayarla</string>
+<string name="custom_info_send_notification">Bildirim de gönder</string>
+<string name="custom_info_test">Test et</string>
+<string name="custom_info_test_response">Test yanıtı</string>
 <string name="settings_at_a_glance_desc">Ana ekranınızda doğru zamanda görünen faydalı bilgiler</string>
 <string name="settings_at_a_glance_alarms_title">Alarmlar</string>
 <string name="settings_upcoming_alarm_desc">45 dakika içindeyse sonraki alarmınız</string>

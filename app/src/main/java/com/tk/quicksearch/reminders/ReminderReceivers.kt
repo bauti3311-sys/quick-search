@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.tk.quicksearch.search.data.ReminderRepository
+import com.tk.quicksearch.search.data.CustomInfoScheduler
 
 /** Fires when a reminder is due and posts its notification. */
 class ReminderAlarmReceiver : BroadcastReceiver() {
@@ -41,7 +42,10 @@ class ReminderRescheduleReceiver : BroadcastReceiver() {
             Intent.ACTION_TIME_CHANGED,
             Intent.ACTION_TIMEZONE_CHANGED,
             AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED,
-            -> ReminderScheduler.rescheduleAll(context)
+            -> {
+                ReminderScheduler.rescheduleAll(context)
+                CustomInfoScheduler.rescheduleAll(context)
+            }
         }
     }
 }

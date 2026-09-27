@@ -389,18 +389,17 @@ fun ContentLayout(
         }
     }
 
-    val standaloneTodayEventIds =
-        sectionContextForRecentHistoryExpansion.todayCalendarEventsList
-            .map { it.eventId }
-            .toSet()
+    val standaloneTodayEventIds = sectionContextForRecentHistoryExpansion.todayCalendarEventsList.map { it.eventId }.toSet()
     val hasStandaloneTodayCalendarSection = standaloneTodayEventIds.isNotEmpty()
     // Low battery, alarm, reminders and future At a Glance sources share the today's events card on
     // home; media controls get a card of their own.
+    val customInfo = rememberCustomInfoGlance(enabled = !hasQuery)
     val atAGlanceItems =
         rememberAtAGlanceItems(
             enabled = !hasQuery,
             reversed = isReversed,
             onShowContactMethods = effectiveContactsParams.onShowContactMethods,
+            customInfo = customInfo,
         )
     val atAGlanceContent: (@Composable (dividerBefore: Boolean, dividerAfter: Boolean) -> Unit)? =
         if (atAGlanceItems.isNotEmpty()) {

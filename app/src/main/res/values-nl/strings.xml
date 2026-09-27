@@ -861,6 +861,12 @@
     <string name="settings_tools_info_examples_header">Hier zijn enkele voorbeelden van wat je in de zoekbalk kunt vragen</string>
     <string name="settings_tools_title">Hulpmiddelen</string>
     <string name="settings_at_a_glance_title">In één oogopslag</string>
+    <string name="custom_info_title">Aangepaste info</string>
+    <string name="custom_info_prompt">Prompt</string>
+    <string name="custom_info_set_date_time">Datum en tijd instellen</string>
+    <string name="custom_info_send_notification">Ook een melding sturen</string>
+    <string name="custom_info_test">Testen</string>
+    <string name="custom_info_test_response">Testantwoord</string>
     <string name="settings_at_a_glance_desc">Nuttige informatie die op het juiste moment op je startscherm verschijnt</string>
     <string name="settings_at_a_glance_alarms_title">Wekkers</string>
     <string name="settings_upcoming_alarm_desc">Je volgende wekker als die binnen 45 minuten afgaat</string>

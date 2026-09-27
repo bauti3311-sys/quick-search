@@ -836,6 +836,12 @@
     <string name="settings_tools_info_examples_header">検索バーに入力できる質問の例です</string>
     <string name="settings_tools_title">ツール</string>
     <string name="settings_at_a_glance_title">ひと目で確認</string>
+    <string name="custom_info_title">カスタム情報</string>
+    <string name="custom_info_prompt">プロンプト</string>
+    <string name="custom_info_set_date_time">日時を設定</string>
+    <string name="custom_info_send_notification">通知も送信</string>
+    <string name="custom_info_test">テスト</string>
+    <string name="custom_info_test_response">テスト結果</string>
     <string name="settings_at_a_glance_desc">適切なタイミングでホーム画面に表示される便利な情報</string>
     <string name="settings_at_a_glance_alarms_title">アラーム</string>
     <string name="settings_upcoming_alarm_desc">45分以内に鳴る次のアラーム</string>
