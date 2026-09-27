@@ -30,6 +30,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -81,6 +82,7 @@ internal fun GlanceStatusRow(
     title: String,
     onClick: () -> Unit,
     subtitle: String? = null,
+    subtitleStyle: TextStyle = MaterialTheme.typography.bodySmall,
     pillText: String? = null,
     pillColors: GlancePillColors = glanceNeutralPillColors(),
     pillWidthText: String? = null,
@@ -118,7 +120,7 @@ internal fun GlanceStatusRow(
                 if (subtitle != null) {
                     Text(
                         text = subtitle,
-                        style = MaterialTheme.typography.bodySmall,
+                        style = subtitleStyle,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,

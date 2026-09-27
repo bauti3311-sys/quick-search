@@ -31,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.tk.quicksearch.R
 import com.tk.quicksearch.search.apps.appLock.AppLockGate
 import com.tk.quicksearch.search.apps.notificationDots.NotificationDotsPermission
@@ -283,6 +284,7 @@ internal fun WorkoutRow(workout: WorkoutNotification) {
         icon = { NotificationAppIcon(workout.packageName) },
         title = workout.title ?: appLabel,
         subtitle = workout.stats ?: appLabel.takeIf { workout.title != null },
+        subtitleStyle = MaterialTheme.typography.bodyMedium.copy(fontSize = 20.sp, lineHeight = 26.sp),
         pillText = workout.duration,
         onClick = { openNotificationTarget(context, workout.packageName, workout.contentIntent) },
     )
