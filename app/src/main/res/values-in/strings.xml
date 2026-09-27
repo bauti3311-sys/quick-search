@@ -442,6 +442,13 @@
     <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">Panggilan video WhatsApp</string>
     <string name="contact_method_whatsapp_voice_call_label">Panggilan suara WhatsApp</string>
+    <string name="contact_button_sms">SMS</string>
+    <string name="contact_button_whatsapp_message">Pesan WhatsApp</string>
+    <string name="contact_button_whatsapp_business_message">Pesan WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_voice_call">Panggilan suara WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_video_call">Panggilan video WhatsApp Business</string>
+    <string name="contact_button_telegram_message">Pesan Telegram</string>
+    <string name="contact_button_signal_message">Pesan Signal</string>
     <string name="contacts_action_button_chat">Chat</string>
     <string name="contacts_action_button_contacts">Kontak</string>
     <string name="contacts_action_button_meet">Meet</string>
@@ -481,8 +488,10 @@
     <string name="settings_call_permission_title">Telepon</string>
     <string name="permissions_background_usage_title">Izinkan Penggunaan di Latar Belakang</string>
     <string name="permissions_background_usage_desc">Izinkan penggunaan di latar belakang untuk peluncuran aplikasi yang lebih cepat.</string>
-    <string name="settings_calling_card_title">Aplikasi Panggilan Default</string>
     <string name="settings_calls_texts_title">Panggilan &amp; SMS</string>
+    <string name="settings_contact_first_button_title">Tombol Pertama</string>
+    <string name="settings_contact_second_button_title">Tombol Kedua</string>
+    <string name="settings_contact_buttons_fallback_note">Jika kontak tidak mendukung tindakan yang dipilih, tombol pertama beralih ke Telepon dan tombol kedua ke SMS.</string>
     <string name="settings_direct_dial_desc">Lakukan panggilan langsung tanpa membuka dialer.</string>
     <string name="settings_direct_dial_title">Panggilan Langsung</string>
     <string name="settings_number_search_title">Pencarian Nomor</string>

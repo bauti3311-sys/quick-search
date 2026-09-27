@@ -459,6 +459,13 @@
     <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">WhatsApp-videogesprek</string>
     <string name="contact_method_whatsapp_voice_call_label">WhatsApp-spraakoproep</string>
+    <string name="contact_button_sms">Sms</string>
+    <string name="contact_button_whatsapp_message">WhatsApp-bericht</string>
+    <string name="contact_button_whatsapp_business_message">WhatsApp Business-bericht</string>
+    <string name="contact_button_whatsapp_business_voice_call">WhatsApp Business-spraakoproep</string>
+    <string name="contact_button_whatsapp_business_video_call">WhatsApp Business-videogesprek</string>
+    <string name="contact_button_telegram_message">Telegram-bericht</string>
+    <string name="contact_button_signal_message">Signal-bericht</string>
     <string name="contacts_action_button_chat">Chatten</string>
     <string name="contacts_action_button_contacts">Contacten</string>
     <string name="contacts_action_button_meet">Meet</string>
@@ -498,8 +505,10 @@
     <string name="settings_call_permission_title">Telefoon</string>
     <string name="permissions_background_usage_title">Achtergrondgebruik toestaan</string>
     <string name="permissions_background_usage_desc">Achtergrondgebruik toestaan voor sneller opstarten van de app.</string>
-    <string name="settings_calling_card_title">Standaard bel-app</string>
     <string name="settings_calls_texts_title">Oproepen &amp; berichten</string>
+    <string name="settings_contact_first_button_title">Eerste knop</string>
+    <string name="settings_contact_second_button_title">Tweede knop</string>
+    <string name="settings_contact_buttons_fallback_note">Als een contact de gekozen actie niet ondersteunt, valt de eerste knop terug op Bellen en de tweede op sms.</string>
     <string name="settings_direct_dial_desc">Direct bellen zonder de kiezer te openen.</string>
     <string name="settings_direct_dial_title">Direct bellen</string>
     <string name="settings_number_search_title">Zoeken op nummer</string>

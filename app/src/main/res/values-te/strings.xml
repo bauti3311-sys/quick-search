@@ -441,6 +441,13 @@
     <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">WhatsApp వీడియో కాల్</string>
     <string name="contact_method_whatsapp_voice_call_label">WhatsApp వాయిస్ కాల్</string>
+    <string name="contact_button_sms">SMS</string>
+    <string name="contact_button_whatsapp_message">WhatsApp సందేశం</string>
+    <string name="contact_button_whatsapp_business_message">WhatsApp Business సందేశం</string>
+    <string name="contact_button_whatsapp_business_voice_call">WhatsApp Business వాయిస్ కాల్</string>
+    <string name="contact_button_whatsapp_business_video_call">WhatsApp Business వీడియో కాల్</string>
+    <string name="contact_button_telegram_message">Telegram సందేశం</string>
+    <string name="contact_button_signal_message">Signal సందేశం</string>
     <string name="contacts_action_button_chat">చాట్</string>
     <string name="contacts_action_button_contacts">పరిచయాలు</string>
     <string name="contacts_action_button_meet">Meet</string>
@@ -480,8 +487,10 @@
     <string name="settings_call_permission_title">ఫోన్</string>
     <string name="permissions_background_usage_title">బ్యాక్‌గ్రౌండ్ వినియోగాన్ని అనుమతించు</string>
     <string name="permissions_background_usage_desc">వేగవంతమైన యాప్ ప్రారంభం కోసం బ్యాక్‌గ్రౌండ్ వినియోగాన్ని అనుమతించండి.</string>
-    <string name="settings_calling_card_title">డిఫాల్ట్ కాలింగ్ యాప్</string>
     <string name="settings_calls_texts_title">కాల్స్ &amp; టెక్స్ట్‌లు</string>
+    <string name="settings_contact_first_button_title">మొదటి బటన్</string>
+    <string name="settings_contact_second_button_title">రెండవ బటన్</string>
+    <string name="settings_contact_buttons_fallback_note">ఎంచుకున్న చర్య ఒక పరిచయానికి అందుబాటులో లేకపోతే, మొదటి బటన్ కాల్‌కు మరియు రెండవ బటన్ SMSకు మారుతుంది.</string>
     <string name="settings_direct_dial_desc">డయలర్ తెరవకుండానే నేరుగా కాల్స్ చేయండి. </string>
     <string name="settings_direct_dial_title">డైరెక్ట్ డయల్</string>
     <string name="settings_messaging_app_not_installed">%s మీ పరికరంలో ఇన్‌స్టాల్ చేయబడలేదు</string>

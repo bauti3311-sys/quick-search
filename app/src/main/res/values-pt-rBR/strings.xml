@@ -441,6 +441,13 @@
     <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">Videochamada do WhatsApp</string>
     <string name="contact_method_whatsapp_voice_call_label">Chamada de voz do WhatsApp</string>
+    <string name="contact_button_sms">SMS</string>
+    <string name="contact_button_whatsapp_message">Mensagem do WhatsApp</string>
+    <string name="contact_button_whatsapp_business_message">Mensagem do WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_voice_call">Chamada de voz do WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_video_call">Videochamada do WhatsApp Business</string>
+    <string name="contact_button_telegram_message">Mensagem do Telegram</string>
+    <string name="contact_button_signal_message">Mensagem do Signal</string>
     <string name="contacts_action_button_chat">Conversar</string>
     <string name="contacts_action_button_contacts">Contatos</string>
     <string name="contacts_action_button_meet">Meet</string>
@@ -480,8 +487,10 @@
     <string name="settings_call_permission_title">Telefone</string>
     <string name="permissions_background_usage_title">Permitir uso em segundo plano</string>
     <string name="permissions_background_usage_desc">Permita o uso em segundo plano para iniciar os apps mais rapidamente.</string>
-    <string name="settings_calling_card_title">App de chamadas padrão</string>
     <string name="settings_calls_texts_title">Chamadas e Mensagens</string>
+    <string name="settings_contact_first_button_title">Primeiro botão</string>
+    <string name="settings_contact_second_button_title">Segundo botão</string>
+    <string name="settings_contact_buttons_fallback_note">Se um contato não puder usar a ação selecionada, o primeiro botão volta para Ligar e o segundo para SMS.</string>
     <string name="settings_direct_dial_desc">Faça chamadas diretamente sem abrir o discador.</string>
     <string name="settings_direct_dial_title">Discagem direta</string>
     <string name="settings_messaging_app_not_installed">O %s não está instalado no seu dispositivo</string>

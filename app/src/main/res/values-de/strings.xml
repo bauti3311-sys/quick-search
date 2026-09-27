@@ -441,6 +441,13 @@
     <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">WhatsApp-Videoanruf</string>
     <string name="contact_method_whatsapp_voice_call_label">WhatsApp-Sprachanruf</string>
+    <string name="contact_button_sms">SMS</string>
+    <string name="contact_button_whatsapp_message">WhatsApp-Nachricht</string>
+    <string name="contact_button_whatsapp_business_message">WhatsApp Business-Nachricht</string>
+    <string name="contact_button_whatsapp_business_voice_call">WhatsApp Business-Sprachanruf</string>
+    <string name="contact_button_whatsapp_business_video_call">WhatsApp Business-Videoanruf</string>
+    <string name="contact_button_telegram_message">Telegram-Nachricht</string>
+    <string name="contact_button_signal_message">Signal-Nachricht</string>
     <string name="contacts_action_button_chat">Chat</string>
     <string name="contacts_action_button_contacts">Kontakte</string>
     <string name="contacts_action_button_meet">Meet</string>
@@ -480,8 +487,10 @@
     <string name="settings_call_permission_title">Telefon</string>
     <string name="permissions_background_usage_title">Hintergrundnutzung zulassen</string>
     <string name="permissions_background_usage_desc">Hintergrundnutzung für einen schnelleren App-Start zulassen.</string>
-    <string name="settings_calling_card_title">Standard-Anruf-App</string>
     <string name="settings_calls_texts_title">Anrufe &amp; Nachrichten</string>
+    <string name="settings_contact_first_button_title">Erste Schaltfläche</string>
+    <string name="settings_contact_second_button_title">Zweite Schaltfläche</string>
+    <string name="settings_contact_buttons_fallback_note">Wenn ein Kontakt die gewählte Aktion nicht unterstützt, nutzt die erste Schaltfläche stattdessen Anrufen und die zweite SMS.</string>
     <string name="settings_direct_dial_desc">Direkt anrufen, ohne die Telefon-App zu öffnen. </string>
     <string name="settings_direct_dial_title">Direktwahl</string>
     <string name="settings_messaging_app_not_installed">%s ist nicht auf deinem Gerät installiert</string>

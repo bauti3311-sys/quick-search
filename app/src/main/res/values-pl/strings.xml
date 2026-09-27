@@ -448,6 +448,13 @@
     <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">Rozmowa wideo WhatsApp</string>
     <string name="contact_method_whatsapp_voice_call_label">Rozmowa głosowa WhatsApp</string>
+    <string name="contact_button_sms">SMS</string>
+    <string name="contact_button_whatsapp_message">Wiadomość WhatsApp</string>
+    <string name="contact_button_whatsapp_business_message">Wiadomość WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_voice_call">Rozmowa głosowa WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_video_call">Rozmowa wideo WhatsApp Business</string>
+    <string name="contact_button_telegram_message">Wiadomość Telegram</string>
+    <string name="contact_button_signal_message">Wiadomość Signal</string>
     <string name="contacts_action_button_chat">Czat</string>
     <string name="contacts_action_button_contacts">Kontakty</string>
     <string name="contacts_action_button_meet">Meet</string>
@@ -487,8 +494,10 @@
     <string name="settings_call_permission_title">Telefon</string>
     <string name="permissions_background_usage_title">Zezwól na działanie w tle</string>
     <string name="permissions_background_usage_desc">Zezwól na działanie w tle, aby przyspieszyć uruchamianie aplikacji.</string>
-    <string name="settings_calling_card_title">Domyślna aplikacja do połączeń</string>
     <string name="settings_calls_texts_title">Połączenia i wiadomości</string>
+    <string name="settings_contact_first_button_title">Pierwszy przycisk</string>
+    <string name="settings_contact_second_button_title">Drugi przycisk</string>
+    <string name="settings_contact_buttons_fallback_note">Jeśli kontakt nie obsługuje wybranej akcji, pierwszy przycisk wróci do połączenia, a drugi do SMS-a.</string>
     <string name="settings_direct_dial_desc">Nawiązuj połączenia bezpośrednio, bez otwierania dialera.</string>
     <string name="settings_direct_dial_title">Bezpośrednie wybieranie</string>
     <string name="settings_number_search_title">Wyszukiwanie po numerze</string>

@@ -442,6 +442,13 @@
     <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">مكالمة فيديو عبر WhatsApp</string>
     <string name="contact_method_whatsapp_voice_call_label">مكالمة صوتية عبر WhatsApp</string>
+    <string name="contact_button_sms">رسالة SMS</string>
+    <string name="contact_button_whatsapp_message">رسالة عبر WhatsApp</string>
+    <string name="contact_button_whatsapp_business_message">رسالة عبر WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_voice_call">مكالمة صوتية عبر WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_video_call">مكالمة فيديو عبر WhatsApp Business</string>
+    <string name="contact_button_telegram_message">رسالة عبر Telegram</string>
+    <string name="contact_button_signal_message">رسالة عبر Signal</string>
     <string name="contacts_action_button_chat">دردشة</string>
     <string name="contacts_action_button_contacts">جهات الاتصال</string>
     <string name="contacts_action_button_meet">مكالمة Meet</string>
@@ -481,8 +488,10 @@
     <string name="settings_call_permission_title">الهاتف</string>
     <string name="permissions_background_usage_title">السماح بالاستخدام في الخلفية</string>
     <string name="permissions_background_usage_desc">السماح بالاستخدام في الخلفية لبدء تشغيل التطبيقات بشكل أسرع.</string>
-    <string name="settings_calling_card_title">تطبيق الاتصال الافتراضي</string>
     <string name="settings_calls_texts_title">المكالمات والرسائل النصية</string>
+    <string name="settings_contact_first_button_title">الزر الأول</string>
+    <string name="settings_contact_second_button_title">الزر الثاني</string>
+    <string name="settings_contact_buttons_fallback_note">إذا تعذّر استخدام الإجراء المحدد مع جهة اتصال، يعود الزر الأول إلى الاتصال والزر الثاني إلى رسالة SMS.</string>
     <string name="settings_direct_dial_desc">إجراء المكالمات مباشرة دون فتح لوحة الاتصال.</string>
     <string name="settings_direct_dial_title">الاتصال المباشر</string>
     <string name="settings_messaging_app_not_installed">تطبيق %s غير مثبت على جهازك</string>

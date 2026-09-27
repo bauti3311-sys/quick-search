@@ -483,8 +483,8 @@ class SearchViewModel(
     }
     private fun initializeServices() {
         handlers.initializeServices(
-            getCallingApp = { _permissionState.value.callingApp },
-            getMessagingApp = { handlers.messagingHandler.messagingApp },
+            getPrimaryContactButton = { handlers.messagingHandler.primaryContactButton },
+            getSecondaryContactButton = { handlers.messagingHandler.secondaryContactButton },
             getDirectDialEnabled = { directDialEnabled },
             getHasSeenDirectDialChoice = { hasSeenDirectDialChoice },
             getCurrentState = { uiState.value },

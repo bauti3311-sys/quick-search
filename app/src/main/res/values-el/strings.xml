@@ -441,6 +441,13 @@
     <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">Βιντεοκλήση WhatsApp</string>
     <string name="contact_method_whatsapp_voice_call_label">Φωνητική κλήση WhatsApp</string>
+    <string name="contact_button_sms">SMS</string>
+    <string name="contact_button_whatsapp_message">Μήνυμα WhatsApp</string>
+    <string name="contact_button_whatsapp_business_message">Μήνυμα WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_voice_call">Φωνητική κλήση WhatsApp Business</string>
+    <string name="contact_button_whatsapp_business_video_call">Βιντεοκλήση WhatsApp Business</string>
+    <string name="contact_button_telegram_message">Μήνυμα Telegram</string>
+    <string name="contact_button_signal_message">Μήνυμα Signal</string>
     <string name="contacts_action_button_chat">Συνομιλία</string>
     <string name="contacts_action_button_contacts">Επαφές</string>
     <string name="contacts_action_button_meet">Meet</string>
@@ -480,8 +487,10 @@
     <string name="settings_call_permission_title">Τηλέφωνο</string>
     <string name="permissions_background_usage_title">Να επιτρέπεται η χρήση στο παρασκήνιο</string>
     <string name="permissions_background_usage_desc">Να επιτρέπεται η χρήση στο παρασκήνιο για ταχύτερη εκκίνηση εφαρμογών.</string>
-    <string name="settings_calling_card_title">Προεπιλεγμένη εφαρμογή κλήσεων</string>
     <string name="settings_calls_texts_title">Κλήσεις &amp; Μηνύματα</string>
+    <string name="settings_contact_first_button_title">Πρώτο κουμπί</string>
+    <string name="settings_contact_second_button_title">Δεύτερο κουμπί</string>
+    <string name="settings_contact_buttons_fallback_note">Όταν μια επαφή δεν υποστηρίζει την επιλεγμένη ενέργεια, το πρώτο κουμπί επιστρέφει σε Κλήση και το δεύτερο σε SMS.</string>
     <string name="settings_direct_dial_desc">Πραγματοποίηση κλήσεων απευθείας χωρίς το άνοιγμα της εφαρμογής κλήσεων.</string>
     <string name="settings_direct_dial_title">Άμεση κλήση</string>
     <string name="settings_messaging_app_not_installed">Το %s δεν είναι εγκατεστημένο στη συσκευή σας</string>

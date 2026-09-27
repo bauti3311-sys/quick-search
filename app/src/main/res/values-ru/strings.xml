@@ -443,6 +443,13 @@
 <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
 <string name="contact_method_whatsapp_video_call_label">Видеозвонок в WhatsApp</string>
 <string name="contact_method_whatsapp_voice_call_label">Аудиозвонок в WhatsApp</string>
+<string name="contact_button_sms">СМС</string>
+<string name="contact_button_whatsapp_message">Сообщение в WhatsApp</string>
+<string name="contact_button_whatsapp_business_message">Сообщение в WhatsApp Business</string>
+<string name="contact_button_whatsapp_business_voice_call">Аудиозвонок в WhatsApp Business</string>
+<string name="contact_button_whatsapp_business_video_call">Видеозвонок в WhatsApp Business</string>
+<string name="contact_button_telegram_message">Сообщение в Telegram</string>
+<string name="contact_button_signal_message">Сообщение в Signal</string>
 <string name="contacts_action_button_chat">Чат</string>
 <string name="contacts_action_button_contacts">Контакты</string>
 <string name="contacts_action_button_meet">Meet</string>
@@ -482,8 +489,10 @@
 <string name="settings_call_permission_title">Телефон</string>
 <string name="permissions_background_usage_title">Разрешить работу в фоновом режиме</string>
 <string name="permissions_background_usage_desc">Разрешите работу в фоновом режиме для более быстрого запуска приложений.</string>
-<string name="settings_calling_card_title">Приложение для звонков по умолчанию</string>
 <string name="settings_calls_texts_title">Звонки и сообщения</string>
+<string name="settings_contact_first_button_title">Первая кнопка</string>
+<string name="settings_contact_second_button_title">Вторая кнопка</string>
+<string name="settings_contact_buttons_fallback_note">Если действие недоступно для контакта, первая кнопка будет звонить, а вторая — отправлять СМС.</string>
 <string name="settings_direct_dial_desc">Совершайте вызовы напрямую без открытия номеронабирателя.</string>
 <string name="settings_direct_dial_title">Прямой набор</string>
 <string name="settings_messaging_app_not_installed">Приложение %s не установлено на вашем устройстве</string>

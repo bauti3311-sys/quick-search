@@ -191,14 +191,15 @@ class AppSettingsRepository(
             )
             addNavigation(
                 id = "app_settings_default_calling_app",
-                titleRes = R.string.settings_calling_card_title,
+                titleRes = R.string.settings_contact_first_button_title,
                 destination = AppSettingsDestination.CALLS_TEXTS,
+                keywords = listOf("contact button", "calling app", "default calling app", "call"),
             )
             addNavigation(
                 id = "app_settings_default_messaging_app",
-                titleRes = R.string.settings_messaging_card_title,
+                titleRes = R.string.settings_contact_second_button_title,
                 destination = AppSettingsDestination.CALLS_TEXTS,
-                keywords = listOf("texting"),
+                keywords = listOf("contact button", "messaging app", "default messaging app", "texting", "sms"),
             )
             addToggle(
                 id = "app_toggle_number_search",

@@ -440,6 +440,13 @@
 <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
 <string name="contact_method_whatsapp_video_call_label">WhatsApp görüntülü arama</string>
 <string name="contact_method_whatsapp_voice_call_label">WhatsApp sesli arama</string>
+<string name="contact_button_sms">SMS</string>
+<string name="contact_button_whatsapp_message">WhatsApp mesajı</string>
+<string name="contact_button_whatsapp_business_message">WhatsApp Business mesajı</string>
+<string name="contact_button_whatsapp_business_voice_call">WhatsApp Business sesli arama</string>
+<string name="contact_button_whatsapp_business_video_call">WhatsApp Business görüntülü arama</string>
+<string name="contact_button_telegram_message">Telegram mesajı</string>
+<string name="contact_button_signal_message">Signal mesajı</string>
 <string name="contacts_action_button_chat">Sohbet</string>
 <string name="contacts_action_button_contacts">Kişiler</string>
 <string name="contacts_action_button_meet">Meet</string>
@@ -479,8 +486,10 @@
 <string name="settings_call_permission_title">Telefon</string>
 <string name="permissions_background_usage_title">Arka Planda Kullanıma İzin Ver</string>
 <string name="permissions_background_usage_desc">Daha hızlı uygulama başlatma için arka plan kullanımına izin verin.</string>
-<string name="settings_calling_card_title">Varsayılan arama uygulaması</string>
 <string name="settings_calls_texts_title">Aramalar &amp; Mesajlar</string>
+<string name="settings_contact_first_button_title">Birinci Düğme</string>
+<string name="settings_contact_second_button_title">İkinci Düğme</string>
+<string name="settings_contact_buttons_fallback_note">Seçilen işlem bir kişi için kullanılamıyorsa, birinci düğme normal aramaya, ikinci düğme SMS\'e geçer.</string>
 <string name="settings_direct_dial_desc">Arama ekranını açmadan doğrudan arama yap.</string>
 <string name="settings_direct_dial_title">Doğrudan arama</string>
 <string name="settings_messaging_app_not_installed">%s cihazında yüklü değil</string>

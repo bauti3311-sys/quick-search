@@ -440,6 +440,13 @@
 <string name="contact_method_whatsapp_business_label">WhatsApp Business</string>
     <string name="contact_method_whatsapp_video_call_label">WhatsApp 视频通话</string>
     <string name="contact_method_whatsapp_voice_call_label">WhatsApp 语音通话</string>
+    <string name="contact_button_sms">短信</string>
+    <string name="contact_button_whatsapp_message">WhatsApp 消息</string>
+    <string name="contact_button_whatsapp_business_message">WhatsApp Business 消息</string>
+    <string name="contact_button_whatsapp_business_voice_call">WhatsApp Business 语音通话</string>
+    <string name="contact_button_whatsapp_business_video_call">WhatsApp Business 视频通话</string>
+    <string name="contact_button_telegram_message">Telegram 消息</string>
+    <string name="contact_button_signal_message">Signal 消息</string>
     <string name="contacts_action_button_chat">聊天</string>
     <string name="contacts_action_button_contacts">通讯录</string>
     <string name="contacts_action_button_meet">Meet</string>
@@ -479,8 +486,10 @@
     <string name="settings_call_permission_title">电话</string>
     <string name="permissions_background_usage_title">允许后台运行</string>
     <string name="permissions_background_usage_desc">允许后台运行，以更快启动应用。</string>
-    <string name="settings_calling_card_title">默认通话应用</string>
     <string name="settings_calls_texts_title">通话与短信</string>
+    <string name="settings_contact_first_button_title">第一个按钮</string>
+    <string name="settings_contact_second_button_title">第二个按钮</string>
+    <string name="settings_contact_buttons_fallback_note">如果联系人无法使用所选操作，第一个按钮将改为拨打电话，第二个按钮将改为发送短信。</string>
     <string name="settings_direct_dial_desc">直接拨打电话，无需先打开拨号盘。</string>
     <string name="settings_direct_dial_title">直接拨号</string>
     <string name="settings_messaging_app_not_installed">您的设备上未安装 %s</string>
