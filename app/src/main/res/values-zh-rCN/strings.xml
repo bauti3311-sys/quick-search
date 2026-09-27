@@ -827,6 +827,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">来自电话应用的未接来电</string>
     <string name="settings_at_a_glance_ongoing_call_title">通话中</string>
     <string name="settings_at_a_glance_ongoing_call_desc">通话时显示对方和通话时长</string>
+    <string name="settings_at_a_glance_otp_title">验证码</string>
+    <string name="settings_at_a_glance_otp_desc">来自短信和邮件的一次性验证码，可直接复制</string>
     <string name="settings_at_a_glance_workouts_title">锻炼</string>
     <string name="settings_at_a_glance_workouts_desc">来自 Google Health 和 Samsung Health 的锻炼实时状态</string>
     <string name="settings_at_a_glance_dnd_desc">开启请勿打扰时</string>

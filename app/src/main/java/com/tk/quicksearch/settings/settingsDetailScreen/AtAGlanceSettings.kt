@@ -154,6 +154,7 @@ fun AtAGlanceSettingsSection(
     var showDoNotDisturb by remember { mutableStateOf(glancePreferences.isShowDoNotDisturbEnabled()) }
     var showOngoingCall by remember { mutableStateOf(glancePreferences.isShowOngoingCallEnabled()) }
     var showWorkouts by remember { mutableStateOf(glancePreferences.isShowWorkoutsEnabled()) }
+    var showOtpCodes by remember { mutableStateOf(glancePreferences.isShowOtpCodesEnabled()) }
     var showAirplaneMode by remember { mutableStateOf(glancePreferences.isShowAirplaneModeEnabled()) }
     var showHotspot by remember { mutableStateOf(glancePreferences.isShowHotspotEnabled()) }
     var showWifiSignIn by remember { mutableStateOf(glancePreferences.isShowWifiSignInEnabled()) }
@@ -217,6 +218,11 @@ fun AtAGlanceSettingsSection(
         rememberNotificationDotsCheckedChange { enabled ->
             showWorkouts = enabled
             glancePreferences.setShowWorkoutsEnabled(enabled)
+        }
+    val onShowOtpCodesCheckedChange =
+        rememberNotificationDotsCheckedChange { enabled ->
+            showOtpCodes = enabled
+            glancePreferences.setShowOtpCodesEnabled(enabled)
         }
 
     /** A toggle that needs notification access; its description gives way to the permission hint. */
@@ -300,6 +306,12 @@ fun AtAGlanceSettingsSection(
                 description = stringResource(R.string.settings_at_a_glance_ongoing_call_desc),
                 checked = showOngoingCall,
                 onCheckedChange = onShowOngoingCallCheckedChange,
+            ),
+            notificationToggle(
+                title = stringResource(R.string.settings_at_a_glance_otp_title),
+                description = stringResource(R.string.settings_at_a_glance_otp_desc),
+                checked = showOtpCodes,
+                onCheckedChange = onShowOtpCodesCheckedChange,
             ),
             notificationToggle(
                 title = stringResource(R.string.settings_at_a_glance_missed_calls_title),

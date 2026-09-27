@@ -841,6 +841,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Panggilan tak terjawab dari aplikasi telepon Anda</string>
     <string name="settings_at_a_glance_ongoing_call_title">Panggilan berlangsung</string>
     <string name="settings_at_a_glance_ongoing_call_desc">Penelepon dan durasi panggilan saat Anda sedang menelepon</string>
+    <string name="settings_at_a_glance_otp_title">Kode OTP</string>
+    <string name="settings_at_a_glance_otp_desc">Kode sekali pakai dari pesan dan email, siap disalin</string>
     <string name="settings_at_a_glance_workouts_title">Olahraga</string>
     <string name="settings_at_a_glance_workouts_desc">Status langsung olahraga dari Google Health dan Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">Saat Jangan Ganggu aktif</string>

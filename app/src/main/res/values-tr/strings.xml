@@ -836,6 +836,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Telefon uygulamanızdaki cevapsız aramalar</string>
     <string name="settings_at_a_glance_ongoing_call_title">Devam eden aramalar</string>
     <string name="settings_at_a_glance_ongoing_call_desc">Görüşme sırasında arayan kişi ve arama süresi</string>
+    <string name="settings_at_a_glance_otp_title">Tek kullanımlık kodlar</string>
+    <string name="settings_at_a_glance_otp_desc">Mesaj ve e-postalardaki tek kullanımlık kodlar, kopyalanmaya hazır</string>
     <string name="settings_at_a_glance_workouts_title">Antrenmanlar</string>
     <string name="settings_at_a_glance_workouts_desc">Google Health ve Samsung Health\'ten canlı antrenman durumu</string>
     <string name="settings_at_a_glance_dnd_desc">Rahatsız etmeyin açıkken</string>

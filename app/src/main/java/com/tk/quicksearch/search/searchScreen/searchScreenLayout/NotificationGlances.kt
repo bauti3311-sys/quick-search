@@ -39,6 +39,8 @@ import com.tk.quicksearch.search.data.FinishedProgressNotification
 import com.tk.quicksearch.search.data.GlanceNotificationsStore
 import com.tk.quicksearch.search.data.MissedCallNotification
 import com.tk.quicksearch.search.data.OngoingCallNotification
+import com.tk.quicksearch.search.data.OtpNotification
+import com.tk.quicksearch.search.data.OtpNotifications
 import com.tk.quicksearch.search.data.ProgressNotification
 import com.tk.quicksearch.search.data.TimerNotification
 import com.tk.quicksearch.search.data.WorkoutNotification
@@ -50,7 +52,7 @@ import kotlinx.coroutines.delay
 /** At most this many progress and finished progress notifications show on home, running ones first. */
 private const val MAX_PROGRESS_ROWS = 3
 
-/** Running clock-app timers, live and finished progress notifications, missed and ongoing calls and workouts for the home At a Glance card. */
+/** Running clock-app timers, live and finished progress notifications, missed and ongoing calls, workouts and one-time codes for the home At a Glance card. */
 internal class NotificationGlances(
     val timers: List<TimerNotification>,
     val progress: List<ProgressNotification>,
@@ -63,6 +65,9 @@ internal class NotificationGlances(
     val dismissMissedCalls: () -> Unit,
     val ongoingCalls: List<OngoingCallNotification>,
     val workouts: List<WorkoutNotification>,
+    /** The newest one-time code, until its notification goes or it is [OtpNotifications.LIFETIME_MILLIS] old. */
+    val otp: OtpNotification?,
+    val dismissOtp: (OtpNotification) -> Unit,
     /** Wall clock the timer and call rows count from; ticks every second while one shows. */
     val nowMillis: Long,
 )
@@ -82,12 +87,14 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
     val allMissedCalls by GlanceNotificationsStore.missedCalls.collectAsState()
     val allOngoingCalls by GlanceNotificationsStore.ongoingCalls.collectAsState()
     val allWorkouts by GlanceNotificationsStore.workouts.collectAsState()
+    val allOtps by GlanceNotificationsStore.otps.collectAsState()
     val hasAccess = remember(refreshKey) { NotificationDotsPermission.hasNotificationListenerAccess(context) }
     val showTimers = remember(refreshKey) { preferences.isShowTimersEnabled() }
     val showProgress = remember(refreshKey) { preferences.isShowProgressNotificationsEnabled() }
     val showMissedCalls = remember(refreshKey) { preferences.isShowMissedCallsEnabled() }
     val showOngoingCalls = remember(refreshKey) { preferences.isShowOngoingCallEnabled() }
     val showWorkouts = remember(refreshKey) { preferences.isShowWorkoutsEnabled() }
+    val showOtpCodes = remember(refreshKey) { preferences.isShowOtpCodesEnabled() }
     val available = enabled && hasAccess
     val timers = if (available && showTimers) allTimers else emptyList()
     val progress = if (available && showProgress) allProgress.take(MAX_PROGRESS_ROWS) else emptyList()
@@ -103,6 +110,20 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
 
     val ongoingCalls = if (available && showOngoingCalls) allOngoingCalls else emptyList()
     val workouts = if (available && showWorkouts) allWorkouts else emptyList()
+    var otpClock by remember { mutableLongStateOf(System.currentTimeMillis()) }
+    val otp =
+        if (available && showOtpCodes) {
+            allOtps.firstOrNull().takeIf { it != null && it.postTime > otpClock - OtpNotifications.LIFETIME_MILLIS }
+        } else {
+            null
+        }
+    // The store only changes when notifications do, so the code is aged out here.
+    LaunchedEffect(otp?.key, otp?.postTime, refreshKey) {
+        otpClock = System.currentTimeMillis()
+        val expiresAt = (otp ?: return@LaunchedEffect).postTime + OtpNotifications.LIFETIME_MILLIS
+        delay((expiresAt - System.currentTimeMillis()).coerceAtLeast(0L))
+        otpClock = System.currentTimeMillis()
+    }
 
     var nowMillis by remember { mutableLongStateOf(System.currentTimeMillis()) }
     val ticking = timers.isNotEmpty() || ongoingCalls.any { it.startTime != null }
@@ -126,6 +147,8 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
         },
         ongoingCalls = ongoingCalls,
         workouts = workouts,
+        otp = otp,
+        dismissOtp = GlanceNotificationsStore::dismissOtp,
         nowMillis = nowMillis,
     )
 }

@@ -870,6 +870,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Gemiste oproepen uit je telefoonapp</string>
     <string name="settings_at_a_glance_ongoing_call_title">Lopende oproepen</string>
     <string name="settings_at_a_glance_ongoing_call_desc">De beller en gespreksduur tijdens een oproep</string>
+    <string name="settings_at_a_glance_otp_title">Eenmalige codes</string>
+    <string name="settings_at_a_glance_otp_desc">Eenmalige codes uit berichten en e-mails, klaar om te kopiëren</string>
     <string name="settings_at_a_glance_workouts_title">Workouts</string>
     <string name="settings_at_a_glance_workouts_desc">Livestatus van je workout uit Google Health en Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">Als Niet storen aan staat</string>

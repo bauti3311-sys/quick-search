@@ -69,6 +69,7 @@ internal object GlanceNotificationsStore {
     private val missedCallsState = MutableStateFlow<List<MissedCallNotification>>(emptyList())
     private val ongoingCallsState = MutableStateFlow<List<OngoingCallNotification>>(emptyList())
     private val workoutsState = MutableStateFlow<List<WorkoutNotification>>(emptyList())
+    private val otpsState = MutableStateFlow<List<OtpNotification>>(emptyList())
     private var clockPackages: Set<String>? = null
 
     /** Timers read from custom chronometer views, by notification key, reused until the notification changes. */
@@ -83,6 +84,7 @@ internal object GlanceNotificationsStore {
     val missedCalls: StateFlow<List<MissedCallNotification>> = missedCallsState.asStateFlow()
     val ongoingCalls: StateFlow<List<OngoingCallNotification>> = ongoingCallsState.asStateFlow()
     val workouts: StateFlow<List<WorkoutNotification>> = workoutsState.asStateFlow()
+    val otps: StateFlow<List<OtpNotification>> = otpsState.asStateFlow()
 
     fun update(
         context: Context,
@@ -111,6 +113,7 @@ internal object GlanceNotificationsStore {
         ongoingCallsState.value =
             posted.mapNotNull { it.toOngoingCall(context) }.sortedByDescending { it.startTime ?: 0L }
         workoutsState.value = WorkoutNotifications.parse(context, posted)
+        otpsState.value = OtpNotifications.parse(posted)
     }
 
     /** Drops cached state when notification access is lost; clock apps are resolved again on reconnect. */
@@ -119,6 +122,7 @@ internal object GlanceNotificationsStore {
         remoteTimerCache.clear()
         remoteCallStartCache.clear()
         WorkoutNotifications.clear()
+        OtpNotifications.clear()
         timersState.value = emptyList()
         progressTracker.clear()
         progressState.value = emptyList()
@@ -126,6 +130,13 @@ internal object GlanceNotificationsStore {
         missedCallsState.value = emptyList()
         ongoingCallsState.value = emptyList()
         workoutsState.value = emptyList()
+        otpsState.value = emptyList()
+    }
+
+    /** Hides a one-time code and any older ones from At a Glance, leaving their notifications posted. */
+    fun dismissOtp(otp: OtpNotification) {
+        OtpNotifications.dismiss(otp)
+        otpsState.value = otpsState.value.filter { it.postTime > otp.postTime }
     }
 
     /** Hides a finished progress notification from At a Glance, leaving it posted. */

@@ -837,6 +837,8 @@
     <string name="settings_at_a_glance_missed_calls_desc">Appels manqués de votre application Téléphone</string>
     <string name="settings_at_a_glance_ongoing_call_title">Appels en cours</string>
     <string name="settings_at_a_glance_ongoing_call_desc">L\'appelant et la durée de l\'appel pendant un appel</string>
+    <string name="settings_at_a_glance_otp_title">Codes à usage unique</string>
+    <string name="settings_at_a_glance_otp_desc">Codes à usage unique des messages et e-mails, prêts à copier</string>
     <string name="settings_at_a_glance_workouts_title">Entraînements</string>
     <string name="settings_at_a_glance_workouts_desc">Statut en direct de l\'entraînement depuis Google Health et Samsung Health</string>
     <string name="settings_at_a_glance_dnd_desc">Lorsque Ne pas déranger est activé</string>
