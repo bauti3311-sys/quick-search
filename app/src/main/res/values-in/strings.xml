@@ -18,6 +18,10 @@
     <string name="direct_search_follow_up_hint">Ajukan pertanyaan lanjutan</string>
     <string name="direct_search_error_generic">Tidak dapat mengambil jawaban AI. Coba lagi.</string>
     <string name="direct_search_error_no_key">Tambahkan kunci API di pengaturan (Penyedia AI) untuk mengambil jawaban AI.</string>
+    <string name="quick_search_help_action">Tanya Quick Search</string>
+    <string name="quick_search_help_no_api_key">Anda memerlukan Penyiapan Kunci API untuk mendapatkan jawaban</string>
+    <string name="quick_search_help_contact_developer">Hubungi Pengembang</string>
+    <string name="quick_search_help_intro">Ketik pertanyaan setelah @help untuk mendapatkan jawaban tentang fitur dan pengaturan Quick Search.</string>
     <string name="gemini_web_search_quota_fallback_tip">Kuota pencarian web Gemini telah tercapai, jadi jawaban ini dibuat tanpa pencarian web.</string>
     <string name="direct_search_powered_by">Didukung oleh</string>
     <string name="empty_state_subtitle">Buka aplikasi atau sesuaikan pencarian Anda untuk melihat saran.</string>

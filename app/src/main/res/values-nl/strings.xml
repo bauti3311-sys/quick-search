@@ -20,6 +20,10 @@
     <string name="direct_search_follow_up_hint">Stel een vervolgvraag</string>
     <string name="direct_search_error_generic">Kan AI-antwoord niet ophalen. Probeer het opnieuw.</string>
     <string name="direct_search_error_no_key">Voeg een API-sleutel toe in de instellingen (AI-provider) om AI-antwoorden op te halen.</string>
+    <string name="quick_search_help_action">Vraag het Quick Search</string>
+    <string name="quick_search_help_no_api_key">Stel een API-sleutel in om antwoorden te krijgen</string>
+    <string name="quick_search_help_contact_developer">Contact opnemen met ontwikkelaar</string>
+    <string name="quick_search_help_intro">Typ een vraag na @help om antwoorden te krijgen over functies en instellingen van Quick Search.</string>
     <string name="gemini_web_search_quota_fallback_tip">Het webzoekquotum van Gemini is bereikt, daarom is dit antwoord gegenereerd zonder webzoekopdracht.</string>
     <string name="direct_search_powered_by">Mogelijk gemaakt door</string>
     <string name="empty_state_subtitle">Open een app of verfijn je zoekopdracht om suggesties te zien.</string>

@@ -18,6 +18,10 @@
 <string name="direct_search_follow_up_hint">Bir takip sorusu yazın</string>
 <string name="direct_search_error_generic">AI yanıtı alınamadı. Tekrar deneyin.</string>
 <string name="direct_search_error_no_key">AI yanıtlarını almak için ayarlardan (AI Sağlayıcısı) bir API anahtarı ekleyin.</string>
+<string name="quick_search_help_action">Quick Search\'e sor</string>
+<string name="quick_search_help_no_api_key">Yanıt almak için API Anahtarı Kurulumu gerekli</string>
+<string name="quick_search_help_contact_developer">Geliştiriciyle iletişime geç</string>
+<string name="quick_search_help_intro">Quick Search özellikleri ve ayarları hakkında yanıt almak için @help\'ten sonra bir soru yazın.</string>
 <string name="gemini_web_search_quota_fallback_tip">Gemini web arama kotasına ulaşıldığı için bu yanıt web araması kullanılmadan oluşturuldu.</string>
 <string name="direct_search_powered_by">Destekleyen:</string>
 <string name="empty_state_subtitle">Önerileri görmek için bir uygulama başlatın veya aramanızı detaylandırın.</string>

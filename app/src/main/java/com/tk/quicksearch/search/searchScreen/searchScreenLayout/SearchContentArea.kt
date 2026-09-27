@@ -160,6 +160,7 @@ fun SearchContentArea(
                 state.isWeatherAliasMode ||
                 state.detectedCustomToolId != null
                 || state.detectedTaskerIntentId != null
+                || com.tk.quicksearch.tools.aiSearch.QuickSearchHelp.questionOrNull(state.query) != null
     val hasQuery = state.query.isNotBlank()
     val isUrlQuery = remember(state.query) { isLikelyWebUrl(state.query) }
     val hasAnySearchContent =
@@ -194,7 +195,7 @@ fun SearchContentArea(
     val showRetryButton =
         showAiSearch &&
                 aiSearchState?.status == AiSearchStatus.Error &&
-                !aiSearchState.activeQuery.isNullOrBlank() &&
+                !aiSearchState.activeQuery.isNullOrBlank() && aiSearchState.canRetry &&
                 renderingState.expandedSection == ExpandedSection.NONE
     val isSectionAliasMode = state.detectedAliasSearchSection != null
     val useOverlayThemeTints = !state.deviceThemeEnabled && state.backgroundSource == BackgroundSource.THEME

@@ -19,6 +19,10 @@
     <string name="direct_search_follow_up_hint">अगला सवाल लिखें</string>
     <string name="direct_search_error_generic">AI उत्तर प्राप्त नहीं हो सका। फिर से कोशिश करें।</string>
     <string name="direct_search_error_no_key">AI उत्तर पाने के लिए सेटिंग्स (AI Provider) में API key जोड़ें।</string>
+    <string name="quick_search_help_action">Quick Search से पूछें</string>
+    <string name="quick_search_help_no_api_key">जवाब पाने के लिए API Key Setup ज़रूरी है</string>
+    <string name="quick_search_help_contact_developer">डेवलपर से संपर्क करें</string>
+    <string name="quick_search_help_intro">Quick Search की सुविधाओं और सेटिंग्स के बारे में जवाब पाने के लिए @help के बाद अपना सवाल लिखें।</string>
     <string name="gemini_web_search_quota_fallback_tip">Gemini की वेब खोज सीमा पूरी हो गई है, इसलिए यह उत्तर वेब खोज के बिना तैयार किया गया है।</string>
     <string name="direct_search_powered_by">पावर्ड बाय</string>
     <string name="empty_state_subtitle">सुझाव देखने के लिए कोई ऐप खोलें या अपनी खोज को और स्पष्ट करें।</string>

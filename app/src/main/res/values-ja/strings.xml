@@ -19,6 +19,10 @@
     <string name="direct_search_follow_up_hint">追加の質問を入力</string>
     <string name="direct_search_error_generic">AIの回答を取得できませんでした。もう一度お試しください。</string>
     <string name="direct_search_error_no_key">設定（AIプロバイダー）でAPIキーを追加して、AIの回答を取得してください。</string>
+    <string name="quick_search_help_action">Quick Searchに質問</string>
+    <string name="quick_search_help_no_api_key">回答を得るにはAPIキーの設定が必要です</string>
+    <string name="quick_search_help_contact_developer">開発者に連絡</string>
+    <string name="quick_search_help_intro">\@help の後に質問を入力すると、Quick Search の機能や設定について回答が得られます。</string>
     <string name="gemini_web_search_quota_fallback_tip">Geminiのウェブ検索クォータ上限に達したため、ウェブ検索を使用せずにこの回答を生成しました。</string>
     <string name="direct_search_powered_by">提供元:</string>
     <string name="empty_state_subtitle">アプリを起動するか、検索キーワードを入力すると候補が表示されます。</string>

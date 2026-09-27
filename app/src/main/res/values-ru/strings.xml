@@ -19,6 +19,10 @@
     <string name="direct_search_follow_up_hint">Введите уточняющий вопрос</string>
 <string name="direct_search_error_generic">Не удалось получить AI-ответ. Попробуйте ещё раз.</string>
 <string name="direct_search_error_no_key">Добавьте API-ключ в настройках (AI-провайдер), чтобы получать AI-ответы.</string>
+<string name="quick_search_help_action">Спросить Quick Search</string>
+<string name="quick_search_help_no_api_key">Чтобы получать ответы, настройте API-ключ</string>
+<string name="quick_search_help_contact_developer">Связаться с разработчиком</string>
+<string name="quick_search_help_intro">Введите вопрос после @help, чтобы получить ответы о функциях и настройках Quick Search.</string>
 <string name="gemini_web_search_quota_fallback_tip">Квота Gemini на веб-поиск исчерпана, поэтому этот ответ был создан без веб-поиска.</string>
 <string name="direct_search_powered_by">Работает на базе</string>
 <string name="empty_state_subtitle">Запустите приложение или уточните запрос, чтобы увидеть подсказки.</string>

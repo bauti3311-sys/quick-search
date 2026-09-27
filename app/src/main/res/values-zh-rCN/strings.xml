@@ -19,6 +19,10 @@
     <string name="direct_search_follow_up_hint">输入后续问题</string>
     <string name="direct_search_error_generic">无法获取 AI 回答。请重试。</string>
     <string name="direct_search_error_no_key">请在设置（AI 提供商）中添加 API 密钥以获取 AI 回答。</string>
+    <string name="quick_search_help_action">询问 Quick Search</string>
+    <string name="quick_search_help_no_api_key">需要完成 API 密钥设置才能获取回答</string>
+    <string name="quick_search_help_contact_developer">联系开发者</string>
+    <string name="quick_search_help_intro">在 @help 后输入问题，即可获取有关 Quick Search 功能和设置的回答。</string>
     <string name="gemini_web_search_quota_fallback_tip">Gemini 的网页搜索配额已用尽，因此此回答未使用网页搜索生成。</string>
     <string name="direct_search_powered_by">技术支持由</string>
     <string name="empty_state_subtitle">启动应用或优化您的搜索以查看建议。</string>

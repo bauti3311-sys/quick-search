@@ -227,6 +227,9 @@ data class AiSearchState(
         val activeQuery: String? = null,
         val usedModelId: String? = null,
         val llmProviderId: AiSearchLlmProviderId? = null,
+        val isQuickSearchHelp: Boolean = false,
+        /** False for setup errors (missing key or model) where retrying the request can't help. */
+        val canRetry: Boolean = true,
 )
 
 data class CurrencyConverterState(

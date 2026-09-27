@@ -19,6 +19,10 @@
     <string name="direct_search_follow_up_hint">Digite uma pergunta de acompanhamento</string>
     <string name="direct_search_error_generic">Não foi possível obter a resposta da IA. Tente novamente.</string>
     <string name="direct_search_error_no_key">Adicione uma chave de API nas configurações (Provedor de IA) para obter respostas da IA.</string>
+    <string name="quick_search_help_action">Perguntar ao Quick Search</string>
+    <string name="quick_search_help_no_api_key">Você precisa configurar uma chave de API para obter respostas</string>
+    <string name="quick_search_help_contact_developer">Falar com o desenvolvedor</string>
+    <string name="quick_search_help_intro">Digite uma pergunta depois de @help para obter respostas sobre os recursos e as configurações do Quick Search.</string>
     <string name="gemini_web_search_quota_fallback_tip">A cota de pesquisa na Web do Gemini foi atingida. Por isso, esta resposta foi gerada sem pesquisa na Web.</string>
     <string name="direct_search_powered_by">Desenvolvido por</string>
     <string name="empty_state_subtitle">Abra um aplicativo ou refine sua pesquisa para ver sugestões.</string>
