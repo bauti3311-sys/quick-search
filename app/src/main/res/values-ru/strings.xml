@@ -1090,6 +1090,9 @@
 <string name="widget_media_controls_nothing_playing">Ничего не воспроизводится</string>
 <string name="widget_media_controls_grant_access">Нажмите, чтобы разрешить доступ к уведомлениям</string>
 <string name="widget_media_controls_permission_hint">Этому виджету нужен доступ к уведомлениям, чтобы показывать воспроизводимое и управлять им. Нажмите, чтобы разрешить.</string>
+<string name="widget_note_widget_title">Виджет заметки</string>
+<string name="widget_note_picker_title">Выберите заметку</string>
+<string name="widget_note_deleted">Заметка не найдена. Нажмите, чтобы выбрать другую.</string>
 <string name="widget_icon_center">По центру</string>
 <string name="widget_icon_left">Слева</string>
 <string name="widget_icon_off">Выкл.</string>
@@ -1112,6 +1115,7 @@
 <string name="widget_text_icon_color">Цвет текста и значков</string>
 <string name="widget_text_icon_color_black">Черный</string>
 <string name="widget_text_icon_color_white">Белый</string>
+<string name="widget_text_color">Цвет текста</string>
 <string name="widget_toggle_show_label">Текст Quick Search</string>
 <string name="widgets_panel_title">Виджеты</string>
 <string name="widgets_picker_empty">Виджеты не найдены.</string>

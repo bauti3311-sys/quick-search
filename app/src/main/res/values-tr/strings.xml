@@ -1069,6 +1069,9 @@
 <string name="widget_media_controls_nothing_playing">Hiçbir şey çalmıyor</string>
 <string name="widget_media_controls_grant_access">Bildirim erişimine izin vermek için dokunun</string>
 <string name="widget_media_controls_permission_hint">Bu widget, çalan içeriği göstermek ve kontrol etmek için bildirim erişimine ihtiyaç duyar. İzin vermek için dokunun.</string>
+<string name="widget_note_widget_title">Not Widget\'ı</string>
+<string name="widget_note_picker_title">Not Seç</string>
+<string name="widget_note_deleted">Not bulunamadı. Başka birini seçmek için dokun.</string>
 <string name="widget_icon_center">Ortala</string>
 <string name="widget_icon_left">Sola hizala</string>
 <string name="widget_icon_off">Kapalı</string>
@@ -1091,6 +1094,7 @@
 <string name="widget_text_icon_color">Metin &amp; simge rengi</string>
 <string name="widget_text_icon_color_black">Siyah</string>
 <string name="widget_text_icon_color_white">Beyaz</string>
+<string name="widget_text_color">Metin rengi</string>
 <string name="widget_toggle_show_label">Quick Search metni</string>
 <string name="widgets_panel_title">Widget\'lar</string>
 <string name="widgets_picker_empty">Widget bulunamadı.</string>

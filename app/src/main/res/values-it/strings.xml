@@ -1069,6 +1069,9 @@
     <string name="widget_media_controls_nothing_playing">Nessuna riproduzione in corso</string>
     <string name="widget_media_controls_grant_access">Tocca per consentire l\'accesso alle notifiche</string>
     <string name="widget_media_controls_permission_hint">Questo widget richiede l\'accesso alle notifiche per mostrare e controllare ciò che è in riproduzione. Tocca per consentire.</string>
+    <string name="widget_note_widget_title">Widget nota</string>
+    <string name="widget_note_picker_title">Seleziona nota</string>
+    <string name="widget_note_deleted">Nota non trovata. Tocca per sceglierne un\'altra.</string>
     <string name="widget_icon_center">Al centro</string>
     <string name="widget_icon_left">A sinistra</string>
     <string name="widget_icon_off">Disattivato</string>
@@ -1091,6 +1094,7 @@
     <string name="widget_text_icon_color">Colore testo e icone</string>
     <string name="widget_text_icon_color_black">Nero</string>
     <string name="widget_text_icon_color_white">Bianco</string>
+    <string name="widget_text_color">Colore testo</string>
     <string name="widget_toggle_show_label">Testo di Quick Search</string>
     <string name="widgets_panel_title">Widget</string>
     <string name="widgets_picker_empty">Nessun widget trovato.</string>

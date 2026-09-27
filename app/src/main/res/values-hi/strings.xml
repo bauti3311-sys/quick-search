@@ -1070,6 +1070,9 @@
     <string name="widget_media_controls_nothing_playing">कुछ नहीं चल रहा</string>
     <string name="widget_media_controls_grant_access">सूचना एक्सेस की अनुमति देने के लिए टैप करें</string>
     <string name="widget_media_controls_permission_hint">चल रहे मीडिया को दिखाने और नियंत्रित करने के लिए इस विजेट को सूचना एक्सेस चाहिए। अनुमति देने के लिए टैप करें।</string>
+    <string name="widget_note_widget_title">नोट विजेट</string>
+    <string name="widget_note_picker_title">नोट चुनें</string>
+    <string name="widget_note_deleted">नोट नहीं मिला। दूसरा चुनने के लिए टैप करें।</string>
     <string name="widget_icon_center">मध्य</string>
     <string name="widget_icon_left">बाएं</string>
     <string name="widget_icon_off">बंद</string>
@@ -1092,6 +1095,7 @@
     <string name="widget_text_icon_color">टेक्स्ट और आइकन रंग</string>
     <string name="widget_text_icon_color_black">काला</string>
     <string name="widget_text_icon_color_white">सफेद</string>
+    <string name="widget_text_color">टेक्स्ट रंग</string>
     <string name="widget_toggle_show_label">Quick Search टेक्स्ट</string>
     <string name="widgets_panel_title">विजेट्स</string>
     <string name="widgets_picker_empty">कोई विजेट नहीं मिला।</string>

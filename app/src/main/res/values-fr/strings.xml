@@ -1070,6 +1070,9 @@
 <string name="widget_media_controls_nothing_playing">Aucune lecture en cours</string>
 <string name="widget_media_controls_grant_access">Appuyez pour autoriser l\'accès aux notifications</string>
 <string name="widget_media_controls_permission_hint">Ce widget a besoin de l\'accès aux notifications pour afficher et contrôler la lecture en cours. Appuyez pour l\'autoriser.</string>
+<string name="widget_note_widget_title">Widget de note</string>
+<string name="widget_note_picker_title">Choisir une note</string>
+<string name="widget_note_deleted">Note introuvable. Appuyez pour en choisir une autre.</string>
 <string name="widget_icon_center">Centré</string>
 <string name="widget_icon_left">Gauche</string>
 <string name="widget_icon_off">Désactivé</string>
@@ -1092,6 +1095,7 @@
 <string name="widget_text_icon_color">Couleur du texte &amp; de l\'icône</string>
 <string name="widget_text_icon_color_black">Noir</string>
 <string name="widget_text_icon_color_white">Blanc</string>
+<string name="widget_text_color">Couleur du texte</string>
 <string name="widget_toggle_show_label">Texte Quick Search</string>
 <string name="widgets_panel_title">Widgets</string>
 <string name="widgets_picker_empty">Aucun widget trouvé.</string>

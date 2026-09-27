@@ -491,6 +491,19 @@
                 android:resource="@xml/media_controls_widget_info" />
         </receiver>
 
+        <receiver
+            android:name=".widgets.noteWidget.NoteWidgetReceiver"
+            android:exported="false"
+            android:label="@string/widget_note_widget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.CONFIGURATION_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/note_widget_info" />
+        </receiver>
+
         <!-- Quick Settings Tile Service -->
         <service
             android:name=".search.searchScreen.LockScreenAccessibilityService"

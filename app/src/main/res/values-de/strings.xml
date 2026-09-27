@@ -1070,6 +1070,9 @@
     <string name="widget_media_controls_nothing_playing">Keine Wiedergabe</string>
     <string name="widget_media_controls_grant_access">Tippen, um Benachrichtigungszugriff zu erlauben</string>
     <string name="widget_media_controls_permission_hint">Dieses Widget benötigt Benachrichtigungszugriff, um die aktuelle Wiedergabe anzuzeigen und zu steuern. Tippen, um zu erlauben.</string>
+    <string name="widget_note_widget_title">Notiz-Widget</string>
+    <string name="widget_note_picker_title">Notiz auswählen</string>
+    <string name="widget_note_deleted">Notiz nicht gefunden. Tippen, um eine andere auszuwählen.</string>
     <string name="widget_icon_center">Mitte</string>
     <string name="widget_icon_left">Links</string>
     <string name="widget_icon_off">Aus</string>
@@ -1092,6 +1095,7 @@
     <string name="widget_text_icon_color">Text- &amp; Symbolfarbe</string>
     <string name="widget_text_icon_color_black">Schwarz</string>
     <string name="widget_text_icon_color_white">Weiß</string>
+    <string name="widget_text_color">Textfarbe</string>
     <string name="widget_toggle_show_label">Quick Search-Text</string>
     <string name="widgets_panel_title">Widgets</string>
     <string name="widgets_picker_empty">Keine Widgets gefunden.</string>

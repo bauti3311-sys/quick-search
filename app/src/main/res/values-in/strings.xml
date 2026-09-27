@@ -1076,6 +1076,9 @@
     <string name="widget_media_controls_nothing_playing">Tidak ada yang diputar</string>
     <string name="widget_media_controls_grant_access">Ketuk untuk mengizinkan akses notifikasi</string>
     <string name="widget_media_controls_permission_hint">Widget ini memerlukan akses notifikasi untuk menampilkan dan mengontrol yang sedang diputar. Ketuk untuk mengizinkan.</string>
+    <string name="widget_note_widget_title">Widget Catatan</string>
+    <string name="widget_note_picker_title">Pilih Catatan</string>
+    <string name="widget_note_deleted">Catatan tidak ditemukan. Ketuk untuk memilih yang lain.</string>
     <string name="widget_icon_center">Tengah</string>
     <string name="widget_icon_left">Kiri</string>
     <string name="widget_icon_off">Mati</string>
@@ -1098,6 +1101,7 @@
     <string name="widget_text_icon_color">Warna Teks &amp; Ikon</string>
     <string name="widget_text_icon_color_black">Hitam</string>
     <string name="widget_text_icon_color_white">Putih</string>
+    <string name="widget_text_color">Warna Teks</string>
     <string name="widget_toggle_show_label">Teks Quick Search</string>
     <string name="widgets_panel_title">Widget</string>
     <string name="widgets_picker_empty">Widget tidak ditemukan.</string>

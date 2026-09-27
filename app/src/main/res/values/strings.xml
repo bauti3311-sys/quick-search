@@ -1076,6 +1076,9 @@
     <string name="widget_media_controls_nothing_playing">Nothing playing</string>
     <string name="widget_media_controls_grant_access">Tap to allow notification access</string>
     <string name="widget_media_controls_permission_hint">This widget needs notification access to show and control what\'s playing. Tap to allow.</string>
+    <string name="widget_note_widget_title">Note Widget</string>
+    <string name="widget_note_picker_title">Select Note</string>
+    <string name="widget_note_deleted">Note not found. Tap to choose another.</string>
     <string name="widget_icon_center">Center</string>
     <string name="widget_icon_left">Left</string>
     <string name="widget_icon_off">Off</string>
@@ -1098,6 +1101,7 @@
     <string name="widget_text_icon_color">Text &amp; Icon Color</string>
     <string name="widget_text_icon_color_black">Black</string>
     <string name="widget_text_icon_color_white">White</string>
+    <string name="widget_text_color">Text Color</string>
     <string name="widget_toggle_show_label">Quick Search Text</string>
     <string name="widgets_panel_title">Widgets</string>
     <string name="widgets_picker_empty">No widgets found.</string>

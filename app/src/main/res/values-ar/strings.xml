@@ -1071,6 +1071,9 @@
     <string name="widget_media_controls_nothing_playing">لا شيء قيد التشغيل</string>
     <string name="widget_media_controls_grant_access">انقر للسماح بالوصول إلى الإشعارات</string>
     <string name="widget_media_controls_permission_hint">تحتاج هذه الأداة إلى الوصول إلى الإشعارات لعرض ما يتم تشغيله والتحكم فيه. انقر للسماح.</string>
+    <string name="widget_note_widget_title">أداة الملاحظة</string>
+    <string name="widget_note_picker_title">اختر ملاحظة</string>
+    <string name="widget_note_deleted">لم يتم العثور على الملاحظة. انقر لاختيار ملاحظة أخرى.</string>
     <string name="widget_icon_center">توسيط</string>
     <string name="widget_icon_left">يسار</string>
     <string name="widget_icon_off">إيقاف</string>
@@ -1093,6 +1096,7 @@
     <string name="widget_text_icon_color">لون النص والأيقونات</string>
     <string name="widget_text_icon_color_black">أسود</string>
     <string name="widget_text_icon_color_white">أبيض</string>
+    <string name="widget_text_color">لون النص</string>
     <string name="widget_toggle_show_label">نص Quick Search</string>
     <string name="widgets_panel_title">عناصر واجهة المستخدم</string>
     <string name="widgets_picker_empty">لم يتم العثور على أي عناصر واجهة مستخدم.</string>

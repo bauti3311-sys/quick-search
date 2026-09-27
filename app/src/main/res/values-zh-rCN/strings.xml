@@ -1060,6 +1060,9 @@
     <string name="widget_media_controls_nothing_playing">没有正在播放的内容</string>
     <string name="widget_media_controls_grant_access">点按以允许通知访问权限</string>
     <string name="widget_media_controls_permission_hint">此小部件需要通知访问权限才能显示和控制正在播放的内容。点按以允许。</string>
+    <string name="widget_note_widget_title">笔记小部件</string>
+    <string name="widget_note_picker_title">选择笔记</string>
+    <string name="widget_note_deleted">未找到笔记。点按以选择其他笔记。</string>
     <string name="widget_icon_center">居中</string>
     <string name="widget_icon_left">居左</string>
     <string name="widget_icon_off">关闭</string>
@@ -1082,6 +1085,7 @@
     <string name="widget_text_icon_color">文本及图标色彩</string>
     <string name="widget_text_icon_color_black">黑色</string>
     <string name="widget_text_icon_color_white">白色</string>
+    <string name="widget_text_color">文本色彩</string>
     <string name="widget_toggle_show_label">Quick Search 文本提示</string>
     <string name="widgets_panel_title">小部件管理</string>
     <string name="widgets_picker_empty">未找到任何小部件。</string>
