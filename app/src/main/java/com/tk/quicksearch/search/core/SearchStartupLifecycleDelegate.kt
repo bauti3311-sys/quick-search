@@ -430,6 +430,8 @@ internal class SearchStartupLifecycleDelegate(
                 StartupTrace.mark("QS.Home.ShortcutsCacheAvailable")
             }
 
+            publishStartupPinnedApps()
+
             refreshAppsUsageAndPermissions()
             if (appSearchManager.cachedApps.isNotEmpty() && permissionStateProvider().hasUsagePermission) {
                 appSearchManager.refreshUsageMetadataNow()
