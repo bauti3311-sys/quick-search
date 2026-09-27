@@ -843,6 +843,8 @@
     <string name="settings_at_a_glance_dnd_desc">عند تفعيل عدم الإزعاج</string>
     <string name="settings_at_a_glance_airplane_desc">عند تفعيل وضع الطائرة</string>
     <string name="settings_at_a_glance_hotspot_desc">عند تفعيل نقطة الاتصال</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">تسجيل الدخول إلى Wi-Fi</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">عندما تتطلب شبكة Wi-Fi تسجيل الدخول</string>
     <string name="settings_now_playing_desc">أزرار التحكم بالتشغيل لما يتم تشغيله حاليًا</string>
     <string name="settings_use_system_font_desc">اتباع خط النظام الافتراضي للجهاز</string>
     <string name="settings_use_system_font_title">استخدام خط النظام</string>
@@ -1275,6 +1277,8 @@
     <string name="home_ongoing_call_hang_up">إنهاء المكالمة</string>
     <string name="home_airplane_mode_on">وضع الطائرة مفعّل</string>
     <string name="home_hotspot_on">نقطة الاتصال مفعّلة</string>
+    <string name="home_wifi_sign_in">سجّل الدخول إلى شبكة Wi-Fi</string>
+    <string name="home_sign_in">تسجيل الدخول</string>
     <string name="home_turn_off">إيقاف</string>
     <string name="settings_tavily_title">Tavily للبحث على الويب</string>
     <string name="settings_tavily_desc">أضف مفتاح Tavily API لإضافة دعم البحث على الويب للنماذج التي لا تدعمه.</string>

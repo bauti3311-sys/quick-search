@@ -26,7 +26,7 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
 
 /**
  * One row of the home At a Glance card. Today's calendar events are hosted by the calendar card
- * itself; every other glanceable source (ongoing calls, battery, missed calls, Do Not Disturb,
+ * itself; every other glanceable source (ongoing calls, battery, missed calls, Wi-Fi sign-in, Do Not Disturb,
  * airplane mode, hotspot, workouts, timers, progress notifications, alarm, reminders, birthdays, tomorrow's
  * events, storage, and future ones) contributes rows here.
  * Rows sit inside the card's inset and follow CalendarEventRow: 7dp before a 24dp icon, then 12dp
@@ -55,6 +55,7 @@ internal fun rememberAtAGlanceItems(
     val birthdays = rememberBirthdaysGlance(enabled, onShowContactMethods)
     val lowStorage = rememberLowStorageGlance(enabled)
     val doNotDisturb = rememberDoNotDisturbGlance(enabled)
+    val wifiSignIn = rememberWifiSignInGlance(enabled)
     val airplaneMode = rememberAirplaneModeGlance(enabled)
     val hotspot = rememberHotspotGlance(enabled)
     val tomorrowEvents = rememberTomorrowEventsGlance(enabled)
@@ -70,6 +71,7 @@ internal fun rememberAtAGlanceItems(
                     AtAGlanceItem(key = "missed-calls") { MissedCallsRow(calls, notifications.dismissMissedCalls) }
                 },
             ),
+            listOfNotNull(wifiSignIn?.let { AtAGlanceItem(key = "wifi-sign-in") { WifiSignInRow(it) } }),
             listOfNotNull(doNotDisturb?.let { AtAGlanceItem(key = "do-not-disturb") { DoNotDisturbRow(it) } }),
             listOfNotNull(airplaneMode?.let { AtAGlanceItem(key = "airplane-mode") { AirplaneModeRow(it) } }),
             listOfNotNull(hotspot?.let { AtAGlanceItem(key = "hotspot") { HotspotRow(it) } }),

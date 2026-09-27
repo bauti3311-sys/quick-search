@@ -842,6 +842,8 @@
     <string name="settings_at_a_glance_dnd_desc">जब डू नॉट डिस्टर्ब चालू हो</string>
     <string name="settings_at_a_glance_airplane_desc">जब विमान मोड चालू हो</string>
     <string name="settings_at_a_glance_hotspot_desc">जब आपका हॉटस्पॉट चालू हो</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">Wi-Fi साइन-इन</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">जब किसी Wi-Fi नेटवर्क पर आपको साइन इन करना हो</string>
     <string name="settings_now_playing_desc">जो अभी चल रहा है उसके लिए प्लेबैक नियंत्रण</string>
     <string name="settings_use_system_font_desc">अपने डिवाइस की फ़ॉन्ट शैली का पालन करें</string>
     <string name="settings_use_system_font_title">सिस्टम फ़ॉन्ट उपयोग करें</string>
@@ -1273,6 +1275,8 @@
     <string name="home_ongoing_call_hang_up">कॉल काटें</string>
     <string name="home_airplane_mode_on">विमान मोड चालू है</string>
     <string name="home_hotspot_on">हॉटस्पॉट चालू है</string>
+    <string name="home_wifi_sign_in">Wi-Fi नेटवर्क में साइन इन करें</string>
+    <string name="home_sign_in">साइन इन करें</string>
     <string name="home_turn_off">बंद करें</string>
     <string name="settings_tavily_title">वेब सर्च के लिए Tavily</string>
     <string name="settings_tavily_desc">जो मॉडल वेब सर्च सपोर्ट नहीं करते, उनमें वेब सर्च जोड़ने के लिए Tavily API कुंजी जोड़ें।</string>

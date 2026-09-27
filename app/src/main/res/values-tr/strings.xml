@@ -841,6 +841,8 @@
     <string name="settings_at_a_glance_dnd_desc">Rahatsız etmeyin açıkken</string>
     <string name="settings_at_a_glance_airplane_desc">Uçak modu açıkken</string>
     <string name="settings_at_a_glance_hotspot_desc">Hotspot açıkken</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">Wi-Fi oturum açma</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">Bir Wi-Fi ağı oturum açmanızı istediğinde</string>
 <string name="settings_now_playing_desc">O anda çalan içerik için oynatma kontrolleri</string>
 <string name="settings_use_system_font_desc">Cihazının yazı tipi stilini takip et</string>
 <string name="settings_use_system_font_title">Sistem yazı tipini kullan</string>
@@ -1272,6 +1274,8 @@
     <string name="home_ongoing_call_hang_up">Kapat</string>
     <string name="home_airplane_mode_on">Uçak modu açık</string>
     <string name="home_hotspot_on">Hotspot açık</string>
+    <string name="home_wifi_sign_in">Wi-Fi ağında oturum açın</string>
+    <string name="home_sign_in">Oturum aç</string>
     <string name="home_turn_off">Kapat</string>
     <string name="settings_tavily_title">Web Araması için Tavily</string>
     <string name="settings_tavily_desc">Web aramasını desteklemeyen modellere web araması eklemek için Tavily API anahtarı ekleyin.</string>

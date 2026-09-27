@@ -842,6 +842,8 @@
     <string name="settings_at_a_glance_dnd_desc">Quando o Não perturbe estiver ativado</string>
     <string name="settings_at_a_glance_airplane_desc">Quando o modo avião estiver ativado</string>
     <string name="settings_at_a_glance_hotspot_desc">Quando o roteador Wi-Fi estiver ativado</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">Login no Wi-Fi</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">Quando uma rede Wi-Fi pedir que você faça login</string>
     <string name="settings_now_playing_desc">Controles de reprodução para o que está tocando no momento</string>
     <string name="settings_use_system_font_desc">Seguir o estilo de fonte do seu dispositivo</string>
     <string name="settings_use_system_font_title">Usar fonte do sistema</string>
@@ -1273,6 +1275,8 @@
     <string name="home_ongoing_call_hang_up">Desligar</string>
     <string name="home_airplane_mode_on">O modo avião está ativado</string>
     <string name="home_hotspot_on">O roteador Wi-Fi está ativado</string>
+    <string name="home_wifi_sign_in">Faça login na rede Wi-Fi</string>
+    <string name="home_sign_in">Fazer login</string>
     <string name="home_turn_off">Desativar</string>
     <string name="settings_tavily_title">Tavily para pesquisa na web</string>
     <string name="settings_tavily_desc">Adicione uma chave de API do Tavily para dar pesquisa na web aos modelos que não oferecem suporte.</string>

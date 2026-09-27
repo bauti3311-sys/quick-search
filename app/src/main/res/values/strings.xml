@@ -840,6 +840,8 @@
     <string name="settings_at_a_glance_dnd_desc">When Do Not Disturb is on</string>
     <string name="settings_at_a_glance_airplane_desc">When airplane mode is on</string>
     <string name="settings_at_a_glance_hotspot_desc">When your hotspot is on</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">Wi-Fi sign-in</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">When a Wi-Fi network needs you to sign in</string>
     <string name="settings_now_playing_desc">Playback controls for whatever\'s currently playing</string>
     <string name="settings_use_system_font_desc">Follow your device font style</string>
     <string name="settings_use_system_font_title">Use System Font</string>
@@ -1271,6 +1273,8 @@
     <string name="home_ongoing_call_hang_up">Hang up</string>
     <string name="home_airplane_mode_on">Airplane mode is ON</string>
     <string name="home_hotspot_on">Hotspot is ON</string>
+    <string name="home_wifi_sign_in">Sign in to Wi-Fi network</string>
+    <string name="home_sign_in">Sign in</string>
     <string name="home_turn_off">Turn off</string>
     <!-- Reminders -->
     <string name="section_reminders">Reminders</string>

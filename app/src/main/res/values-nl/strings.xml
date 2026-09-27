@@ -875,6 +875,8 @@
     <string name="settings_at_a_glance_dnd_desc">Als Niet storen aan staat</string>
     <string name="settings_at_a_glance_airplane_desc">Als vliegtuigmodus aan staat</string>
     <string name="settings_at_a_glance_hotspot_desc">Als je hotspot aan staat</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">Wifi-aanmelding</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">Als een wifinetwerk vraagt om je aan te melden</string>
     <string name="settings_now_playing_desc">Afspeelbediening voor wat er nu wordt afgespeeld</string>
     <string name="settings_use_system_font_desc">Het lettertype van je apparaat volgen</string>
     <string name="settings_use_system_font_title">Systeemlettertype gebruiken</string>
@@ -1328,6 +1330,8 @@ Gebruik {time} om de huidige datum en tijd in de prompt op te nemen.</string>
     <string name="home_ongoing_call_hang_up">Ophangen</string>
     <string name="home_airplane_mode_on">Vliegtuigmodus staat aan</string>
     <string name="home_hotspot_on">Hotspot staat aan</string>
+    <string name="home_wifi_sign_in">Aanmelden bij wifinetwerk</string>
+    <string name="home_sign_in">Aanmelden</string>
     <string name="home_turn_off">Uitzetten</string>
     <string name="settings_tavily_title">Tavily voor webzoeken</string>
     <string name="settings_tavily_desc">Voeg een Tavily API-sleutel toe om webzoeken toe te voegen aan modellen die dit niet ondersteunen.</string>

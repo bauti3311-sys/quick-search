@@ -862,6 +862,8 @@
     <string name="settings_at_a_glance_dnd_desc">Когда включен режим «Не беспокоить»</string>
     <string name="settings_at_a_glance_airplane_desc">Когда включен режим полета</string>
     <string name="settings_at_a_glance_hotspot_desc">Когда включена точка доступа</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">Вход в сеть Wi-Fi</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">Когда сеть Wi-Fi требует входа</string>
 <string name="settings_now_playing_desc">Элементы управления воспроизведением для текущего трека</string>
 <string name="settings_use_system_font_desc">Использовать системный стиль шрифта вашего устройства</string>
 <string name="settings_use_system_font_title">Системный шрифт</string>
@@ -1293,6 +1295,8 @@
     <string name="home_ongoing_call_hang_up">Завершить</string>
     <string name="home_airplane_mode_on">Режим полета включен</string>
     <string name="home_hotspot_on">Точка доступа включена</string>
+    <string name="home_wifi_sign_in">Войдите в сеть Wi-Fi</string>
+    <string name="home_sign_in">Войти</string>
     <string name="home_turn_off">Выключить</string>
     <string name="settings_tavily_title">Tavily для веб-поиска</string>
     <string name="settings_tavily_desc">Добавьте API-ключ Tavily, чтобы добавить веб-поиск моделям, которые его не поддерживают.</string>

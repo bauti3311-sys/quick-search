@@ -850,6 +850,8 @@
     <string name="settings_at_a_glance_dnd_desc">サイレントモードがオンのとき</string>
     <string name="settings_at_a_glance_airplane_desc">機内モードがオンのとき</string>
     <string name="settings_at_a_glance_hotspot_desc">アクセスポイントがオンのとき</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">Wi-Fi ログイン</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">Wi-Fi ネットワークでログインが必要なとき</string>
     <string name="settings_now_playing_desc">現在再生中のコンテンツの再生操作</string>
     <string name="settings_use_system_font_desc">端末のフォントスタイルに従う</string>
     <string name="settings_use_system_font_title">システムフォントを使用</string>
@@ -1280,6 +1282,8 @@ www.google.com/search?q={{query}}</string>
     <string name="home_ongoing_call_hang_up">通話を終了</string>
     <string name="home_airplane_mode_on">機内モードがオン</string>
     <string name="home_hotspot_on">アクセスポイントがオン</string>
+    <string name="home_wifi_sign_in">Wi-Fi ネットワークにログイン</string>
+    <string name="home_sign_in">ログイン</string>
     <string name="home_turn_off">オフにする</string>
     <string name="settings_tavily_title">ウェブ検索用 Tavily</string>
     <string name="settings_tavily_desc">Tavily API キーを追加すると、ウェブ検索に対応していないモデルでもウェブ検索を利用できます。</string>

@@ -846,6 +846,8 @@
     <string name="settings_at_a_glance_dnd_desc">Saat Jangan Ganggu aktif</string>
     <string name="settings_at_a_glance_airplane_desc">Saat Mode Pesawat aktif</string>
     <string name="settings_at_a_glance_hotspot_desc">Saat hotspot Anda aktif</string>
+    <string name="settings_at_a_glance_wifi_sign_in_title">Masuk Wi-Fi</string>
+    <string name="settings_at_a_glance_wifi_sign_in_desc">Saat jaringan Wi-Fi meminta Anda masuk</string>
     <string name="settings_now_playing_desc">Kontrol pemutaran untuk yang sedang diputar</string>
     <string name="settings_use_system_font_desc">Gunakan gaya font perangkat Anda</string>
     <string name="settings_use_system_font_title">Gunakan Font Sistem</string>
@@ -1271,6 +1273,8 @@
     <string name="home_ongoing_call_hang_up">Tutup</string>
     <string name="home_airplane_mode_on">Mode Pesawat aktif</string>
     <string name="home_hotspot_on">Hotspot aktif</string>
+    <string name="home_wifi_sign_in">Masuk ke jaringan Wi-Fi</string>
+    <string name="home_sign_in">Masuk</string>
     <string name="home_turn_off">Nonaktifkan</string>
     <string name="settings_tavily_title">Tavily untuk Penelusuran Web</string>
     <string name="settings_tavily_desc">Tambahkan kunci API Tavily untuk menambahkan penelusuran web pada model yang tidak mendukungnya.</string>

@@ -156,6 +156,7 @@ fun AtAGlanceSettingsSection(
     var showWorkouts by remember { mutableStateOf(glancePreferences.isShowWorkoutsEnabled()) }
     var showAirplaneMode by remember { mutableStateOf(glancePreferences.isShowAirplaneModeEnabled()) }
     var showHotspot by remember { mutableStateOf(glancePreferences.isShowHotspotEnabled()) }
+    var showWifiSignIn by remember { mutableStateOf(glancePreferences.isShowWifiSignInEnabled()) }
     var hasNotificationAccess by remember {
         mutableStateOf(NotificationDotsPermission.hasNotificationListenerAccess(context))
     }
@@ -329,6 +330,14 @@ fun AtAGlanceSettingsSection(
             ) { enabled ->
                 showHotspot = enabled
                 glancePreferences.setShowHotspotEnabled(enabled)
+            },
+            simpleToggle(
+                title = stringResource(R.string.settings_at_a_glance_wifi_sign_in_title),
+                description = stringResource(R.string.settings_at_a_glance_wifi_sign_in_desc),
+                checked = showWifiSignIn,
+            ) { enabled ->
+                showWifiSignIn = enabled
+                glancePreferences.setShowWifiSignInEnabled(enabled)
             },
             GlanceToggle("$alarmsTitle $alarmsDescription") { isFirst, isLast ->
                 SettingsToggleRow(
