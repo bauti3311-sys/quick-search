@@ -187,8 +187,10 @@ internal object GlanceNotificationsStore {
      */
     private fun StatusBarNotification.toOngoingCall(context: Context): OngoingCallNotification? {
         if (notification.flags and Notification.FLAG_ONGOING_EVENT == 0) return null
-        if (notification.category != Notification.CATEGORY_CALL) return toTelegramCall()
         val extras = notification.extras ?: return null
+        // Google Meet posts a call style notification without the call category.
+        val isCallStyle = extras.getString(Notification.EXTRA_TEMPLATE) == CALL_STYLE_TEMPLATE
+        if (notification.category != Notification.CATEGORY_CALL && !isCallStyle) return toTelegramCall()
         val callType = extras.getInt(EXTRA_CALL_TYPE, CALL_TYPE_UNKNOWN)
         val isConnected =
             if (callType != CALL_TYPE_UNKNOWN) callType == CALL_TYPE_ONGOING else notification.fullScreenIntent == null
@@ -272,6 +274,7 @@ internal object GlanceNotificationsStore {
     private const val EXTRA_CALL_TYPE = "android.callType"
     private const val EXTRA_CALL_PERSON = "android.callPerson"
     private const val EXTRA_HANG_UP_INTENT = "android.hangUpIntent"
+    private const val CALL_STYLE_TEMPLATE = "android.app.Notification\$CallStyle"
 
     /** Telegram's package (and its official builds' prefix) and its VoIPService ongoing call notification id. */
     private const val TELEGRAM_PACKAGE_PREFIX = "org.telegram.messenger"
