@@ -386,6 +386,13 @@
             </intent-filter>
         </activity>
 
+        <!-- Opens hosted widgets' configure screens through the system (see the class doc). -->
+        <activity
+            android:name=".widgetsPanel.WidgetConfigureTrampolineActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <!-- Own empty task affinity so finishing it returns to the launcher, not to Quick Search. -->
         <activity
             android:name=".widgets.mediaControlsWidget.MediaControlsOpenPlayerActivity"
