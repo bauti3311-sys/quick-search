@@ -75,6 +75,8 @@ internal class NotificationGlances(
     val dismissOtp: (OtpNotification) -> Unit,
     /** Read from weather apps' own notifications; no weather service is queried. */
     val weather: List<WeatherNotification>,
+    /** Hides the row and clears the notification from the shade when the app allows. */
+    val dismissWeather: (WeatherNotification) -> Unit,
     /** Wall clock the timer and call rows count from; ticks every second while one shows. */
     val nowMillis: Long,
 )
@@ -160,6 +162,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
         otp = otp,
         dismissOtp = GlanceNotificationsStore::dismissOtp,
         weather = weather,
+        dismissWeather = { GlanceNotificationsStore.dismissWeather(it.key) },
         nowMillis = nowMillis,
     )
 }
@@ -290,17 +293,21 @@ internal fun WorkoutRow(workout: WorkoutNotification) {
     )
 }
 
-/** A weather app's current conditions or alert, with the temperature it shows in the pill. */
+/** A weather app's current conditions or alert, with a button at the top right to dismiss it. */
 @Composable
-internal fun WeatherRow(weather: WeatherNotification) {
+internal fun WeatherRow(
+    weather: WeatherNotification,
+    onDismiss: () -> Unit,
+) {
     val context = LocalContext.current
     val appLabel = rememberAppLabel(weather.packageName)
     GlanceStatusRow(
         icon = { NotificationAppIcon(weather.packageName) },
         title = weather.title ?: appLabel,
         subtitle = weather.text ?: appLabel.takeIf { weather.title != null },
-        pillText = weather.temperature,
         onClick = { openNotificationTarget(context, weather.packageName, weather.contentIntent) },
+        onDismiss = onDismiss,
+        dismissAtTop = true,
     )
 }
 

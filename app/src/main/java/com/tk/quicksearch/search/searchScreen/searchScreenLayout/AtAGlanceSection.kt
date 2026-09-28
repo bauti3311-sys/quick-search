@@ -84,7 +84,7 @@ internal fun rememberAtAGlanceItems(
             listOfNotNull(airplaneMode?.let { AtAGlanceItem(key = "airplane-mode") { AirplaneModeRow(it) } }),
             listOfNotNull(hotspot?.let { AtAGlanceItem(key = "hotspot") { HotspotRow(it) } }),
             notifications.weather.map { weather ->
-                AtAGlanceItem(key = "weather-${weather.key}") { WeatherRow(weather) }
+                AtAGlanceItem(key = "weather-${weather.key}") { WeatherRow(weather) { notifications.dismissWeather(weather) } }
             },
             notifications.workouts.map { workout ->
                 AtAGlanceItem(key = "workout-${workout.key}") { WorkoutRow(workout) }

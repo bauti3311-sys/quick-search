@@ -76,7 +76,8 @@ internal fun glanceNeutralPillColors() =
 /**
  * The common At a Glance row layout, matching [LowBatteryRow]: a 24dp icon, a title with an
  * optional subtitle and extra content below it, an optional value pill, and an optional [trailing]
- * action or dismiss button outside the row's tap target. [pillWidthText] is the widest value the
+ * action or dismiss button outside the row's tap target, centered or, with [dismissAtTop], in the
+ * top right corner. [pillWidthText] is the widest value the
  * pill can show; the pill always reserves its width, so a changing value doesn't shift the row.
  */
 @Composable
@@ -90,6 +91,7 @@ internal fun GlanceStatusRow(
     pillColors: GlancePillColors = glanceNeutralPillColors(),
     pillWidthText: String? = null,
     onDismiss: (() -> Unit)? = null,
+    dismissAtTop: Boolean = false,
     belowText: (@Composable () -> Unit)? = null,
     trailing: (@Composable () -> Unit)? = null,
 ) {
@@ -165,7 +167,10 @@ internal fun GlanceStatusRow(
         if (onDismiss != null) {
             IconButton(
                 onClick = onDismiss,
-                modifier = Modifier.size(GlanceDismissButtonSize),
+                modifier =
+                    Modifier
+                        .then(if (dismissAtTop) Modifier.align(Alignment.Top) else Modifier)
+                        .size(GlanceDismissButtonSize),
             ) {
                 Icon(
                     imageVector = Icons.Rounded.Close,

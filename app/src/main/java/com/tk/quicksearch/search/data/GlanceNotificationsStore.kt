@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.Chronometer
 import android.widget.FrameLayout
 import android.widget.RemoteViews
+import com.tk.quicksearch.search.apps.notificationDots.NotificationDotsListenerService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -145,6 +146,13 @@ internal object GlanceNotificationsStore {
     fun dismissOtp(otp: OtpNotification) {
         OtpNotifications.dismiss(otp)
         otpsState.value = otpsState.value.filter { it.postTime > otp.postTime }
+    }
+
+    /** Hides a weather notification from At a Glance and clears it from the shade when the app allows. */
+    fun dismissWeather(key: String) {
+        WeatherNotifications.dismiss(key)
+        weatherState.value = weatherState.value.filter { it.key != key }
+        NotificationDotsListenerService.cancelNotification(key)
     }
 
     /** Hides a finished progress notification from At a Glance, leaving it posted. */
