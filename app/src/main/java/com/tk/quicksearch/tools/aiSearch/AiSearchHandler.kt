@@ -14,28 +14,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-internal data class AiConversationTurn(
-    val question: String,
-    val answer: String,
-)
-
-internal fun buildAiFollowUpPrompt(
-    previousTurns: List<AiConversationTurn>,
-    followUpQuestion: String,
-): String =
-    buildString {
-        append("Use the complete conversation below as context for the final follow-up question.\n\n")
-        previousTurns.forEach { turn ->
-            append("User: ")
-            append(turn.question)
-            append("\nAssistant: ")
-            append(turn.answer)
-            append("\n\n")
-        }
-        append("User follow-up: ")
-        append(followUpQuestion)
-    }
-
 class AiSearchHandler(
     private val context: Context,
     private val userPreferences: UserAppPreferences,
@@ -395,20 +373,14 @@ class AiSearchHandler(
                 }
 
                 val selectedModel = availableModels.find { it.id == selectedModelId }
-                val prompt =
-                    if (isFollowUp) {
-                        buildAiFollowUpPrompt(previousTurns, questionText)
-                    } else {
-                        questionText
-                    }
                 val webSearch =
                     if (isHelp) {
-                        PreparedWebSearch(prompt = prompt, useNativeSearch = false)
+                        PreparedWebSearch(prompt = questionText, useNativeSearch = false)
                     } else {
                         prepareWebSearch(
                             userPreferences = userPreferences,
                             searchQuery = trimmedQuery,
-                            prompt = prompt,
+                            prompt = questionText,
                             nativeSearchSupported =
                                 providerSupportsNativeSearch(activeProviderId) &&
                                     selectedModel?.supportsGrounding != false,
@@ -437,6 +409,10 @@ class AiSearchHandler(
                                     selectedModel?.supportsSystemInstructions != false,
                                 systemInstruction =
                                     if (isHelp) QuickSearchHelp.systemInstruction(context) else null,
+                                // Sent as real messages (not folded into the prompt) so web search
+                                // results wrap only the new question and earlier turns stay a
+                                // stable prefix that providers can serve from their prompt cache.
+                                history = if (isFollowUp) previousTurns else emptyList(),
                             ),
                     )
 

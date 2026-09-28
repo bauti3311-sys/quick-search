@@ -30,6 +30,8 @@ data class LlmRequest(
     val systemInstruction: String? = null,
     val responseMimeType: String = "text/plain",
     val advancedPayloadJson: String? = null,
+    /** Earlier turns of the conversation, sent as real messages before [query]. */
+    val history: List<AiConversationTurn> = emptyList(),
 )
 
 /** Provider response plus request-level delivery details needed by the result UI. */
