@@ -746,8 +746,8 @@ internal fun SettingsNestedDetailScreen(
             )
         } else if (detailType == SettingsDetailType.AT_A_GLANCE) {
             AtAGlanceSettingsBottomBar(
-                query = atAGlanceSearchQuery, onQueryChange = { atAGlanceSearchQuery = it },
-                onClear = { atAGlanceSearchQuery = "" }, modifier = Modifier.align(Alignment.BottomCenter).fillMaxWidth(),
+                query = atAGlanceSearchQuery, onQueryChange = { atAGlanceSearchQuery = it }, onClear = { atAGlanceSearchQuery = "" },
+                onNavigateToApiKeySetup = { onNavigateToDetail(SettingsDetailType.API_KEY_SETUP) }, modifier = Modifier.align(Alignment.BottomCenter).fillMaxWidth(),
             )
         }
 

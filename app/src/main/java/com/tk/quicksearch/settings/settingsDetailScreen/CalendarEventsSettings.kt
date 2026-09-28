@@ -111,7 +111,7 @@ private data class CalendarAppTarget(
     val label: String,
 )
 
-private val CalendarSettingsBarCornerShape = RoundedCornerShape(28.dp)
+internal val CalendarSettingsBarCornerShape = RoundedCornerShape(28.dp)
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)

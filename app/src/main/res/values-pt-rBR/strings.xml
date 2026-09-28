@@ -833,6 +833,8 @@
     <string name="custom_info_prompt">Prompt</string>
     <string name="custom_info_set_date_time">Definir data e hora</string>
     <string name="custom_info_desc">Respostas de IA aos seus prompts na tela inicial, nos horários que você escolher</string>
+    <string name="settings_ai_api_key_required_message">Este recurso requer uma chave de API do provedor de IA.</string>
+    <string name="settings_ai_api_key_setup_action">Configurar chave</string>
     <string name="custom_info_repeat_never">Não se repete</string>
     <string name="custom_info_repeat_every">Repetir a cada</string>
     <string name="custom_info_send_notification">Enviar notificação</string>

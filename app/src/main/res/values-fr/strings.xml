@@ -833,6 +833,8 @@
 <string name="custom_info_prompt">Consigne</string>
 <string name="custom_info_set_date_time">Définir la date et l’heure</string>
 <string name="custom_info_desc">Des réponses IA à vos consignes sur l’accueil, aux heures de votre choix</string>
+<string name="settings_ai_api_key_required_message">Cette fonctionnalité nécessite une clé API d\'un fournisseur AI.</string>
+<string name="settings_ai_api_key_setup_action">Configurer la clé</string>
 <string name="custom_info_repeat_never">Ne se répète pas</string>
 <string name="custom_info_repeat_every">Répéter tous les</string>
 <string name="custom_info_send_notification">Envoyer une notification</string>

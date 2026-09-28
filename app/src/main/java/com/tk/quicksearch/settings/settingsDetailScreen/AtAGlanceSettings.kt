@@ -614,6 +614,7 @@ fun AtAGlanceSettingsBottomBar(
     query: String,
     onQueryChange: (String) -> Unit,
     onClear: () -> Unit,
+    onNavigateToApiKeySetup: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
@@ -621,6 +622,7 @@ fun AtAGlanceSettingsBottomBar(
     val scope = rememberCoroutineScope()
     val lifecycleOwner = LocalLifecycleOwner.current
     var hasAiKey by remember { mutableStateOf(false) }
+    var showApiKeyRequiredDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(preferences) {
         hasAiKey = withContext(Dispatchers.IO) { preferences.hasAnyLlmApiKey() }
@@ -642,14 +644,24 @@ fun AtAGlanceSettingsBottomBar(
         onQueryChange = onQueryChange,
         onClear = onClear,
         onNewEvent = {
-            context.startActivity(Intent(context, CustomInfoActivity::class.java))
-            @Suppress("DEPRECATION")
-            (context as? Activity)?.overridePendingTransition(R.anim.custom_info_slide_in_right, R.anim.custom_info_slide_out_left)
+            if (hasAiKey) {
+                context.startActivity(Intent(context, CustomInfoActivity::class.java))
+                @Suppress("DEPRECATION")
+                (context as? Activity)?.overridePendingTransition(R.anim.custom_info_slide_in_right, R.anim.custom_info_slide_out_left)
+            } else {
+                showApiKeyRequiredDialog = true
+            }
         },
         newItemLabelResId = R.string.custom_info_title,
-        showNewItem = hasAiKey,
         modifier = modifier,
     )
+
+    if (showApiKeyRequiredDialog) {
+        AiApiKeyRequiredDialog(
+            onDismiss = { showApiKeyRequiredDialog = false },
+            onSetupKey = onNavigateToApiKeySetup,
+        )
+    }
 }
 
 /** Lists the apps whose alarms were hidden from At a Glance, each with an Unhide action. */

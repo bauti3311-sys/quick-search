@@ -837,6 +837,8 @@
     <string name="custom_info_prompt">Prompt</string>
     <string name="custom_info_set_date_time">Atur tanggal dan waktu</string>
     <string name="custom_info_desc">Jawaban AI untuk prompt Anda di Beranda, pada waktu yang Anda pilih</string>
+    <string name="settings_ai_api_key_required_message">Fitur ini memerlukan kunci API penyedia AI.</string>
+    <string name="settings_ai_api_key_setup_action">Atur Kunci</string>
     <string name="custom_info_repeat_never">Tidak berulang</string>
     <string name="custom_info_repeat_every">Ulangi setiap</string>
     <string name="custom_info_send_notification">Kirim notifikasi</string>
