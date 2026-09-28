@@ -317,6 +317,11 @@ object AppColors {
         @Composable
         get() = MaterialTheme.colorScheme.primary.copy(alpha = 0.22f)
 
+    /** Subtle outline for the labeled engine pills shown when the strip has only a few engines. */
+    val InlineEnginePillBorder: Color
+        @Composable
+        get() = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.16f)
+
     // Keyboard operator pills --------------------------------------------------------------
 
     /** Background color for number-keyboard operator pill chips. */

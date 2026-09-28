@@ -49,7 +49,8 @@ Main `AppColors` groups:
 - **Accent:** `Accent`, `OnAccent`, `LinkColor` (stays blue in monochrome so links read as
   tappable), `ItemMenuActiveIconTint`, `IconTintPrimary`/`IconTintSecondary`.
 - **Search bar and chrome:** `getSearchBarBackground(...)`, `getSearchBarTextAndIconColor(...)`,
-  `SearchChromeOutlineBorder`, `KeyboardPill*`, `InlineEngineHighlight*`.
+  `SearchChromeOutlineBorder`, `KeyboardPill*`, `InlineEngineHighlight*`,
+  `InlineEnginePillBorder`.
 - **Wallpaper surfaces:** `ResultCardWallpaperBackground`, `CompactSectionBackground`,
   `WallpaperText*`, `WallpaperDivider`, `wallpaperAwareMutedSearchForeground(...)`.
 - **Settings and dialogs:** `SettingsCardBackground`, `SettingsText`, `SettingsIconTint`,
