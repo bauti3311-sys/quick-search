@@ -201,30 +201,6 @@ internal suspend fun SearchStartupLifecycleDelegate.publishCurrentStartupAppSugg
         }
     }
 
-// Pinned apps don't depend on usage metadata, so when the Pinned tab is the one on screen it can
-// show from the cached startup surface instead of waiting for the usage refresh behind recents.
-// Folders need the full app catalog to resolve, so a grid with folders waits for it.
-internal suspend fun SearchStartupLifecycleDelegate.publishStartupPinnedApps() {
-        val hasAppFolders = userPreferences.getAppFolders().isNotEmpty()
-        withContext(Dispatchers.Main.immediate) {
-            updateResultsState { state ->
-                if (
-                    hasAppFolders ||
-                        state.appsSectionState is AppsSectionVisibility.ShowingResults ||
-                        !canShowStartupPinnedTab(state)
-                ) {
-                    state
-                } else {
-                    state.copy(
-                        screenState = ScreenVisibilityState.Content,
-                        appsSectionState = AppsSectionVisibility.ShowingResults(hasPinned = true),
-                    )
-                }
-            }
-            StartupTrace.mark("QS.Home.PinnedAppsPublished")
-        }
-    }
-
 private fun SearchStartupLifecycleDelegate.canShowStartupPinnedTab(state: SearchResultsState): Boolean {
         val config = configStateProvider()
         return state.query.isBlank() &&
@@ -236,10 +212,15 @@ private fun SearchStartupLifecycleDelegate.canShowStartupPinnedTab(state: Search
 internal suspend fun SearchStartupLifecycleDelegate.publishStartupAppSuggestions() {
         withContext(Dispatchers.Main.immediate) {
             updateResultsState { state ->
-                if (
+                val skip =
                     state.query.isNotBlank() ||
                         (state.recentApps.isEmpty() && !canShowStartupPinnedTab(state))
-                ) {
+                AppSearchPerformanceLogger.log {
+                    "startupPinned suggestionsPublish published=${!skip} " +
+                        "appsSection=${state.appsSectionState::class.simpleName} " +
+                        "pinned=${state.pinnedApps.size} recents=${state.recentApps.size}"
+                }
+                if (skip) {
                     state
                 } else {
                     state.copy(

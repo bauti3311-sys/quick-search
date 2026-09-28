@@ -430,12 +430,16 @@ internal class SearchStartupLifecycleDelegate(
                 StartupTrace.mark("QS.Home.ShortcutsCacheAvailable")
             }
 
-            publishStartupPinnedApps()
-
+            val usageRefreshStartedAtElapsedMs = SystemClock.elapsedRealtime()
             refreshAppsUsageAndPermissions()
             if (appSearchManager.cachedApps.isNotEmpty() && permissionStateProvider().hasUsagePermission) {
                 appSearchManager.refreshUsageMetadataNow()
             }
+            AppSearchPerformanceLogger.logTiming(
+                event = "startupPinned usageRefresh",
+                elapsedMs = SystemClock.elapsedRealtime() - usageRefreshStartedAtElapsedMs,
+                slowThresholdMs = 100L,
+            )
             // A persisted catalog is already safe to render. Publish its suggestions before any
             // required reconciliation so slow PackageManager metadata reads cannot hold the app
             // grid in its loading state. A missing catalog still has to be loaded first.
