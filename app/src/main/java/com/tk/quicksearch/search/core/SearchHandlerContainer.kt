@@ -43,6 +43,7 @@ import com.tk.quicksearch.tools.dateCalculator.DateCalculatorHandler
 import com.tk.quicksearch.tools.aiSearch.AiSearchHandler
 import com.tk.quicksearch.tools.unitConverter.UnitConverterHandler
 import com.tk.quicksearch.tools.tasker.TaskerIntegration
+import com.tk.quicksearch.shared.util.cachedDefaultHomeAppStatus
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 
@@ -233,6 +234,7 @@ internal class SearchHandlerContainer(
             repository = appShortcutRepository,
             userPreferences = userPreferences,
             isLowRamDevice = isLowRamDevice,
+            isDefaultHomeApp = { appContext.cachedDefaultHomeAppStatus() },
         )
     }
 
