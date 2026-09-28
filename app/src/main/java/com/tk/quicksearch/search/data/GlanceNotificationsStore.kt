@@ -163,6 +163,11 @@ internal object GlanceNotificationsStore {
         otpsState.value = otpsState.value.filter { it.postTime > otp.postTime }
     }
 
+    /** Clears the missed call notifications from the shade when the app allows. */
+    fun dismissMissedCalls(keys: List<String>) {
+        keys.forEach(NotificationDotsListenerService::cancelNotification)
+    }
+
     /** Hides a weather notification from At a Glance and clears it from the shade when the app allows. */
     fun dismissWeather(key: String) {
         WeatherNotifications.dismiss(key)

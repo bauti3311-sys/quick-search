@@ -97,11 +97,11 @@ internal class NotificationGlances(
     val dismissFinishedProgress: (FinishedProgressNotification) -> Unit,
     /** Newest first; shown as a single summary row. */
     val missedCalls: List<MissedCallNotification>,
-    /** Hides the missed calls row until a newer missed call comes in. */
+    /** Hides the missed calls row until a newer missed call comes in, and clears their notifications. */
     val dismissMissedCalls: () -> Unit,
     val ongoingCalls: List<OngoingCallNotification>,
     val workouts: List<WorkoutNotification>,
-    /** The newest one-time code, until its notification goes or it is [OtpNotifications.LIFETIME_MILLIS] old. */
+    /** The newest one-time code, until dismissed or it is [OtpNotifications.LIFETIME_MILLIS] old. */
     val otp: OtpNotification?,
     val dismissOtp: (OtpNotification) -> Unit,
     /** Read from weather apps' own notifications; no weather service is queried. */
@@ -183,6 +183,7 @@ internal fun rememberNotificationGlances(enabled: Boolean): NotificationGlances 
         dismissFinishedProgress = { GlanceNotificationsStore.dismissFinishedProgress(it.key) },
         missedCalls = missedCalls,
         dismissMissedCalls = {
+            GlanceNotificationsStore.dismissMissedCalls(missedCalls.map { it.key })
             missedCalls.maxOfOrNull { it.callTime }?.let { newest ->
                 preferences.setMissedCallsDismissedAt(newest)
                 missedCallsDismissedAt = newest
