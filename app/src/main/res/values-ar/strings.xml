@@ -838,6 +838,8 @@
     <string name="custom_info_send_notification">إرسال إشعار أيضًا</string>
     <string name="custom_info_test">اختبار</string>
     <string name="custom_info_test_response">نتيجة الاختبار</string>
+    <string name="custom_info_delete_confirm_title">هل تريد حذف %1$s؟</string>
+    <string name="custom_info_delete_confirm_message">سيتم حذف هذه المعلومات المخصصة وجدولها نهائياً.</string>
     <string name="settings_at_a_glance_desc">معلومات مفيدة تظهر على شاشتك الرئيسية في الأوقات المناسبة</string>
     <string name="settings_at_a_glance_alarms_title">المنبهات</string>
     <string name="settings_upcoming_alarm_desc">المنبه التالي عندما يكون خلال 45 دقيقة</string>

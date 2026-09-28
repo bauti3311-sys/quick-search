@@ -836,6 +836,8 @@
     <string name="custom_info_send_notification">Also send notification</string>
     <string name="custom_info_test">Test</string>
     <string name="custom_info_test_response">Test Response</string>
+    <string name="custom_info_delete_confirm_title">Delete %1$s?</string>
+    <string name="custom_info_delete_confirm_message">This custom info and its schedule will be permanently deleted.</string>
     <string name="settings_at_a_glance_desc">Useful information that appears on your home screen at relevant times</string>
     <string name="settings_at_a_glance_alarms_title">Alarms</string>
     <string name="settings_upcoming_alarm_desc">Your next alarm when it\'s within 45 minutes</string>

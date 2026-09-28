@@ -837,6 +837,8 @@
     <string name="custom_info_send_notification">నోటిఫికేషన్ కూడా పంపండి</string>
     <string name="custom_info_test">పరీక్షించు</string>
     <string name="custom_info_test_response">పరీక్ష ప్రతిస్పందన</string>
+    <string name="custom_info_delete_confirm_title">%1$sను తొలగించాలా?</string>
+    <string name="custom_info_delete_confirm_message">ఈ అనుకూల సమాచారం మరియు దాని షెడ్యూల్ శాశ్వతంగా తొలగించబడతాయి.</string>
     <string name="settings_at_a_glance_desc">సరైన సమయంలో మీ హోమ్ స్క్రీన్‌లో కనిపించే ఉపయోగకరమైన సమాచారం</string>
     <string name="settings_at_a_glance_alarms_title">అలారాలు</string>
     <string name="settings_upcoming_alarm_desc">45 నిమిషాల్లోపు ఉన్నప్పుడు మీ తదుపరి అలారం</string>

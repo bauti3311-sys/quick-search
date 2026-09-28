@@ -865,6 +865,8 @@
     <string name="custom_info_send_notification">Wyślij też powiadomienie</string>
     <string name="custom_info_test">Testuj</string>
     <string name="custom_info_test_response">Odpowiedź testowa</string>
+    <string name="custom_info_delete_confirm_title">Usunąć %1$s?</string>
+    <string name="custom_info_delete_confirm_message">Te własne informacje i ich harmonogram zostaną trwale usunięte.</string>
     <string name="settings_at_a_glance_desc">Przydatne informacje, które pojawiają się na ekranie głównym we właściwym czasie</string>
     <string name="settings_at_a_glance_alarms_title">Alarmy</string>
     <string name="settings_upcoming_alarm_desc">Następny alarm, gdy zadzwoni w ciągu 45 minut</string>

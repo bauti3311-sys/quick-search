@@ -96,6 +96,8 @@ class CustomInfoActivity : ComponentActivity() {
             override fun handleOnBackPressed() = finishWithSlide()
         })
         val preferences = UserAppPreferences(applicationContext)
+        val repository = CustomInfoRepository(applicationContext)
+        val editingItem = intent.getIntExtra(EXTRA_ITEM_ID, 0).takeIf { it > 0 }?.let(repository::get)
         setContent {
             val useDarkSystemBars = when (preferences.getAppThemeMode()) {
                 com.tk.quicksearch.search.core.AppThemeMode.LIGHT -> false
@@ -128,35 +130,61 @@ class CustomInfoActivity : ComponentActivity() {
                     amoledThemeEnabled = preferences.isAmoledThemeEnabled(),
                     modifier = Modifier.background(MaterialTheme.colorScheme.background),
                 ) {
-                    CustomInfoEditor(preferences, onBack = ::finishWithSlide) { item ->
-                        val stored = CustomInfoRepository(applicationContext).add(item)
-                        CustomInfoScheduler.schedule(applicationContext, stored)
+                    CustomInfoEditor(preferences, initialItem = editingItem, onBack = ::finishWithSlide) { item ->
+                        val stored = if (editingItem == null) {
+                            repository.add(item)
+                        } else {
+                            CustomInfoScheduler.cancel(applicationContext, editingItem.id)
+                            repository.update(editingItem.id) { existing ->
+                                existing.copy(
+                                    title = item.title,
+                                    prompt = item.prompt,
+                                    providerId = item.providerId,
+                                    modelId = item.modelId,
+                                    webSearch = item.webSearch,
+                                    thinking = item.thinking,
+                                    dueMillis = item.dueMillis,
+                                    anchorMillis = item.dueMillis,
+                                    sendNotification = item.sendNotification,
+                                    repeat = item.repeat,
+                                )
+                            }
+                        }
+                        stored?.let { CustomInfoScheduler.schedule(applicationContext, it) }
                         finishWithSlide()
                     }
                 }
             }
         }
     }
+
+    companion object {
+        /** Opens the editor prefilled with an existing item; absent means a new item. */
+        const val EXTRA_ITEM_ID = "custom_info_item_id"
+    }
 }
 
 @Composable
 private fun CustomInfoEditor(
     preferences: UserAppPreferences,
+    initialItem: CustomInfoItem?,
     onBack: () -> Unit,
     onSave: (CustomInfoItem) -> Unit,
 ) {
     val context = androidx.compose.ui.platform.LocalContext.current
-    var title by remember { mutableStateOf("") }
-    var prompt by remember { mutableStateOf("") }
-    var providerId by remember { mutableStateOf(preferences.getAiSearchProviderId()) }
-    var modelId by remember { mutableStateOf("") }
-    var thinking by remember { mutableStateOf(false) }
-    var webSearch by remember { mutableStateOf(false) }
-    var dueMillis by remember { mutableStateOf<Long?>(null) }
-    var hasExplicitTime by remember { mutableStateOf(false) }
-    var repeat by remember { mutableStateOf<CustomInfoRepeat?>(null) }
+    var title by remember { mutableStateOf(initialItem?.title.orEmpty()) }
+    var prompt by remember { mutableStateOf(initialItem?.prompt.orEmpty()) }
+    var providerId by remember { mutableStateOf(initialItem?.providerId ?: preferences.getAiSearchProviderId()) }
+    var modelId by remember { mutableStateOf(initialItem?.modelId.orEmpty()) }
+    var thinking by remember { mutableStateOf(initialItem?.thinking ?: false) }
+    var webSearch by remember { mutableStateOf(initialItem?.webSearch ?: false) }
+    var dueMillis by remember { mutableStateOf(initialItem?.dueMillis) }
+    var hasExplicitTime by remember { mutableStateOf(initialItem?.dueMillis != null) }
+    var repeat by remember { mutableStateOf(initialItem?.repeat) }
     var showDateDialog by remember { mutableStateOf(false) }
-    var sendNotification by remember { mutableStateOf(false) }
+    var sendNotification by remember {
+        mutableStateOf(initialItem?.sendNotification == true && ReminderPermissions.hasPostNotifications(context))
+    }
     var configuredIds by remember { mutableStateOf(emptySet<AiSearchLlmProviderId>()) }
     var modelsByProvider by remember { mutableStateOf(emptyMap<AiSearchLlmProviderId, List<LlmTextModel>>()) }
     val scope = rememberCoroutineScope()
@@ -172,15 +200,18 @@ private fun CustomInfoEditor(
             preferences.getConfiguredLlmProviderIds().filter { !preferences.getLlmApiKey(it).isNullOrBlank() }.toSet()
         }
         configuredIds = ids
+        val keepInitialModel = initialItem != null && providerId in ids
         if (providerId !in ids) providerId = ids.firstOrNull() ?: providerId
         val catalogs = ids.associateWith { id ->
             AiSearchLlmProviderRegistry.get(id, context).fallbackTextModels
         }
         modelsByProvider = catalogs
-        // The saved model may exist only in the live catalog, so keep it until that list arrives.
-        modelId = preferences.getLlmModel(providerId).ifBlank { catalogs[providerId]?.firstOrNull()?.id.orEmpty() }
-        thinking = preferences.isLlmThinkingEnabled(providerId)
-        webSearch = preferences.isLlmGroundingEnabled(providerId)
+        if (!keepInitialModel) {
+            // The saved model may exist only in the live catalog, so keep it until that list arrives.
+            modelId = preferences.getLlmModel(providerId).ifBlank { catalogs[providerId]?.firstOrNull()?.id.orEmpty() }
+            thinking = preferences.isLlmThinkingEnabled(providerId)
+            webSearch = preferences.isLlmGroundingEnabled(providerId)
+        }
         ids.forEach { id ->
             launch {
                 val liveModels = withContext(Dispatchers.IO) {
@@ -190,7 +221,7 @@ private fun CustomInfoEditor(
                 }
                 modelsByProvider = modelsByProvider + (id to liveModels)
                 if (id == providerId && liveModels.none { it.id == modelId }) {
-                    val saved = preferences.getLlmModel(id)
+                    val saved = initialItem?.modelId?.takeIf { initialItem.providerId == id } ?: preferences.getLlmModel(id)
                     modelId = saved.takeIf { selected -> liveModels.any { it.id == selected } }
                         ?: liveModels.firstOrNull()?.id.orEmpty()
                 }

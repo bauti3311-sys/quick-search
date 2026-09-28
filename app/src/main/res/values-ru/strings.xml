@@ -857,6 +857,8 @@
 <string name="custom_info_send_notification">Также отправить уведомление</string>
 <string name="custom_info_test">Проверить</string>
 <string name="custom_info_test_response">Тестовый ответ</string>
+<string name="custom_info_delete_confirm_title">Удалить %1$s?</string>
+<string name="custom_info_delete_confirm_message">Эта информация и её расписание будут удалены безвозвратно.</string>
 <string name="settings_at_a_glance_desc">Полезная информация, которая появляется на главном экране в нужное время</string>
 <string name="settings_at_a_glance_alarms_title">Будильники</string>
 <string name="settings_upcoming_alarm_desc">Следующий будильник, если он сработает в течение 45 минут</string>

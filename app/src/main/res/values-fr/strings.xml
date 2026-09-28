@@ -837,6 +837,8 @@
 <string name="custom_info_send_notification">Envoyer aussi une notification</string>
 <string name="custom_info_test">Tester</string>
 <string name="custom_info_test_response">Réponse du test</string>
+<string name="custom_info_delete_confirm_title">Supprimer %1$s ?</string>
+<string name="custom_info_delete_confirm_message">Cette info personnalisée et sa planification seront définitivement supprimées.</string>
 <string name="settings_at_a_glance_desc">Des informations utiles qui apparaissent sur votre écran d\'accueil au bon moment</string>
 <string name="settings_at_a_glance_alarms_title">Alarmes</string>
 <string name="settings_upcoming_alarm_desc">Votre prochaine alarme lorsqu\'elle sonne dans moins de 45 minutes</string>

@@ -836,6 +836,8 @@
     <string name="custom_info_send_notification">Invia anche una notifica</string>
     <string name="custom_info_test">Prova</string>
     <string name="custom_info_test_response">Risposta di prova</string>
+    <string name="custom_info_delete_confirm_title">Eliminare %1$s?</string>
+    <string name="custom_info_delete_confirm_message">Queste informazioni personalizzate e la relativa pianificazione verranno eliminate in modo permanente.</string>
     <string name="settings_at_a_glance_desc">Informazioni utili che compaiono nella schermata iniziale al momento giusto</string>
     <string name="settings_at_a_glance_alarms_title">Sveglie</string>
     <string name="settings_upcoming_alarm_desc">La prossima sveglia quando mancano meno di 45 minuti</string>

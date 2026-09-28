@@ -837,6 +837,8 @@
     <string name="custom_info_send_notification">Αποστολή ειδοποίησης επίσης</string>
     <string name="custom_info_test">Δοκιμή</string>
     <string name="custom_info_test_response">Απάντηση δοκιμής</string>
+    <string name="custom_info_delete_confirm_title">Διαγραφή %1$s;</string>
+    <string name="custom_info_delete_confirm_message">Αυτές οι προσαρμοσμένες πληροφορίες και το πρόγραμμά τους θα διαγραφούν μόνιμα.</string>
     <string name="settings_at_a_glance_desc">Χρήσιμες πληροφορίες που εμφανίζονται στην αρχική σας οθόνη τη σωστή στιγμή</string>
     <string name="settings_at_a_glance_alarms_title">Ξυπνητήρια</string>
     <string name="settings_upcoming_alarm_desc">Το επόμενο ξυπνητήρι όταν είναι εντός 45 λεπτών</string>

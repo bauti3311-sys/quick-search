@@ -836,6 +836,8 @@
 <string name="custom_info_send_notification">Bildirim de gönder</string>
 <string name="custom_info_test">Test et</string>
 <string name="custom_info_test_response">Test yanıtı</string>
+<string name="custom_info_delete_confirm_title">%1$s silinsin mi?</string>
+<string name="custom_info_delete_confirm_message">Bu özel bilgi ve zamanlaması kalıcı olarak silinecek.</string>
 <string name="settings_at_a_glance_desc">Ana ekranınızda doğru zamanda görünen faydalı bilgiler</string>
 <string name="settings_at_a_glance_alarms_title">Alarmlar</string>
 <string name="settings_upcoming_alarm_desc">45 dakika içindeyse sonraki alarmınız</string>

@@ -841,6 +841,8 @@
     <string name="custom_info_send_notification">Kirim notifikasi juga</string>
     <string name="custom_info_test">Uji</string>
     <string name="custom_info_test_response">Respons Uji</string>
+    <string name="custom_info_delete_confirm_title">Hapus %1$s?</string>
+    <string name="custom_info_delete_confirm_message">Info kustom ini dan jadwalnya akan dihapus secara permanen.</string>
     <string name="settings_at_a_glance_desc">Informasi berguna yang muncul di layar utama pada waktu yang tepat</string>
     <string name="settings_at_a_glance_alarms_title">Alarm</string>
     <string name="settings_upcoming_alarm_desc">Alarm berikutnya jika dalam 45 menit</string>

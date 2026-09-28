@@ -16,8 +16,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Delete
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -33,6 +32,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -57,9 +57,11 @@ import com.tk.quicksearch.search.data.preferences.ReminderPreferences
 import com.tk.quicksearch.search.data.preferences.UpcomingAlarmPreferences
 import com.tk.quicksearch.search.data.userAppPreferences.UserAppPreferences
 import com.tk.quicksearch.settings.shared.SettingsCard
+import com.tk.quicksearch.settings.shared.AliasPill
 import com.tk.quicksearch.settings.shared.SettingsToggleRow
 import com.tk.quicksearch.shared.permissions.PermissionHelper
 import com.tk.quicksearch.shared.ui.components.AppAlertDialog
+import com.tk.quicksearch.shared.ui.theme.AppColors
 import com.tk.quicksearch.shared.ui.theme.DesignTokens
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -269,7 +271,6 @@ fun AtAGlanceSettingsSection(
         SettingsToggleRow(
             title = title,
             subtitle = if (hasNotificationAccess) description else needsPermissionText,
-            subtitleTextStyle = MaterialTheme.typography.bodyMedium,
             checked = checked && hasNotificationAccess,
             onCheckedChange = onCheckedChange,
             enabled = hasNotificationAccess,
@@ -290,7 +291,6 @@ fun AtAGlanceSettingsSection(
         SettingsToggleRow(
             title = title,
             subtitle = if (gate.hasAccess) description else needsPermissionText,
-            subtitleTextStyle = MaterialTheme.typography.bodyMedium,
             checked = checked && gate.hasAccess,
             onCheckedChange = onCheckedChange,
             enabled = gate.hasAccess,
@@ -310,7 +310,6 @@ fun AtAGlanceSettingsSection(
         SettingsToggleRow(
             title = title,
             subtitle = description,
-            subtitleTextStyle = MaterialTheme.typography.bodyMedium,
             checked = checked,
             onCheckedChange = onCheckedChange,
             isFirstItem = isFirst,
@@ -333,15 +332,34 @@ fun AtAGlanceSettingsSection(
             SettingsToggleRow(
                 title = item.title,
                 subtitle = scheduleText,
-                subtitleTextStyle = MaterialTheme.typography.bodyMedium,
                 checked = item.enabled,
                 onCheckedChange = { enabled -> CustomInfoScheduler.setEnabled(appContext, item.id, enabled) },
-                trailingAction = {
-                    IconButton(onClick = { itemToDelete = item }) {
-                        Icon(
-                            imageVector = Icons.Rounded.Delete,
-                            contentDescription = stringResource(R.string.dialog_delete),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                subtitleContent = {
+                    Row(
+                        modifier = Modifier.padding(top = DesignTokens.SpacingXSmall),
+                        horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
+                    ) {
+                        AliasPill(
+                            text = AnnotatedString(stringResource(R.string.settings_edit_label)),
+                            textColor = AppColors.LinkColor,
+                            leadingIcon = Icons.Rounded.Edit,
+                            onClick = {
+                                context.startActivity(
+                                    Intent(context, CustomInfoActivity::class.java)
+                                        .putExtra(CustomInfoActivity.EXTRA_ITEM_ID, item.id),
+                                )
+                                @Suppress("DEPRECATION")
+                                (context as? Activity)?.overridePendingTransition(
+                                    R.anim.custom_info_slide_in_right,
+                                    R.anim.custom_info_slide_out_left,
+                                )
+                            },
+                        )
+                        AliasPill(
+                            text = AnnotatedString(stringResource(R.string.dialog_delete)),
+                            textColor = MaterialTheme.colorScheme.error,
+                            leadingIcon = Icons.Rounded.Delete,
+                            onClick = { itemToDelete = item },
                         )
                     }
                 },
@@ -429,7 +447,6 @@ fun AtAGlanceSettingsSection(
                 SettingsToggleRow(
                     title = alarmsTitle,
                     subtitle = if (hiddenAlarmPackages.isEmpty()) alarmsDescription else null,
-                    subtitleTextStyle = MaterialTheme.typography.bodyMedium,
                     subtitleContent =
                         if (hiddenAlarmPackages.isEmpty()) {
                             null
@@ -437,7 +454,7 @@ fun AtAGlanceSettingsSection(
                             {
                                 Text(
                                     text = hiddenAlarmAppsLabel,
-                                    style = MaterialTheme.typography.bodyMedium,
+                                    style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.primary,
                                     modifier = Modifier.clickable { showHiddenAlarmAppsDialog = true },
                                 )
@@ -571,8 +588,8 @@ fun AtAGlanceSettingsSection(
     itemToDelete?.let { item ->
         AppAlertDialog(
             onDismissRequest = { itemToDelete = null },
-            title = { Text(stringResource(R.string.dialog_delete)) },
-            text = { Text(item.title) },
+            title = { Text(stringResource(R.string.custom_info_delete_confirm_title, item.title)) },
+            text = { Text(stringResource(R.string.custom_info_delete_confirm_message)) },
             confirmButton = {
                 TextButton(onClick = {
                     CustomInfoScheduler.cancel(context, item.id)
