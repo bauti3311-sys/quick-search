@@ -18,31 +18,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.CalendarMonth
-import androidx.compose.material3.Icon
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -58,10 +48,7 @@ import com.tk.quicksearch.search.data.userAppPreferences.UserAppPreferences
 import com.tk.quicksearch.settings.settingsDetailScreen.ReminderFormDialog
 import com.tk.quicksearch.settings.settingsDetailScreen.SettingsDetailHeader
 import com.tk.quicksearch.settings.shared.ModelFeatureSettingsCard
-import com.tk.quicksearch.settings.shared.SettingsCheckboxPill
 import com.tk.quicksearch.settings.shared.SettingsScreenBackground
-import com.tk.quicksearch.shared.ui.components.dialogTextFieldColors
-import com.tk.quicksearch.shared.ui.components.AppAlertDialog
 import com.tk.quicksearch.shared.ui.theme.DesignTokens
 import com.tk.quicksearch.shared.ui.theme.QuickSearchTheme
 import com.tk.quicksearch.shared.util.AppLanguageManager
@@ -70,9 +57,7 @@ import com.tk.quicksearch.tools.aiSearch.AiSearchLlmProviderRegistry
 import com.tk.quicksearch.tools.aiSearch.LlmModelCatalogCache
 import com.tk.quicksearch.tools.aiSearch.LlmTextModel
 import com.tk.quicksearch.tools.aiSearch.supportsThinkingControl
-import java.text.DateFormat
 import java.util.Calendar
-import java.util.Date
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -201,9 +186,10 @@ private fun CustomInfoEditor(
         )
     }
     val scope = rememberCoroutineScope()
-    var showTestDialog by remember { mutableStateOf(false) }
-    var testLoading by remember { mutableStateOf(false) }
-    var testResponse by remember { mutableStateOf("") }
+    var showPreview by remember { mutableStateOf(false) }
+    var previewLoading by remember { mutableStateOf(false) }
+    var previewResponse by remember { mutableStateOf("") }
+    var savedCount by remember { mutableIntStateOf(0) }
 
     val notificationLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         sendNotification = granted
@@ -268,8 +254,23 @@ private fun CustomInfoEditor(
             draft = draft,
             ready = catalogReady && canSave,
             hasNotificationPermission = hasNotificationPermission,
-            onSave = onSave,
+            onSave = {
+                onSave(it)
+                savedCount++
+            },
         )
+    }
+
+    val runPreview: () -> Unit = {
+        val previewItem = draft.copy(sendNotification = false)
+        showPreview = true
+        previewLoading = true
+        previewResponse = ""
+        scope.launch {
+            val result = withContext(Dispatchers.IO) { fetchCustomInfoAnswer(context.applicationContext, previewItem) }
+            previewResponse = result.getOrElse { it.message ?: context.getString(R.string.direct_search_error_generic) }
+            previewLoading = false
+        }
     }
 
     Scaffold(
@@ -281,6 +282,11 @@ private fun CustomInfoEditor(
                     if (initialItem == null) R.string.custom_info_title else R.string.custom_info_edit_title,
                 ),
                 onBack = onBack,
+                trailingContent = if (initialItem != null) {
+                    { CustomInfoSavedIndicator(savedCount) }
+                } else {
+                    null
+                },
             )
         },
     ) { padding ->
@@ -289,17 +295,26 @@ private fun CustomInfoEditor(
         ) {
             Column(
                 modifier = Modifier.weight(1f).verticalScroll(rememberScrollState())
-                    .padding(horizontal = DesignTokens.ContentHorizontalPadding),
-                verticalArrangement = Arrangement.spacedBy(DesignTokens.SpacingLarge),
+                    .padding(horizontal = DesignTokens.ContentHorizontalPadding)
+                    .padding(bottom = DesignTokens.SpacingLarge),
+                verticalArrangement = Arrangement.spacedBy(DesignTokens.SpacingMedium),
             ) {
-                OutlinedTextField(
-                    value = title,
-                    onValueChange = { title = it },
-                    label = { Text(stringResource(R.string.notes_title_hint)) },
-                    modifier = Modifier.fillMaxWidth(),
-                    singleLine = true,
-                    colors = dialogTextFieldColors(),
+                CustomInfoContentCard(
+                    title = title,
+                    onTitleChange = { title = it },
+                    prompt = prompt,
+                    onPromptChange = { prompt = it },
+                    previewEnabled = prompt.isNotBlank() && modelId.isNotBlank() && providerId in configuredIds && !previewLoading,
+                    onPreview = runPreview,
                 )
+                if (showPreview) {
+                    CustomInfoPreviewCard(
+                        title = title.trim(),
+                        loading = previewLoading,
+                        response = previewResponse,
+                        onDismiss = { showPreview = false },
+                    )
+                }
                 ModelFeatureSettingsCard(
                     selectedModelId = modelId,
                     selectedProviderId = providerId,
@@ -323,66 +338,20 @@ private fun CustomInfoEditor(
                     showThinkingCheckbox = supportsThinkingControl(providerId, modelId),
                     isLoading = !catalogReady,
                 )
-                OutlinedTextField(
-                    value = prompt,
-                    onValueChange = { prompt = it },
-                    label = { Text(stringResource(R.string.custom_info_prompt)) },
-                    modifier = Modifier.fillMaxWidth().heightIn(min = 160.dp),
-                    minLines = 4,
-                    maxLines = 8,
-                    colors = dialogTextFieldColors(),
-                )
-                OutlinedButton(onClick = { showDateDialog = true }, modifier = Modifier.fillMaxWidth()) {
-                    Icon(Icons.Rounded.CalendarMonth, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        dueMillis?.let { DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(it)) }
-                            ?: stringResource(R.string.custom_info_set_date_time),
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-                CustomInfoRepeatButton(
+                CustomInfoScheduleCard(
+                    dueMillis = dueMillis,
+                    onDateClick = { showDateDialog = true },
                     repeat = repeat,
                     onRepeatChange = { repeat = it },
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                SettingsCheckboxPill(
-                    label = stringResource(R.string.custom_info_send_notification),
-                    checked = sendNotification,
-                    onCheckedChange = { checked ->
+                    sendNotification = sendNotification,
+                    onSendNotificationChange = { checked ->
                         if (!checked) sendNotification = false
                         else if (ReminderPermissions.hasPostNotifications(context)) sendNotification = true
                         else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                             notificationLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
                         }
                     },
-                    modifier = Modifier.fillMaxWidth(),
                 )
-                OutlinedButton(
-                    onClick = {
-                        val testItem = CustomInfoItem(
-                            id = 0,
-                            title = title.trim(),
-                            prompt = prompt.trim(),
-                            providerId = providerId,
-                            modelId = modelId,
-                            webSearch = webSearch,
-                            thinking = thinking && supportsThinkingControl(providerId, modelId),
-                            dueMillis = dueMillis,
-                            sendNotification = false,
-                        )
-                        showTestDialog = true
-                        testLoading = true
-                        testResponse = ""
-                        scope.launch {
-                            val result = withContext(Dispatchers.IO) { fetchCustomInfoAnswer(context.applicationContext, testItem) }
-                            testResponse = result.getOrElse { it.message ?: context.getString(R.string.direct_search_error_generic) }
-                            testLoading = false
-                        }
-                    },
-                    enabled = prompt.isNotBlank() && modelId.isNotBlank() && providerId in configuredIds && !testLoading,
-                    modifier = Modifier.fillMaxWidth(),
-                ) { Text(stringResource(R.string.custom_info_test)) }
             }
             if (initialItem == null) {
                 Button(
@@ -420,19 +389,6 @@ private fun CustomInfoEditor(
             autoFocusTitle = false,
             showTitleInput = false,
             requireExplicitDateOrTime = true,
-        )
-    }
-    if (showTestDialog) {
-        AppAlertDialog(
-            onDismissRequest = { showTestDialog = false },
-            title = { Text(stringResource(R.string.custom_info_test_response)) },
-            text = {
-                if (testLoading) CircularProgressIndicator()
-                else Text(testResponse, modifier = Modifier.verticalScroll(rememberScrollState()))
-            },
-            confirmButton = {
-                TextButton(onClick = { showTestDialog = false }) { Text(stringResource(R.string.common_close)) }
-            },
         )
     }
 }

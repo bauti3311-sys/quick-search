@@ -843,9 +843,9 @@
     <string name="custom_info_desc">選んだ時刻に、プロンプトへのAIの回答をホームに表示</string>
     <string name="custom_info_repeat_never">繰り返さない</string>
     <string name="custom_info_repeat_every">繰り返し間隔</string>
-    <string name="custom_info_send_notification">通知も送信</string>
-    <string name="custom_info_test">テスト</string>
-    <string name="custom_info_test_response">テスト結果</string>
+    <string name="custom_info_send_notification">通知を送信</string>
+    <string name="custom_info_preview">プレビュー</string>
+    <string name="custom_info_saved">保存しました</string>
     <string name="custom_info_delete_confirm_title">%1$sを削除しますか？</string>
     <string name="custom_info_delete_confirm_message">このカスタム情報とそのスケジュールは完全に削除されます。</string>
     <string name="settings_at_a_glance_desc">適切なタイミングでホーム画面に表示される便利な情報</string>

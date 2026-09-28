@@ -44,6 +44,7 @@ import androidx.compose.ui.window.DialogProperties
 import com.tk.quicksearch.R
 import com.tk.quicksearch.shared.ui.components.AppAlertDialog
 import com.tk.quicksearch.shared.ui.theme.AppColors
+import com.tk.quicksearch.shared.ui.theme.LocalAppIsDarkTheme
 
 data class LlmModelPickerOption(
     val providerId: AiSearchLlmProviderId,
@@ -118,6 +119,15 @@ fun ModelPickerDialog(
         }
     }
 
+    // The card color is near-white in light mode and vanishes on the white dialog, so light mode
+    // uses a faint wash of the dialog's text color instead.
+    val searchFieldColor =
+        if (LocalAppIsDarkTheme.current) {
+            AppColors.getSettingsCardContainerColor()
+        } else {
+            AppColors.DialogText.copy(alpha = 0.06f)
+        }
+
     AppAlertDialog(
         onDismissRequest = onDismiss,
         modifier = Modifier.fillMaxWidth(0.94f),
@@ -142,9 +152,9 @@ fun ModelPickerDialog(
                     shape = MaterialTheme.shapes.extraLarge,
                     colors =
                         TextFieldDefaults.colors(
-                            focusedContainerColor = AppColors.getSettingsCardContainerColor(),
-                            unfocusedContainerColor = AppColors.getSettingsCardContainerColor(),
-                            disabledContainerColor = AppColors.getSettingsCardContainerColor(),
+                            focusedContainerColor = searchFieldColor,
+                            unfocusedContainerColor = searchFieldColor,
+                            disabledContainerColor = searchFieldColor,
                             focusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
                             unfocusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
                             disabledIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,

@@ -835,9 +835,9 @@
     <string name="custom_info_desc">KI-Antworten auf deine Prompts auf dem Startbildschirm, zu den von dir gewählten Zeiten</string>
     <string name="custom_info_repeat_never">Keine Wiederholung</string>
     <string name="custom_info_repeat_every">Wiederholen alle</string>
-    <string name="custom_info_send_notification">Auch Benachrichtigung senden</string>
-    <string name="custom_info_test">Testen</string>
-    <string name="custom_info_test_response">Testantwort</string>
+    <string name="custom_info_send_notification">Benachrichtigung senden</string>
+    <string name="custom_info_preview">Vorschau</string>
+    <string name="custom_info_saved">Gespeichert</string>
     <string name="custom_info_delete_confirm_title">%1$s löschen?</string>
     <string name="custom_info_delete_confirm_message">Diese eigene Info und ihr Zeitplan werden dauerhaft gelöscht.</string>
     <string name="settings_at_a_glance_desc">Nützliche Infos, die zur passenden Zeit auf deinem Startbildschirm erscheinen</string>

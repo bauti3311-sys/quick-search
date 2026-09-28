@@ -825,9 +825,9 @@
     <string name="custom_info_desc">在你选择的时间，于主屏幕显示 AI 对提示词的回答</string>
     <string name="custom_info_repeat_never">不重复</string>
     <string name="custom_info_repeat_every">重复间隔</string>
-    <string name="custom_info_send_notification">同时发送通知</string>
-    <string name="custom_info_test">测试</string>
-    <string name="custom_info_test_response">测试回复</string>
+    <string name="custom_info_send_notification">发送通知</string>
+    <string name="custom_info_preview">预览</string>
+    <string name="custom_info_saved">已保存</string>
     <string name="custom_info_delete_confirm_title">删除 %1$s 吗？</string>
     <string name="custom_info_delete_confirm_message">此自定义信息及其计划将被永久删除。</string>
     <string name="settings_at_a_glance_desc">在合适的时间出现在主屏幕上的实用信息</string>

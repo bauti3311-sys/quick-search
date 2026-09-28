@@ -5,23 +5,17 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ExpandMore
 import androidx.compose.material.icons.rounded.Repeat
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -40,7 +34,9 @@ import androidx.compose.ui.unit.dp
 import com.tk.quicksearch.R
 import com.tk.quicksearch.shared.ui.components.AppAlertDialog
 import com.tk.quicksearch.shared.ui.components.dialogTextFieldColors
+import com.tk.quicksearch.settings.shared.SettingsToggleRow
 import com.tk.quicksearch.shared.ui.theme.AppColors
+import com.tk.quicksearch.shared.ui.theme.DesignTokens
 
 private const val MAX_REPEAT_INTERVAL = 999
 
@@ -75,30 +71,31 @@ private fun everyIntervalLabel(unit: CustomInfoRepeatUnit, interval: Int): Strin
     )
 
 /**
- * The editor's repeat control: a button showing the current rule that opens the presets, with
- * "Custom" leading to an every-N-units dialog. Runs repeat from the chosen date and time.
+ * The editor's repeat row: shows the current rule and opens the presets, with "Custom" leading to
+ * an every-N-units dialog. Runs repeat from the chosen date and time.
  */
 @Composable
-internal fun CustomInfoRepeatButton(
+internal fun CustomInfoRepeatRow(
     repeat: CustomInfoRepeat?,
     onRepeatChange: (CustomInfoRepeat?) -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     var menuExpanded by remember { mutableStateOf(false) }
     var showCustomDialog by remember { mutableStateOf(false) }
     val presets: List<CustomInfoRepeat?> =
         listOf(null, CustomInfoRepeat.DAILY, CustomInfoRepeat.WEEKLY, CustomInfoRepeat.MONTHLY, CustomInfoRepeat.YEARLY)
 
-    Box(modifier = modifier) {
-        OutlinedButton(onClick = { menuExpanded = true }, modifier = Modifier.fillMaxWidth()) {
-            Icon(Icons.Rounded.Repeat, contentDescription = null, modifier = Modifier.size(18.dp))
-            Spacer(Modifier.width(8.dp))
-            Text(
-                text = customInfoRepeatLabel(repeat) ?: stringResource(R.string.custom_info_repeat_never),
-                modifier = Modifier.weight(1f),
-            )
-            Icon(Icons.Rounded.ExpandMore, contentDescription = null, modifier = Modifier.size(18.dp))
-        }
+    Box {
+        SettingsToggleRow(
+            title = customInfoRepeatLabel(repeat) ?: stringResource(R.string.custom_info_repeat_never),
+            checked = false,
+            onCheckedChange = {},
+            onRowClick = { menuExpanded = true },
+            showSwitch = false,
+            leadingIcon = Icons.Rounded.Repeat,
+            titleTextStyle = MaterialTheme.typography.bodyLarge,
+            horizontalPadding = DesignTokens.CardHorizontalPadding,
+            trailingAction = { CustomInfoRowChevron() },
+        )
         DropdownMenu(
             expanded = menuExpanded,
             onDismissRequest = { menuExpanded = false },

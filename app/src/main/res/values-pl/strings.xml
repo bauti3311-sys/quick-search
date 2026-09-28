@@ -863,9 +863,9 @@
     <string name="custom_info_desc">Odpowiedzi AI na Twoje polecenia na ekranie głównym, w wybranych przez Ciebie porach</string>
     <string name="custom_info_repeat_never">Nie powtarza się</string>
     <string name="custom_info_repeat_every">Powtarzaj co</string>
-    <string name="custom_info_send_notification">Wyślij też powiadomienie</string>
-    <string name="custom_info_test">Testuj</string>
-    <string name="custom_info_test_response">Odpowiedź testowa</string>
+    <string name="custom_info_send_notification">Wyślij powiadomienie</string>
+    <string name="custom_info_preview">Podgląd</string>
+    <string name="custom_info_saved">Zapisano</string>
     <string name="custom_info_delete_confirm_title">Usunąć %1$s?</string>
     <string name="custom_info_delete_confirm_message">Te własne informacje i ich harmonogram zostaną trwale usunięte.</string>
     <string name="settings_at_a_glance_desc">Przydatne informacje, które pojawiają się na ekranie głównym we właściwym czasie</string>

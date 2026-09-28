@@ -836,9 +836,9 @@
     <string name="custom_info_desc">إجابات الذكاء الاصطناعي على مطالباتك في الشاشة الرئيسية، في الأوقات التي تختارها</string>
     <string name="custom_info_repeat_never">لا يتكرر</string>
     <string name="custom_info_repeat_every">التكرار كل</string>
-    <string name="custom_info_send_notification">إرسال إشعار أيضًا</string>
-    <string name="custom_info_test">اختبار</string>
-    <string name="custom_info_test_response">نتيجة الاختبار</string>
+    <string name="custom_info_send_notification">إرسال إشعار</string>
+    <string name="custom_info_preview">معاينة</string>
+    <string name="custom_info_saved">تم الحفظ</string>
     <string name="custom_info_delete_confirm_title">هل تريد حذف %1$s؟</string>
     <string name="custom_info_delete_confirm_message">سيتم حذف هذه المعلومات المخصصة وجدولها نهائياً.</string>
     <string name="settings_at_a_glance_desc">معلومات مفيدة تظهر على شاشتك الرئيسية في الأوقات المناسبة</string>

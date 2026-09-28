@@ -834,9 +834,9 @@
 <string name="custom_info_desc">İstemlerinize yapay zekâ yanıtları, seçtiğiniz saatlerde ana ekranda</string>
 <string name="custom_info_repeat_never">Tekrarlanmaz</string>
 <string name="custom_info_repeat_every">Tekrarlama aralığı</string>
-<string name="custom_info_send_notification">Bildirim de gönder</string>
-<string name="custom_info_test">Test et</string>
-<string name="custom_info_test_response">Test yanıtı</string>
+<string name="custom_info_send_notification">Bildirim gönder</string>
+<string name="custom_info_preview">Önizle</string>
+<string name="custom_info_saved">Kaydedildi</string>
 <string name="custom_info_delete_confirm_title">%1$s silinsin mi?</string>
 <string name="custom_info_delete_confirm_message">Bu özel bilgi ve zamanlaması kalıcı olarak silinecek.</string>
 <string name="settings_at_a_glance_desc">Ana ekranınızda doğru zamanda görünen faydalı bilgiler</string>

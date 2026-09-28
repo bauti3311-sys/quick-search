@@ -835,9 +835,9 @@
 <string name="custom_info_desc">Des réponses IA à vos consignes sur l’accueil, aux heures de votre choix</string>
 <string name="custom_info_repeat_never">Ne se répète pas</string>
 <string name="custom_info_repeat_every">Répéter tous les</string>
-<string name="custom_info_send_notification">Envoyer aussi une notification</string>
-<string name="custom_info_test">Tester</string>
-<string name="custom_info_test_response">Réponse du test</string>
+<string name="custom_info_send_notification">Envoyer une notification</string>
+<string name="custom_info_preview">Aperçu</string>
+<string name="custom_info_saved">Enregistré</string>
 <string name="custom_info_delete_confirm_title">Supprimer %1$s ?</string>
 <string name="custom_info_delete_confirm_message">Cette info personnalisée et sa planification seront définitivement supprimées.</string>
 <string name="settings_at_a_glance_desc">Des informations utiles qui apparaissent sur votre écran d\'accueil au bon moment</string>
