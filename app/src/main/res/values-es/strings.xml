@@ -848,7 +848,7 @@
     <string name="settings_at_a_glance_timers_title">Temporizadores y cronómetro</string>
     <string name="settings_at_a_glance_timers_desc">Temporizadores y cronómetros en marcha de tu app de reloj</string>
     <string name="settings_at_a_glance_birthdays_title">Cumpleaños</string>
-    <string name="settings_at_a_glance_birthdays_desc">Contactos que cumplen años hoy</string>
+    <string name="settings_at_a_glance_birthdays_desc">Contactos que cumplen años o celebran un aniversario hoy</string>
     <string name="settings_at_a_glance_progress_title">Notificaciones en curso</string>
     <string name="settings_at_a_glance_progress_desc">Actualizaciones en vivo como viajes, entregas y descargas</string>
     <string name="settings_at_a_glance_charging_title">Cargando</string>
@@ -1296,8 +1296,9 @@
     <string name="home_stopwatch">Cronómetro</string>
     <string name="home_storage_almost_full">Almacenamiento casi lleno</string>
     <string name="home_storage_free">%1$s libres de %2$s</string>
-    <string name="home_birthday_today">Cumple años hoy</string>
-    <string name="home_birthday_turns">Cumple %1$d hoy</string>
+    <string name="home_birthday_title">Cumpleaños de %1$s</string>
+    <string name="home_anniversary_title">Aniversario de %1$s</string>
+    <string name="home_birthday_wish">Toca para felicitarle</string>
     <string name="home_missed_call">Llamada perdida</string>
     <string name="home_missed_calls_count">Llamadas perdidas (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

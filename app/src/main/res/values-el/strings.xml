@@ -848,7 +848,7 @@
     <string name="settings_at_a_glance_timers_title">Χρονοδιακόπτες &amp; χρονόμετρο</string>
     <string name="settings_at_a_glance_timers_desc">Χρονοδιακόπτες και χρονόμετρα σε λειτουργία από την εφαρμογή ρολογιού σας</string>
     <string name="settings_at_a_glance_birthdays_title">Γενέθλια</string>
-    <string name="settings_at_a_glance_birthdays_desc">Επαφές που έχουν γενέθλια σήμερα</string>
+    <string name="settings_at_a_glance_birthdays_desc">Επαφές που έχουν γενέθλια ή επέτειο σήμερα</string>
     <string name="settings_at_a_glance_progress_title">Συνεχείς ειδοποιήσεις</string>
     <string name="settings_at_a_glance_progress_desc">Ζωντανές ενημερώσεις όπως διαδρομές, παραδόσεις και λήψεις</string>
     <string name="settings_at_a_glance_charging_title">Φόρτιση</string>
@@ -1296,8 +1296,9 @@
     <string name="home_stopwatch">Χρονόμετρο</string>
     <string name="home_storage_almost_full">Ο χώρος αποθήκευσης σχεδόν γεμάτος</string>
     <string name="home_storage_free">%1$s ελεύθερα από %2$s</string>
-    <string name="home_birthday_today">Έχει γενέθλια σήμερα</string>
-    <string name="home_birthday_turns">Κλείνει σήμερα τα %1$d</string>
+    <string name="home_birthday_title">Γενέθλια: %1$s</string>
+    <string name="home_anniversary_title">Επέτειος: %1$s</string>
+    <string name="home_birthday_wish">Πατήστε για να ευχηθείτε</string>
     <string name="home_missed_call">Αναπάντητη κλήση</string>
     <string name="home_missed_calls_count">Αναπάντητες κλήσεις (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

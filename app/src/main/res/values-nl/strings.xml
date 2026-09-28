@@ -881,7 +881,7 @@
     <string name="settings_at_a_glance_timers_title">Timers &amp; stopwatch</string>
     <string name="settings_at_a_glance_timers_desc">Lopende timers en stopwatches uit je klok-app</string>
     <string name="settings_at_a_glance_birthdays_title">Verjaardagen</string>
-    <string name="settings_at_a_glance_birthdays_desc">Contacten die vandaag jarig zijn</string>
+    <string name="settings_at_a_glance_birthdays_desc">Contacten die vandaag jarig zijn of een jubileum vieren</string>
     <string name="settings_at_a_glance_progress_title">Lopende meldingen</string>
     <string name="settings_at_a_glance_progress_desc">Live-updates zoals ritten, bezorgingen en downloads</string>
     <string name="settings_at_a_glance_charging_title">Opladen</string>
@@ -1351,8 +1351,9 @@ Gebruik {time} om de huidige datum en tijd in de prompt op te nemen.</string>
     <string name="home_stopwatch">Stopwatch</string>
     <string name="home_storage_almost_full">Opslag bijna vol</string>
     <string name="home_storage_free">%1$s vrij van %2$s</string>
-    <string name="home_birthday_today">Vandaag jarig</string>
-    <string name="home_birthday_turns">Wordt vandaag %1$d</string>
+    <string name="home_birthday_title">Verjaardag van %1$s</string>
+    <string name="home_anniversary_title">Jubileum van %1$s</string>
+    <string name="home_birthday_wish">Tik om te feliciteren</string>
     <string name="home_missed_call">Gemiste oproep</string>
     <string name="home_missed_calls_count">Gemiste oproepen (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

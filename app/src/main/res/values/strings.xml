@@ -847,7 +847,7 @@
     <string name="settings_at_a_glance_timers_title">Timers &amp; Stopwatch</string>
     <string name="settings_at_a_glance_timers_desc">Running timers and stopwatches from your clock app</string>
     <string name="settings_at_a_glance_birthdays_title">Birthdays</string>
-    <string name="settings_at_a_glance_birthdays_desc">Contacts with a birthday today</string>
+    <string name="settings_at_a_glance_birthdays_desc">Contacts with a birthday or anniversary today</string>
     <string name="settings_at_a_glance_progress_title">Ongoing Notifications</string>
     <string name="settings_at_a_glance_progress_desc">Live updates like rides, deliveries and downloads</string>
     <string name="settings_at_a_glance_charging_title">Charging</string>
@@ -1295,8 +1295,9 @@
     <string name="home_stopwatch">Stopwatch</string>
     <string name="home_storage_almost_full">Storage Almost Full</string>
     <string name="home_storage_free">%1$s free of %2$s</string>
-    <string name="home_birthday_today">Birthday today</string>
-    <string name="home_birthday_turns">Turns %1$d today</string>
+    <string name="home_birthday_title">%1$s\'s birthday</string>
+    <string name="home_anniversary_title">%1$s\'s anniversary</string>
+    <string name="home_birthday_wish">Tap to wish them</string>
     <string name="home_missed_call">Missed Call</string>
     <string name="home_missed_calls_count">Missed Calls (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

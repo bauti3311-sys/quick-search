@@ -868,7 +868,7 @@
     <string name="settings_at_a_glance_timers_title">Таймеры и секундомер</string>
     <string name="settings_at_a_glance_timers_desc">Запущенные таймеры и секундомеры из приложения «Часы»</string>
     <string name="settings_at_a_glance_birthdays_title">Дни рождения</string>
-    <string name="settings_at_a_glance_birthdays_desc">Контакты, у которых сегодня день рождения</string>
+    <string name="settings_at_a_glance_birthdays_desc">Контакты, у которых сегодня день рождения или годовщина</string>
     <string name="settings_at_a_glance_progress_title">Текущие уведомления</string>
     <string name="settings_at_a_glance_progress_desc">Обновления в реальном времени, например поездки, доставки и загрузки</string>
     <string name="settings_at_a_glance_charging_title">Зарядка</string>
@@ -1316,8 +1316,9 @@
     <string name="home_stopwatch">Секундомер</string>
     <string name="home_storage_almost_full">Память почти заполнена</string>
     <string name="home_storage_free">Свободно %1$s из %2$s</string>
-    <string name="home_birthday_today">День рождения сегодня</string>
-    <string name="home_birthday_turns">Сегодня исполняется %1$d</string>
+    <string name="home_birthday_title">День рождения: %1$s</string>
+    <string name="home_anniversary_title">Годовщина: %1$s</string>
+    <string name="home_birthday_wish">Нажмите, чтобы поздравить</string>
     <string name="home_missed_call">Пропущенный вызов</string>
     <string name="home_missed_calls_count">Пропущенные вызовы (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

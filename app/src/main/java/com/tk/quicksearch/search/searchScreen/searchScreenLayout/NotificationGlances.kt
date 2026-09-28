@@ -216,7 +216,7 @@ internal fun TimerRow(
             Icon(
                 imageVector = if (timer.isCountDown) Icons.Rounded.Timer else Icons.Rounded.AvTimer,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                tint = MaterialTheme.colorScheme.primary,
             )
         },
         title = stringResource(if (timer.isCountDown) R.string.home_timer else R.string.home_stopwatch),

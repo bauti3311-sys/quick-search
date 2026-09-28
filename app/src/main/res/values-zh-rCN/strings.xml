@@ -838,7 +838,7 @@
     <string name="settings_at_a_glance_timers_title">计时器和秒表</string>
     <string name="settings_at_a_glance_timers_desc">时钟应用中正在运行的计时器和秒表</string>
     <string name="settings_at_a_glance_birthdays_title">生日</string>
-    <string name="settings_at_a_glance_birthdays_desc">今天过生日的联系人</string>
+    <string name="settings_at_a_glance_birthdays_desc">今天过生日或纪念日的联系人</string>
     <string name="settings_at_a_glance_progress_title">持续通知</string>
     <string name="settings_at_a_glance_progress_desc">实时动态，例如乘车、配送和下载</string>
     <string name="settings_at_a_glance_charging_title">正在充电</string>
@@ -1286,8 +1286,9 @@
     <string name="home_stopwatch">秒表</string>
     <string name="home_storage_almost_full">存储空间即将用尽</string>
     <string name="home_storage_free">可用 %1$s，共 %2$s</string>
-    <string name="home_birthday_today">今天生日</string>
-    <string name="home_birthday_turns">今天满 %1$d 岁</string>
+    <string name="home_birthday_title">%1$s的生日</string>
+    <string name="home_anniversary_title">%1$s的纪念日</string>
+    <string name="home_birthday_wish">点按送上祝福</string>
     <string name="home_missed_call">未接来电</string>
     <string name="home_missed_calls_count">未接来电（%1$s）</string>
     <string name="home_missed_call_from_app">%1$s（%2$s）</string>

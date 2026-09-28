@@ -847,7 +847,7 @@
     <string name="settings_at_a_glance_timers_title">Zamanlayıcılar ve kronometre</string>
     <string name="settings_at_a_glance_timers_desc">Saat uygulamanızda çalışan zamanlayıcılar ve kronometreler</string>
     <string name="settings_at_a_glance_birthdays_title">Doğum günleri</string>
-    <string name="settings_at_a_glance_birthdays_desc">Bugün doğum günü olan kişiler</string>
+    <string name="settings_at_a_glance_birthdays_desc">Bugün doğum günü veya yıl dönümü olan kişiler</string>
     <string name="settings_at_a_glance_progress_title">Devam eden bildirimler</string>
     <string name="settings_at_a_glance_progress_desc">Yolculuklar, teslimatlar ve indirmeler gibi canlı güncellemeler</string>
     <string name="settings_at_a_glance_charging_title">Şarj oluyor</string>
@@ -1295,8 +1295,9 @@
     <string name="home_stopwatch">Kronometre</string>
     <string name="home_storage_almost_full">Depolama alanı neredeyse dolu</string>
     <string name="home_storage_free">%2$s alanın %1$s kadarı boş</string>
-    <string name="home_birthday_today">Bugün doğum günü</string>
-    <string name="home_birthday_turns">Bugün %1$d yaşına giriyor</string>
+    <string name="home_birthday_title">%1$s doğum günü</string>
+    <string name="home_anniversary_title">%1$s yıl dönümü</string>
+    <string name="home_birthday_wish">Kutlamak için dokunun</string>
     <string name="home_missed_call">Cevapsız arama</string>
     <string name="home_missed_calls_count">Cevapsız aramalar (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

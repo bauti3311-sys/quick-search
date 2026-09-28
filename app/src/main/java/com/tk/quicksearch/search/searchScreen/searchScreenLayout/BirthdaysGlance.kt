@@ -24,7 +24,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** Today's contact birthdays for the home At a Glance card. */
+/** Today's contact birthdays and anniversaries for the home At a Glance card. */
 internal class BirthdaysGlance(
     val birthdays: List<ContactBirthday>,
     val open: (ContactBirthday) -> Unit,
@@ -96,10 +96,12 @@ internal fun BirthdayRow(
                 tint = MaterialTheme.colorScheme.primary,
             )
         },
-        title = birthday.name,
-        subtitle =
-            birthday.age?.let { stringResource(R.string.home_birthday_turns, it) }
-                ?: stringResource(R.string.home_birthday_today),
+        title =
+            stringResource(
+                if (birthday.isAnniversary) R.string.home_anniversary_title else R.string.home_birthday_title,
+                birthday.name,
+            ),
+        subtitle = stringResource(R.string.home_birthday_wish),
         onClick = onClick,
         onDismiss = onDismiss,
     )

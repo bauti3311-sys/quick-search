@@ -847,7 +847,7 @@
     <string name="settings_at_a_glance_timers_title">Timer e cronometro</string>
     <string name="settings_at_a_glance_timers_desc">Timer e cronometri in corso dall\'app Orologio</string>
     <string name="settings_at_a_glance_birthdays_title">Compleanni</string>
-    <string name="settings_at_a_glance_birthdays_desc">Contatti che compiono gli anni oggi</string>
+    <string name="settings_at_a_glance_birthdays_desc">Contatti che oggi compiono gli anni o festeggiano un anniversario</string>
     <string name="settings_at_a_glance_progress_title">Notifiche in corso</string>
     <string name="settings_at_a_glance_progress_desc">Aggiornamenti in tempo reale come corse, consegne e download</string>
     <string name="settings_at_a_glance_charging_title">In carica</string>
@@ -1295,8 +1295,9 @@
     <string name="home_stopwatch">Cronometro</string>
     <string name="home_storage_almost_full">Memoria quasi piena</string>
     <string name="home_storage_free">%1$s liberi su %2$s</string>
-    <string name="home_birthday_today">Compie gli anni oggi</string>
-    <string name="home_birthday_turns">Compie %1$d anni oggi</string>
+    <string name="home_birthday_title">Compleanno di %1$s</string>
+    <string name="home_anniversary_title">Anniversario di %1$s</string>
+    <string name="home_birthday_wish">Tocca per fare gli auguri</string>
     <string name="home_missed_call">Chiamata persa</string>
     <string name="home_missed_calls_count">Chiamate perse (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

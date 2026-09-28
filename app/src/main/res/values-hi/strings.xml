@@ -848,7 +848,7 @@
     <string name="settings_at_a_glance_timers_title">टाइमर और स्टॉपवॉच</string>
     <string name="settings_at_a_glance_timers_desc">आपके क्लॉक ऐप से चल रहे टाइमर और स्टॉपवॉच</string>
     <string name="settings_at_a_glance_birthdays_title">जन्मदिन</string>
-    <string name="settings_at_a_glance_birthdays_desc">जिन संपर्कों का आज जन्मदिन है</string>
+    <string name="settings_at_a_glance_birthdays_desc">जिन संपर्कों का आज जन्मदिन या सालगिरह है</string>
     <string name="settings_at_a_glance_progress_title">चालू सूचनाएं</string>
     <string name="settings_at_a_glance_progress_desc">राइड, डिलीवरी और डाउनलोड जैसे लाइव अपडेट</string>
     <string name="settings_at_a_glance_charging_title">चार्ज हो रहा है</string>
@@ -1296,8 +1296,9 @@
     <string name="home_stopwatch">स्टॉपवॉच</string>
     <string name="home_storage_almost_full">स्टोरेज लगभग भर गया है</string>
     <string name="home_storage_free">%2$s में से %1$s खाली</string>
-    <string name="home_birthday_today">आज जन्मदिन है</string>
-    <string name="home_birthday_turns">आज %1$d वर्ष पूरे</string>
+    <string name="home_birthday_title">%1$s का जन्मदिन</string>
+    <string name="home_anniversary_title">%1$s की सालगिरह</string>
+    <string name="home_birthday_wish">शुभकामनाएँ देने के लिए टैप करें</string>
     <string name="home_missed_call">मिस्ड कॉल</string>
     <string name="home_missed_calls_count">मिस्ड कॉल (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

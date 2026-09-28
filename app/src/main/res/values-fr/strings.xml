@@ -848,7 +848,7 @@
     <string name="settings_at_a_glance_timers_title">Minuteurs et chronomètre</string>
     <string name="settings_at_a_glance_timers_desc">Minuteurs et chronomètres en cours de votre application Horloge</string>
     <string name="settings_at_a_glance_birthdays_title">Anniversaires</string>
-    <string name="settings_at_a_glance_birthdays_desc">Contacts dont c\'est l\'anniversaire aujourd\'hui</string>
+    <string name="settings_at_a_glance_birthdays_desc">Contacts dont c\'est l\'anniversaire ou l\'anniversaire de mariage aujourd\'hui</string>
     <string name="settings_at_a_glance_progress_title">Notifications en cours</string>
     <string name="settings_at_a_glance_progress_desc">Mises à jour en direct comme les trajets, les livraisons et les téléchargements</string>
     <string name="settings_at_a_glance_charging_title">En charge</string>
@@ -1296,8 +1296,9 @@
     <string name="home_stopwatch">Chronomètre</string>
     <string name="home_storage_almost_full">Stockage presque plein</string>
     <string name="home_storage_free">%1$s libres sur %2$s</string>
-    <string name="home_birthday_today">Anniversaire aujourd\'hui</string>
-    <string name="home_birthday_turns">Fête ses %1$d ans aujourd\'hui</string>
+    <string name="home_birthday_title">Anniversaire de %1$s</string>
+    <string name="home_anniversary_title">Anniversaire de mariage de %1$s</string>
+    <string name="home_birthday_wish">Appuyez pour lui souhaiter</string>
     <string name="home_missed_call">Appel manqué</string>
     <string name="home_missed_calls_count">Appels manqués (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

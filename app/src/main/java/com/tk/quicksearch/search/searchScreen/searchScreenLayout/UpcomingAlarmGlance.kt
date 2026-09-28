@@ -149,7 +149,7 @@ internal fun UpcomingAlarmRow(glance: UpcomingAlarmGlance) {
             Icon(
                 imageVector = Icons.Rounded.AccessTime,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(24.dp),
             )
             Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {

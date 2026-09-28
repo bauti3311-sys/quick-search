@@ -42,6 +42,9 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
 
 internal val GlanceDismissButtonSize = 28.dp
 
+/** Descriptions wrap in full rather than cutting off. */
+internal const val GlanceTextMaxLines = Int.MAX_VALUE
+
 /** A counter that bumps every time the screen resumes, for glances that re-read their source then. */
 @Composable
 internal fun rememberResumeRefreshKey(): Int {
@@ -122,7 +125,7 @@ internal fun GlanceStatusRow(
                         text = subtitle,
                         style = subtitleStyle,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
+                        maxLines = GlanceTextMaxLines,
                         overflow = TextOverflow.Ellipsis,
                     )
                 }

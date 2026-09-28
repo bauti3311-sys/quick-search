@@ -849,7 +849,7 @@
     <string name="settings_at_a_glance_timers_title">المؤقتات وساعة الإيقاف</string>
     <string name="settings_at_a_glance_timers_desc">المؤقتات وساعات الإيقاف قيد التشغيل من تطبيق الساعة</string>
     <string name="settings_at_a_glance_birthdays_title">أعياد الميلاد</string>
-    <string name="settings_at_a_glance_birthdays_desc">جهات الاتصال التي يصادف عيد ميلادها اليوم</string>
+    <string name="settings_at_a_glance_birthdays_desc">جهات الاتصال التي يصادف عيد ميلادها أو ذكرى زواجها اليوم</string>
     <string name="settings_at_a_glance_progress_title">الإشعارات الجارية</string>
     <string name="settings_at_a_glance_progress_desc">تحديثات مباشرة مثل الرحلات والتوصيلات والتنزيلات</string>
     <string name="settings_at_a_glance_charging_title">الشحن</string>
@@ -1298,8 +1298,9 @@
     <string name="home_stopwatch">ساعة الإيقاف</string>
     <string name="home_storage_almost_full">مساحة التخزين ممتلئة تقريبًا</string>
     <string name="home_storage_free">%1$s متاحة من أصل %2$s</string>
-    <string name="home_birthday_today">عيد الميلاد اليوم</string>
-    <string name="home_birthday_turns">العمر اليوم: %1$d</string>
+    <string name="home_birthday_title">عيد ميلاد %1$s</string>
+    <string name="home_anniversary_title">ذكرى زواج %1$s</string>
+    <string name="home_birthday_wish">انقر لتهنئته</string>
     <string name="home_missed_call">مكالمة فائتة</string>
     <string name="home_missed_calls_count">مكالمات فائتة (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

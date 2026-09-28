@@ -114,7 +114,7 @@ internal fun rememberAtAGlanceItems(
                 }
             },
             birthdays.birthdays.map { birthday ->
-                AtAGlanceItem(key = "birthday-${birthday.contactId}") {
+                AtAGlanceItem(key = "birthday-${birthday.contactId}-${birthday.isAnniversary}") {
                     BirthdayRow(
                         birthday = birthday,
                         onClick = { birthdays.open(birthday) },

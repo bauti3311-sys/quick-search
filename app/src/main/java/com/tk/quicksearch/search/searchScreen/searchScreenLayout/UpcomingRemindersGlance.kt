@@ -197,7 +197,7 @@ internal fun UpcomingReminderRow(
             Icon(
                 painter = painterResource(R.drawable.ic_reminder),
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(24.dp),
             )
             Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
@@ -205,14 +205,14 @@ internal fun UpcomingReminderRow(
                     text = reminder.title,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface,
-                    maxLines = 2,
+                    maxLines = GlanceTextMaxLines,
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
                     text = scheduleLabel,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
+                    maxLines = GlanceTextMaxLines,
                     overflow = TextOverflow.Ellipsis,
                 )
             }

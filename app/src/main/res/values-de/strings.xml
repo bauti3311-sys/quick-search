@@ -848,7 +848,7 @@
     <string name="settings_at_a_glance_timers_title">Timer &amp; Stoppuhr</string>
     <string name="settings_at_a_glance_timers_desc">Laufende Timer und Stoppuhren aus deiner Uhr-App</string>
     <string name="settings_at_a_glance_birthdays_title">Geburtstage</string>
-    <string name="settings_at_a_glance_birthdays_desc">Kontakte, die heute Geburtstag haben</string>
+    <string name="settings_at_a_glance_birthdays_desc">Kontakte, die heute Geburtstag oder Jahrestag haben</string>
     <string name="settings_at_a_glance_progress_title">Laufende Benachrichtigungen</string>
     <string name="settings_at_a_glance_progress_desc">Live-Updates wie Fahrten, Lieferungen und Downloads</string>
     <string name="settings_at_a_glance_charging_title">Wird geladen</string>
@@ -1296,8 +1296,9 @@
     <string name="home_stopwatch">Stoppuhr</string>
     <string name="home_storage_almost_full">Speicher fast voll</string>
     <string name="home_storage_free">%1$s von %2$s frei</string>
-    <string name="home_birthday_today">Hat heute Geburtstag</string>
-    <string name="home_birthday_turns">Wird heute %1$d</string>
+    <string name="home_birthday_title">Geburtstag von %1$s</string>
+    <string name="home_anniversary_title">Jahrestag von %1$s</string>
+    <string name="home_birthday_wish">Tippe, um zu gratulieren</string>
     <string name="home_missed_call">Verpasster Anruf</string>
     <string name="home_missed_calls_count">Verpasste Anrufe (%1$s)</string>
     <string name="home_missed_call_from_app">%1$s (%2$s)</string>

@@ -119,7 +119,7 @@ internal fun TomorrowEventRow(
             Icon(
                 imageVector = Icons.Rounded.CalendarMonth,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                tint = MaterialTheme.colorScheme.primary,
             )
         },
         title = event.title,
