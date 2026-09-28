@@ -64,6 +64,9 @@
         <item >Time in UK</item>
         <item >Define Serendipity</item>
         <item >Weather in New York</item>
+        <item >Set alarm at 8am</item>
+        <item >Start timer for 20min</item>
+        <item >Pickup food at 6pm</item>
     </string-array>
     <string name="search_provider_description">Quick Searchでアプリ、連絡先、ファイル、設定などを検索します。</string>
 

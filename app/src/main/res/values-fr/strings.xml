@@ -65,6 +65,9 @@
     <item >Time in UK</item>
     <item >Define Serendipity</item>
     <item >Météo à New York</item>
+    <item >Set alarm at 8am</item>
+    <item >Start timer for 20min</item>
+    <item >Pickup food at 6pm</item>
 </string-array>
 <string name="search_provider_description">Recherchez des applications, des contacts, des fichiers, des paramètres et plus encore avec Quick Search.</string>
 

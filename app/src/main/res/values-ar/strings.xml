@@ -66,6 +66,9 @@
         <item>Time in UK</item>
         <item>Define Serendipity</item>
         <item>الطقس في نيويورك</item>
+        <item>Set alarm at 8am</item>
+        <item>Start timer for 20min</item>
+        <item>Pickup food at 6pm</item>
     </string-array>
     <string name="search_provider_description">ابحث في التطبيقات وجهات الاتصال والملفات والإعدادات والمزيد باستخدام Quick Search.</string>
 

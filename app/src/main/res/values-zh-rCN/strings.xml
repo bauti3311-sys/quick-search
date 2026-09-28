@@ -65,6 +65,9 @@
         <item >Time in UK</item>
         <item >Define Serendipity</item>
         <item >纽约天气</item>
+        <item >Set alarm at 8am</item>
+        <item >Start timer for 20min</item>
+        <item >Pickup food at 6pm</item>
     </string-array>
     <string name="search_provider_description">使用 Quick Search 搜索应用、联系人、文件、设置等更多内容。</string>
 
