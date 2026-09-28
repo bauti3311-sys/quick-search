@@ -58,6 +58,7 @@ import com.tk.quicksearch.search.data.preferences.UpcomingAlarmPreferences
 import com.tk.quicksearch.search.data.userAppPreferences.UserAppPreferences
 import com.tk.quicksearch.settings.shared.SettingsCard
 import com.tk.quicksearch.settings.shared.AliasPill
+import com.tk.quicksearch.settings.shared.SettingsCheckboxPill
 import com.tk.quicksearch.settings.shared.SettingsToggleRow
 import com.tk.quicksearch.shared.permissions.PermissionHelper
 import com.tk.quicksearch.shared.ui.components.AppAlertDialog
@@ -167,6 +168,8 @@ fun AtAGlanceSettingsSection(
     }
     var showTodayEvents by remember { mutableStateOf(calendarPreferences.getShowTodayEvents()) }
     var showUpcomingAlarm by remember { mutableStateOf(alarmPreferences.isShowUpcomingAlarmEnabled()) }
+    var showTomorrowAlarm by remember { mutableStateOf(alarmPreferences.isShowTomorrowAlarmEnabled()) }
+    var showTomorrowEvents by remember { mutableStateOf(glancePreferences.isShowTomorrowEventsEnabled()) }
     var hiddenAlarmPackages by remember { mutableStateOf(alarmPreferences.getHiddenPackages()) }
     var showHiddenAlarmAppsDialog by remember { mutableStateOf(false) }
     var showUpcomingReminders by remember {
@@ -286,11 +289,13 @@ fun AtAGlanceSettingsSection(
         description: String,
         checked: Boolean,
         gate: PermissionGate,
+        subtitleContent: (@Composable () -> Unit)? = null,
         onCheckedChange: (Boolean) -> Unit,
     ) = GlanceToggle("$title $description") { isFirst, isLast ->
         SettingsToggleRow(
             title = title,
             subtitle = if (gate.hasAccess) description else needsPermissionText,
+            subtitleContent = subtitleContent?.takeIf { gate.hasAccess && checked },
             checked = checked && gate.hasAccess,
             onCheckedChange = onCheckedChange,
             enabled = gate.hasAccess,
@@ -381,6 +386,17 @@ fun AtAGlanceSettingsSection(
                 description = stringResource(R.string.settings_at_a_glance_events_desc),
                 checked = showTodayEvents,
                 gate = calendarGate,
+                subtitleContent = {
+                    SettingsCheckboxPill(
+                        label = stringResource(R.string.settings_at_a_glance_tomorrow_events),
+                        checked = showTomorrowEvents,
+                        onCheckedChange = { enabled ->
+                            showTomorrowEvents = enabled
+                            glancePreferences.setShowTomorrowEventsEnabled(enabled)
+                        },
+                        modifier = Modifier.padding(top = DesignTokens.SpacingXSmall),
+                    )
+                },
             ) { enabled ->
                 showTodayEvents = enabled
                 calendarPreferences.setShowTodayEvents(enabled)
@@ -447,19 +463,27 @@ fun AtAGlanceSettingsSection(
                 SettingsToggleRow(
                     title = alarmsTitle,
                     subtitle = if (hiddenAlarmPackages.isEmpty()) alarmsDescription else null,
-                    subtitleContent =
-                        if (hiddenAlarmPackages.isEmpty()) {
-                            null
-                        } else {
-                            {
-                                Text(
-                                    text = hiddenAlarmAppsLabel,
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.primary,
-                                    modifier = Modifier.clickable { showHiddenAlarmAppsDialog = true },
-                                )
-                            }
-                        },
+                    subtitleContent = {
+                        if (hiddenAlarmPackages.isNotEmpty()) {
+                            Text(
+                                text = hiddenAlarmAppsLabel,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.clickable { showHiddenAlarmAppsDialog = true },
+                            )
+                        }
+                        if (showUpcomingAlarm) {
+                            SettingsCheckboxPill(
+                                label = stringResource(R.string.settings_at_a_glance_tomorrow_alarm),
+                                checked = showTomorrowAlarm,
+                                onCheckedChange = { enabled ->
+                                    showTomorrowAlarm = enabled
+                                    alarmPreferences.setShowTomorrowAlarmEnabled(enabled)
+                                },
+                                modifier = Modifier.padding(top = DesignTokens.SpacingXSmall),
+                            )
+                        }
+                    },
                     checked = showUpcomingAlarm,
                     onCheckedChange = { enabled ->
                         showUpcomingAlarm = enabled

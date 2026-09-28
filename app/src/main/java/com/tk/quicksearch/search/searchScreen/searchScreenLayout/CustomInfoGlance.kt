@@ -1,5 +1,7 @@
 package com.tk.quicksearch.search.searchScreen.searchScreenLayout
 
+import android.os.Build
+import android.widget.Toast
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AutoAwesome
@@ -110,17 +112,27 @@ internal fun CustomInfoRow(
             },
         )
     } else {
+        val context = LocalContext.current
+        val copyLabel = stringResource(R.string.calculator_copy_result)
+        val copiedMessage = stringResource(R.string.home_copied)
         GlanceStatusRow(
             icon = {
                 Icon(Icons.Rounded.AutoAwesome, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
             },
             title = item.title,
             onClick = {},
+            // Android 13+ confirms copies itself; older versions get a toast.
+            onLongClick = {
+                val copied = copySensitiveText(context, copyLabel, item.answer, sensitive = false)
+                if (copied && Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+                    Toast.makeText(context, copiedMessage, Toast.LENGTH_SHORT).show()
+                }
+            },
             onDismiss = onDismiss,
             belowText = {
                 MarkdownText(
                     markdown = item.answer,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             },

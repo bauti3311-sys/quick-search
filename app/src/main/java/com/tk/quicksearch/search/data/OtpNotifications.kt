@@ -25,7 +25,7 @@ internal class OtpNotification(
  */
 internal object OtpNotifications {
     /** A code stops showing this long after its notification was posted. */
-    const val LIFETIME_MILLIS = 2 * 60 * 1000L
+    const val LIFETIME_MILLIS = 5 * 60 * 1000L
 
     /** Parsed codes by notification key, reused until the notification is posted again. */
     private val cache = mutableMapOf<String, Pair<Long, OtpNotification?>>()

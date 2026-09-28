@@ -15,6 +15,8 @@ internal class ContactBirthday(
     val lookupKey: String?,
     val name: String,
     val isAnniversary: Boolean,
+    /** The age turned or years married, when the contact's date has a plausible year. */
+    val years: Int? = null,
 )
 
 /**
@@ -52,7 +54,7 @@ internal class ContactBirthdaysRepository(private val context: Context) {
                         val key = contactId to isAnniversary
                         if (key in birthdays) continue
                         val name = cursor.getString(2)?.takeIf { it.isNotBlank() } ?: continue
-                        val date = parseEventDate(cursor.getString(3)) ?: continue
+                        val (date, year) = parseEventDate(cursor.getString(3)) ?: continue
                         if (!date.fallsOn(day)) continue
                         birthdays[key] =
                             ContactBirthday(
@@ -60,6 +62,8 @@ internal class ContactBirthdaysRepository(private val context: Context) {
                                 lookupKey = cursor.getString(1),
                                 name = name,
                                 isAnniversary = isAnniversary,
+                                // Some apps store a placeholder year (iOS uses 1604) for dates without one.
+                                years = year?.let { day.year - it }?.takeIf { it in 1..MAX_YEARS },
                             )
                     }
                 }
@@ -84,16 +88,17 @@ internal class ContactBirthdaysRepository(private val context: Context) {
 
     /**
      * Contacts store event dates as `yyyy-MM-dd`, or `--MM-dd` without a year; some sync adapters
-     * add a time part or drop the dashes.
+     * add a time part or drop the dashes. Returns the month and day, with the year when there is one.
      */
-    private fun parseEventDate(raw: String?): MonthDay? {
+    private fun parseEventDate(raw: String?): Pair<MonthDay, Int?>? {
         val value = raw?.trim()?.take(10) ?: return null
         val match =
-            FULL_DATE.matchEntire(value)?.destructured?.let { (_, month, day) -> month to day }
-                ?: NO_YEAR.matchEntire(value)?.destructured?.let { (month, day) -> month to day }
-                ?: COMPACT.matchEntire(value)?.destructured?.let { (_, month, day) -> month to day }
+            FULL_DATE.matchEntire(value)?.destructured?.let { (year, month, day) -> Triple(year, month, day) }
+                ?: NO_YEAR.matchEntire(value)?.destructured?.let { (month, day) -> Triple(null, month, day) }
+                ?: COMPACT.matchEntire(value)?.destructured?.let { (year, month, day) -> Triple(year, month, day) }
                 ?: return null
-        return runCatching { MonthDay.of(match.first.toInt(), match.second.toInt()) }.getOrNull()
+        val monthDay = runCatching { MonthDay.of(match.second.toInt(), match.third.toInt()) }.getOrNull() ?: return null
+        return monthDay to match.first?.toInt()
     }
 
     private companion object {
@@ -102,5 +107,6 @@ internal class ContactBirthdaysRepository(private val context: Context) {
         val COMPACT = Regex("""(\d{4})(\d{2})(\d{2})""")
         val LEAP_DAY: MonthDay = MonthDay.of(2, 29)
         val FEB_28: MonthDay = MonthDay.of(2, 28)
+        const val MAX_YEARS = 120
     }
 }

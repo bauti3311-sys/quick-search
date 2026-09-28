@@ -5,6 +5,7 @@ import android.app.PendingIntent
 import android.app.Person
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Icon
 import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
@@ -21,6 +22,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
+/** A notification's own button, such as a timer's Pause or Stop. */
+internal class GlanceNotificationAction(
+    val title: String,
+    val intent: PendingIntent,
+    /** The button's icon from the posting app, when it has one. */
+    val icon: Icon? = null,
+)
+
 /** A running timer or stopwatch posted by a clock app, counted from [chronometerBase]. */
 internal class TimerNotification(
     val key: String,
@@ -31,6 +40,8 @@ internal class TimerNotification(
     val contentIntent: PendingIntent?,
     /** The frozen time left (or elapsed) while paused; null while it runs. */
     val pausedMillis: Long? = null,
+    /** The notification's buttons, such as Pause, Resume, Stop or +1:00. */
+    val actions: List<GlanceNotificationAction> = emptyList(),
 )
 
 /** A missed call notification; [caller] is usually the name or number. */
@@ -43,6 +54,8 @@ internal class MissedCallNotification(
     /** When the call came in, or when the notification was posted if the app does not say. */
     val callTime: Long,
     val contentIntent: PendingIntent?,
+    /** The notification's call back button, if it has one. */
+    val callBackIntent: PendingIntent? = null,
 )
 
 /** A call in progress; [caller] is usually the name or number. */
@@ -184,6 +197,7 @@ internal object GlanceNotificationsStore {
             caller = missedCallCaller(),
             callTime = notification.`when`.takeIf { it > 0L } ?: postTime,
             contentIntent = notification.contentIntent,
+            callBackIntent = callBackIntent(),
         )
     }
 
@@ -311,6 +325,34 @@ internal object GlanceNotificationsStore {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) channelId else null
 
 
+    /**
+     * Up to two of the timer's buttons, such as Pause and Stop, leaving out reply fields and
+     * time-adjust buttons like "+1:00" (the only ones with a digit in their label).
+     */
+    private fun StatusBarNotification.buttonActions(): List<GlanceNotificationAction> =
+        notification.actions.orEmpty()
+            .filter { it.remoteInputs.isNullOrEmpty() }
+            .mapNotNull { action ->
+                val title = action.title?.toString()?.takeIf { it.isNotBlank() } ?: return@mapNotNull null
+                if (title.any { it.isDigit() }) return@mapNotNull null
+                val intent = action.actionIntent ?: return@mapNotNull null
+                GlanceNotificationAction(title, intent, action.getIcon())
+            }.take(MAX_BUTTON_ACTIONS)
+
+    /**
+     * The missed call's call back button: the action marked as a call (Android 10+), or else the
+     * first plain button that isn't the notification's tap target (Google's Call back precedes Message).
+     */
+    private fun StatusBarNotification.callBackIntent(): PendingIntent? {
+        val actions = notification.actions.orEmpty().filter { it.remoteInputs.isNullOrEmpty() && it.actionIntent != null }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            actions.firstOrNull { it.semanticAction == Notification.Action.SEMANTIC_ACTION_CALL }?.let { return it.actionIntent }
+        }
+        return actions.firstOrNull { it.actionIntent != notification.contentIntent }?.actionIntent
+    }
+
+    private const val MAX_BUTTON_ACTIONS = 2
+
     /** [Notification.CATEGORY_MISSED_CALL], which is only defined from Android 10. */
     private const val CATEGORY_MISSED_CALL = "missed_call"
 
@@ -342,6 +384,7 @@ internal object GlanceNotificationsStore {
             isCountDown = extras.getBoolean(Notification.EXTRA_CHRONOMETER_COUNT_DOWN),
             chronometerBase = notification.`when`,
             contentIntent = notification.contentIntent,
+            actions = buttonActions(),
         )
     }
 
@@ -372,6 +415,7 @@ internal object GlanceNotificationsStore {
                 } else {
                     null
                 },
+            actions = buttonActions(),
         )
     }
 

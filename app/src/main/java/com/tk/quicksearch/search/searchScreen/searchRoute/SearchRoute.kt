@@ -387,6 +387,7 @@ fun SearchRoute(
             LocalOpenAppSettingDestination provides onOpenAppSettingDestination,
             LocalOnSettingsImported provides viewModel::onSettingsImported,
             LocalPopupOverlayContent provides popupUndoSnackbar,
+            LocalShowUndoSnackbar provides undoActions.showUndoSnackbarWithIcon,
         ) {
             SearchScreenComposable(
                 modifier =
