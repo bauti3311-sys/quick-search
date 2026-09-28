@@ -605,8 +605,8 @@ private fun ScrollableEngineIcons(
         )
         return
     }
-    if (enabledEngines.size <= ENGINE_PILL_MAX_COUNT) {
-        LabeledEnginePillRow(
+    if (enabledEngines.size <= EVENLY_SPACED_ENGINE_MAX_COUNT) {
+        EvenlySpacedEngineRow(
             query = query,
             enabledEngines = enabledEngines,
             onSearchEngineClick = onSearchEngineClick,

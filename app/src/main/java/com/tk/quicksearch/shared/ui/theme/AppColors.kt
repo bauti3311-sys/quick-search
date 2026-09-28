@@ -317,8 +317,8 @@ object AppColors {
         @Composable
         get() = MaterialTheme.colorScheme.primary.copy(alpha = 0.22f)
 
-    /** Subtle outline for the labeled engine pills shown when the strip has only a few engines. */
-    val InlineEnginePillBorder: Color
+    /** Subtle divider between the evenly spaced engines shown when the strip has only a few. */
+    val InlineEngineDivider: Color
         @Composable
         get() = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.16f)
 

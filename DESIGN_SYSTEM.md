@@ -50,7 +50,7 @@ Main `AppColors` groups:
   tappable), `ItemMenuActiveIconTint`, `IconTintPrimary`/`IconTintSecondary`.
 - **Search bar and chrome:** `getSearchBarBackground(...)`, `getSearchBarTextAndIconColor(...)`,
   `SearchChromeOutlineBorder`, `KeyboardPill*`, `InlineEngineHighlight*`,
-  `InlineEnginePillBorder`.
+  `InlineEngineDivider`.
 - **Wallpaper surfaces:** `ResultCardWallpaperBackground`, `CompactSectionBackground`,
   `WallpaperText*`, `WallpaperDivider`, `wallpaperAwareMutedSearchForeground(...)`.
 - **Settings and dialogs:** `SettingsCardBackground`, `SettingsText`, `SettingsIconTint`,
