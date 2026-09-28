@@ -58,7 +58,7 @@ import com.tk.quicksearch.search.data.preferences.UpcomingAlarmPreferences
 import com.tk.quicksearch.search.data.userAppPreferences.UserAppPreferences
 import com.tk.quicksearch.settings.shared.SettingsCard
 import com.tk.quicksearch.settings.shared.AliasPill
-import com.tk.quicksearch.settings.shared.SettingsCheckboxPill
+import com.tk.quicksearch.settings.shared.SettingsNestedCheckbox
 import com.tk.quicksearch.settings.shared.SettingsToggleRow
 import com.tk.quicksearch.shared.permissions.PermissionHelper
 import com.tk.quicksearch.shared.ui.components.AppAlertDialog
@@ -387,7 +387,7 @@ fun AtAGlanceSettingsSection(
                 checked = showTodayEvents,
                 gate = calendarGate,
                 subtitleContent = {
-                    SettingsCheckboxPill(
+                    SettingsNestedCheckbox(
                         label = stringResource(R.string.settings_at_a_glance_tomorrow_events),
                         checked = showTomorrowEvents,
                         onCheckedChange = { enabled ->
@@ -473,7 +473,7 @@ fun AtAGlanceSettingsSection(
                             )
                         }
                         if (showUpcomingAlarm) {
-                            SettingsCheckboxPill(
+                            SettingsNestedCheckbox(
                                 label = stringResource(R.string.settings_at_a_glance_tomorrow_alarm),
                                 checked = showTomorrowAlarm,
                                 onCheckedChange = { enabled ->

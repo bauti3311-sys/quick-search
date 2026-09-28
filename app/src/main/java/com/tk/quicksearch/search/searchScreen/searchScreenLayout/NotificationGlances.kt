@@ -4,6 +4,15 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.text.format.DateUtils
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.SizeTransform
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -16,6 +25,13 @@ import androidx.compose.material.icons.rounded.Apps
 import androidx.compose.material.icons.rounded.AvTimer
 import androidx.compose.material.icons.rounded.Call
 import androidx.compose.material.icons.rounded.CallEnd
+import androidx.compose.material.icons.rounded.Close
+import androidx.compose.material.icons.rounded.Delete
+import androidx.compose.material.icons.rounded.Flag
+import androidx.compose.material.icons.rounded.Pause
+import androidx.compose.material.icons.rounded.PlayArrow
+import androidx.compose.material.icons.rounded.RestartAlt
+import androidx.compose.material.icons.rounded.Stop
 import androidx.compose.material.icons.rounded.Timer
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.FilledTonalIconButton
@@ -27,6 +43,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -35,6 +52,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
@@ -216,7 +234,8 @@ internal fun rememberAppLabel(packageName: String): String {
 /**
  * A running or paused timer or stopwatch: its time as the title, "Timer • <app>" (or "• Paused")
  * below, and the clock app's own buttons (such as Pause and Stop) as round icon buttons on the right.
- * A button without an icon falls back to a small text pill.
+ * A button without an icon (Google Clock's) gets a matching Material icon by its label, and only
+ * an unrecognized one falls back to a small text pill.
  */
 @Composable
 internal fun TimerRow(
@@ -255,10 +274,25 @@ internal fun TimerRow(
             timer.actions.takeIf { it.isNotEmpty() }?.let { actions ->
                 {
                     Row(
+                        modifier = Modifier.animateContentSize(),
                         horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        actions.forEach { action -> TimerActionButton(action) }
+                        // Each slot crossfades when its button changes, such as Pause turning into Resume.
+                        actions.forEachIndexed { index, action ->
+                            key(index) {
+                                AnimatedContent(
+                                    targetState = action,
+                                    contentKey = { it.title },
+                                    transitionSpec = {
+                                        (fadeIn(tween(220)) + scaleIn(tween(220), initialScale = 0.8f)) togetherWith
+                                            (fadeOut(tween(150)) + scaleOut(tween(150), targetScale = 0.8f)) using
+                                            SizeTransform(clip = false)
+                                    },
+                                    label = "timerAction",
+                                ) { TimerActionButton(it) }
+                            }
+                        }
                     }
                 }
             },
@@ -279,7 +313,8 @@ private fun TimerActionButton(action: GlanceNotificationAction) {
             }
     }
     val bitmap = icon
-    if (bitmap == null) {
+    val fallbackIcon = remember(action.title) { timerActionIcon(action.title) }
+    if (bitmap == null && fallbackIcon == null) {
         GlanceActionChip(label = action.title, onClick = { action.intent.sendFromUserTap() })
         return
     }
@@ -287,9 +322,26 @@ private fun TimerActionButton(action: GlanceNotificationAction) {
         onClick = { action.intent.sendFromUserTap() },
         modifier = Modifier.size(36.dp),
     ) {
-        Icon(bitmap = bitmap, contentDescription = action.title, modifier = Modifier.size(TimerActionIconSize))
+        if (bitmap != null) {
+            Icon(bitmap = bitmap, contentDescription = action.title, modifier = Modifier.size(TimerActionIconSize))
+        } else if (fallbackIcon != null) {
+            Icon(imageVector = fallbackIcon, contentDescription = action.title, modifier = Modifier.size(TimerActionIconSize))
+        }
     }
 }
+
+/** A Material icon for a clock app button that has none, matched by its (English) label. */
+private fun timerActionIcon(title: String): ImageVector? =
+    when (title.trim().lowercase()) {
+        "pause" -> Icons.Rounded.Pause
+        "resume", "start", "play", "continue" -> Icons.Rounded.PlayArrow
+        "reset", "restart" -> Icons.Rounded.RestartAlt
+        "stop" -> Icons.Rounded.Stop
+        "delete", "remove" -> Icons.Rounded.Delete
+        "lap" -> Icons.Rounded.Flag
+        "dismiss", "cancel" -> Icons.Rounded.Close
+        else -> null
+    }
 
 /**
  * A connected call with the caller (or the calling app when it doesn't say), its duration, and a

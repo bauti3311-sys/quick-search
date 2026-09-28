@@ -848,10 +848,10 @@
     <string name="settings_at_a_glance_desc">సరైన సమయంలో మీ హోమ్ స్క్రీన్‌లో కనిపించే ఉపయోగకరమైన సమాచారం</string>
     <string name="settings_at_a_glance_alarms_title">అలారాలు</string>
     <string name="settings_upcoming_alarm_desc">45 నిమిషాల్లోపు ఉన్నప్పుడు మీ తదుపరి అలారం</string>
-    <string name="settings_at_a_glance_tomorrow_alarm">సాయంత్రం రేపటి మొదటి అలారం</string>
+    <string name="settings_at_a_glance_tomorrow_alarm">రేపటి మొదటి అలారాన్ని ముందు రాత్రి చూపించండి</string>
     <string name="settings_hidden_alarm_apps_title">దాచిన అలారం యాప్‌లు</string>
     <string name="settings_at_a_glance_events_desc">ఈరోజు క్యాలెండర్ ఈవెంట్‌లు</string>
-    <string name="settings_at_a_glance_tomorrow_events">సాయంత్రం రేపటి ఈవెంట్‌లు</string>
+    <string name="settings_at_a_glance_tomorrow_events">రేపటి ఈవెంట్‌లను ముందు రాత్రి చూపించండి</string>
     <string name="settings_upcoming_reminders_desc">30 నిమిషాల్లోపు గడువు ఉన్న లేదా గడువు దాటిన రిమైండర్‌లు</string>
     <string name="settings_at_a_glance_low_battery_title">తక్కువ బ్యాటరీ</string>
     <string name="settings_low_battery_desc">మీ బ్యాటరీ %1$d%% లేదా అంతకంటే తక్కువ ఉన్నప్పుడు</string>

@@ -876,10 +876,10 @@
     <string name="settings_at_a_glance_desc">Przydatne informacje, które pojawiają się na ekranie głównym we właściwym czasie</string>
     <string name="settings_at_a_glance_alarms_title">Alarmy</string>
     <string name="settings_upcoming_alarm_desc">Następny alarm, gdy zadzwoni w ciągu 45 minut</string>
-    <string name="settings_at_a_glance_tomorrow_alarm">Wieczorem pierwszy jutrzejszy alarm</string>
+    <string name="settings_at_a_glance_tomorrow_alarm">Pokaż pierwszy budzik na jutro poprzedniego wieczoru</string>
     <string name="settings_hidden_alarm_apps_title">Ukryte aplikacje z alarmami</string>
     <string name="settings_at_a_glance_events_desc">Dzisiejsze wydarzenia w kalendarzu</string>
-    <string name="settings_at_a_glance_tomorrow_events">Wieczorem jutrzejsze wydarzenia</string>
+    <string name="settings_at_a_glance_tomorrow_events">Pokaż jutrzejsze wydarzenia poprzedniego wieczoru</string>
     <string name="settings_upcoming_reminders_desc">Przypomnienia przypadające w ciągu 30 minut lub zaległe</string>
     <string name="settings_at_a_glance_low_battery_title">Niski poziom baterii</string>
     <string name="settings_low_battery_desc">Bateria, gdy ma %1$d%% lub mniej</string>

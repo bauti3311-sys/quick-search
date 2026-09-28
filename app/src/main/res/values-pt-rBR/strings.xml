@@ -848,10 +848,10 @@
     <string name="settings_at_a_glance_desc">Informações úteis que aparecem na tela inicial nos momentos certos</string>
     <string name="settings_at_a_glance_alarms_title">Alarmes</string>
     <string name="settings_upcoming_alarm_desc">Seu próximo alarme quando faltar menos de 45 minutos</string>
-    <string name="settings_at_a_glance_tomorrow_alarm">Primeiro alarme de amanhã à noite</string>
+    <string name="settings_at_a_glance_tomorrow_alarm">Mostrar o primeiro alarme de amanhã na noite anterior</string>
     <string name="settings_hidden_alarm_apps_title">Apps de alarmes ocultos</string>
     <string name="settings_at_a_glance_events_desc">Eventos de calendário de hoje</string>
-    <string name="settings_at_a_glance_tomorrow_events">Eventos de amanhã à noite</string>
+    <string name="settings_at_a_glance_tomorrow_events">Mostrar os eventos de amanhã na noite anterior</string>
     <string name="settings_upcoming_reminders_desc">Lembretes que vencem em 30 minutos ou estão atrasados</string>
     <string name="settings_at_a_glance_low_battery_title">Bateria fraca</string>
     <string name="settings_low_battery_desc">Sua bateria quando estiver em %1$d%% ou menos</string>
