@@ -142,7 +142,7 @@
     <string name="settings_gesture_none">Geen</string>
     <string name="settings_gesture_custom">Aangepast (Apps, bestanden enz.)</string>
     <string name="settings_keyboard_gestures_title">Toetsenbordgebaren (Start)</string>
-    <string name="settings_keyboard_gestures_desc">Alleen beschikbaar als er geen scrollbare inhoud op het startscherm is</string>
+    <string name="settings_keyboard_gestures_desc">Werkt alleen als er geen scrollbare inhoud op het startscherm is</string>
     <string name="action_pin_app">Vastmaken</string>
     <string name="action_pin_to_notifications">Vastmaken aan meldingen</string>
     <string name="action_unpin_from_notifications">Losmaken van meldingen</string>

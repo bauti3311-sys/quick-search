@@ -139,7 +139,7 @@
     <string name="settings_gesture_none">Brak</string>
     <string name="settings_gesture_custom">Własne (Aplikacje, Pliki itp.)</string>
     <string name="settings_keyboard_gestures_title">Gesty klawiatury (Ekran główny)</string>
-    <string name="settings_keyboard_gestures_desc">Dostępne tylko wtedy, gdy na ekranie głównym nie ma przewijanej zawartości</string>
+    <string name="settings_keyboard_gestures_desc">Działa tylko wtedy, gdy na ekranie głównym nie ma przewijanej zawartości</string>
     <string name="action_pin_app">Przypnij</string>
     <string name="action_pin_to_notifications">Przypnij do powiadomień</string>
     <string name="action_unpin_from_notifications">Odepnij z powiadomień</string>

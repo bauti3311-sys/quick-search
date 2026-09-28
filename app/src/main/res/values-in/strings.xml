@@ -139,7 +139,7 @@
     <string name="settings_gesture_none">Tidak ada</string>
     <string name="settings_gesture_custom">Kustom (Aplikasi, File, dll.)</string>
     <string name="settings_keyboard_gestures_title">Gestur Keyboard (Layar Utama)</string>
-    <string name="settings_keyboard_gestures_desc">Hanya tersedia jika tidak ada konten yang dapat digulir di layar utama</string>
+    <string name="settings_keyboard_gestures_desc">Hanya berfungsi jika tidak ada konten yang dapat digulir di layar utama</string>
     <string name="action_pin_app">Sematkan</string>
     <string name="action_pin_to_notifications">Sematkan ke Notifikasi</string>
     <string name="action_unpin_from_notifications">Lepas Sematan dari Notifikasi</string>

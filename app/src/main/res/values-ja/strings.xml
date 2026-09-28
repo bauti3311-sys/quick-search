@@ -139,7 +139,7 @@
     <string name="settings_gesture_none">なし</string>
     <string name="settings_gesture_custom">カスタム（アプリ、ファイルなど）</string>
     <string name="settings_keyboard_gestures_title">キーボードジェスチャー（ホーム）</string>
-    <string name="settings_keyboard_gestures_desc">ホーム画面にスクロール可能なコンテンツがない場合のみ利用可能</string>
+    <string name="settings_keyboard_gestures_desc">ホーム画面にスクロール可能なコンテンツがない場合のみ動作します</string>
     <string name="action_pin_app">固定</string>
     <string name="action_pin_to_notifications">通知に固定</string>
     <string name="action_unpin_from_notifications">通知から固定解除</string>
