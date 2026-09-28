@@ -740,6 +740,8 @@
 <string name="settings_device_theme_title">Material You</string>
 <string name="settings_edit_label">Düzenle</string>
 <string name="settings_font_size_big">Büyük</string>
+<string name="settings_font_size_extra_small">Çok küçük</string>
+<string name="settings_font_size_extra_big">Çok büyük</string>
 <string name="settings_font_size_medium">Orta</string>
 <string name="settings_font_size_small">Küçük</string>
 <string name="settings_font_size_title">Yazı tipi boyutu</string>

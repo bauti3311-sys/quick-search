@@ -761,6 +761,8 @@
 <string name="settings_device_theme_title">Material You</string>
 <string name="settings_edit_label">Изменить</string>
 <string name="settings_font_size_big">Большой</string>
+<string name="settings_font_size_extra_small">Очень маленький</string>
+<string name="settings_font_size_extra_big">Очень большой</string>
 <string name="settings_font_size_medium">Средний</string>
 <string name="settings_font_size_small">Маленький</string>
 <string name="settings_font_size_title">Размер шрифта</string>

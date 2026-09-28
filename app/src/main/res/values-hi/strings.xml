@@ -741,6 +741,8 @@
     <string name="settings_device_theme_title">Material You</string>
     <string name="settings_edit_label">संपादित करें</string>
     <string name="settings_font_size_big">बड़ा</string>
+    <string name="settings_font_size_extra_small">बहुत छोटा</string>
+    <string name="settings_font_size_extra_big">बहुत बड़ा</string>
     <string name="settings_font_size_medium">मध्यम</string>
     <string name="settings_font_size_small">छोटा</string>
     <string name="settings_font_size_title">फ़ॉन्ट आकार</string>

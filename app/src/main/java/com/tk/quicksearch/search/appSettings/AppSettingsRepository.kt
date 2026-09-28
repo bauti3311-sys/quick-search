@@ -24,19 +24,37 @@ class AppSettingsRepository(
                 destination = AppSettingsDestination.APPEARANCE,
                 keywords =
                     listOf(
-                        "theme",
                         "wallpaper",
                         "style",
                         "search engines style",
-                        "font size",
-                        "system font",
-                        "text size",
-                        "color",
-                        "colour",
-                        "icon size",
                         "inline",
                         "compact"
                     ),
+            )
+            addNavigation(
+                id = THEME_MODE_SETTING_ID,
+                titleRes = R.string.settings_app_theme_title,
+                destination = AppSettingsDestination.APPEARANCE,
+                keywords = listOf("theme", "dark", "light", "system", "mode", "night"),
+            )
+            addToggle(
+                id = "app_setting_font_size",
+                titleRes = R.string.settings_font_size_title,
+                toggleKey = AppSettingsToggleKey.FONT_SIZE,
+                keywords = listOf("text size", "font", "bigger", "smaller"),
+            )
+            addToggle(
+                id = "app_setting_home_text_color",
+                titleRes = R.string.settings_home_text_color_title,
+                descriptionRes = R.string.settings_home_text_color_desc,
+                toggleKey = AppSettingsToggleKey.HOME_TEXT_COLOR,
+                keywords = listOf("text color", "colour", "color", "white", "black", "labels"),
+            )
+            addToggle(
+                id = "app_setting_app_icon_size",
+                titleRes = R.string.settings_app_icon_size_title,
+                toggleKey = AppSettingsToggleKey.APP_ICON_SIZE,
+                keywords = listOf("icons", "size", "bigger", "smaller"),
             )
             addNavigation(
                 id = "app_settings_icon_packs",
@@ -424,6 +442,7 @@ class AppSettingsRepository(
             addToggle(
                 id = "app_toggle_use_system_font",
                 titleRes = R.string.settings_use_system_font_title,
+                descriptionRes = R.string.settings_use_system_font_desc,
                 toggleKey = AppSettingsToggleKey.USE_SYSTEM_FONT,
                 keywords = listOf("font", "typeface"),
             )
@@ -641,6 +660,7 @@ class AppSettingsRepository(
                 addToggle(
                     id = "app_toggle_themed_icons",
                     titleRes = R.string.settings_themed_icons_title,
+                    descriptionRes = R.string.settings_themed_icons_desc,
                     toggleKey = AppSettingsToggleKey.THEMED_ICONS,
                 )
             }

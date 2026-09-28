@@ -740,6 +740,8 @@
     <string name="settings_device_theme_title">Material You</string>
     <string name="settings_edit_label">Modifica</string>
     <string name="settings_font_size_big">Grande</string>
+    <string name="settings_font_size_extra_small">Molto piccola</string>
+    <string name="settings_font_size_extra_big">Molto grande</string>
     <string name="settings_font_size_medium">Media</string>
     <string name="settings_font_size_small">Piccola</string>
     <string name="settings_font_size_title">Dimensione carattere</string>

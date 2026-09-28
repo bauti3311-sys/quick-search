@@ -740,9 +740,16 @@
     <string name="settings_device_theme_title">Material You</string>
     <string name="settings_edit_label">Edit</string>
     <string name="settings_font_size_big">Big</string>
+    <string name="settings_font_size_extra_small">Extra small</string>
+    <string name="settings_font_size_extra_big">Extra big</string>
     <string name="settings_font_size_medium">Medium</string>
     <string name="settings_font_size_small">Small</string>
     <string name="settings_font_size_title">Font Size</string>
+    <string name="settings_font_size_tick_xs" translatable="false">XS</string>
+    <string name="settings_font_size_tick_s" translatable="false">S</string>
+    <string name="settings_font_size_tick_m" translatable="false">M</string>
+    <string name="settings_font_size_tick_l" translatable="false">L</string>
+    <string name="settings_font_size_tick_xl" translatable="false">XL</string>
     <string name="settings_home_screen_widget_confirm_message">You are about to add Quick Search widget to your home screen. Long press on the widget to access widget settings page that has many customization options.</string>
     <string name="settings_home_screen_widget_desc">Add Quick Search widget to your home screen.</string>
     <string name="settings_home_screen_widget_title">Home Screen Widget</string>

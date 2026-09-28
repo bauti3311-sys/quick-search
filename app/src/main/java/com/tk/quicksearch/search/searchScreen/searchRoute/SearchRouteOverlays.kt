@@ -82,10 +82,7 @@ internal fun SearchRouteOverlays(
                 availableIconPacks = uiState.availableIconPacks,
                 selectedPackage = uiState.selectedIconPackPackage,
                 maskUnsupportedIcons = uiState.maskUnsupportedIconPackIcons,
-                onSelect = { packageName ->
-                    viewModel.setIconPackPackage(packageName)
-                    onIconPackDismiss()
-                },
+                onSelect = viewModel::setIconPackPackage,
                 onMaskUnsupportedIconsChange = viewModel::setIconPackUnsupportedIconMaskEnabled,
                 onDownloadIconPacks = viewModel::searchIconPacks,
                 onResetAllIcons = viewModel::resetAllAppIconsToDefault,

@@ -154,7 +154,10 @@ internal fun SearchViewModel.applySettingsCommand(command: SettingsCommand) {
                 AppSettingsToggleKey.DICTIONARY -> setDictionaryEnabled(command.enabled)
                 AppSettingsToggleKey.WEATHER -> setWeatherEnabled(command.enabled)
                 AppSettingsToggleKey.APPS_PER_ROW,
-                AppSettingsToggleKey.APP_RESULT_ROWS -> Unit
+                AppSettingsToggleKey.APP_RESULT_ROWS,
+                AppSettingsToggleKey.FONT_SIZE,
+                AppSettingsToggleKey.APP_ICON_SIZE,
+                AppSettingsToggleKey.HOME_TEXT_COLOR -> Unit
                 AppSettingsToggleKey.SEARCH_APPS,
                 AppSettingsToggleKey.SEARCH_APP_SHORTCUTS,
                 AppSettingsToggleKey.SEARCH_CONTACTS,
@@ -253,7 +256,10 @@ internal fun SearchUiState.isAppSettingToggleEnabled(toggleKey: AppSettingsToggl
         AppSettingsToggleKey.DICTIONARY -> dictionaryEnabled
         AppSettingsToggleKey.WEATHER -> weatherEnabled
         AppSettingsToggleKey.APPS_PER_ROW,
-        AppSettingsToggleKey.APP_RESULT_ROWS -> false
+        AppSettingsToggleKey.APP_RESULT_ROWS,
+        AppSettingsToggleKey.FONT_SIZE,
+        AppSettingsToggleKey.APP_ICON_SIZE,
+        AppSettingsToggleKey.HOME_TEXT_COLOR -> false
         AppSettingsToggleKey.SEARCH_APPS,
         AppSettingsToggleKey.SEARCH_APP_SHORTCUTS,
         AppSettingsToggleKey.SEARCH_CONTACTS,

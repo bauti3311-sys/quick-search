@@ -741,6 +741,8 @@
 <string name="settings_device_theme_title">Material You</string>
 <string name="settings_edit_label">Modifier</string>
 <string name="settings_font_size_big">Grande</string>
+<string name="settings_font_size_extra_small">Très petite</string>
+<string name="settings_font_size_extra_big">Très grande</string>
 <string name="settings_font_size_medium">Moyenne</string>
 <string name="settings_font_size_small">Petite</string>
 <string name="settings_font_size_title">Taille de la police</string>

@@ -234,12 +234,12 @@ internal fun AppSettingResultRow(
                     if (setting.isNavigateAction) {
                         hapticConfirm(view)()
                         onClick(setting)
-                    } else if (!isAppsPerRowSetting && !isAppResultRowsSetting) {
+                    } else if (!isAppsPerRowSetting && !isAppResultRowsSetting && !setting.hasInlineControl) {
                         hapticToggle(view)()
                         onToggle(setting, !checked)
                     }
                 },
-                role = if (setting.isToggleAction && !isAppsPerRowSetting && !isAppResultRowsSetting) Role.Switch else null,
+                role = if (setting.isToggleAction && !isAppsPerRowSetting && !isAppResultRowsSetting && !setting.hasInlineControl) Role.Switch else null,
             )
 
     Row(
@@ -296,6 +296,13 @@ internal fun AppSettingResultRow(
                 )
             }
 
+            if (setting.hasInlineControl) {
+                AppSettingInlineControlContent(
+                    setting = setting,
+                    onOpenSettingPage = { onClick(setting) },
+                )
+            }
+
             if (isWebSuggestionsToggle && checked) {
                 Row(
                     modifier = Modifier.padding(top = 8.dp),
@@ -331,10 +338,13 @@ internal fun AppSettingResultRow(
                     },
                     label = { Text(stringResource(R.string.settings_app_columns_4)) },
                     shape = DesignTokens.ShapeFull,
-                    border = if (fourSelected) null else BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+                    border = BorderStroke(
+                        if (fourSelected) 1.5.dp else 1.dp,
+                        if (fourSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.5f) else MaterialTheme.colorScheme.outlineVariant,
+                    ),
                     colors = AssistChipDefaults.assistChipColors(
-                        containerColor = if (fourSelected) MaterialTheme.colorScheme.primary else Color.Transparent,
-                        labelColor = if (fourSelected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary,
+                        containerColor = Color.Transparent,
+                        labelColor = if (fourSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
                     ),
                 )
                 val fiveSelected = !fourSelected
@@ -345,10 +355,13 @@ internal fun AppSettingResultRow(
                     },
                     label = { Text(stringResource(R.string.settings_app_columns_5)) },
                     shape = DesignTokens.ShapeFull,
-                    border = if (fiveSelected) null else BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+                    border = BorderStroke(
+                        if (fiveSelected) 1.5.dp else 1.dp,
+                        if (fiveSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.5f) else MaterialTheme.colorScheme.outlineVariant,
+                    ),
                     colors = AssistChipDefaults.assistChipColors(
-                        containerColor = if (fiveSelected) MaterialTheme.colorScheme.primary else Color.Transparent,
-                        labelColor = if (fiveSelected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary,
+                        containerColor = Color.Transparent,
+                        labelColor = if (fiveSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
                     ),
                 )
             }
@@ -357,7 +370,7 @@ internal fun AppSettingResultRow(
                 selectedRowCount = appSettingAppResultRowCount,
                 onSelectRowCount = onAppSettingAppResultRowCountChange,
             )
-        } else if (isBackupSetting) {
+        } else if (isBackupSetting || setting.hasInlineControl) {
             Unit
         } else if (setting.isToggleAction) {
             Switch(
@@ -405,10 +418,13 @@ private fun AppResultRowsChips(
                 },
                 label = { Text(rowCount.toString()) },
                 shape = DesignTokens.ShapeFull,
-                border = if (selected) null else BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+                border = BorderStroke(
+                        if (selected) 1.5.dp else 1.dp,
+                        if (selected) MaterialTheme.colorScheme.primary.copy(alpha = 0.5f) else MaterialTheme.colorScheme.outlineVariant,
+                    ),
                 colors = AssistChipDefaults.assistChipColors(
-                    containerColor = if (selected) MaterialTheme.colorScheme.primary else Color.Transparent,
-                    labelColor = if (selected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary,
+                    containerColor = Color.Transparent,
+                    labelColor = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
                 ),
             )
         }

@@ -348,10 +348,7 @@ fun AppearanceSettingsSection(
                 availableIconPacks = availableIconPacks,
                 selectedPackage = selectedIconPackPackage,
                 maskUnsupportedIcons = maskUnsupportedIconPackIcons,
-                onSelect = { packageName: String? ->
-                    onSelectIconPack(packageName)
-                    showIconPackDialog = false
-                },
+                onSelect = { packageName: String? -> onSelectIconPack(packageName) },
                 onMaskUnsupportedIconsChange = onSetMaskUnsupportedIconPackIcons,
                 onDownloadIconPacks = onSearchIconPacks,
                 onResetAllIcons = onResetAllIcons,

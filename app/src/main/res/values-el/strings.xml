@@ -741,6 +741,8 @@
     <string name="settings_device_theme_title">Material You</string>
     <string name="settings_edit_label">Επεξεργασία</string>
     <string name="settings_font_size_big">Μεγάλο</string>
+    <string name="settings_font_size_extra_small">Πολύ μικρό</string>
+    <string name="settings_font_size_extra_big">Πολύ μεγάλο</string>
     <string name="settings_font_size_medium">Μεσαίο</string>
     <string name="settings_font_size_small">Μικρό</string>
     <string name="settings_font_size_title">Μέγεθος γραμματοσειράς</string>
