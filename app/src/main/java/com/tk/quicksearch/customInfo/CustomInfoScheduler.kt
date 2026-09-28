@@ -107,7 +107,10 @@ object CustomInfoScheduler {
         NotificationManagerCompat.from(context).cancel(JOB_BASE + id)
     }
 
-    /** Re-arms every enabled item. Alarms and jobs don't survive reboot, restore, or clock changes. */
+    /**
+     * Re-arms every enabled item. Alarms and jobs don't survive reboot or restore, and a clock or
+     * time zone change moves the local time they should fire at.
+     */
     fun rescheduleAll(context: Context) {
         CustomInfoRepository(context).all().forEach { schedule(context, it) }
     }
@@ -124,14 +127,7 @@ object CustomInfoScheduler {
         }
         val now = System.currentTimeMillis()
         val resumed =
-            CustomInfoRepository(context).update(id) { item ->
-                val due = item.dueMillis
-                item.copy(
-                    enabled = true,
-                    showOnHome = true,
-                    dueMillis = if (due != null && due <= now && item.repeat != null) item.nextDueAfter(now) else due,
-                )
-            } ?: return
+            CustomInfoRepository(context).update(id) { it.resumedAt(now) } ?: return
         schedule(context, resumed)
     }
 
@@ -175,9 +171,12 @@ object CustomInfoScheduler {
         val repository = CustomInfoRepository(context)
         val item = repository.get(id) ?: return
         if (!item.enabled) return
-        val due = item.dueMillis
-        // A scheduled job whose run was already handled (or moved later) has nothing to do.
-        if (!retry && (due == null || due > System.currentTimeMillis() + DUE_TOLERANCE_MILLIS)) return
+        // A scheduled job whose run was already handled, or moved later by an edit or a time zone
+        // change, has nothing to do now; re-arm in case the alarm was set for the old time.
+        if (!retry && !item.isDueForScheduledRun(System.currentTimeMillis(), DUE_TOLERANCE_MILLIS)) {
+            schedule(context, item)
+            return
+        }
         val result =
             try {
                 fetchCustomInfoAnswer(context, item)
@@ -188,15 +187,7 @@ object CustomInfoScheduler {
             }
         val now = System.currentTimeMillis()
         val updated =
-            repository.update(id) { current ->
-                current.copy(
-                    status = if (result.isSuccess) CustomInfoItem.COMPLETE else CustomInfoItem.ERROR,
-                    answer = result.getOrElse { "" },
-                    showOnHome = true,
-                    lastRunMillis = now,
-                    dueMillis = if (retry) current.dueMillis else current.nextDueAfter(now),
-                )
-            } ?: return
+            repository.update(id) { it.afterRun(result, now, retry) } ?: return
         if (!retry) schedule(context, updated)
         if (result.isSuccess) notifyResult(context, updated)
     }

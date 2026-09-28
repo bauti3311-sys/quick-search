@@ -78,6 +78,57 @@ class CustomInfoRecurrenceTest {
     }
 
     @Test
+    fun dailyInSpringForwardGapShiftsOnlyThatDay() {
+        // US clocks spring forward on 2027-03-14; 02:30 doesn't exist that day.
+        val repeat = CustomInfoRepeat.DAILY
+        assertEquals(
+            LocalDateTime.parse("2027-03-14T03:30"),
+            next(repeat, "2027-03-10T02:30", "2027-03-13T03:00"),
+        )
+        assertEquals(
+            LocalDateTime.parse("2027-03-15T02:30"),
+            next(repeat, "2027-03-10T02:30", "2027-03-14T03:30"),
+        )
+    }
+
+    @Test
+    fun everyTwoMonthsFromThe31stClampsEachRun() {
+        val repeat = CustomInfoRepeat(CustomInfoRepeatUnit.MONTH, 2)
+        assertEquals(
+            LocalDateTime.parse("2027-04-30T08:00"),
+            next(repeat, "2026-12-31T08:00", "2027-02-28T09:00"),
+        )
+        assertEquals(
+            LocalDateTime.parse("2027-06-30T08:00"),
+            next(repeat, "2026-12-31T08:00", "2027-04-30T08:00"),
+        )
+        assertEquals(
+            LocalDateTime.parse("2027-08-31T08:00"),
+            next(repeat, "2026-12-31T08:00", "2027-06-30T08:00"),
+        )
+    }
+
+    @Test
+    fun runJustBeforeNextOccurrenceReturnsThatOccurrence() {
+        assertEquals(
+            LocalDateTime.parse("2026-10-08T08:00"),
+            next(CustomInfoRepeat.WEEKLY, "2026-10-01T08:00", "2026-10-08T07:59"),
+        )
+    }
+
+    @Test
+    fun longAfterAnchorStillLandsOnSchedule() {
+        assertEquals(
+            LocalDateTime.parse("2036-10-01T08:00"),
+            next(CustomInfoRepeat(CustomInfoRepeatUnit.YEAR, 5), "2026-10-01T08:00", "2031-10-01T08:00"),
+        )
+        assertEquals(
+            LocalDateTime.parse("2031-10-02T08:00"),
+            next(CustomInfoRepeat.DAILY, "2026-10-01T08:00", "2031-10-01T08:00"),
+        )
+    }
+
+    @Test
     fun oneTimeItemHasNoNextRun() {
         val item = CustomInfoItem(
             id = 1,

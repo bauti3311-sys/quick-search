@@ -87,6 +87,8 @@ class CustomInfoActivity : ComponentActivity() {
         val preferences = UserAppPreferences(applicationContext)
         val repository = CustomInfoRepository(applicationContext)
         val editingItem = intent.getIntExtra(EXTRA_ITEM_ID, 0).takeIf { it > 0 }?.let(repository::get)
+        // The time the editor last saved, to tell a changed time from one left as it was.
+        var savedDueMillis = editingItem?.dueMillis
         setContent {
             val useDarkSystemBars = when (preferences.getAppThemeMode()) {
                 com.tk.quicksearch.search.core.AppThemeMode.LIGHT -> false
@@ -124,20 +126,8 @@ class CustomInfoActivity : ComponentActivity() {
                             repository.add(item)
                         } else {
                             CustomInfoScheduler.cancel(applicationContext, editingItem.id)
-                            repository.update(editingItem.id) { existing ->
-                                existing.copy(
-                                    title = item.title,
-                                    prompt = item.prompt,
-                                    providerId = item.providerId,
-                                    modelId = item.modelId,
-                                    webSearch = item.webSearch,
-                                    thinking = item.thinking,
-                                    dueMillis = item.dueMillis,
-                                    anchorMillis = item.dueMillis,
-                                    sendNotification = item.sendNotification,
-                                    repeat = item.repeat,
-                                )
-                            }
+                            repository.update(editingItem.id) { it.withEdits(item, savedDueMillis) }
+                                .also { savedDueMillis = item.dueMillis }
                         }
                         stored?.let { CustomInfoScheduler.schedule(applicationContext, it) }
                         // Existing items save as they're edited, so only a new item closes the editor.
@@ -244,8 +234,9 @@ private fun CustomInfoEditor(
         sendNotification = sendNotification && hasNotificationPermission,
         repeat = repeat,
     )
-    // An existing item may keep its current time, including none once a one-time item has run.
-    val dueValid = (initialItem != null && dueMillis == initialItem.dueMillis) ||
+    // An existing item may keep its current time, including none once a one-time item has run,
+    // but a repeating item needs a time to repeat from.
+    val dueValid = (initialItem != null && dueMillis == initialItem.dueMillis && (dueMillis != null || repeat == null)) ||
         dueMillis?.let { it > System.currentTimeMillis() } == true
     val canSave = title.isNotBlank() && prompt.isNotBlank() && modelId.isNotBlank() && providerId in configuredIds && dueValid
     if (initialItem != null) {
@@ -342,7 +333,14 @@ private fun CustomInfoEditor(
                     dueMillis = dueMillis,
                     onDateClick = { showDateDialog = true },
                     repeat = repeat,
-                    onRepeatChange = { repeat = it },
+                    onRepeatChange = { newRepeat ->
+                        repeat = newRepeat
+                        // A one-time item that already ran has no next run; repeating restarts it at its old time of day.
+                        if (newRepeat != null && dueMillis == null) {
+                            dueMillis = initialItem?.restartedRunAfter(newRepeat, System.currentTimeMillis())
+                            hasExplicitTime = dueMillis != null
+                        }
+                    },
                     sendNotification = sendNotification,
                     onSendNotificationChange = { checked ->
                         if (!checked) sendNotification = false
