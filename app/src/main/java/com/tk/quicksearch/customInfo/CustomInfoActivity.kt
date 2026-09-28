@@ -39,12 +39,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -65,12 +67,14 @@ import com.tk.quicksearch.shared.ui.theme.QuickSearchTheme
 import com.tk.quicksearch.shared.util.AppLanguageManager
 import com.tk.quicksearch.tools.aiSearch.AiSearchLlmProviderId
 import com.tk.quicksearch.tools.aiSearch.AiSearchLlmProviderRegistry
+import com.tk.quicksearch.tools.aiSearch.LlmModelCatalogCache
 import com.tk.quicksearch.tools.aiSearch.LlmTextModel
 import com.tk.quicksearch.tools.aiSearch.supportsThinkingControl
 import java.text.DateFormat
 import java.util.Calendar
 import java.util.Date
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -151,7 +155,8 @@ class CustomInfoActivity : ComponentActivity() {
                             }
                         }
                         stored?.let { CustomInfoScheduler.schedule(applicationContext, it) }
-                        finishWithSlide()
+                        // Existing items save as they're edited, so only a new item closes the editor.
+                        if (editingItem == null) finishWithSlide()
                     }
                 }
             }
@@ -185,8 +190,16 @@ private fun CustomInfoEditor(
     var sendNotification by remember {
         mutableStateOf(initialItem?.sendNotification == true && ReminderPermissions.hasPostNotifications(context))
     }
-    var configuredIds by remember { mutableStateOf(emptySet<AiSearchLlmProviderId>()) }
-    var modelsByProvider by remember { mutableStateOf(emptyMap<AiSearchLlmProviderId, List<LlmTextModel>>()) }
+    val cachedCatalogs = remember { LlmModelCatalogCache.snapshot() }
+    var configuredIds by remember { mutableStateOf(cachedCatalogs.keys) }
+    var modelsByProvider by remember { mutableStateOf(cachedCatalogs) }
+    // Show one steady loading label until the selected model can be named, instead of flashing
+    // "Select model" and fallback names while provider keys and live catalogs load.
+    var catalogReady by remember {
+        mutableStateOf(
+            initialItem != null && cachedCatalogs[initialItem.providerId]?.any { it.id == initialItem.modelId } == true,
+        )
+    }
     val scope = rememberCoroutineScope()
     var showTestDialog by remember { mutableStateOf(false) }
     var testLoading by remember { mutableStateOf(false) }
@@ -203,7 +216,7 @@ private fun CustomInfoEditor(
         val keepInitialModel = initialItem != null && providerId in ids
         if (providerId !in ids) providerId = ids.firstOrNull() ?: providerId
         val catalogs = ids.associateWith { id ->
-            AiSearchLlmProviderRegistry.get(id, context).fallbackTextModels
+            LlmModelCatalogCache.get(id) ?: AiSearchLlmProviderRegistry.get(id, context).fallbackTextModels
         }
         modelsByProvider = catalogs
         if (!keepInitialModel) {
@@ -212,11 +225,13 @@ private fun CustomInfoEditor(
             thinking = preferences.isLlmThinkingEnabled(providerId)
             webSearch = preferences.isLlmGroundingEnabled(providerId)
         }
+        if (ids.isEmpty() || catalogs[providerId]?.any { it.id == modelId } == true) catalogReady = true
         ids.forEach { id ->
             launch {
                 val liveModels = withContext(Dispatchers.IO) {
                     val provider = AiSearchLlmProviderRegistry.get(id, context)
                     provider.fetchAvailableTextModels(preferences.getLlmApiKey(id).orEmpty(), context)
+                        .onSuccess { LlmModelCatalogCache.put(id, it) }
                         .getOrElse { provider.fallbackTextModels }
                 }
                 modelsByProvider = modelsByProvider + (id to liveModels)
@@ -225,8 +240,36 @@ private fun CustomInfoEditor(
                     modelId = saved.takeIf { selected -> liveModels.any { it.id == selected } }
                         ?: liveModels.firstOrNull()?.id.orEmpty()
                 }
+                if (id == providerId) catalogReady = true
             }
         }
+    }
+
+    val hasNotificationPermission = ReminderPermissions.hasPostNotifications(context)
+    val draft = CustomInfoItem(
+        id = 0,
+        title = title.trim(),
+        prompt = prompt.trim(),
+        providerId = providerId,
+        modelId = modelId,
+        webSearch = webSearch,
+        thinking = thinking && supportsThinkingControl(providerId, modelId),
+        dueMillis = dueMillis,
+        sendNotification = sendNotification && hasNotificationPermission,
+        repeat = repeat,
+    )
+    // An existing item may keep its current time, including none once a one-time item has run.
+    val dueValid = (initialItem != null && dueMillis == initialItem.dueMillis) ||
+        dueMillis?.let { it > System.currentTimeMillis() } == true
+    val canSave = title.isNotBlank() && prompt.isNotBlank() && modelId.isNotBlank() && providerId in configuredIds && dueValid
+    if (initialItem != null) {
+        CustomInfoAutoSave(
+            initialItem = initialItem,
+            draft = draft,
+            ready = catalogReady && canSave,
+            hasNotificationPermission = hasNotificationPermission,
+            onSave = onSave,
+        )
     }
 
     Scaffold(
@@ -234,7 +277,9 @@ private fun CustomInfoEditor(
         containerColor = Color.Transparent,
         topBar = {
             SettingsDetailHeader(
-                title = stringResource(R.string.custom_info_title),
+                title = stringResource(
+                    if (initialItem == null) R.string.custom_info_title else R.string.custom_info_edit_title,
+                ),
                 onBack = onBack,
             )
         },
@@ -276,6 +321,7 @@ private fun CustomInfoEditor(
                     onThinkingChange = { thinking = it },
                     onGroundingChange = { webSearch = it },
                     showThinkingCheckbox = supportsThinkingControl(providerId, modelId),
+                    isLoading = !catalogReady,
                 )
                 OutlinedTextField(
                     value = prompt,
@@ -338,28 +384,14 @@ private fun CustomInfoEditor(
                     modifier = Modifier.fillMaxWidth(),
                 ) { Text(stringResource(R.string.custom_info_test)) }
             }
-            Button(
-                onClick = {
-                    onSave(
-                        CustomInfoItem(
-                            id = 0,
-                            title = title.trim(),
-                            prompt = prompt.trim(),
-                            providerId = providerId,
-                            modelId = modelId,
-                            webSearch = webSearch,
-                            thinking = thinking && supportsThinkingControl(providerId, modelId),
-                            dueMillis = dueMillis,
-                            sendNotification = sendNotification && ReminderPermissions.hasPostNotifications(context),
-                            repeat = repeat,
-                        ),
-                    )
-                },
-                enabled = title.isNotBlank() && prompt.isNotBlank() && modelId.isNotBlank() && providerId in configuredIds &&
-                    dueMillis != null && dueMillis!! > System.currentTimeMillis(),
-                modifier = Modifier.fillMaxWidth().padding(DesignTokens.ContentHorizontalPadding).height(56.dp),
-            ) {
-                Text(stringResource(R.string.dialog_save))
+            if (initialItem == null) {
+                Button(
+                    onClick = { onSave(draft) },
+                    enabled = canSave,
+                    modifier = Modifier.fillMaxWidth().padding(DesignTokens.ContentHorizontalPadding).height(56.dp),
+                ) {
+                    Text(stringResource(R.string.dialog_save))
+                }
             }
         }
     }
@@ -404,3 +436,50 @@ private fun CustomInfoEditor(
         )
     }
 }
+
+/**
+ * Saves edits to an existing item shortly after each valid change, and flushes any pending edit
+ * when the editor closes, so editing needs no Save button.
+ */
+@Composable
+private fun CustomInfoAutoSave(
+    initialItem: CustomInfoItem,
+    draft: CustomInfoItem,
+    ready: Boolean,
+    hasNotificationPermission: Boolean,
+    onSave: (CustomInfoItem) -> Unit,
+) {
+    // Normalized like the draft, so opening an item without changing anything doesn't rewrite it.
+    var lastSaved by remember {
+        mutableStateOf(
+            CustomInfoItem(
+                id = 0,
+                title = initialItem.title.trim(),
+                prompt = initialItem.prompt.trim(),
+                providerId = initialItem.providerId,
+                modelId = initialItem.modelId,
+                webSearch = initialItem.webSearch,
+                thinking = initialItem.thinking && supportsThinkingControl(initialItem.providerId, initialItem.modelId),
+                dueMillis = initialItem.dueMillis,
+                sendNotification = initialItem.sendNotification && hasNotificationPermission,
+                repeat = initialItem.repeat,
+            ),
+        )
+    }
+    val latestDraft by rememberUpdatedState(draft)
+    val latestReady by rememberUpdatedState(ready)
+    val latestOnSave by rememberUpdatedState(onSave)
+    LaunchedEffect(draft, ready) {
+        if (!ready || draft == lastSaved) return@LaunchedEffect
+        delay(AUTO_SAVE_DEBOUNCE_MS)
+        latestOnSave(draft)
+        lastSaved = draft
+    }
+    DisposableEffect(Unit) {
+        onDispose {
+            if (latestReady && latestDraft != lastSaved) latestOnSave(latestDraft)
+        }
+    }
+}
+
+private const val AUTO_SAVE_DEBOUNCE_MS = 500L

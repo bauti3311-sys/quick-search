@@ -837,6 +837,7 @@
     <string name="settings_tools_title">ツール</string>
     <string name="settings_at_a_glance_title">ひと目で確認</string>
     <string name="custom_info_title">カスタム情報</string>
+    <string name="custom_info_edit_title">詳細を編集</string>
     <string name="custom_info_prompt">プロンプト</string>
     <string name="custom_info_set_date_time">日時を設定</string>
     <string name="custom_info_desc">選んだ時刻に、プロンプトへのAIの回答をホームに表示</string>

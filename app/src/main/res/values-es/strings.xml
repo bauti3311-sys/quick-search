@@ -829,6 +829,7 @@
     <string name="settings_tools_title">Herramientas</string>
     <string name="settings_at_a_glance_title">De un vistazo</string>
     <string name="custom_info_title">Información personalizada</string>
+    <string name="custom_info_edit_title">Editar detalles</string>
     <string name="custom_info_prompt">Instrucción</string>
     <string name="custom_info_set_date_time">Establecer fecha y hora</string>
     <string name="custom_info_desc">Respuestas de IA a tus instrucciones en Inicio, a las horas que elijas</string>

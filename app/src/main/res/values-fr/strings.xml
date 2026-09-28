@@ -829,6 +829,7 @@
 <string name="settings_tools_title">Outils</string>
 <string name="settings_at_a_glance_title">En un coup d\'œil</string>
 <string name="custom_info_title">Infos personnalisées</string>
+<string name="custom_info_edit_title">Modifier les détails</string>
 <string name="custom_info_prompt">Consigne</string>
 <string name="custom_info_set_date_time">Définir la date et l’heure</string>
 <string name="custom_info_desc">Des réponses IA à vos consignes sur l’accueil, aux heures de votre choix</string>

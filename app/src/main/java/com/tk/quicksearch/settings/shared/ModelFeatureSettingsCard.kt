@@ -84,6 +84,7 @@ fun ModelFeatureSettingsCard(
     showGroundingCheckbox: Boolean = true,
     groundingCheckboxEnabled: Boolean = true,
     tavilyKeyState: TavilyKeyState = rememberTavilyKeyState(),
+    isLoading: Boolean = false,
 ) {
     var showModelDialog by remember { mutableStateOf(false) }
 
@@ -94,7 +95,8 @@ fun ModelFeatureSettingsCard(
 
     val selectedModel = modelOptions.firstOrNull { it.id == selectedModelId }
     val isLoadingModels =
-        configuredProviderIds.isNotEmpty() &&
+        isLoading ||
+            configuredProviderIds.isNotEmpty() &&
             configuredProviderIds.any { it !in availableModelsByProvider }
     val selectedModelLabel =
         when {

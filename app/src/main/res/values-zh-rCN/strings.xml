@@ -819,6 +819,7 @@
     <string name="settings_tools_title">实用工具</string>
     <string name="settings_at_a_glance_title">一览</string>
     <string name="custom_info_title">自定义信息</string>
+    <string name="custom_info_edit_title">编辑详情</string>
     <string name="custom_info_prompt">提示词</string>
     <string name="custom_info_set_date_time">设置日期和时间</string>
     <string name="custom_info_desc">在你选择的时间，于主屏幕显示 AI 对提示词的回答</string>

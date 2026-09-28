@@ -833,6 +833,7 @@
     <string name="settings_tools_title">Alat</string>
     <string name="settings_at_a_glance_title">Sekilas</string>
     <string name="custom_info_title">Info Kustom</string>
+    <string name="custom_info_edit_title">Edit Detail</string>
     <string name="custom_info_prompt">Prompt</string>
     <string name="custom_info_set_date_time">Atur tanggal dan waktu</string>
     <string name="custom_info_desc">Jawaban AI untuk prompt Anda di Beranda, pada waktu yang Anda pilih</string>

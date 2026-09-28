@@ -829,6 +829,7 @@
     <string name="settings_tools_title">Tools</string>
     <string name="settings_at_a_glance_title">Auf einen Blick</string>
     <string name="custom_info_title">Eigene Infos</string>
+    <string name="custom_info_edit_title">Details bearbeiten</string>
     <string name="custom_info_prompt">Prompt</string>
     <string name="custom_info_set_date_time">Datum und Uhrzeit festlegen</string>
     <string name="custom_info_desc">KI-Antworten auf deine Prompts auf dem Startbildschirm, zu den von dir gewählten Zeiten</string>

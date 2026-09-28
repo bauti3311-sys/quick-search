@@ -11,6 +11,7 @@ import com.tk.quicksearch.search.models.FileType
 import com.tk.quicksearch.tools.aiSearch.AiSearchHandler
 import com.tk.quicksearch.tools.aiSearch.AiSearchLlmProviderId
 import com.tk.quicksearch.tools.aiSearch.AiSearchLlmProviderRegistry
+import com.tk.quicksearch.tools.aiSearch.LlmModelCatalogCache
 import com.tk.quicksearch.tools.aiSearch.LlmTextModel
 import com.tk.quicksearch.tools.aiSearch.resolveModelSelection
 import com.tk.quicksearch.settings.settingsDetailScreen.AiBackedToolConfigId
@@ -181,6 +182,7 @@ internal fun SearchPreferencesDelegate.refreshAvailableLlmModels() {
                 }
             results.forEach { (providerId, result) ->
                 result.getOrNull()?.let { models ->
+                    LlmModelCatalogCache.put(providerId, models)
                     val selectedModelId = userPreferences.getLlmModel(providerId)
                     if (resolveModelSelection(selectedModelId, models) != selectedModelId) {
                         userPreferences.setLlmModel(providerId, null)
