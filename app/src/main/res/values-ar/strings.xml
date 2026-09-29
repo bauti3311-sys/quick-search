@@ -271,6 +271,7 @@
     <string name="clear_query_toggle_title">مسح عبارة البحث</string>
     <string name="more_results_title">المزيد من النتائج</string>
     <string name="open_keyboard_toggle_desc">فتح لوحة المفاتيح تلقائياً عند تشغيل التطبيق</string>
+    <string name="open_keyboard_toggle_title">فتح لوحة المفاتيح عند التشغيل</string>
     <string name="recent_queries_toggle_desc">عدد العناصر المعروضة قبل التوسيع</string>
     <string name="fuzzy_search_toggle_title">البحث التقريبي</string>
     <string name="fuzzy_search_toggle_desc">اعثر على النتائج حتى عندما يحتوي بحثك على خطأ إملائي.</string>
@@ -606,8 +607,6 @@
     <string name="settings_calendar_include_past_events_desc">تضمين الأحداث الماضية في نتائج البحث.</string>
     <string name="settings_calendar_include_past_events_title">الأحداث الماضية</string>
     <string name="settings_calendar_permission_title">التقويم</string>
-    <string name="settings_calendar_show_today_events_desc">عرض أحداث اليوم على الشاشة الرئيسية.</string>
-    <string name="settings_calendar_show_today_events_title">عرض أحداث اليوم</string>
     <string name="settings_calendar_default_title">فتح الأحداث في...</string>
     <string name="settings_calendar_view_all_events_desc">عرض جميع الأحداث</string>
 
@@ -784,7 +783,7 @@
     <string name="settings_app_language_picker_title">اختيار لغة التطبيق</string>
     <string name="settings_app_language_system_default">الإعداد الافتراضي للنظام</string>
     <string name="settings_launcher_icon_reset_default">إعادة تعيين للأيقونة الافتراضية</string>
-    <string name="settings_launcher_icon_title">أيقونة مشغل التطبيقات</string>
+    <string name="settings_launcher_icon_title">تغيير أيقونة التطبيق</string>
     <string name="settings_layout_option_bottom_desc">عرض العناصر الهامة بالأسفل لسهولة الوصول إليها</string>
     <string name="settings_layout_option_bottom_title">الوضع بيد واحدة</string>
     <string name="settings_unified_pinned_items_title">العناصر المثبتة الموحدة</string>

@@ -3,6 +3,7 @@ package com.tk.quicksearch.search.appSettings
 import android.content.Context
 import android.os.Build
 import com.tk.quicksearch.R
+import com.tk.quicksearch.pinnedNotifications.PinnedNotifications
 import com.tk.quicksearch.search.core.SearchSectionRegistry
 import com.tk.quicksearch.search.data.preferences.RATE_QUICK_SEARCH_ENABLED
 import com.tk.quicksearch.search.utils.SearchQueryContext
@@ -54,6 +55,12 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_app_icon_size_title,
                 toggleKey = AppSettingsToggleKey.APP_ICON_SIZE,
                 keywords = listOf("icons", "size", "bigger", "smaller"),
+            )
+            addNavigation(
+                id = "app_settings_launcher_icon",
+                titleRes = R.string.settings_launcher_icon_title,
+                destination = AppSettingsDestination.APPEARANCE,
+                keywords = listOf("app icon", "launcher icon", "change icon", "home screen icon"),
             )
             addNavigation(
                 id = "app_settings_icon_packs",
@@ -246,12 +253,7 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_file_types_title,
                 descriptionRes = R.string.settings_manage_files_desc,
                 destination = AppSettingsDestination.FILES,
-                keywords =
-                    listOf(
-                        "filters",
-                        "whitelist",
-                        "blacklist",
-                    ),
+                keywords = listOf("filters", "whitelist", "blacklist"),
             )
             addToggle(
                 id = "app_toggle_file_previews",
@@ -290,6 +292,13 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_excluded_items_title,
                 descriptionRes = R.string.settings_excluded_items_desc,
                 destination = AppSettingsDestination.EXCLUDED_ITEMS,
+            )
+            addNavigation(
+                id = "app_settings_pinned_notification_items",
+                titleRes = R.string.notification_pinned_items_title,
+                descriptionRes = R.string.notification_pinned_items_description,
+                destination = AppSettingsDestination.PINNED_NOTIFICATION_ITEMS,
+                keywords = listOf("pinned", "notification", "notification panel", "unpin", "reorder"),
             )
             addNavigation(
                 id = "app_settings_nicknames",
@@ -331,13 +340,6 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_calendar_default_title,
                 destination = AppSettingsDestination.OPEN_EVENTS_IN,
                 keywords = listOf("calendar app", "open calendar", "event app"),
-            )
-            addToggle(
-                id = "app_toggle_calendar_today_events",
-                titleRes = R.string.settings_calendar_show_today_events_title,
-                descriptionRes = R.string.settings_calendar_show_today_events_desc,
-                toggleKey = AppSettingsToggleKey.SHOW_TODAY_EVENTS,
-                keywords = listOf("today"),
             )
             addNavigation(
                 id = "app_settings_send_feedback",
@@ -654,7 +656,7 @@ class AppSettingsRepository(
             )
             addToggle(
                 id = "app_toggle_open_keyboard",
-                titleRes = R.string.action_open_keyboard,
+                titleRes = R.string.open_keyboard_toggle_title,
                 descriptionRes = R.string.open_keyboard_toggle_desc,
                 toggleKey = AppSettingsToggleKey.OPEN_KEYBOARD,
             )
@@ -745,6 +747,8 @@ class AppSettingsRepository(
             ),
         )
     }
+
+    fun hasPinnedNotificationItems(): Boolean = PinnedNotifications.pinnedItems(context).isNotEmpty()
 
     private fun isTaskerInstalled(): Boolean =
         runCatching {

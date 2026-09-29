@@ -270,6 +270,7 @@
     <string name="clear_query_toggle_title">क्वेरी साफ करें</string>
     <string name="more_results_title">और परिणाम</string>
     <string name="open_keyboard_toggle_desc">ऐप खुलने पर कीबोर्ड अपने आप खोलें</string>
+    <string name="open_keyboard_toggle_title">लॉन्च पर कीबोर्ड खोलें</string>
     <string name="recent_queries_toggle_desc">विस्तार से पहले दिखाए गए आइटम की संख्या</string>
     <string name="fuzzy_search_toggle_title">अनुमानित खोज</string>
     <string name="fuzzy_search_toggle_desc">खोज में टाइपिंग की गलती होने पर भी परिणाम ढूंढें।</string>
@@ -605,8 +606,6 @@
     <string name="settings_calendar_include_past_events_desc">खोज परिणामों में पिछले इवेंट्स शामिल करें।</string>
     <string name="settings_calendar_include_past_events_title">पिछले इवेंट्स</string>
     <string name="settings_calendar_permission_title">कैलेंडर</string>
-    <string name="settings_calendar_show_today_events_desc">होम स्क्रीन पर आज के इवेंट्स दिखाएं।</string>
-    <string name="settings_calendar_show_today_events_title">आज के इवेंट्स दिखाएं</string>
     <string name="settings_calendar_default_title">इवेंट्स इसमें खोलें...</string>
     <string name="settings_calendar_view_all_events_desc">सभी इवेंट्स देखें</string>
 
@@ -783,7 +782,7 @@
     <string name="settings_app_language_picker_title">ऐप की भाषा चुनें</string>
     <string name="settings_app_language_system_default">सिस्टम डिफ़ॉल्ट</string>
     <string name="settings_launcher_icon_reset_default">डिफ़ॉल्ट पर रीसेट करें</string>
-    <string name="settings_launcher_icon_title">लॉन्चर ऐप आइकन</string>
+    <string name="settings_launcher_icon_title">ऐप आइकन बदलें</string>
     <string name="settings_layout_option_bottom_desc">आसान पहुंच के लिए सबसे प्रासंगिक आइटम नीचे दिखते हैं</string>
     <string name="settings_layout_option_bottom_title">एक-हाथ मोड</string>
     <string name="settings_unified_pinned_items_title">एकीकृत पिन किए गए आइटम</string>

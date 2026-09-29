@@ -263,6 +263,7 @@
     <string name="clear_query_toggle_title">Clear Query</string>
     <string name="more_results_title">More Results</string>
     <string name="open_keyboard_toggle_desc">Automatically open keyboard when the app launches</string>
+    <string name="open_keyboard_toggle_title">Open Keyboard on Launch</string>
     <string name="recent_queries_toggle_desc">No. of items shown before expansion</string>
     <string name="fuzzy_search_toggle_title">Fuzzy search</string>
     <string name="fuzzy_search_toggle_desc">Find results even when your search contains a typo.</string>
@@ -603,8 +604,6 @@
     <string name="settings_calendar_include_past_events_desc">Include past events in search results.</string>
     <string name="settings_calendar_include_past_events_title">Past Events</string>
     <string name="settings_calendar_permission_title">Calendar</string>
-    <string name="settings_calendar_show_today_events_desc">Show today\'s events in home screen.</string>
-    <string name="settings_calendar_show_today_events_title">Show Today\'s Events</string>
     <string name="settings_calendar_default_title">Open Events in...</string>
     <string name="settings_calendar_view_all_events_desc">View all events</string>
 
@@ -787,7 +786,7 @@
     <string name="settings_app_language_picker_title">Choose App Language</string>
     <string name="settings_app_language_system_default">System default</string>
     <string name="settings_launcher_icon_reset_default">Reset to default</string>
-    <string name="settings_launcher_icon_title">Launcher App Icon</string>
+    <string name="settings_launcher_icon_title">Change App Icon</string>
     <string name="settings_layout_option_bottom_desc">Most relevant items appear at bottom for easy access</string>
     <string name="settings_layout_option_bottom_title">One-Handed Mode</string>
     <string name="settings_unified_pinned_items_title">Unified Pinned Items</string>

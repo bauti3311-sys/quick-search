@@ -269,6 +269,7 @@
     <string name="clear_query_toggle_title">Cancella query</string>
     <string name="more_results_title">Altri risultati</string>
     <string name="open_keyboard_toggle_desc">Apri automaticamente la tastiera all\u2019avvio dell\u2019app</string>
+    <string name="open_keyboard_toggle_title">Apri tastiera all’avvio</string>
     <string name="recent_queries_toggle_desc">N. di elementi mostrati prima dell\u2019espansione</string>
     <string name="fuzzy_search_toggle_title">Ricerca approssimativa</string>
     <string name="fuzzy_search_toggle_desc">Trova risultati anche quando la ricerca contiene un errore di battitura.</string>
@@ -604,8 +605,6 @@
     <string name="settings_calendar_include_past_events_desc">Includi gli eventi passati nei risultati di ricerca.</string>
     <string name="settings_calendar_include_past_events_title">Eventi passati</string>
     <string name="settings_calendar_permission_title">Calendario</string>
-    <string name="settings_calendar_show_today_events_desc">Mostra gli eventi di oggi nella schermata iniziale.</string>
-    <string name="settings_calendar_show_today_events_title">Mostra eventi di oggi</string>
     <string name="settings_calendar_default_title">Apri eventi in...</string>
     <string name="settings_calendar_view_all_events_desc">Visualizza tutti gli eventi</string>
 
@@ -782,7 +781,7 @@
     <string name="settings_app_language_picker_title">Scegli la lingua dell’app</string>
     <string name="settings_app_language_system_default">Predefinita di sistema</string>
     <string name="settings_launcher_icon_reset_default">Ripristina predefinita</string>
-    <string name="settings_launcher_icon_title">Icona dell\u2019applicazione launcher</string>
+    <string name="settings_launcher_icon_title">Cambia icona dell’app</string>
     <string name="settings_layout_option_bottom_desc">Gli elementi più rilevanti appaiono in basso per un facile accesso</string>
     <string name="settings_layout_option_bottom_title">Modalità a una mano</string>
     <string name="settings_unified_pinned_items_title">Elementi fissati unificati</string>

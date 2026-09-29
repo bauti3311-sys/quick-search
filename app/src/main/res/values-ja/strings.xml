@@ -271,6 +271,7 @@
     <string name="clear_query_toggle_title">クエリを消去</string>
     <string name="more_results_title">その他の検索結果</string>
     <string name="open_keyboard_toggle_desc">アプリ起動時にキーボードを自動で開く</string>
+    <string name="open_keyboard_toggle_title">起動時にキーボードを開く</string>
     <string name="recent_queries_toggle_desc">展開前に表示する項目数</string>
     <string name="fuzzy_search_toggle_title">あいまい検索</string>
     <string name="fuzzy_search_toggle_desc">スペルミスがあっても検索結果を見つけます。</string>
@@ -612,8 +613,6 @@
     <string name="settings_calendar_include_past_events_desc">検索結果に過去の予定を含めます。</string>
     <string name="settings_calendar_include_past_events_title">過去の予定</string>
     <string name="settings_calendar_permission_title">カレンダー</string>
-    <string name="settings_calendar_show_today_events_desc">ホーム画面に今日の予定を表示します。</string>
-    <string name="settings_calendar_show_today_events_title">今日の予定を表示</string>
     <string name="settings_calendar_default_title">予定を開くアプリ...</string>
     <string name="settings_calendar_view_all_events_desc">すべての予定を表示</string>
 
@@ -791,7 +790,7 @@
     <string name="settings_app_language_picker_title">アプリの言語を選択</string>
     <string name="settings_app_language_system_default">システムのデフォルト</string>
     <string name="settings_launcher_icon_reset_default">デフォルトに戻す</string>
-    <string name="settings_launcher_icon_title">ランチャーアプリアイコン</string>
+    <string name="settings_launcher_icon_title">アプリアイコンを変更</string>
     <string name="settings_layout_option_bottom_desc">アクセスしやすいよう関連性の高い項目を画面下部に表示</string>
     <string name="settings_layout_option_bottom_title">片手モード</string>
     <string name="settings_unified_pinned_items_title">固定アイテムの統合</string>

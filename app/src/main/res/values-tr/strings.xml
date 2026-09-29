@@ -269,6 +269,7 @@
 <string name="clear_query_toggle_title">Sorguyu temizle</string>
 <string name="more_results_title">Daha fazla sonuç</string>
 <string name="open_keyboard_toggle_desc">Uygulama başlatıldığında klavyeyi otomatik olarak aç</string>
+<string name="open_keyboard_toggle_title">Açılışta klavyeyi aç</string>
 <string name="recent_queries_toggle_desc">Genişletmeden önce gösterilen öğe sayısı</string>
 <string name="fuzzy_search_toggle_title">Bulanık arama</string>
 <string name="fuzzy_search_toggle_desc">Aramanızda yazım hatası olsa bile sonuçları bulun.</string>
@@ -604,8 +605,6 @@
 <string name="settings_calendar_include_past_events_desc">Geçmiş etkinlikleri arama sonuçlarına dahil et.</string>
 <string name="settings_calendar_include_past_events_title">Geçmiş etkinlikler</string>
 <string name="settings_calendar_permission_title">Takvim</string>
-<string name="settings_calendar_show_today_events_desc">Bugünün etkinliklerini ana ekranda göster.</string>
-<string name="settings_calendar_show_today_events_title">Bugünün etkinliklerini göster</string>
     <string name="settings_calendar_default_title">Etkinlikleri şurada aç...</string>
 <string name="settings_calendar_view_all_events_desc">Tüm etkinlikleri görüntüle</string>
 
@@ -782,7 +781,7 @@
 <string name="settings_app_language_picker_title">Uygulama dilini seçin</string>
 <string name="settings_app_language_system_default">Sistem varsayılanı</string>
 <string name="settings_launcher_icon_reset_default">Varsayılana sıfırla</string>
-<string name="settings_launcher_icon_title">Başlatıcı uygulama simgesi</string>
+<string name="settings_launcher_icon_title">Uygulama simgesini değiştir</string>
 <string name="settings_layout_option_bottom_desc">Kolay erişim için en ilgili öğeler altta görünür</string>
 <string name="settings_layout_option_bottom_title">Tek el modu</string>
 <string name="settings_unified_pinned_items_title">Birleştirilmiş Sabitlenen Öğeler</string>

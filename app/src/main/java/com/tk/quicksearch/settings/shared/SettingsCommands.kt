@@ -103,7 +103,6 @@ internal fun SearchViewModel.applySettingsCommand(command: SettingsCommand) {
                 AppSettingsToggleKey.SEARCH_HINTS -> setSearchHintsEnabled(command.enabled)
                 AppSettingsToggleKey.SETTINGS_ICON -> setSettingsIconEnabled(command.enabled)
                 AppSettingsToggleKey.APP_LABELS -> setShowAppLabels(command.enabled)
-                AppSettingsToggleKey.SHOW_TODAY_EVENTS -> setShowTodayEvents(command.enabled)
                 AppSettingsToggleKey.SEARCH_ENGINE_COMPACT_MODE ->
                     setSearchEngineCompactMode(command.enabled)
                 AppSettingsToggleKey.SEARCH_ENGINE_ALIAS_SUFFIX ->
@@ -221,7 +220,6 @@ internal fun SearchUiState.isAppSettingToggleEnabled(toggleKey: AppSettingsToggl
         AppSettingsToggleKey.SEARCH_HINTS -> searchHintsEnabled
         AppSettingsToggleKey.SETTINGS_ICON -> settingsIconEnabled
         AppSettingsToggleKey.APP_LABELS -> showAppLabels
-        AppSettingsToggleKey.SHOW_TODAY_EVENTS -> showTodayEvents
         AppSettingsToggleKey.SEARCH_ENGINE_COMPACT_MODE -> isSearchEngineCompactMode
         AppSettingsToggleKey.SEARCH_ENGINE_ALIAS_SUFFIX -> isSearchEngineAliasSuffixEnabled
         AppSettingsToggleKey.CALCULATOR -> calculatorEnabled

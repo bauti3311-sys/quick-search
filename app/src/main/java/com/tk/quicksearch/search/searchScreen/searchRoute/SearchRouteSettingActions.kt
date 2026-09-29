@@ -137,6 +137,10 @@ internal fun rememberRouteSettingActions(
                 activeDialog.value = AppSettingRouteDialog.APP_SUGGESTION_TABS
                 return@appSettingClick
             }
+            if (destination == AppSettingsDestination.PINNED_NOTIFICATION_ITEMS) {
+                activeDialog.value = AppSettingRouteDialog.PINNED_NOTIFICATION_ITEMS
+                return@appSettingClick
+            }
             if (destination == AppSettingsDestination.AI_MODEL) {
                 activeDialog.value = AppSettingRouteDialog.AI_MODEL
                 return@appSettingClick
