@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Android
@@ -282,24 +281,15 @@ fun appPickerDrawerItemBackground(
     unselected: Color = Color.Transparent,
 ): Color = if (selected) AppColors.Accent.copy(alpha = SELECTED_ROW_ALPHA) else unselected
 
-/** Filled accent check that marks the selected option in an [AppPickerDrawer]. */
+/** Accent check that marks the selected option in an [AppPickerDrawer]. */
 @Composable
 fun AppPickerDrawerSelectedCheck() {
-    Box(
-        modifier =
-            Modifier
-                .size(SELECTED_CHECK_SIZE)
-                .clip(CircleShape)
-                .background(AppColors.Accent),
-        contentAlignment = Alignment.Center,
-    ) {
-        Icon(
-            imageVector = Icons.Rounded.Check,
-            contentDescription = stringResource(R.string.desc_selected),
-            tint = AppColors.OnAccent,
-            modifier = Modifier.size(SELECTED_CHECK_ICON_SIZE),
-        )
-    }
+    Icon(
+        imageVector = Icons.Rounded.Check,
+        contentDescription = stringResource(R.string.desc_selected),
+        tint = AppColors.Accent,
+        modifier = Modifier.size(SELECTED_CHECK_SIZE),
+    )
 }
 
 /** Leading icon for an [AppPickerDrawerRow] option that has no app icon of its own. */
@@ -367,8 +357,7 @@ val AppPickerDrawerLeadingSize = 32.dp
 val AppPickerDrawerRowSpacing = 2.dp
 
 val AppPickerDrawerRowShape = RoundedCornerShape(16.dp)
-private val SELECTED_CHECK_SIZE = 22.dp
-private val SELECTED_CHECK_ICON_SIZE = 16.dp
+private val SELECTED_CHECK_SIZE = 24.dp
 private val ICON_BADGE_ICON_SIZE = 18.dp
 private const val SELECTED_ROW_ALPHA = 0.14f
 private const val ICON_BADGE_ALPHA = 0.14f
