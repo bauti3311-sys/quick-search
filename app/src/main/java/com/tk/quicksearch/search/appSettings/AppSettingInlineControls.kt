@@ -58,6 +58,7 @@ data class AppSettingInlineControls(
     val onAppThemeModeChange: (AppThemeMode) -> Unit = {},
     val topMatchesLimit: Int = UiPreferences.DEFAULT_TOP_MATCHES_LIMIT,
     val onTopMatchesLimitChange: (Int) -> Unit = {},
+    val aiModel: AiModelInlineState = AiModelInlineState(),
 )
 
 val LocalAppSettingInlineControls = compositionLocalOf { AppSettingInlineControls() }
@@ -68,7 +69,8 @@ internal val AppSettingResult.hasInlineControl: Boolean
             toggleKey == AppSettingsToggleKey.APP_ICON_SIZE ||
             toggleKey == AppSettingsToggleKey.HOME_TEXT_COLOR ||
             id == THEME_MODE_SETTING_ID ||
-            id == TOP_MATCHES_COUNT_SETTING_ID
+            id == TOP_MATCHES_COUNT_SETTING_ID ||
+            destination == AppSettingsDestination.AI_MODEL
 
 @Composable
 internal fun AppSettingInlineControlContent(
@@ -86,6 +88,7 @@ internal fun AppSettingInlineControlContent(
             ThemeModeInlineChips(controls, onMoreClick = onOpenSettingPage)
         setting.id == TOP_MATCHES_COUNT_SETTING_ID ->
             TopMatchesCountInlineSlider(controls.topMatchesLimit, controls.onTopMatchesLimitChange)
+        setting.destination == AppSettingsDestination.AI_MODEL -> AiModelInlineContent(controls.aiModel)
     }
 }
 

@@ -363,6 +363,13 @@ internal fun AppSettingResultRow(
                 selectedRowCount = appSettingAppResultRowCount,
                 onSelectRowCount = onAppSettingAppResultRowCountChange,
             )
+        } else if (setting.destination == AppSettingsDestination.AI_MODEL) {
+            Icon(
+                imageVector = Icons.Rounded.ChevronRight,
+                contentDescription = stringResource(R.string.desc_navigate_forward),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(end = 6.dp),
+            )
         } else if (isBackupSetting || setting.hasInlineControl) {
             Unit
         } else if (setting.isToggleAction) {
@@ -387,8 +394,15 @@ internal fun AppSettingResultRow(
                 },
                 enabled = !isBlockedByLauncher,
                 modifier = Modifier.scale(TOGGLE_SCALE),
+                // Material's disabled colors are composited over the theme surface, which turns the
+                // thumb into an opaque blob on result cards; keep them translucent instead.
                 colors = SwitchDefaults.colors(
                     uncheckedTrackColor = Color.Transparent,
+                    disabledUncheckedTrackColor = Color.Transparent,
+                    disabledUncheckedBorderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.24f),
+                    disabledUncheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.24f),
+                    disabledCheckedTrackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f),
+                    disabledCheckedThumbColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
                 ),
             )
         } else {

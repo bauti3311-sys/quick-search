@@ -17,6 +17,7 @@ import com.tk.quicksearch.search.appSettings.AppSettingsToggleKey
 import com.tk.quicksearch.overlay.OverlayModeController
 import com.tk.quicksearch.search.apps.notificationDots.rememberNotificationDotsCheckedChange
 import com.tk.quicksearch.shared.util.isDefaultHomeApp
+import com.tk.quicksearch.settings.settingsDetailScreen.GestureSettingTarget
 import com.tk.quicksearch.settings.settingsDetailScreen.ToolSettingsRegistry
 import com.tk.quicksearch.settings.shared.SettingsCommand
 import com.tk.quicksearch.settings.shared.applySettingsCommand
@@ -38,6 +39,7 @@ internal data class RouteSettingActions(
     val onAppSettingToggle: (AppSettingResult, Boolean) -> Unit,
     val onAppSettingClick: (AppSettingResult) -> Unit,
     val activeDialog: MutableState<AppSettingRouteDialog?>,
+    val activeGestureDialog: MutableState<GestureSettingTarget?>,
     val onOpenAppSettingDestination: (AppSettingsDestination) -> Unit,
 )
 
@@ -56,6 +58,7 @@ internal fun rememberRouteSettingActions(
 ): RouteSettingActions {
     val context = LocalContext.current
     val activeDialog = remember { mutableStateOf<AppSettingRouteDialog?>(null) }
+    val activeGestureDialog = remember { mutableStateOf<GestureSettingTarget?>(null) }
     val onNotificationDotsCheckedChange =
         rememberNotificationDotsCheckedChange { enabled ->
             viewModel.applySettingsCommand(
@@ -134,6 +137,14 @@ internal fun rememberRouteSettingActions(
                 activeDialog.value = AppSettingRouteDialog.APP_SUGGESTION_TABS
                 return@appSettingClick
             }
+            if (destination == AppSettingsDestination.AI_MODEL) {
+                activeDialog.value = AppSettingRouteDialog.AI_MODEL
+                return@appSettingClick
+            }
+            destination.toGestureSettingTargetOrNull()?.let { target ->
+                activeGestureDialog.value = target
+                return@appSettingClick
+            }
             if (destination == AppSettingsDestination.OPEN_EVENTS_IN) {
                 onShowDefaultCalendarDialog()
                 return@appSettingClick
@@ -145,5 +156,23 @@ internal fun rememberRouteSettingActions(
         }
     }
 
-    return RouteSettingActions(onAppSettingToggle, onAppSettingClick, activeDialog, onOpenAppSettingDestination)
+    return RouteSettingActions(
+        onAppSettingToggle,
+        onAppSettingClick,
+        activeDialog,
+        activeGestureDialog,
+        onOpenAppSettingDestination,
+    )
 }
+
+private fun AppSettingsDestination.toGestureSettingTargetOrNull(): GestureSettingTarget? =
+    when (this) {
+        AppSettingsDestination.GESTURE_SWIPE_LEFT -> GestureSettingTarget.SWIPE_LEFT
+        AppSettingsDestination.GESTURE_SWIPE_RIGHT -> GestureSettingTarget.SWIPE_RIGHT
+        AppSettingsDestination.GESTURE_SWIPE_UP -> GestureSettingTarget.SWIPE_UP
+        AppSettingsDestination.GESTURE_SWIPE_DOWN -> GestureSettingTarget.SWIPE_DOWN
+        AppSettingsDestination.GESTURE_DOUBLE_TAP -> GestureSettingTarget.DOUBLE_TAP
+        AppSettingsDestination.GESTURE_OPEN_KEYBOARD -> GestureSettingTarget.OPEN_KEYBOARD
+        AppSettingsDestination.GESTURE_CLOSE_KEYBOARD -> GestureSettingTarget.CLOSE_KEYBOARD
+        else -> null
+    }

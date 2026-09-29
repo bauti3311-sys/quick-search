@@ -638,7 +638,9 @@ internal class SearchStartupLifecycleDelegate(
                         activeLlmGroundingEnabled = aiSearchHandler.isGroundingEnabled(),
                         activeLlmThinkingEnabled = aiSearchHandler.isThinkingEnabled(),
                         activeLlmAvailableModels = activeLlmAvailableModels,
-                        availableLlmModelsByProvider = emptyMap(),
+                        // Keep catalogs already loaded by settings; clearing them here leaves an
+                        // open model picker stuck on "Loading Models..." until the refresh throttle expires.
+                        availableLlmModelsByProvider = state.availableLlmModelsByProvider,
                     )
                 }
                 val pinnedAppShortcutsState = appShortcutSearchHandler.getPinnedAndExcludedOnly()

@@ -3,7 +3,6 @@ package com.tk.quicksearch.search.appSettings
 import android.content.Context
 import android.os.Build
 import com.tk.quicksearch.R
-import com.tk.quicksearch.search.core.SearchSection
 import com.tk.quicksearch.search.core.SearchSectionRegistry
 import com.tk.quicksearch.search.data.preferences.RATE_QUICK_SEARCH_ENABLED
 import com.tk.quicksearch.search.utils.SearchQueryContext
@@ -82,14 +81,31 @@ class AppSettingsRepository(
                 titleRes = R.string.common_ai_provider,
                 descriptionRes = R.string.settings_gemini_api_desc,
                 destination = AppSettingsDestination.GEMINI_API,
-                keywords = listOf("ai provider", "gemini", "openai", "groq", "claude"),
+                keywords =
+                    listOf(
+                        "ai provider",
+                        "personal context",
+                        "gemini",
+                        "openai",
+                        "groq",
+                        "claude",
+                        "meta ai",
+                        "tavily",
+                        "custom provider",
+                    ),
+            )
+            addNavigation(
+                id = AI_MODEL_SETTING_ID,
+                titleRes = R.string.settings_direct_search_model_label,
+                destination = AppSettingsDestination.AI_MODEL,
+                keywords = listOf("ai model", "llm", "thinking", "web search", "grounding"),
             )
             addNavigation(
                 id = "app_settings_api_key_setup",
                 titleRes = R.string.common_api_key_setup,
                 descriptionRes = R.string.settings_api_key_setup_nav_desc,
                 destination = AppSettingsDestination.API_KEY_SETUP,
-                keywords = listOf("api key", "token", "openai", "groq", "claude"),
+                keywords = listOf("api key", "token", "gemini", "openai", "groq", "claude", "meta ai", "tavily", "custom provider"),
             )
             addNavigation(
                 id = "app_settings_tools",
@@ -289,6 +305,14 @@ class AppSettingsRepository(
                 destination = AppSettingsDestination.GESTURES,
                 keywords = listOf("swipe", "quick note", "keyboard", "notifications"),
             )
+            GESTURE_APP_SETTINGS.forEach { (id, titleRes, destination) ->
+                addNavigation(
+                    id = id,
+                    titleRes = titleRes,
+                    descriptionRes = R.string.settings_gestures_title,
+                    destination = destination,
+                )
+            }
             addNavigation(
                 id = "app_settings_calendar_events",
                 titleRes = R.string.section_calendar,
@@ -738,45 +762,6 @@ class AppSettingsRepository(
             )
         }
     }
-
-    private fun searchSectionToggleId(section: SearchSection): String =
-        when (section) {
-            SearchSection.APPS -> "app_toggle_search_apps"
-            SearchSection.APP_SHORTCUTS -> "app_toggle_search_app_shortcuts"
-            SearchSection.CONTACTS -> "app_toggle_search_contacts"
-            SearchSection.FILES -> "app_toggle_search_files"
-            SearchSection.SETTINGS -> "app_toggle_search_device_settings"
-            SearchSection.CALENDAR -> "app_toggle_search_calendar"
-            SearchSection.REMINDERS -> "app_toggle_search_reminders"
-            SearchSection.NOTES -> "app_toggle_search_notes"
-            SearchSection.APP_SETTINGS -> "app_toggle_search_app_settings"
-        }
-
-    private fun searchSectionToggleTitleRes(section: SearchSection): Int =
-        when (section) {
-            SearchSection.APPS -> R.string.search_section_apps_toggle_title
-            SearchSection.APP_SHORTCUTS -> R.string.search_section_app_shortcuts_toggle_title
-            SearchSection.CONTACTS -> R.string.search_section_contacts_toggle_title
-            SearchSection.FILES -> R.string.search_section_files_toggle_title
-            SearchSection.SETTINGS -> R.string.search_section_device_settings_toggle_title
-            SearchSection.CALENDAR -> R.string.search_section_calendar_toggle_title
-            SearchSection.REMINDERS -> R.string.search_section_reminders_toggle_title
-            SearchSection.NOTES -> R.string.search_section_notes_toggle_title
-            SearchSection.APP_SETTINGS -> R.string.search_section_app_settings_toggle_title
-        }
-
-    private fun searchSectionToggleDescriptionRes(section: SearchSection): Int =
-        when (section) {
-            SearchSection.APPS -> R.string.search_section_apps_toggle_desc
-            SearchSection.APP_SHORTCUTS -> R.string.search_section_app_shortcuts_toggle_desc
-            SearchSection.CONTACTS -> R.string.search_section_contacts_toggle_desc
-            SearchSection.FILES -> R.string.search_section_files_toggle_desc
-            SearchSection.SETTINGS -> R.string.search_section_device_settings_toggle_desc
-            SearchSection.CALENDAR -> R.string.search_section_calendar_toggle_desc
-            SearchSection.REMINDERS -> R.string.search_section_reminders_toggle_desc
-            SearchSection.NOTES -> R.string.search_section_notes_toggle_desc
-            SearchSection.APP_SETTINGS -> R.string.search_section_app_settings_toggle_desc
-        }
 
     private val descriptionResolver = AppSettingDescriptionResolver(context)
 

@@ -108,19 +108,24 @@ class AiSearchHandler(
     ) {
         ensureInitialized()
         val normalized = apiKey?.trim().takeUnless { it.isNullOrBlank() }
+        val isNewKey = normalized != null && userPreferences.getLlmApiKey(providerId).isNullOrBlank()
         userPreferences.setLlmApiKey(providerId, normalized)
 
         when {
-            normalized != null && (providerId == activeProviderId || llmApiKey.isNullOrBlank()) -> {
+            normalized != null &&
+                (providerId == activeProviderId || llmApiKey.isNullOrBlank() ||
+                    (isNewKey && outranksActiveProvider(providerId))) -> {
                 setAiSearchProviderId(providerId)
                 llmApiKey = normalized
                 hasLoadedModelsFromApi = false
             }
             providerId == activeProviderId && normalized == null -> {
                 val nextProvider =
-                    userPreferences.getConfiguredLlmProviderIds().firstOrNull {
-                        !userPreferences.getLlmApiKey(it).isNullOrBlank()
-                    }
+                    AiSearchLlmProviderId.preferredOf(
+                        userPreferences.getConfiguredLlmProviderIds().filter {
+                            !userPreferences.getLlmApiKey(it).isNullOrBlank()
+                        },
+                    )
                 if (nextProvider != null) {
                     setAiSearchProviderId(nextProvider)
                 } else {
@@ -148,6 +153,18 @@ class AiSearchHandler(
         userPreferences.setLlmModel(activeProviderId, normalized)
         availableModels = ensureModelExists(availableModels)
     }
+
+    /** Makes [providerId] active when no provider is usable or it outranks the active one. */
+    fun activateIfPreferred(providerId: AiSearchLlmProviderId) {
+        ensureInitialized()
+        if (llmApiKey.isNullOrBlank() || outranksActiveProvider(providerId)) {
+            setAiSearchProviderId(providerId)
+        }
+    }
+
+    private fun outranksActiveProvider(providerId: AiSearchLlmProviderId): Boolean =
+        AiSearchLlmProviderId.defaultPriority(providerId) <
+            AiSearchLlmProviderId.defaultPriority(activeProviderId)
 
     fun setSelectedModelId(
         providerId: AiSearchLlmProviderId,
@@ -242,7 +259,7 @@ class AiSearchHandler(
         val result = activeProvider.fetchAvailableTextModels(apiKey, context)
         val fetched = result.getOrDefault(emptyList())
         if (result.isSuccess) {
-            val resolvedModelId = resolveModelSelection(selectedModelId, fetched)
+            val resolvedModelId = resolveModelSelectionOrDefault(activeProviderId, selectedModelId, fetched)
             if (resolvedModelId != selectedModelId) setSelectedModelId(resolvedModelId)
         }
         availableModels = ensureModelExists(fetched)

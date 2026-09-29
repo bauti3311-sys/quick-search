@@ -190,7 +190,7 @@ private fun CustomInfoEditor(
         }
         configuredIds = ids
         val keepInitialModel = initialItem != null && providerId in ids
-        if (providerId !in ids) providerId = ids.firstOrNull() ?: providerId
+        if (providerId !in ids) providerId = AiSearchLlmProviderId.preferredOf(ids) ?: providerId
         val catalogs = ids.associateWith { id ->
             LlmModelCatalogCache.get(id) ?: AiSearchLlmProviderRegistry.get(id, context).fallbackTextModels
         }

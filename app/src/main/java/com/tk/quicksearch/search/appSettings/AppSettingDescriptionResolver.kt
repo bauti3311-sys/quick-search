@@ -12,7 +12,12 @@ internal class AppSettingDescriptionResolver(private val context: Context) {
         setting: AppSettingResult,
         queryContext: SearchQueryContext,
     ): String? {
-        if (!setting.isNavigateAction || queryContext.tokens.isEmpty()) {
+        // The AI model row shows the selected model inline, so it keeps no keyword description.
+        if (
+            !setting.isNavigateAction ||
+            queryContext.tokens.isEmpty() ||
+            setting.destination == AppSettingsDestination.AI_MODEL
+        ) {
             return setting.description
         }
         if (setting.destination == AppSettingsDestination.APPEARANCE) {
