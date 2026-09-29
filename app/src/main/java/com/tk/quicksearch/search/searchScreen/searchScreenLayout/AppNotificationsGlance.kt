@@ -84,13 +84,10 @@ internal fun rememberAppNotificationsGlance(
     val context = LocalContext.current
     val refreshKey = rememberResumeRefreshKey()
     val config = rememberAppNotificationsConfig()
-    val notifications by
-        (if (MockAppNotifications.ENABLED) MockAppNotifications.notifications else GlanceNotificationsStore.appNotifications)
-            .collectAsState()
+    val notifications by GlanceNotificationsStore.appNotifications.collectAsState()
     val hasAccess = remember(refreshKey) { NotificationDotsPermission.hasNotificationListenerAccess(context) }
     var expanded by remember(refreshKey) { mutableStateOf(false) }
-    if (!enabled) return null
-    if (!MockAppNotifications.ENABLED && (!hasAccess || config?.isActive != true)) return null
+    if (!enabled || !hasAccess || config?.isActive != true) return null
     val matches =
         remember(notifications, excludedKeys) {
             notifications.filter { it.key !in excludedKeys }.sortedByDescending { it.postTime }
@@ -134,13 +131,7 @@ internal fun AppNotificationRow(
         title = notification.title ?: notification.text ?: appLabel,
         subtitle = notification.text.takeIf { notification.title != null },
         onClick = { openNotificationTarget(context, notification.packageName, notification.contentIntent) },
-        onDismiss = {
-            if (MockAppNotifications.isMock(notification)) {
-                MockAppNotifications.dismiss(notification)
-            } else {
-                GlanceNotificationsStore.dismissAppNotification(notification)
-            }
-        },
+        onDismiss = { GlanceNotificationsStore.dismissAppNotification(notification) },
         dismissAtTop = true,
         belowText = {
             Text(
