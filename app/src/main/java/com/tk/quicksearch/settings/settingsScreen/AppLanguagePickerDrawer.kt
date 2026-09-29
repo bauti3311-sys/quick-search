@@ -2,7 +2,7 @@ package com.tk.quicksearch.settings.settingsScreen
 
 import android.content.res.Resources
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Column
@@ -10,11 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Android
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,24 +20,23 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.tk.quicksearch.R
 import com.tk.quicksearch.shared.ui.components.AppPickerDrawer
-import com.tk.quicksearch.shared.ui.components.AppPickerDrawerIconBadge
-import com.tk.quicksearch.shared.ui.components.AppPickerDrawerRow
 import com.tk.quicksearch.shared.ui.components.AppPickerDrawerRowShape
-import com.tk.quicksearch.shared.ui.components.AppPickerDrawerRowSpacing
-import com.tk.quicksearch.shared.ui.components.AppPickerDrawerSelectedCheck
 import com.tk.quicksearch.shared.ui.components.appPickerDrawerItemBackground
+import com.tk.quicksearch.shared.ui.theme.AppColors
 import com.tk.quicksearch.shared.ui.theme.DesignTokens
 import com.tk.quicksearch.shared.util.AppLanguageOption
 
-/** Language picker drawer: System default on top, then a two-column grid of language tiles. */
+/** Language picker drawer: a two-column grid of language tiles, System default first. */
 @Composable
 internal fun AppLanguagePickerDialog(
     selectedLanguageTag: String?,
@@ -47,9 +44,13 @@ internal fun AppLanguagePickerDialog(
     onDismiss: () -> Unit,
     onLanguageSelected: (String?) -> Unit,
 ) {
-    val systemOption = languageOptions.firstOrNull { it.languageTag == null }
-    val languages = languageOptions.filter { it.languageTag != null }
-    val deviceLanguage = remember { deviceLanguageLabel() }
+    val tiles =
+        remember(languageOptions) {
+            val deviceLanguage = deviceLanguageLabel()
+            languageOptions.map { option ->
+                if (option.languageTag == null) option.copy(supportingLabel = deviceLanguage) else option
+            }
+        }
 
     AppPickerDrawer(
         title = stringResource(R.string.settings_app_language_picker_title),
@@ -60,19 +61,7 @@ internal fun AppLanguagePickerDialog(
             horizontalArrangement = Arrangement.spacedBy(LanguageTileSpacing),
             verticalArrangement = Arrangement.spacedBy(LanguageTileSpacing),
         ) {
-            systemOption?.let { option ->
-                item(span = { GridItemSpan(maxLineSpan) }) {
-                    AppPickerDrawerRow(
-                        title = option.label,
-                        subtitle = deviceLanguage,
-                        selected = selectedLanguageTag == null,
-                        leading = { AppPickerDrawerIconBadge(icon = Icons.Rounded.Android) },
-                        onClick = { onLanguageSelected(null) },
-                        modifier = Modifier.padding(bottom = AppPickerDrawerRowSpacing),
-                    )
-                }
-            }
-            items(languages, key = { it.languageTag.orEmpty() }) { option ->
+            items(tiles, key = { it.languageTag.orEmpty() }) { option ->
                 LanguageTile(
                     option = option,
                     selected = option.languageTag == selectedLanguageTag,
@@ -100,7 +89,11 @@ private fun LanguageTile(
                         selected = selected,
                         unselected = MaterialTheme.colorScheme.onSurface.copy(alpha = UNSELECTED_TILE_ALPHA),
                     ),
-                ).clickable(onClick = onClick)
+                ).border(
+                    width = DesignTokens.BorderWidth,
+                    color = if (selected) AppColors.Accent else Color.Transparent,
+                    shape = AppPickerDrawerRowShape,
+                ).selectable(selected = selected, role = Role.RadioButton, onClick = onClick)
                 .padding(DesignTokens.SpacingMedium),
         horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
         verticalAlignment = Alignment.CenterVertically,
@@ -125,9 +118,6 @@ private fun LanguageTile(
                     overflow = TextOverflow.Ellipsis,
                 )
             }
-        }
-        if (selected) {
-            AppPickerDrawerSelectedCheck()
         }
     }
 }
