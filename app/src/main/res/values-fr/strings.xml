@@ -1318,7 +1318,7 @@
     <string name="home_anniversary_title_ordinal">Anniversaire de mariage de %1$s (%2$s)</string>
     <string name="home_birthday_wish">Appuyez pour lui souhaiter</string>
     <string name="home_missed_call">Appel manqué</string>
-    <string name="home_otp_from">Code de %1$s</string>
+    <string name="home_otp_from">De %1$s</string>
     <string name="home_copied">Copié</string>
     <string name="home_reminder_marked_done">Rappel marqué comme terminé</string>
     <string name="home_reminder_snoozed">Rappel reporté de 30 minutes</string>
@@ -1332,7 +1332,6 @@
     <string name="home_hotspot_on">Le point d\'accès est activé</string>
     <string name="home_flashlight_on">La lampe de poche est allumée</string>
     <string name="home_wifi_sign_in">Connectez-vous au réseau Wi-Fi</string>
-    <string name="home_sign_in">Se connecter</string>
     <string name="home_turn_off">Désactiver</string>
     <string name="settings_tavily_title">Tavily pour la recherche web</string>
     <string name="settings_tavily_desc">Ajoutez une clé API Tavily pour activer la recherche web sur les modèles qui ne la prennent pas en charge.</string>

@@ -1324,7 +1324,7 @@
     <string name="home_anniversary_title_ordinal">%1$s\'s %2$s anniversary</string>
     <string name="home_birthday_wish">Tap to wish them</string>
     <string name="home_missed_call">Missed Call</string>
-    <string name="home_otp_from">OTP from %1$s</string>
+    <string name="home_otp_from">From %1$s</string>
     <string name="home_copied">Copied</string>
     <string name="home_reminder_marked_done">Reminder marked as done</string>
     <string name="home_reminder_snoozed">Reminder snoozed for 30 minutes</string>
@@ -1338,7 +1338,6 @@
     <string name="home_hotspot_on">Hotspot is ON</string>
     <string name="home_flashlight_on">Flashlight is ON</string>
     <string name="home_wifi_sign_in">Sign in to Wi-Fi network</string>
-    <string name="home_sign_in">Sign in</string>
     <string name="home_turn_off">Turn off</string>
     <!-- Reminders -->
     <string name="section_reminders">Reminders</string>

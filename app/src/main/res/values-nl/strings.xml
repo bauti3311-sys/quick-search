@@ -1373,7 +1373,7 @@ Gebruik {time} om de huidige datum en tijd in de prompt op te nemen.</string>
     <string name="home_anniversary_title_ordinal">Jubileum van %1$s (%2$s)</string>
     <string name="home_birthday_wish">Tik om te feliciteren</string>
     <string name="home_missed_call">Gemiste oproep</string>
-    <string name="home_otp_from">Code van %1$s</string>
+    <string name="home_otp_from">Van %1$s</string>
     <string name="home_copied">Gekopieerd</string>
     <string name="home_reminder_marked_done">Herinnering gemarkeerd als klaar</string>
     <string name="home_reminder_snoozed">Herinnering 30 minuten gesnoozed</string>
@@ -1387,7 +1387,6 @@ Gebruik {time} om de huidige datum en tijd in de prompt op te nemen.</string>
     <string name="home_hotspot_on">Hotspot staat aan</string>
     <string name="home_flashlight_on">Zaklamp staat aan</string>
     <string name="home_wifi_sign_in">Aanmelden bij wifinetwerk</string>
-    <string name="home_sign_in">Aanmelden</string>
     <string name="home_turn_off">Uitzetten</string>
     <string name="settings_tavily_title">Tavily voor webzoeken</string>
     <string name="settings_tavily_desc">Voeg een Tavily API-sleutel toe om webzoeken toe te voegen aan modellen die dit niet ondersteunen.</string>

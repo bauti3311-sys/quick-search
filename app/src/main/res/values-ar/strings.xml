@@ -1320,7 +1320,7 @@
     <string name="home_anniversary_title_ordinal">ذكرى زواج %1$s (%2$s)</string>
     <string name="home_birthday_wish">انقر لتهنئته</string>
     <string name="home_missed_call">مكالمة فائتة</string>
-    <string name="home_otp_from">رمز من %1$s</string>
+    <string name="home_otp_from">من %1$s</string>
     <string name="home_copied">تم النسخ</string>
     <string name="home_reminder_marked_done">تم وضع علامة منجز على التذكير</string>
     <string name="home_reminder_snoozed">تم تأجيل التذكير 30 دقيقة</string>
@@ -1334,7 +1334,6 @@
     <string name="home_hotspot_on">نقطة الاتصال مفعّلة</string>
     <string name="home_flashlight_on">المصباح مُضاء</string>
     <string name="home_wifi_sign_in">سجّل الدخول إلى شبكة Wi-Fi</string>
-    <string name="home_sign_in">تسجيل الدخول</string>
     <string name="home_turn_off">إيقاف</string>
     <string name="settings_tavily_title">Tavily للبحث على الويب</string>
     <string name="settings_tavily_desc">أضف مفتاح Tavily API لإضافة دعم البحث على الويب للنماذج التي لا تدعمه.</string>

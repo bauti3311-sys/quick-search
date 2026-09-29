@@ -1318,7 +1318,7 @@
     <string name="home_anniversary_title_ordinal">%1$s की सालगिरह (%2$s)</string>
     <string name="home_birthday_wish">शुभकामनाएँ देने के लिए टैप करें</string>
     <string name="home_missed_call">मिस्ड कॉल</string>
-    <string name="home_otp_from">%1$s से OTP</string>
+    <string name="home_otp_from">%1$s से</string>
     <string name="home_copied">कॉपी किया गया</string>
     <string name="home_reminder_marked_done">रिमाइंडर पूरा हुआ के रूप में चिह्नित</string>
     <string name="home_reminder_snoozed">रिमाइंडर 30 मिनट के लिए स्नूज़ किया गया</string>
@@ -1332,7 +1332,6 @@
     <string name="home_hotspot_on">हॉटस्पॉट चालू है</string>
     <string name="home_flashlight_on">फ़्लैशलाइट चालू है</string>
     <string name="home_wifi_sign_in">Wi-Fi नेटवर्क में साइन इन करें</string>
-    <string name="home_sign_in">साइन इन करें</string>
     <string name="home_turn_off">बंद करें</string>
     <string name="settings_tavily_title">वेब सर्च के लिए Tavily</string>
     <string name="settings_tavily_desc">जो मॉडल वेब सर्च सपोर्ट नहीं करते, उनमें वेब सर्च जोड़ने के लिए Tavily API कुंजी जोड़ें।</string>

@@ -1316,7 +1316,7 @@
     <string name="home_anniversary_title_ordinal">Hari jadi %1$s (%2$s)</string>
     <string name="home_birthday_wish">Ketuk untuk mengucapkan selamat</string>
     <string name="home_missed_call">Panggilan tak terjawab</string>
-    <string name="home_otp_from">OTP dari %1$s</string>
+    <string name="home_otp_from">Dari %1$s</string>
     <string name="home_copied">Disalin</string>
     <string name="home_reminder_marked_done">Pengingat ditandai selesai</string>
     <string name="home_reminder_snoozed">Pengingat ditunda 30 menit</string>
@@ -1330,7 +1330,6 @@
     <string name="home_hotspot_on">Hotspot aktif</string>
     <string name="home_flashlight_on">Senter menyala</string>
     <string name="home_wifi_sign_in">Masuk ke jaringan Wi-Fi</string>
-    <string name="home_sign_in">Masuk</string>
     <string name="home_turn_off">Nonaktifkan</string>
     <string name="settings_tavily_title">Tavily untuk Penelusuran Web</string>
     <string name="settings_tavily_desc">Tambahkan kunci API Tavily untuk menambahkan penelusuran web pada model yang tidak mendukungnya.</string>

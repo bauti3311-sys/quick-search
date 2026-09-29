@@ -1317,7 +1317,7 @@
     <string name="home_anniversary_title_ordinal">%1$s yıl dönümü (%2$s)</string>
     <string name="home_birthday_wish">Kutlamak için dokunun</string>
     <string name="home_missed_call">Cevapsız arama</string>
-    <string name="home_otp_from">%1$s kodu</string>
+    <string name="home_otp_from">Gönderen: %1$s</string>
     <string name="home_copied">Kopyalandı</string>
     <string name="home_reminder_marked_done">Anımsatıcı tamamlandı olarak işaretlendi</string>
     <string name="home_reminder_snoozed">Anımsatıcı 30 dakika ertelendi</string>
@@ -1331,7 +1331,6 @@
     <string name="home_hotspot_on">Hotspot açık</string>
     <string name="home_flashlight_on">El feneri açık</string>
     <string name="home_wifi_sign_in">Wi-Fi ağında oturum açın</string>
-    <string name="home_sign_in">Oturum aç</string>
     <string name="home_turn_off">Kapat</string>
     <string name="settings_tavily_title">Web Araması için Tavily</string>
     <string name="settings_tavily_desc">Web aramasını desteklemeyen modellere web araması eklemek için Tavily API anahtarı ekleyin.</string>

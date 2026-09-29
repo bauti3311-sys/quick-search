@@ -1338,7 +1338,7 @@
     <string name="home_anniversary_title_ordinal">Годовщина: %1$s (%2$s)</string>
     <string name="home_birthday_wish">Нажмите, чтобы поздравить</string>
     <string name="home_missed_call">Пропущенный вызов</string>
-    <string name="home_otp_from">Код от %1$s</string>
+    <string name="home_otp_from">От %1$s</string>
     <string name="home_copied">Скопировано</string>
     <string name="home_reminder_marked_done">Напоминание отмечено как выполненное</string>
     <string name="home_reminder_snoozed">Напоминание отложено на 30 минут</string>
@@ -1352,7 +1352,6 @@
     <string name="home_hotspot_on">Точка доступа включена</string>
     <string name="home_flashlight_on">Фонарик включен</string>
     <string name="home_wifi_sign_in">Войдите в сеть Wi-Fi</string>
-    <string name="home_sign_in">Войти</string>
     <string name="home_turn_off">Выключить</string>
     <string name="settings_tavily_title">Tavily для веб-поиска</string>
     <string name="settings_tavily_desc">Добавьте API-ключ Tavily, чтобы добавить веб-поиск моделям, которые его не поддерживают.</string>
