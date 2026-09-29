@@ -14,7 +14,7 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Smartphone
+import androidx.compose.material.icons.rounded.Android
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -66,7 +66,7 @@ internal fun AppLanguagePickerDialog(
                         title = option.label,
                         subtitle = deviceLanguage,
                         selected = selectedLanguageTag == null,
-                        leading = { AppPickerDrawerIconBadge(icon = Icons.Rounded.Smartphone) },
+                        leading = { AppPickerDrawerIconBadge(icon = Icons.Rounded.Android) },
                         onClick = { onLanguageSelected(null) },
                         modifier = Modifier.padding(bottom = AppPickerDrawerRowSpacing),
                     )
