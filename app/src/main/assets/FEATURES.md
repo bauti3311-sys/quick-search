@@ -135,6 +135,7 @@ Available when Quick Search is set as your launcher.
 - **Custom Buttons Widget** - A row of buttons for apps, app shortcuts, contacts, files, device settings, and notes, with customizable layouts and actions.
 - **Media Controls Widget** - Shows the current track and album art, with play/pause, previous/next, and rewind/forward controls. Requires notification access.
 - **Note Widget** - Show any note on your home screen. 
+- **Countdown Widget** - Count down to (or up from) any date, with an optional title. Show the time in days, weeks, months, years, a detailed format (e.g. `6 months 5 days`), or as a progress bar. Adjust text size, colors, and transparency. Tap the widget to change its settings.
 
 ---
 
