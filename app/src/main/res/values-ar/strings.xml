@@ -1138,6 +1138,15 @@
     <string name="widget_note_widget_title">أداة الملاحظة</string>
     <string name="widget_note_picker_title">اختر ملاحظة</string>
     <string name="widget_note_deleted">لم يتم العثور على الملاحظة. انقر لاختيار ملاحظة أخرى.</string>
+    <string name="widget_countdown_widget_title">أداة العد التنازلي</string>
+    <string name="widget_countdown_date">التاريخ</string>
+    <string name="widget_countdown_format_days">أيام</string>
+    <string name="widget_countdown_format_weeks">أسابيع</string>
+    <string name="widget_countdown_format_months">أشهر</string>
+    <string name="widget_countdown_format_years">سنوات</string>
+    <string name="widget_countdown_format_detailed">مفصّل</string>
+    <string name="widget_countdown_format_progress">التقدّم %</string>
+    <string name="widget_countdown_progress_hint">يعرض مقدار ما مضى من الوقت منذ تعيين التاريخ.</string>
     <string name="widget_icon_center">توسيط</string>
     <string name="widget_icon_left">يسار</string>
     <string name="widget_icon_off">إيقاف</string>

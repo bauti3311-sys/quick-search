@@ -1136,6 +1136,15 @@
 <string name="widget_note_widget_title">Not Widget\'ı</string>
 <string name="widget_note_picker_title">Not Seç</string>
 <string name="widget_note_deleted">Not bulunamadı. Başka birini seçmek için dokun.</string>
+<string name="widget_countdown_widget_title">Geri Sayım Widget\'ı</string>
+<string name="widget_countdown_date">Tarih</string>
+<string name="widget_countdown_format_days">Gün</string>
+<string name="widget_countdown_format_weeks">Hafta</string>
+<string name="widget_countdown_format_months">Ay</string>
+<string name="widget_countdown_format_years">Yıl</string>
+<string name="widget_countdown_format_detailed">Ayrıntılı</string>
+<string name="widget_countdown_format_progress">İlerleme %</string>
+<string name="widget_countdown_progress_hint">Tarihi belirlediğinizden bu yana geçen sürenin oranını gösterir.</string>
 <string name="widget_icon_center">Ortala</string>
 <string name="widget_icon_left">Sola hizala</string>
 <string name="widget_icon_off">Kapalı</string>

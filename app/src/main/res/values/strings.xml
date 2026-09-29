@@ -1146,6 +1146,15 @@
     <string name="widget_note_widget_title">Note Widget</string>
     <string name="widget_note_picker_title">Select Note</string>
     <string name="widget_note_deleted">Note not found. Tap to choose another.</string>
+    <string name="widget_countdown_widget_title">Countdown Widget</string>
+    <string name="widget_countdown_date">Date</string>
+    <string name="widget_countdown_format_days">Days</string>
+    <string name="widget_countdown_format_weeks">Weeks</string>
+    <string name="widget_countdown_format_months">Months</string>
+    <string name="widget_countdown_format_years">Years</string>
+    <string name="widget_countdown_format_detailed">Detailed</string>
+    <string name="widget_countdown_format_progress">Progress %</string>
+    <string name="widget_countdown_progress_hint">Shows how much of the time from when you set the date has passed.</string>
     <string name="widget_icon_center">Center</string>
     <string name="widget_icon_left">Left</string>
     <string name="widget_icon_off">Off</string>

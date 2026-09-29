@@ -1125,6 +1125,15 @@
     <string name="widget_note_widget_title">笔记小部件</string>
     <string name="widget_note_picker_title">选择笔记</string>
     <string name="widget_note_deleted">未找到笔记。点按以选择其他笔记。</string>
+    <string name="widget_countdown_widget_title">倒计时小部件</string>
+    <string name="widget_countdown_date">日期</string>
+    <string name="widget_countdown_format_days">天</string>
+    <string name="widget_countdown_format_weeks">周</string>
+    <string name="widget_countdown_format_months">月</string>
+    <string name="widget_countdown_format_years">年</string>
+    <string name="widget_countdown_format_detailed">详细</string>
+    <string name="widget_countdown_format_progress">进度 %</string>
+    <string name="widget_countdown_progress_hint">显示自设定日期以来已过去的时间比例。</string>
     <string name="widget_icon_center">居中</string>
     <string name="widget_icon_left">居左</string>
     <string name="widget_icon_off">关闭</string>

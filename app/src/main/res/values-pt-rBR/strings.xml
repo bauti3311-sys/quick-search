@@ -1137,6 +1137,15 @@
     <string name="widget_note_widget_title">Widget de nota</string>
     <string name="widget_note_picker_title">Selecionar nota</string>
     <string name="widget_note_deleted">Nota não encontrada. Toque para escolher outra.</string>
+    <string name="widget_countdown_widget_title">Widget de contagem regressiva</string>
+    <string name="widget_countdown_date">Data</string>
+    <string name="widget_countdown_format_days">Dias</string>
+    <string name="widget_countdown_format_weeks">Semanas</string>
+    <string name="widget_countdown_format_months">Meses</string>
+    <string name="widget_countdown_format_years">Anos</string>
+    <string name="widget_countdown_format_detailed">Detalhado</string>
+    <string name="widget_countdown_format_progress">Progresso %</string>
+    <string name="widget_countdown_progress_hint">Mostra quanto do tempo desde que você definiu a data já passou.</string>
     <string name="widget_icon_center">Centro</string>
     <string name="widget_icon_left">Esquerda</string>
     <string name="widget_icon_off">Desativado</string>

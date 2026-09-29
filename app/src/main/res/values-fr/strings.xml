@@ -1137,6 +1137,15 @@
 <string name="widget_note_widget_title">Widget de note</string>
 <string name="widget_note_picker_title">Choisir une note</string>
 <string name="widget_note_deleted">Note introuvable. Appuyez pour en choisir une autre.</string>
+<string name="widget_countdown_widget_title">Widget de compte à rebours</string>
+<string name="widget_countdown_date">Date</string>
+<string name="widget_countdown_format_days">Jours</string>
+<string name="widget_countdown_format_weeks">Semaines</string>
+<string name="widget_countdown_format_months">Mois</string>
+<string name="widget_countdown_format_years">Années</string>
+<string name="widget_countdown_format_detailed">Détaillé</string>
+<string name="widget_countdown_format_progress">Progression %</string>
+<string name="widget_countdown_progress_hint">Indique la part du temps écoulée depuis que vous avez choisi la date.</string>
 <string name="widget_icon_center">Centré</string>
 <string name="widget_icon_left">Gauche</string>
 <string name="widget_icon_off">Désactivé</string>

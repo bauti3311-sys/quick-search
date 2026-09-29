@@ -1161,6 +1161,15 @@
 <string name="widget_note_widget_title">Виджет заметки</string>
 <string name="widget_note_picker_title">Выберите заметку</string>
 <string name="widget_note_deleted">Заметка не найдена. Нажмите, чтобы выбрать другую.</string>
+<string name="widget_countdown_widget_title">Виджет обратного отсчёта</string>
+<string name="widget_countdown_date">Дата</string>
+<string name="widget_countdown_format_days">Дни</string>
+<string name="widget_countdown_format_weeks">Недели</string>
+<string name="widget_countdown_format_months">Месяцы</string>
+<string name="widget_countdown_format_years">Годы</string>
+<string name="widget_countdown_format_detailed">Подробно</string>
+<string name="widget_countdown_format_progress">Прогресс %</string>
+<string name="widget_countdown_progress_hint">Показывает, какая часть времени прошла с момента выбора даты.</string>
 <string name="widget_icon_center">По центру</string>
 <string name="widget_icon_left">Слева</string>
 <string name="widget_icon_off">Выкл.</string>

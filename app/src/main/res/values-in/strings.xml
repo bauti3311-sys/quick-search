@@ -1141,6 +1141,15 @@
     <string name="widget_note_widget_title">Widget Catatan</string>
     <string name="widget_note_picker_title">Pilih Catatan</string>
     <string name="widget_note_deleted">Catatan tidak ditemukan. Ketuk untuk memilih yang lain.</string>
+    <string name="widget_countdown_widget_title">Widget Hitung Mundur</string>
+    <string name="widget_countdown_date">Tanggal</string>
+    <string name="widget_countdown_format_days">Hari</string>
+    <string name="widget_countdown_format_weeks">Minggu</string>
+    <string name="widget_countdown_format_months">Bulan</string>
+    <string name="widget_countdown_format_years">Tahun</string>
+    <string name="widget_countdown_format_detailed">Terperinci</string>
+    <string name="widget_countdown_format_progress">Progres %</string>
+    <string name="widget_countdown_progress_hint">Menampilkan seberapa banyak waktu yang telah berlalu sejak Anda menetapkan tanggal.</string>
     <string name="widget_icon_center">Tengah</string>
     <string name="widget_icon_left">Kiri</string>
     <string name="widget_icon_off">Mati</string>

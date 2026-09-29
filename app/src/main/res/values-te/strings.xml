@@ -1137,6 +1137,15 @@
     <string name="widget_note_widget_title">నోట్ విడ్జెట్</string>
     <string name="widget_note_picker_title">నోట్‌ను ఎంచుకోండి</string>
     <string name="widget_note_deleted">నోట్ కనుగొనబడలేదు. మరొకదాన్ని ఎంచుకోవడానికి నొక్కండి.</string>
+    <string name="widget_countdown_widget_title">కౌంట్‌డౌన్ విడ్జెట్</string>
+    <string name="widget_countdown_date">తేదీ</string>
+    <string name="widget_countdown_format_days">రోజులు</string>
+    <string name="widget_countdown_format_weeks">వారాలు</string>
+    <string name="widget_countdown_format_months">నెలలు</string>
+    <string name="widget_countdown_format_years">సంవత్సరాలు</string>
+    <string name="widget_countdown_format_detailed">వివరంగా</string>
+    <string name="widget_countdown_format_progress">పురోగతి %</string>
+    <string name="widget_countdown_progress_hint">మీరు తేదీని సెట్ చేసినప్పటి నుండి ఎంత సమయం గడిచిందో చూపిస్తుంది.</string>
     <string name="widget_icon_center">మధ్యలో</string>
     <string name="widget_icon_left">ఎడమవైపు</string>
     <string name="widget_icon_off">ఆఫ్</string>

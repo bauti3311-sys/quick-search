@@ -1137,6 +1137,15 @@
     <string name="widget_note_widget_title">Γραφικό στοιχείο σημείωσης</string>
     <string name="widget_note_picker_title">Επιλογή σημείωσης</string>
     <string name="widget_note_deleted">Η σημείωση δεν βρέθηκε. Πατήστε για να επιλέξετε άλλη.</string>
+    <string name="widget_countdown_widget_title">Γραφικό στοιχείο αντίστροφης μέτρησης</string>
+    <string name="widget_countdown_date">Ημερομηνία</string>
+    <string name="widget_countdown_format_days">Ημέρες</string>
+    <string name="widget_countdown_format_weeks">Εβδομάδες</string>
+    <string name="widget_countdown_format_months">Μήνες</string>
+    <string name="widget_countdown_format_years">Έτη</string>
+    <string name="widget_countdown_format_detailed">Λεπτομερές</string>
+    <string name="widget_countdown_format_progress">Πρόοδος %</string>
+    <string name="widget_countdown_progress_hint">Δείχνει πόσος χρόνος έχει περάσει από τότε που ορίσατε την ημερομηνία.</string>
     <string name="widget_icon_center">Κέντρο</string>
     <string name="widget_icon_left">Αριστερά</string>
     <string name="widget_icon_off">Απενεργοποιημένο</string>
