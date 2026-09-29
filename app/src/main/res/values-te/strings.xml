@@ -369,7 +369,7 @@
     <string name="settings_manage_apps_desc">మీ యాప్‌లను నిర్వహించండి</string>
     <string name="settings_manage_apps_title">యాప్‌లను నిర్వహించండి</string>
     <string name="settings_refresh_apps_disabled">యాప్ శోధన నిలిపివేయబడింది, యాప్‌ల డేటాను రీఫ్రెష్ చేయడం సాధ్యపడదు</string>
-    <string name="settings_refresh_apps_title">యాప్‌లను రీలోడ్ చేయి</string>
+    <string name="settings_refresh_apps_title">యాప్‌లను రీఫ్రెష్ చేయి</string>
     <string name="usage_permission_subtitle">మీరు మీ ఇటీవల ఉపయోగించిన యాప్‌లను సూచనలలో చూడాలనుకుంటే, వినియోగ ప్రాప్యత అనుమతిని మంజూరు చేయండి.</string>
     <string name="usage_permission_title">వినియోగ ప్రాప్యతను మంజూరు చేయండి</string>
 
@@ -538,7 +538,7 @@
     <string name="settings_file_previews_toggle">ఫైల్ ప్రివ్యూలు</string>
     <string name="settings_file_previews_description">చిత్రాలు మరియు PDFలను తెరవడానికి ముందు వాటిని ప్రివ్యూ చేయండి.</string>
     <string name="settings_refresh_files_disabled">ఫైళ్ల శోధన నిలిపివేయబడింది, ఫైళ్ల డేటాను రీఫ్రెష్ చేయడం సాధ్యపడదు</string>
-    <string name="settings_refresh_files_title">ఫైళ్లను రీలోడ్ చేయి</string>
+    <string name="settings_refresh_files_title">ఫైళ్లను రీఫ్రెష్ చేయి</string>
     <string name="settings_system_files_toggle">సిస్టమ్ ఫైళ్లు</string>
 
     <!-- ============================================================================
@@ -812,7 +812,7 @@
     <string name="settings_quick_settings_tile_desc">త్వరిత సెట్టింగ్‌ల (Quick Settings) టైల్స్‌కు Quick Searchని జోడించండి.</string>
     <string name="settings_quick_settings_tile_title">త్వరిత సెట్టింగ్‌ల టైల్</string>
     <string name="settings_refresh_contacts_disabled">పరిచయాల శోధన నిలిపివేయబడింది, పరిచయాల డేటాను రీఫ్రెష్ చేయడం సాధ్యపడదు</string>
-    <string name="settings_refresh_contacts_title">పరిచయాలను రీలోడ్ చేయి</string>
+    <string name="settings_refresh_contacts_title">పరిచయాలను రీఫ్రెష్ చేయి</string>
     <string name="settings_refresh_data_note">డేటా స్వయంచాలకంగా రీఫ్రెష్ చేయబడుతుంది. మాన్యువల్‌గా రీఫ్రెష్ చేయడానికి ఈ బటన్‌లను ఉపయోగించండి.</string>
     <string name="settings_refresh_data_title">డేటాను రీఫ్రెష్ చేయి</string>
     <string name="settings_refresh_icon_packs">ఐకాన్ ప్యాక్‌లను రీఫ్రెష్ చేయి</string>

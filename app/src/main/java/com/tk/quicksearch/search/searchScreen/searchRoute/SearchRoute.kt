@@ -50,7 +50,6 @@ import com.tk.quicksearch.search.appSettings.AppSettingResult
 import com.tk.quicksearch.search.appSettings.AppSettingResultAction
 import com.tk.quicksearch.search.appSettings.AppSettingsDestination
 import com.tk.quicksearch.search.appSettings.LocalOpenAppSettingDestination
-import com.tk.quicksearch.search.appSettings.AppSettingInlineControls
 import com.tk.quicksearch.search.appSettings.LocalAppSettingInlineControls
 import com.tk.quicksearch.search.appSettings.LocalOnSettingsImported
 import com.tk.quicksearch.search.deviceSettings.DeviceSetting
@@ -388,19 +387,7 @@ fun SearchRoute(
             LocalAppLockCredentialAuthenticator provides requestDeviceCredentialAuthentication,
             LocalOpenAppSettingDestination provides onOpenAppSettingDestination,
             LocalOnSettingsImported provides viewModel::onSettingsImported,
-            LocalAppSettingInlineControls provides
-                AppSettingInlineControls(
-                    fontScaleMultiplier = uiState.fontScaleMultiplier,
-                    onFontScaleMultiplierChange = viewModel::setFontScaleMultiplier,
-                    appIconSizeStep = uiState.appIconSizeStep,
-                    onAppIconSizeStepChange = viewModel::setAppIconSizeStep,
-                    homeTextColorOverride = uiState.homeTextColorOverride,
-                    onHomeTextColorChange = viewModel::setHomeTextColorOverride,
-                    backgroundSource = uiState.backgroundSource,
-                    customImageUri = uiState.customImageUri,
-                    appThemeMode = uiState.appThemeMode,
-                    onAppThemeModeChange = viewModel::setAppThemeMode,
-                ),
+            LocalAppSettingInlineControls provides appSettingInlineControls(uiState, viewModel),
             LocalPopupOverlayContent provides popupUndoSnackbar,
             LocalShowUndoSnackbar provides undoActions.showUndoSnackbarWithIcon,
         ) {
@@ -807,6 +794,7 @@ fun SearchRoute(
                 previewFile = null
                 com.tk.quicksearch.search.core.intentHelpers.FileIntents.shareFile(context, file)
             },
+            appSettingDialog = settingActions.activeDialog,
         )
     }
 }

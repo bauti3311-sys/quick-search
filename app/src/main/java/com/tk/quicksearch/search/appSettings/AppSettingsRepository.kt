@@ -103,7 +103,7 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_at_a_glance_title,
                 descriptionRes = R.string.settings_at_a_glance_desc,
                 destination = AppSettingsDestination.AT_A_GLANCE,
-                keywords = listOf("today", "calendar", "events", "alarm", "reminders", "home", "media", "music", "playback", "birthday", "charging", "battery", "timer", "stopwatch", "storage", "progress", "ongoing notifications", "live updates", "ride", "delivery", "download", "missed", "calls", "ongoing call", "otp", "one-time password", "verification code", "2fa", "sms code", "do not disturb", "dnd", "airplane", "flight", "hotspot", "tethering", "wifi", "wi-fi", "sign in", "captive portal", "hotel wifi", "flashlight", "torch", "weather", "temperature", "forecast", "weather alerts", "workout", "exercise", "fitness", "google health", "fitbit", "samsung health", "tomorrow"),
+                keywords = listOf("today", "calendar", "events", "alarm", "reminders", "home", "media", "music", "playback", "birthday", "charging", "battery", "low battery", "timer", "stopwatch", "storage", "low storage", "disk space", "progress", "ongoing notifications", "live updates", "ride", "delivery", "download", "missed", "calls", "ongoing call", "otp", "one-time password", "verification code", "2fa", "sms code", "do not disturb", "dnd", "airplane", "flight", "hotspot", "tethering", "wifi", "wi-fi", "sign in", "captive portal", "hotel wifi", "flashlight", "torch", "weather", "temperature", "forecast", "weather alerts", "workout", "exercise", "fitness", "google health", "fitbit", "samsung health", "tomorrow"),
             )
             addNavigation(
                 id = "app_settings_custom_info",
@@ -212,19 +212,11 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_calls_texts_title,
                 descriptionRes = R.string.settings_manage_calls_texts_contacts_desc,
                 destination = AppSettingsDestination.CALLS_TEXTS,
-                keywords = listOf("contacts", "calling", "messaging", "whatsapp", "telegram", "signal"),
-            )
-            addNavigation(
-                id = "app_settings_default_calling_app",
-                titleRes = R.string.settings_contact_first_button_title,
-                destination = AppSettingsDestination.CALLS_TEXTS,
-                keywords = listOf("contact button", "calling app", "default calling app", "call"),
-            )
-            addNavigation(
-                id = "app_settings_default_messaging_app",
-                titleRes = R.string.settings_contact_second_button_title,
-                destination = AppSettingsDestination.CALLS_TEXTS,
-                keywords = listOf("contact button", "messaging app", "default messaging app", "texting", "sms"),
+                keywords =
+                    listOf(
+                        "contacts", "calling", "messaging", "whatsapp", "telegram", "signal", "contact button",
+                        "calling app", "default calling app", "messaging app", "default messaging app", "texting", "sms",
+                    ),
             )
             addToggle(
                 id = "app_toggle_number_search",
@@ -512,6 +504,13 @@ class AppSettingsRepository(
                 descriptionRes = R.string.app_suggestions_toggle_desc,
                 toggleKey = AppSettingsToggleKey.APP_SUGGESTIONS,
             )
+            addNavigation(
+                id = "app_settings_app_suggestion_tabs",
+                titleRes = R.string.app_suggestions_tabs_dialog_title,
+                descriptionRes = R.string.app_suggestions_tabs_dialog_message,
+                destination = AppSettingsDestination.APP_SUGGESTION_TABS,
+                keywords = listOf("app suggestions", "tabs", "recents", "most used", "new", "updated"),
+            )
             addToggle(
                 id = "app_toggle_notification_dots",
                 titleRes = R.string.notification_dots_toggle_title,
@@ -559,12 +558,25 @@ class AppSettingsRepository(
                 toggleKey = AppSettingsToggleKey.APP_RESULT_ROWS,
                 keywords = listOf("apps", "rows", "results"),
             )
-            addNavigation(
+            addToggle(
                 id = "app_settings_top_matches",
                 titleRes = R.string.top_matches_title,
                 descriptionRes = R.string.top_matches_toggle_desc,
-                destination = AppSettingsDestination.SEARCH_RESULTS,
+                toggleKey = AppSettingsToggleKey.TOP_MATCHES,
                 keywords = listOf("top matches", "best results", "searches"),
+            )
+            addNavigation(
+                id = "app_settings_top_matches_priority",
+                titleRes = R.string.top_matches_priority_title,
+                descriptionRes = R.string.top_matches_priority_desc,
+                destination = AppSettingsDestination.TOP_MATCHES_PRIORITY,
+                keywords = listOf("top matches", "priority", "order", "reorder"),
+            )
+            addNavigation(
+                id = TOP_MATCHES_COUNT_SETTING_ID,
+                titleRes = R.string.top_matches_count_label,
+                destination = AppSettingsDestination.SEARCH_RESULTS,
+                keywords = listOf("top matches", "count", "number", "limit"),
             )
             addToggle(
                 id = "app_toggle_recent_queries",

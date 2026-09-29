@@ -369,7 +369,7 @@
 <string name="settings_manage_apps_desc">Gérer vos applications</string>
 <string name="settings_manage_apps_title">Gérer les applications</string>
 <string name="settings_refresh_apps_disabled">La recherche d\'applications est désactivée, impossible d\'actualiser les données</string>
-<string name="settings_refresh_apps_title">Recharger les applications</string>
+<string name="settings_refresh_apps_title">Actualiser les applications</string>
 <string name="usage_permission_subtitle">Si vous souhaitez voir vos applications récemment utilisées dans les suggestions, accordez l\'accès aux données d\'utilisation.</string>
 <string name="usage_permission_title">Accorder l\'accès aux données d\'utilisation</string>
 
@@ -538,7 +538,7 @@
 <string name="settings_file_previews_toggle">Aperçu des fichiers</string>
 <string name="settings_file_previews_description">Afficher un aperçu des images et des fichiers PDF avant de les ouvrir.</string>
 <string name="settings_refresh_files_disabled">La recherche de fichiers est désactivée, impossible d\'actualiser les données</string>
-<string name="settings_refresh_files_title">Recharger les fichiers</string>
+<string name="settings_refresh_files_title">Actualiser les fichiers</string>
 <string name="settings_system_files_toggle">Fichiers système</string>
 
 <!-- ============================================================================
@@ -812,7 +812,7 @@
 <string name="settings_quick_settings_tile_desc">Ajouter Quick Search aux tuiles des paramètres rapides.</string>
 <string name="settings_quick_settings_tile_title">Tuile des paramètres rapides</string>
 <string name="settings_refresh_contacts_disabled">La recherche de contacts est désactivée, impossible d\'actualiser les données</string>
-<string name="settings_refresh_contacts_title">Recharger les contacts</string>
+<string name="settings_refresh_contacts_title">Actualiser les contacts</string>
 <string name="settings_refresh_data_note">Les données sont actualisées automatiquement. Utilisez ces boutons pour forcer une actualisation manuelle.</string>
 <string name="settings_refresh_data_title">Actualiser les données</string>
 <string name="settings_refresh_icon_packs">Actualiser les packs d\'icônes</string>

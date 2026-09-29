@@ -369,7 +369,7 @@
     <string name="settings_manage_apps_desc">Gestiona tus aplicaciones</string>
     <string name="settings_manage_apps_title">Gestionar aplicaciones</string>
     <string name="settings_refresh_apps_disabled">La búsqueda de apps está desactivada; no se pueden actualizar los datos</string>
-    <string name="settings_refresh_apps_title">Recargar aplicaciones</string>
+    <string name="settings_refresh_apps_title">Actualizar aplicaciones</string>
     <string name="usage_permission_subtitle">Si quieres ver tus apps recientes en las sugerencias, concede el acceso al uso.</string>
     <string name="usage_permission_title">Conceder acceso al uso</string>
 
@@ -538,7 +538,7 @@
     <string name="settings_file_previews_toggle">Vista previa de archivos</string>
     <string name="settings_file_previews_description">Previsualizar imágenes y archivos PDF antes de abrirlos.</string>
     <string name="settings_refresh_files_disabled">La búsqueda de archivos está desactivada; no se pueden actualizar los datos</string>
-    <string name="settings_refresh_files_title">Recargar archivos</string>
+    <string name="settings_refresh_files_title">Actualizar archivos</string>
     <string name="settings_system_files_toggle">Archivos del sistema</string>
 
     <!-- ============================================================================
@@ -812,7 +812,7 @@
     <string name="settings_quick_settings_tile_desc">Añade Quick Search a los mosaicos de Ajustes rápidos.</string>
     <string name="settings_quick_settings_tile_title">Mosaico de Ajustes rápidos</string>
     <string name="settings_refresh_contacts_disabled">La búsqueda de contactos está desactivada; no se pueden actualizar los datos</string>
-    <string name="settings_refresh_contacts_title">Recargar contactos</string>
+    <string name="settings_refresh_contacts_title">Actualizar contactos</string>
     <string name="settings_refresh_data_note">Los datos se actualizan automáticamente. Usa estos botones para forzar una actualización manual.</string>
     <string name="settings_refresh_data_title">Actualizar datos</string>
     <string name="settings_refresh_icon_packs">Actualizar paquetes de iconos</string>

@@ -369,7 +369,7 @@
     <string name="settings_manage_apps_desc">Gerencie seus apps</string>
     <string name="settings_manage_apps_title">Gerenciar apps</string>
     <string name="settings_refresh_apps_disabled">A pesquisa de apps está desativada, não é possível atualizar os dados dos apps</string>
-    <string name="settings_refresh_apps_title">Recarregar apps</string>
+    <string name="settings_refresh_apps_title">Atualizar apps</string>
     <string name="usage_permission_subtitle">Se quiser ver seus apps usados recentemente nas sugestões, conceda a permissão de acesso ao uso.</string>
     <string name="usage_permission_title">Conceder acesso ao uso</string>
 
@@ -538,7 +538,7 @@
     <string name="settings_file_previews_toggle">Pré-visualização de arquivos</string>
     <string name="settings_file_previews_description">Visualizar imagens e PDFs antes de abri-los.</string>
     <string name="settings_refresh_files_disabled">A pesquisa de arquivos está desativada, não é possível atualizar os dados dos arquivos</string>
-    <string name="settings_refresh_files_title">Recarregar arquivos</string>
+    <string name="settings_refresh_files_title">Atualizar arquivos</string>
     <string name="settings_system_files_toggle">Arquivos do sistema</string>
 
     <!-- ============================================================================
@@ -812,7 +812,7 @@
     <string name="settings_quick_settings_tile_desc">Adicionar o Quick Search aos blocos de Configurações Rápidas.</string>
     <string name="settings_quick_settings_tile_title">Bloco de Configurações Rápidas</string>
     <string name="settings_refresh_contacts_disabled">A pesquisa de contatos está desativada, não é possível atualizar os dados dos contatos</string>
-    <string name="settings_refresh_contacts_title">Recarregar contatos</string>
+    <string name="settings_refresh_contacts_title">Atualizar contatos</string>
     <string name="settings_refresh_data_note">Os dados são atualizados automaticamente. Use estes botões para forçar a atualização manual.</string>
     <string name="settings_refresh_data_title">Atualizar dados</string>
     <string name="settings_refresh_icon_packs">Atualizar pacotes de ícones</string>

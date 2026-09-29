@@ -50,5 +50,7 @@ internal fun AppSettingsDestination.toSettingsDetailTypeOrNull(): SettingsDetail
         AppSettingsDestination.NOTES_LIST,
         AppSettingsDestination.CREATE_REMINDER -> null
         AppSettingsDestination.OPEN_EVENTS_IN -> null
+        AppSettingsDestination.TOP_MATCHES_PRIORITY -> null
+        AppSettingsDestination.APP_SUGGESTION_TABS -> null
         AppSettingsDestination.BACKUP_RESTORE -> null
     }

@@ -364,7 +364,7 @@
     <string name="settings_manage_apps_desc">Manage your apps</string>
     <string name="settings_manage_apps_title">Manage Apps</string>
     <string name="settings_refresh_apps_disabled">App search is disabled, cannot refresh apps data</string>
-    <string name="settings_refresh_apps_title">Reload Apps</string>
+    <string name="settings_refresh_apps_title">Refresh Apps</string>
     <string name="usage_permission_subtitle">If you want to see your recently used apps in suggestions, grant usage access.</string>
     <string name="usage_permission_title">Grant usage access</string>
 
@@ -536,7 +536,7 @@
     <string name="settings_file_previews_toggle">File Previews</string>
     <string name="settings_file_previews_description">Preview images and PDFs before opening them.</string>
     <string name="settings_refresh_files_disabled">Files search is disabled, cannot refresh files data</string>
-    <string name="settings_refresh_files_title">Reload Files</string>
+    <string name="settings_refresh_files_title">Refresh Files</string>
     <string name="settings_system_files_toggle">System Files</string>
 
     <!-- ============================================================================
@@ -816,7 +816,7 @@
     <string name="settings_quick_settings_tile_desc">Add Quick Search to Quick Settings tiles.</string>
     <string name="settings_quick_settings_tile_title">Quick Settings Tile</string>
     <string name="settings_refresh_contacts_disabled">Contacts search is disabled, cannot refresh contacts data</string>
-    <string name="settings_refresh_contacts_title">Reload Contacts</string>
+    <string name="settings_refresh_contacts_title">Refresh Contacts</string>
     <string name="settings_refresh_data_note">Data is refreshed automatically. Use these buttons to force refresh manually.</string>
     <string name="settings_refresh_data_title">Refresh Data</string>
     <string name="settings_refresh_icon_packs">Refresh icon packs</string>

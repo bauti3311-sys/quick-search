@@ -370,7 +370,7 @@
     <string name="settings_manage_apps_desc">アプリを管理</string>
     <string name="settings_manage_apps_title">アプリの管理</string>
     <string name="settings_refresh_apps_disabled">アプリ検索が無効になっているため、アプリデータを更新できません</string>
-    <string name="settings_refresh_apps_title">アプリを再読み込み</string>
+    <string name="settings_refresh_apps_title">アプリを更新</string>
     <string name="usage_permission_subtitle">候補に最近使用したアプリを表示する場合は、使用状況へのアクセスを許可してください。</string>
     <string name="usage_permission_title">使用状況へのアクセスを許可</string>
 
@@ -545,7 +545,7 @@
     <string name="settings_file_previews_toggle">ファイルのプレビュー</string>
     <string name="settings_file_previews_description">画像やPDFを開く前にプレビューします。</string>
     <string name="settings_refresh_files_disabled">ファイル検索が無効になっているため、ファイルデータを更新できません</string>
-    <string name="settings_refresh_files_title">ファイルを再読み込み</string>
+    <string name="settings_refresh_files_title">ファイルを更新</string>
     <string name="settings_system_files_toggle">システムファイル</string>
 
     <!-- ============================================================================
@@ -820,7 +820,7 @@
     <string name="settings_quick_settings_tile_desc">クイック設定パネルにQuick Searchのタイルを追加します。</string>
     <string name="settings_quick_settings_tile_title">クイック設定タイル</string>
     <string name="settings_refresh_contacts_disabled">連絡先検索が無効になっているため、連絡先データを更新できません</string>
-    <string name="settings_refresh_contacts_title">連絡先を再読み込み</string>
+    <string name="settings_refresh_contacts_title">連絡先を更新</string>
     <string name="settings_refresh_data_note">データは自動的に更新されます。手動で強制更新するにはこれらのボタンを使用してください。</string>
     <string name="settings_refresh_data_title">データを更新</string>
     <string name="settings_refresh_icon_packs">アイコンパックを更新</string>

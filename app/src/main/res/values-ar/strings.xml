@@ -370,7 +370,7 @@
     <string name="settings_manage_apps_desc">إدارة تطبيقاتك</string>
     <string name="settings_manage_apps_title">إدارة التطبيقات</string>
     <string name="settings_refresh_apps_disabled">البحث في التطبيقات معطل، لا يمكن تحديث بيانات التطبيقات</string>
-    <string name="settings_refresh_apps_title">إعادة تحميل التطبيقات</string>
+    <string name="settings_refresh_apps_title">تحديث التطبيقات</string>
     <string name="usage_permission_subtitle">لرؤية تطبيقاتك المستخدمة مؤخراً في الاقتراحات، يرجى منح إذن الوصول إلى بيانات الاستخدام.</string>
     <string name="usage_permission_title">منح إذن الوصول إلى بيانات الاستخدام</string>
 
@@ -539,7 +539,7 @@
     <string name="settings_file_previews_toggle">معاينة الملفات</string>
     <string name="settings_file_previews_description">معاينة الصور وملفات PDF قبل فتحها.</string>
     <string name="settings_refresh_files_disabled">البحث عن الملفات معطل، لا يمكن تحديث بيانات الملفات</string>
-    <string name="settings_refresh_files_title">إعادة تحميل الملفات</string>
+    <string name="settings_refresh_files_title">تحديث الملفات</string>
     <string name="settings_system_files_toggle">ملفات النظام</string>
 
     <!-- ============================================================================
@@ -813,7 +813,7 @@
     <string name="settings_quick_settings_tile_desc">أضف Quick Search إلى مربعات الإعدادات السريعة.</string>
     <string name="settings_quick_settings_tile_title">مربع الإعدادات السريعة</string>
     <string name="settings_refresh_contacts_disabled">البحث في جهات الاتصال معطل، لا يمكن تحديث البيانات</string>
-    <string name="settings_refresh_contacts_title">إعادة تحميل جهات الاتصال</string>
+    <string name="settings_refresh_contacts_title">تحديث جهات الاتصال</string>
     <string name="settings_refresh_data_note">يتم تحديث البيانات تلقائياً. يمكنك استخدام هذه الأزرار للتحديث اليدوي الفوري.</string>
     <string name="settings_refresh_data_title">تحديث البيانات</string>
     <string name="settings_refresh_icon_packs">تحديث حزم الأيقونات</string>

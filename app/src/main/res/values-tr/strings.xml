@@ -368,7 +368,7 @@
 <string name="settings_manage_apps_desc">Uygulamalarını yönet</string>
 <string name="settings_manage_apps_title">Uygulamaları yönet</string>
 <string name="settings_refresh_apps_disabled">Uygulama araması devre dışı, uygulama verileri yenilenemiyor</string>
-<string name="settings_refresh_apps_title">Uygulamaları yeniden yükle</string>
+<string name="settings_refresh_apps_title">Uygulamaları yenile</string>
 <string name="usage_permission_subtitle">Son kullanılan uygulamalarını önerilerde görmek istiyorsan kullanım erişimi izni ver.</string>
 <string name="usage_permission_title">Kullanım erişimi izni ver</string>
 
@@ -537,7 +537,7 @@
 <string name="settings_file_previews_toggle">Dosya önizlemeleri</string>
 <string name="settings_file_previews_description">Açmadan önce görselleri ve PDF\'leri önizleyin.</string>
 <string name="settings_refresh_files_disabled">Dosya araması devre dışı, dosya verileri yenilenemiyor</string>
-<string name="settings_refresh_files_title">Dosyaları yeniden yükle</string>
+<string name="settings_refresh_files_title">Dosyaları yenile</string>
 <string name="settings_system_files_toggle">Sistem dosyaları</string>
 
 <!-- ============================================================================
@@ -811,7 +811,7 @@
 <string name="settings_quick_settings_tile_desc">Hızlı Ayarlar paneline Quick Search ekle.</string>
 <string name="settings_quick_settings_tile_title">Hızlı ayarlar kutucuğu</string>
 <string name="settings_refresh_contacts_disabled">Kişi araması devre dışı, kişi verileri yenilenemiyor</string>
-<string name="settings_refresh_contacts_title">Kişileri yeniden yükle</string>
+<string name="settings_refresh_contacts_title">Kişileri yenile</string>
 <string name="settings_refresh_data_note">Veriler otomatik olarak yenilenir. Manuel olarak yenilemeye zorlamak için bu butonları kullan.</string>
 <string name="settings_refresh_data_title">Verileri yenile</string>
 <string name="settings_refresh_icon_packs">Simge paketlerini yenile</string>

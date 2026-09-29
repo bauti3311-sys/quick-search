@@ -379,7 +379,7 @@
     <string name="settings_manage_apps_desc">Beheer je apps</string>
     <string name="settings_manage_apps_title">Apps beheren</string>
     <string name="settings_refresh_apps_disabled">App-zoeken is uitgeschakeld, kan app-gegevens niet vernieuwen</string>
-    <string name="settings_refresh_apps_title">Apps opnieuw laden</string>
+    <string name="settings_refresh_apps_title">Apps vernieuwen</string>
     <string name="usage_permission_subtitle">Als je je recent gebruikte apps in suggesties wilt zien, verleen dan toegang tot gebruiksstatistieken.</string>
     <string name="usage_permission_title">Toegang tot gebruiksstatistieken verlenen</string>
 
@@ -560,7 +560,7 @@
     <string name="settings_file_previews_toggle">Bestandsvoorbeelden</string>
     <string name="settings_file_previews_description">Bekijk een voorbeeld van afbeeldingen en pdf\'s voordat je ze opent.</string>
     <string name="settings_refresh_files_disabled">Bestanden zoeken is uitgeschakeld, kan bestandsgegevens niet vernieuwen</string>
-    <string name="settings_refresh_files_title">Bestanden opnieuw laden</string>
+    <string name="settings_refresh_files_title">Bestanden vernieuwen</string>
     <string name="settings_system_files_toggle">Systeembestanden</string>
 
     
@@ -845,7 +845,7 @@
     <string name="settings_quick_settings_tile_desc">Voeg Quick Search toe aan de Snelle instellingen-tegels.</string>
     <string name="settings_quick_settings_tile_title">Snelle instellingen-tegel</string>
     <string name="settings_refresh_contacts_disabled">Contacten zoeken is uitgeschakeld, kan contactgegevens niet vernieuwen</string>
-    <string name="settings_refresh_contacts_title">Contacten opnieuw laden</string>
+    <string name="settings_refresh_contacts_title">Contacten vernieuwen</string>
     <string name="settings_refresh_data_note">Gegevens worden automatisch vernieuwd. Gebruik deze knoppen om handmatig opnieuw te laden.</string>
     <string name="settings_refresh_data_title">Gegevens vernieuwen</string>
     <string name="settings_refresh_icon_packs">Icoonpakketten vernieuwen</string>

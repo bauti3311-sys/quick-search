@@ -1,6 +1,7 @@
 package com.tk.quicksearch.search.searchScreen.searchRoute
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tk.quicksearch.R
@@ -57,6 +58,7 @@ internal fun SearchRouteOverlays(
     onPreviewDismiss: () -> Unit,
     onPreviewOpen: (DeviceFile) -> Unit,
     onPreviewShare: (DeviceFile) -> Unit,
+    appSettingDialog: MutableState<AppSettingRouteDialog?>,
 ) {
         if (showPermissionSettingsDialog) {
             PermissionSettingsDialog(
@@ -99,6 +101,8 @@ internal fun SearchRouteOverlays(
                 onDismiss = onDefaultCalendarDismiss,
             )
         }
+
+        AppSettingRouteDialogs(activeDialog = appSettingDialog, viewModel = viewModel, uiState = uiState)
 
         speedBumpApp?.let { app ->
             SpeedBumpOverlay(

@@ -22,7 +22,6 @@ import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
@@ -56,6 +55,7 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
 import com.tk.quicksearch.shared.util.hapticConfirm
 import com.tk.quicksearch.shared.util.isDefaultHomeApp
 import com.tk.quicksearch.shared.util.hapticToggle
+import kotlin.math.roundToInt
 
 private const val QUICK_SEARCH_PACKAGE_NAME = "com.tk.quicksearch"
 private const val ROW_MIN_HEIGHT = 52
@@ -229,6 +229,8 @@ internal fun AppSettingResultRow(
             .topPredictedRowContentPadding()
             .padding(vertical = DesignTokens.SpacingLarge)
             .combinedClickable(
+                interactionSource = null,
+                indication = null,
                 enabled = !isBlockedByLauncher && !isBackupSetting,
                 onClick = {
                     if (setting.isNavigateAction) {
@@ -304,24 +306,13 @@ internal fun AppSettingResultRow(
             }
 
             if (isWebSuggestionsToggle && checked) {
-                Row(
-                    modifier = Modifier.padding(top = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(6.dp),
-                ) {
-                    Slider(
-                        value = webSuggestionsCount.toFloat(),
-                        onValueChange = { value -> onWebSuggestionsCountChange(value.toInt()) },
-                        valueRange = 1f..5f,
-                        steps = 3,
-                        modifier = Modifier.size(width = 140.dp, height = 22.dp),
-                    )
-                    Text(
-                        text = webSuggestionsCount.toString(),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
+                InlineSliderRow(
+                    value = webSuggestionsCount.toFloat(),
+                    onValueChange = { value -> onWebSuggestionsCountChange(value.roundToInt()) },
+                    valueRange = 1f..5f,
+                    steps = 3,
+                    label = webSuggestionsCount.toString(),
+                )
             }
         }
 

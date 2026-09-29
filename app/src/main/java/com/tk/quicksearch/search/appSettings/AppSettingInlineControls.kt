@@ -12,6 +12,7 @@ import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
@@ -41,6 +42,7 @@ import kotlin.math.abs
 import kotlin.math.roundToInt
 
 internal const val THEME_MODE_SETTING_ID = "app_settings_theme_mode"
+internal const val TOP_MATCHES_COUNT_SETTING_ID = "app_settings_top_matches_count"
 
 /** State and callbacks for app-setting rows that edit their value inline instead of toggling. */
 data class AppSettingInlineControls(
@@ -54,6 +56,8 @@ data class AppSettingInlineControls(
     val customImageUri: String? = null,
     val appThemeMode: AppThemeMode = AppThemeMode.SYSTEM,
     val onAppThemeModeChange: (AppThemeMode) -> Unit = {},
+    val topMatchesLimit: Int = UiPreferences.DEFAULT_TOP_MATCHES_LIMIT,
+    val onTopMatchesLimitChange: (Int) -> Unit = {},
 )
 
 val LocalAppSettingInlineControls = compositionLocalOf { AppSettingInlineControls() }
@@ -63,7 +67,8 @@ internal val AppSettingResult.hasInlineControl: Boolean
         toggleKey == AppSettingsToggleKey.FONT_SIZE ||
             toggleKey == AppSettingsToggleKey.APP_ICON_SIZE ||
             toggleKey == AppSettingsToggleKey.HOME_TEXT_COLOR ||
-            id == THEME_MODE_SETTING_ID
+            id == THEME_MODE_SETTING_ID ||
+            id == TOP_MATCHES_COUNT_SETTING_ID
 
 @Composable
 internal fun AppSettingInlineControlContent(
@@ -79,6 +84,8 @@ internal fun AppSettingInlineControlContent(
         setting.toggleKey == AppSettingsToggleKey.HOME_TEXT_COLOR -> HomeTextColorInlineChips(controls)
         setting.id == THEME_MODE_SETTING_ID ->
             ThemeModeInlineChips(controls, onMoreClick = onOpenSettingPage)
+        setting.id == TOP_MATCHES_COUNT_SETTING_ID ->
+            TopMatchesCountInlineSlider(controls.topMatchesLimit, controls.onTopMatchesLimitChange)
     }
 }
 
@@ -137,7 +144,31 @@ private fun IconSizeInlineSlider(
 }
 
 @Composable
-private fun InlineSliderRow(
+private fun TopMatchesCountInlineSlider(
+    topMatchesLimit: Int,
+    onChange: (Int) -> Unit,
+) {
+    val view = LocalView.current
+    val limitOptions = UiPreferences.TOP_MATCHES_LIMIT_OPTIONS
+    val currentIndex = limitOptions.indexOf(topMatchesLimit).coerceAtLeast(0)
+    InlineSliderRow(
+        value = currentIndex.toFloat(),
+        onValueChange = { value ->
+            val index = value.roundToInt().coerceIn(0, limitOptions.lastIndex)
+            if (index != currentIndex) {
+                hapticToggle(view)()
+                onChange(limitOptions[index])
+            }
+        },
+        valueRange = 0f..limitOptions.lastIndex.toFloat(),
+        steps = limitOptions.size - 2,
+        label = topMatchesLimit.toString(),
+    )
+}
+
+/** Full-width slider for inline app-setting rows, with a track that stays visible on result cards. */
+@Composable
+internal fun InlineSliderRow(
     value: Float,
     onValueChange: (Float) -> Unit,
     valueRange: ClosedFloatingPointRange<Float>,
@@ -154,6 +185,11 @@ private fun InlineSliderRow(
             onValueChange = onValueChange,
             valueRange = valueRange,
             steps = steps,
+            colors =
+                SliderDefaults.colors(
+                    inactiveTrackColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.16f),
+                    inactiveTickColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                ),
             modifier = Modifier.weight(1f).height(36.dp),
         )
         Text(

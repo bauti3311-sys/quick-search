@@ -5,6 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.tk.quicksearch.R
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import com.tk.quicksearch.search.core.SearchUiState
 import com.tk.quicksearch.search.core.SearchViewModel
@@ -34,6 +36,7 @@ internal fun rememberRateQuickSearchSetting(): AppSettingResult =
 internal data class RouteSettingActions(
     val onAppSettingToggle: (AppSettingResult, Boolean) -> Unit,
     val onAppSettingClick: (AppSettingResult) -> Unit,
+    val activeDialog: MutableState<AppSettingRouteDialog?>,
 )
 
 @Composable
@@ -50,6 +53,7 @@ internal fun rememberRouteSettingActions(
     onOpenAppSettingDestination: (AppSettingsDestination) -> Unit,
 ): RouteSettingActions {
     val context = LocalContext.current
+    val activeDialog = remember { mutableStateOf<AppSettingRouteDialog?>(null) }
     val onNotificationDotsCheckedChange =
         rememberNotificationDotsCheckedChange { enabled ->
             viewModel.applySettingsCommand(
@@ -115,6 +119,14 @@ internal fun rememberRouteSettingActions(
                 onShowIconPackDialog()
                 return@appSettingClick
             }
+            if (destination == AppSettingsDestination.TOP_MATCHES_PRIORITY) {
+                activeDialog.value = AppSettingRouteDialog.TOP_MATCHES_PRIORITY
+                return@appSettingClick
+            }
+            if (destination == AppSettingsDestination.APP_SUGGESTION_TABS) {
+                activeDialog.value = AppSettingRouteDialog.APP_SUGGESTION_TABS
+                return@appSettingClick
+            }
             if (destination == AppSettingsDestination.OPEN_EVENTS_IN) {
                 onShowDefaultCalendarDialog()
                 return@appSettingClick
@@ -126,5 +138,5 @@ internal fun rememberRouteSettingActions(
         }
     }
 
-    return RouteSettingActions(onAppSettingToggle, onAppSettingClick)
+    return RouteSettingActions(onAppSettingToggle, onAppSettingClick, activeDialog)
 }

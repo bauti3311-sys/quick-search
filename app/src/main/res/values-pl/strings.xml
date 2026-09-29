@@ -370,7 +370,7 @@
     <string name="settings_manage_apps_desc">Zarządzaj swoimi aplikacjami</string>
     <string name="settings_manage_apps_title">Zarządzaj aplikacjami</string>
     <string name="settings_refresh_apps_disabled">Wyszukiwanie aplikacji jest wyłączone, nie można odświeżyć danych aplikacji</string>
-    <string name="settings_refresh_apps_title">Przeładuj aplikacje</string>
+    <string name="settings_refresh_apps_title">Odśwież aplikacje</string>
     <string name="usage_permission_subtitle">Jeśli chcesz widzieć ostatnio używane aplikacje w sugestiach, przyznaj dostęp do danych o użyciu.</string>
     <string name="usage_permission_title">Przyznaj dostęp do danych o użyciu</string>
 
@@ -547,7 +547,7 @@
     <string name="settings_file_previews_toggle">Podgląd plików</string>
     <string name="settings_file_previews_description">Podglądaj obrazy i pliki PDF przed ich otwarciem.</string>
     <string name="settings_refresh_files_disabled">Wyszukiwanie plików jest wyłączone, nie można odświeżyć danych plików</string>
-    <string name="settings_refresh_files_title">Przeładuj pliki</string>
+    <string name="settings_refresh_files_title">Odśwież pliki</string>
     <string name="settings_system_files_toggle">Pliki systemowe</string>
 
     <!-- ============================================================================
@@ -840,7 +840,7 @@
     <string name="settings_quick_settings_tile_desc">Dodaj Quick Search do kafelków szybkich ustawień.</string>
     <string name="settings_quick_settings_tile_title">Kafelek szybkich ustawień</string>
     <string name="settings_refresh_contacts_disabled">Wyszukiwanie kontaktów jest wyłączone, nie można odświeżyć danych kontaktów</string>
-    <string name="settings_refresh_contacts_title">Przeładuj kontakty</string>
+    <string name="settings_refresh_contacts_title">Odśwież kontakty</string>
     <string name="settings_refresh_data_note">Dane są odświeżane automatycznie. Użyj tych przycisków, aby wymusić ręczne odświeżenie.</string>
     <string name="settings_refresh_data_title">Odśwież dane</string>
     <string name="settings_refresh_icon_packs">Odśwież pakiety ikon</string>

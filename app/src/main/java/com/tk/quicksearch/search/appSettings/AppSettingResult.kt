@@ -14,6 +14,8 @@ enum class AppSettingsDestination {
     ICON_PACKS,
     SEARCH_RESULTS,
     SEARCH_RESULT_RANKING,
+    TOP_MATCHES_PRIORITY,
+    APP_SUGGESTION_TABS,
     SEARCH_ENGINES,
     TOOLS,
     AT_A_GLANCE,

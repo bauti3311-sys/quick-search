@@ -369,7 +369,7 @@
     <string name="settings_manage_apps_desc">Διαχειριστείτε τις εφαρμογές σας</string>
     <string name="settings_manage_apps_title">Διαχείριση εφαρμογών</string>
     <string name="settings_refresh_apps_disabled">Η αναζήτηση εφαρμογών είναι απενεργοποιημένη, αδυναμία ανανέωσης δεδομένων</string>
-    <string name="settings_refresh_apps_title">Επαναφόρτωση εφαρμογών</string>
+    <string name="settings_refresh_apps_title">Ανανέωση εφαρμογών</string>
     <string name="usage_permission_subtitle">Αν θέλετε να βλέπετε τις πρόσφατα χρησιμοποιημένες εφαρμογές σας στις προτάσεις, χορηγήστε πρόσβαση στη χρήση.</string>
     <string name="usage_permission_title">Χορήγηση πρόσβασης στη χρήση</string>
 
@@ -538,7 +538,7 @@
     <string name="settings_file_previews_toggle">Προεπισκοπήσεις αρχείων</string>
     <string name="settings_file_previews_description">Προεπισκόπηση εικόνων και αρχείων PDF πριν από το άνοιγμά τους.</string>
     <string name="settings_refresh_files_disabled">Η αναζήτηση αρχείων είναι απενεργοποιημένη, αδυναμία ανανέωσης δεδομένων</string>
-    <string name="settings_refresh_files_title">Επαναφόρτωση αρχείων</string>
+    <string name="settings_refresh_files_title">Ανανέωση αρχείων</string>
     <string name="settings_system_files_toggle">Αρχεία συστήματος</string>
 
     <!-- ============================================================================
@@ -812,7 +812,7 @@
     <string name="settings_quick_settings_tile_desc">Προσθήκη του Quick Search στα πλακίδια γρήγορων ρυθμίσεων.</string>
     <string name="settings_quick_settings_tile_title">Πλακίδιο γρήγορων ρυθμίσεων</string>
     <string name="settings_refresh_contacts_disabled">Η αναζήτηση επαφών είναι απενεργοποιημένη, αδυναμία ανανέωσης δεδομένων</string>
-    <string name="settings_refresh_contacts_title">Επαναφόρτωση επαφών</string>
+    <string name="settings_refresh_contacts_title">Ανανέωση επαφών</string>
     <string name="settings_refresh_data_note">Τα δεδομένα ανανεώνονται αυτόματα. Χρησιμοποιήστε αυτά τα κουμπιά για αναγκαστική χειροκίνητη ανανέωση.</string>
     <string name="settings_refresh_data_title">Ανανέωση δεδομένων</string>
     <string name="settings_refresh_icon_packs">Ανανέωση πακέτων εικονιδίων</string>

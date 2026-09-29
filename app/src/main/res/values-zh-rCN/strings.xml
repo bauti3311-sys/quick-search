@@ -369,7 +369,7 @@
     <string name="settings_manage_apps_desc">管理您的应用</string>
     <string name="settings_manage_apps_title">管理应用</string>
     <string name="settings_refresh_apps_disabled">应用搜索功能已被停用，无法刷新应用数据</string>
-    <string name="settings_refresh_apps_title">重新加载应用</string>
+    <string name="settings_refresh_apps_title">刷新应用</string>
     <string name="usage_permission_subtitle">如果您希望在建议中看到最近使用的应用，请授予使用情况访问权限。</string>
     <string name="usage_permission_title">授予使用情况访问权限</string>
 
@@ -537,7 +537,7 @@
     <string name="settings_file_previews_toggle">文件预览</string>
     <string name="settings_file_previews_description">打开图片和 PDF 文件前进行预览。</string>
     <string name="settings_refresh_files_disabled">文件搜索功能已被停用，无法刷新文件数据</string>
-    <string name="settings_refresh_files_title">重新加载文件</string>
+    <string name="settings_refresh_files_title">刷新文件</string>
     <string name="settings_system_files_toggle">系统文件</string>
 
     <!-- ============================================================================
@@ -802,7 +802,7 @@
     <string name="settings_quick_settings_tile_desc">将 Quick Search 添加到通知栏的快捷设置磁贴中。</string>
     <string name="settings_quick_settings_tile_title">快捷设置磁贴</string>
     <string name="settings_refresh_contacts_disabled">联系人搜索功能已被停用，无法刷新联系人数据</string>
-    <string name="settings_refresh_contacts_title">重新加载联系人</string>
+    <string name="settings_refresh_contacts_title">刷新联系人</string>
     <string name="settings_refresh_data_note">数据会自动刷新。您可以使用这些按钮执行手动强制刷新。</string>
     <string name="settings_refresh_data_title">刷新数据</string>
     <string name="settings_refresh_icon_packs">刷新图标包</string>

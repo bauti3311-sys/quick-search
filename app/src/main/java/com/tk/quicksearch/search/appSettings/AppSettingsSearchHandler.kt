@@ -96,6 +96,13 @@ class AppSettingsSearchHandler(
             val shouldHidePinnedSectionsOrder =
                 setting.id == PINNED_SECTIONS_ORDER_SETTING_ID &&
                     userPreferences.isUnifiedPinnedItemsEnabled()
+            val shouldHideTopMatchesOptions =
+                (setting.destination == AppSettingsDestination.TOP_MATCHES_PRIORITY ||
+                    setting.id == TOP_MATCHES_COUNT_SETTING_ID) &&
+                    !userPreferences.isTopMatchesEnabled()
+            val shouldHideAppSuggestionTabs =
+                setting.destination == AppSettingsDestination.APP_SUGGESTION_TABS &&
+                    !userPreferences.areAppSuggestionsEnabled()
             val shouldHideFuzzySearch =
                 setting.toggleKey == AppSettingsToggleKey.FUZZY_SEARCH &&
                     isLowRamDevice
@@ -121,6 +128,8 @@ class AppSettingsSearchHandler(
                 !shouldHideTriggers &&
                 !shouldHideTopResultIndicator &&
                 !shouldHidePinnedSectionsOrder &&
+                !shouldHideTopMatchesOptions &&
+                !shouldHideAppSuggestionTabs &&
                 !shouldHideFuzzySearch &&
                 !shouldHideAppResultRows &&
                 !shouldHideArchivedApps &&
