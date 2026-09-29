@@ -948,6 +948,7 @@
     <string name="settings_gemini_api_key_saving">Αποθήκευση...</string>
     <string name="settings_gemini_guide_url" translatable="false">https://medium.com/@tejakarlapudi.apps/setting-up-gemini-api-key-in-quick-search-25ee92aa4311</string>
     <string name="settings_model_picker_search_hint">Αναζήτηση μοντέλων</string>
+    <string name="settings_model_picker_more_models_hint">Εμφανίζονται τα πιο πρόσφατα μοντέλα. Κάντε αναζήτηση για άλλα.</string>
     <string name="settings_search_engine_alias_suffix_desc">Ενεργοποιεί τη μηχανή αναζήτησης όταν προσθέτετε μια συντομογραφία στο τέλος του ερωτήματος. Οι συντομογραφίες λειτουργούν πάντα και στην αρχή.</string>
     <string name="settings_search_engine_alias_suffix_title">Συντομογραφία μετά το ερώτημα</string>
     <string name="settings_search_engine_browser_default">Προεπιλεγμένο πρόγραμμα περιήγησης</string>

@@ -960,6 +960,7 @@
     <string name="settings_gemini_api_key_saving">Saving...</string>
     <string name="settings_gemini_guide_url" translatable="false">https://medium.com/@tejakarlapudi.apps/setting-up-gemini-api-key-in-quick-search-25ee92aa4311</string>
     <string name="settings_model_picker_search_hint">Search models</string>
+    <string name="settings_model_picker_more_models_hint">Showing the latest models. Search to find others.</string>
     <string name="settings_search_engine_alias_suffix_desc">Triggers search engine when you add an alias at the end of the query. Aliases will always work at the start.</string>
     <string name="settings_search_engine_alias_suffix_title">Alias after Query</string>
     <string name="settings_search_engine_browser_default">Default Browser</string>

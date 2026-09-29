@@ -70,7 +70,6 @@ class MetaClient(
                                 )
                             }
                         }.distinctBy { it.id }
-                            .let(MetaModelCatalog::pickerModels)
                             .sortedBy { it.displayName.lowercase() }
                     } finally {
                         connection.disconnect()

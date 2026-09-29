@@ -959,6 +959,7 @@ www.google.com/search?q={{query}}</string>
     <string name="settings_gemini_api_key_saving">保存中...</string>
     <string name="settings_gemini_guide_url" translatable="false">https://medium.com/@tejakarlapudi.apps/setting-up-gemini-api-key-in-quick-search-25ee92aa4311</string>
     <string name="settings_model_picker_search_hint">モデルを検索</string>
+    <string name="settings_model_picker_more_models_hint">最新のモデルを表示しています。他のモデルは検索してください。</string>
     <string name="settings_search_engine_alias_suffix_desc">検索キーワードの末尾にエイリアスを入力した場合にも検索エンジンを起動します。エイリアスは先頭でも常に機能します。</string>
     <string name="settings_search_engine_alias_suffix_title">クエリの後にエイリアス</string>
     <string name="settings_search_engine_browser_default">デフォルトのブラウザ</string>

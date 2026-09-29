@@ -54,9 +54,9 @@ object OpenAiModelCatalog {
 
     private val familyModelRegex = Regex("^gpt-(\\d+(?:\\.\\d+)*)-(luna|sol|astra)$")
 
-    /** Picker list: the latest and previous version of each of the Luna, Sol, and Astra families. */
+    /** Picker list: the latest version of each of the Luna, Sol, and Astra families. */
     fun pickerModels(models: List<LlmTextModel>): List<LlmTextModel> =
-        LlmModelVersions.filterLatest(models, versionsPerFamily = 2) { id ->
+        LlmModelVersions.filterLatest(models) { id ->
             familyModelRegex.find(id)?.groupValues?.let {
                 LlmModelVersions.familyVersion(it[2], it[1].split('.'))
             }

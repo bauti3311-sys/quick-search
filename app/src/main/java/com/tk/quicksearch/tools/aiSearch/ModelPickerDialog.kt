@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -29,6 +30,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.tk.quicksearch.R
 import com.tk.quicksearch.shared.ui.components.AppPickerDrawer
@@ -83,11 +85,26 @@ fun ModelPickerDialog(
                         .thenBy { it.model.displayName.lowercase() },
                 )
         }
+    // Without a query, show only each provider's latest models (plus the selection); search covers all.
+    val featuredOptions =
+        remember(pickerOptions, selectedProviderId, selectedModelId) {
+            val featuredIds =
+                pickerOptions
+                    .groupBy { it.providerId }
+                    .flatMap { (providerId, options) ->
+                        featuredModels(providerId, options.map { it.model }).map { providerId to it.id }
+                    }.toSet()
+            pickerOptions.filter { option ->
+                (option.providerId to option.model.id) in featuredIds ||
+                    (option.providerId == selectedProviderId && option.model.id == selectedModelId)
+            }
+        }
+    val hasHiddenModels = featuredOptions.size < pickerOptions.size
     val filteredOptions =
-        remember(pickerOptions, searchQuery) {
+        remember(pickerOptions, featuredOptions, searchQuery) {
             val query = searchQuery.text.trim().lowercase()
             if (query.isEmpty()) {
-                pickerOptions
+                featuredOptions
             } else {
                 pickerOptions.filter { option ->
                     modelSearchText(option.model).contains(query) ||
@@ -99,7 +116,7 @@ fun ModelPickerDialog(
 
     LaunchedEffect(Unit) {
         val index =
-            pickerOptions.indexOfFirst {
+            featuredOptions.indexOfFirst {
                 it.providerId == selectedProviderId && it.model.id == selectedModelId
             }
         if (index >= 0) {
@@ -171,10 +188,40 @@ fun ModelPickerDialog(
                         },
                     )
                 }
+                if (hasHiddenModels && searchQuery.text.isBlank()) {
+                    item {
+                        Text(
+                            text = stringResource(R.string.settings_model_picker_more_models_hint),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Center,
+                            modifier =
+                                Modifier
+                                    .fillMaxWidth()
+                                    .padding(
+                                        horizontal = DesignTokens.SpacingMedium,
+                                        vertical = DesignTokens.SpacingMedium,
+                                    ),
+                        )
+                    }
+                }
             }
         }
     }
 }
+
+/** The provider's latest models shown before the user searches. */
+private fun featuredModels(
+    providerId: AiSearchLlmProviderId,
+    models: List<LlmTextModel>,
+): List<LlmTextModel> =
+    when (providerId) {
+        AiSearchLlmProviderId.GEMINI -> GeminiModelCatalog.pickerModels(models)
+        AiSearchLlmProviderId.OPENAI -> OpenAiModelCatalog.pickerModels(models)
+        AiSearchLlmProviderId.ANTHROPIC -> AnthropicModelCatalog.pickerModels(models)
+        AiSearchLlmProviderId.META -> MetaModelCatalog.pickerModels(models)
+        else -> models
+    }
 
 private fun providerSortOrder(providerId: AiSearchLlmProviderId): Int =
     when (providerId) {

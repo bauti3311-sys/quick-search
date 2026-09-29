@@ -986,6 +986,7 @@ www.google.com/search?q={{query}}</string>
     <string name="settings_gemini_api_key_saving">Opslaan…</string>
     <string name="settings_gemini_guide_url" translatable="false">https://medium.com/@tejakarlapudi.apps/setting-up-gemini-api-key-in-quick-search-25ee92aa4311</string>
     <string name="settings_model_picker_search_hint">Modellen zoeken</string>
+    <string name="settings_model_picker_more_models_hint">De nieuwste modellen worden getoond. Zoek om andere te vinden.</string>
     <string name="settings_search_engine_alias_suffix_desc">Activeert de zoekmachine wanneer je een alias aan het einde van de zoekopdracht toevoegt. Aliassen werken altijd aan het begin.</string>
     <string name="settings_search_engine_alias_suffix_title">Alias na zoekopdracht</string>
     <string name="settings_search_engine_browser_default">Standaardbrowser</string>

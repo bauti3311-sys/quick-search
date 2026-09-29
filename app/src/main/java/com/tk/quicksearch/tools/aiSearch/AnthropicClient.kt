@@ -78,7 +78,7 @@ class AnthropicClient(
                             )
                         }
                         val deduped = models.distinctBy { it.id }
-                        AnthropicModelCatalog.pickerModels(deduped).sortedBy { it.displayName.lowercase() }
+                        deduped.sortedBy { it.displayName.lowercase() }
                     } finally {
                         connection.disconnect()
                     }

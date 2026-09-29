@@ -952,6 +952,7 @@
     <string name="settings_gemini_api_key_saving">Menyimpan...</string>
     <string name="settings_gemini_guide_url" translatable="false">https://medium.com/@tejakarlapudi.apps/setting-up-gemini-api-key-in-quick-search-25ee92aa4311</string>
     <string name="settings_model_picker_search_hint">Cari model</string>
+    <string name="settings_model_picker_more_models_hint">Menampilkan model terbaru. Cari untuk menemukan model lainnya.</string>
     <string name="settings_search_engine_alias_suffix_desc">Picu mesin pencari saat Anda menambahkan alias di akhir kueri. Alias akan selalu berfungsi di awal.</string>
     <string name="settings_search_engine_alias_suffix_title">Alias Setelah Kueri</string>
     <string name="settings_search_engine_browser_default">Browser Default</string>

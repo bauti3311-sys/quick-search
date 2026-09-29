@@ -948,6 +948,7 @@
     <string name="settings_gemini_api_key_saving">Wird gespeichert...</string>
     <string name="settings_gemini_guide_url" translatable="false">https://medium.com/@tejakarlapudi.apps/setting-up-gemini-api-key-in-quick-search-25ee92aa4311</string>
     <string name="settings_model_picker_search_hint">Modelle durchsuchen</string>
+    <string name="settings_model_picker_more_models_hint">Es werden die neuesten Modelle angezeigt. Suche nach weiteren.</string>
     <string name="settings_search_engine_alias_suffix_desc">Löst die Suchmaschine aus, wenn du am Ende der Suchanfrage einen Alias hinzufügst. Aliase funktionieren immer am Anfang.</string>
     <string name="settings_search_engine_alias_suffix_title">Alias nach Anfrage</string>
     <string name="settings_search_engine_browser_default">Standard-Browser</string>

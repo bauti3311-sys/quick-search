@@ -49,11 +49,11 @@ class LlmModelPickerFilterTest {
     }
 
     @Test
-    fun openAiKeepsLatestTwoVersionsOfLunaSolAstra() {
+    fun openAiKeepsLatestOfLunaSolAstra() {
         val catalog =
             models("gpt-5", "gpt-5.5", "gpt-5.5-pro", "gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-6-astra", "gpt-6-luna", "gpt-6-sol")
         assertEquals(
-            setOf("gpt-5.6-luna", "gpt-6-luna", "gpt-5.6-sol", "gpt-6-sol", "gpt-6-astra"),
+            setOf("gpt-6-luna", "gpt-6-sol", "gpt-6-astra"),
             OpenAiModelCatalog.pickerModels(catalog).ids(),
         )
     }
