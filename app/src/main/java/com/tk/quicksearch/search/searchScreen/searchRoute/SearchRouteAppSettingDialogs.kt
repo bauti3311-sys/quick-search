@@ -1,10 +1,11 @@
 package com.tk.quicksearch.search.searchScreen.searchRoute
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.remember
 import com.tk.quicksearch.search.core.SearchUiState
 import com.tk.quicksearch.search.core.SearchViewModel
+import com.tk.quicksearch.search.appSettings.AppSettingsDestination
+import com.tk.quicksearch.settings.settingsDetailScreen.AiApiKeyRequiredDialog
 import com.tk.quicksearch.settings.settingsDetailScreen.AppSuggestionTabsDialog
 import com.tk.quicksearch.settings.settingsDetailScreen.PriorityReorderDialog
 import com.tk.quicksearch.settings.shared.SettingsCommand
@@ -15,14 +16,16 @@ import com.tk.quicksearch.shared.featureFlags.FeatureFlags
 internal enum class AppSettingRouteDialog {
     TOP_MATCHES_PRIORITY,
     APP_SUGGESTION_TABS,
+    API_KEY_REQUIRED,
 }
 
 @Composable
 internal fun AppSettingRouteDialogs(
-    activeDialog: MutableState<AppSettingRouteDialog?>,
+    settingActions: RouteSettingActions,
     viewModel: SearchViewModel,
     uiState: SearchUiState,
 ) {
+    val activeDialog = settingActions.activeDialog
     val onDismiss = { activeDialog.value = null }
     when (activeDialog.value) {
         AppSettingRouteDialog.TOP_MATCHES_PRIORITY -> {
@@ -49,6 +52,13 @@ internal fun AppSettingRouteDialogs(
                     viewModel.applySettingsCommand(SettingsCommand.AppSuggestionTabEnabled(tab, enabled))
                 },
                 onDismiss = onDismiss,
+            )
+        AppSettingRouteDialog.API_KEY_REQUIRED ->
+            AiApiKeyRequiredDialog(
+                onDismiss = onDismiss,
+                onSetupKey = {
+                    settingActions.onOpenAppSettingDestination(AppSettingsDestination.API_KEY_SETUP)
+                },
             )
         null -> Unit
     }

@@ -794,7 +794,7 @@ fun SearchRoute(
                 previewFile = null
                 com.tk.quicksearch.search.core.intentHelpers.FileIntents.shareFile(context, file)
             },
-            appSettingDialog = settingActions.activeDialog,
+            appSettingActions = settingActions,
         )
     }
 }

@@ -867,6 +867,7 @@
     <string name="custom_info_set_date_time">Ustaw datę i godzinę</string>
     <string name="custom_info_desc">Odpowiedzi AI na Twoje polecenia na ekranie głównym, w wybranych przez Ciebie porach</string>
     <string name="settings_ai_api_key_required_message">Ta funkcja wymaga klucza API dostawcy AI.</string>
+    <string name="settings_ai_api_key_required_title">Wymagany klucz API</string>
     <string name="settings_ai_api_key_setup_action">Ustaw klucz</string>
     <string name="custom_info_repeat_never">Nie powtarza się</string>
     <string name="custom_info_repeat_every">Powtarzaj co</string>

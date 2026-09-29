@@ -17,6 +17,7 @@ import com.tk.quicksearch.search.appSettings.AppSettingsToggleKey
 import com.tk.quicksearch.overlay.OverlayModeController
 import com.tk.quicksearch.search.apps.notificationDots.rememberNotificationDotsCheckedChange
 import com.tk.quicksearch.shared.util.isDefaultHomeApp
+import com.tk.quicksearch.settings.settingsDetailScreen.ToolSettingsRegistry
 import com.tk.quicksearch.settings.shared.SettingsCommand
 import com.tk.quicksearch.settings.shared.applySettingsCommand
 
@@ -37,6 +38,7 @@ internal data class RouteSettingActions(
     val onAppSettingToggle: (AppSettingResult, Boolean) -> Unit,
     val onAppSettingClick: (AppSettingResult) -> Unit,
     val activeDialog: MutableState<AppSettingRouteDialog?>,
+    val onOpenAppSettingDestination: (AppSettingsDestination) -> Unit,
 )
 
 @Composable
@@ -64,8 +66,14 @@ internal fun rememberRouteSettingActions(
             )
         }
 
-    val onAppSettingToggle: (AppSettingResult, Boolean) -> Unit = { setting, enabled ->
+    val onAppSettingToggle: (AppSettingResult, Boolean) -> Unit = onAppSettingToggle@{ setting, enabled ->
         viewModel.trackRecentAppSettingTap(setting.id)
+        val requiresLlmApiKey =
+            ToolSettingsRegistry.definitions.any { it.toggleKey == setting.toggleKey && it.requiresLlmApiKey }
+        if (requiresLlmApiKey && !uiState.hasApiKey) {
+            activeDialog.value = AppSettingRouteDialog.API_KEY_REQUIRED
+            return@onAppSettingToggle
+        }
         when (val toggleKey = setting.toggleKey) {
             AppSettingsToggleKey.NOTIFICATION_DOTS -> onNotificationDotsCheckedChange(enabled)
             AppSettingsToggleKey.OVERLAY_MODE -> {
@@ -108,7 +116,6 @@ internal fun rememberRouteSettingActions(
 
     val onAppSettingClick: (AppSettingResult) -> Unit = appSettingClick@{ setting ->
         viewModel.trackRecentAppSettingTap(setting.id)
-        if (setting.action != AppSettingResultAction.NAVIGATE) return@appSettingClick
         setting.destination?.let { destination ->
             if (destination == AppSettingsDestination.SEARCH_RESULT_RANKING) {
                 onShowSecondaryRankingDialog()
@@ -138,5 +145,5 @@ internal fun rememberRouteSettingActions(
         }
     }
 
-    return RouteSettingActions(onAppSettingToggle, onAppSettingClick, activeDialog)
+    return RouteSettingActions(onAppSettingToggle, onAppSettingClick, activeDialog, onOpenAppSettingDestination)
 }

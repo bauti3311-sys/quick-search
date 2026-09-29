@@ -872,6 +872,7 @@
     <string name="custom_info_set_date_time">Datum en tijd instellen</string>
     <string name="custom_info_desc">AI-antwoorden op je prompts op het startscherm, op tijden die jij kiest</string>
     <string name="settings_ai_api_key_required_message">Deze functie vereist een API-sleutel van een AI-provider.</string>
+    <string name="settings_ai_api_key_required_title">API-sleutel vereist</string>
     <string name="settings_ai_api_key_setup_action">Sleutel instellen</string>
     <string name="custom_info_repeat_never">Niet herhalen</string>
     <string name="custom_info_repeat_every">Herhalen elke</string>

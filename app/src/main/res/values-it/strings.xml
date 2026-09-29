@@ -838,6 +838,7 @@
     <string name="custom_info_set_date_time">Imposta data e ora</string>
     <string name="custom_info_desc">Risposte IA ai tuoi prompt nella Home, agli orari che scegli</string>
     <string name="settings_ai_api_key_required_message">Questa funzione richiede la chiave API di un fornitore AI.</string>
+    <string name="settings_ai_api_key_required_title">Chiave API richiesta</string>
     <string name="settings_ai_api_key_setup_action">Configura chiave</string>
     <string name="custom_info_repeat_never">Non si ripete</string>
     <string name="custom_info_repeat_every">Ripeti ogni</string>

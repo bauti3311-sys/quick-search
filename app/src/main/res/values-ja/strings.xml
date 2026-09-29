@@ -847,6 +847,7 @@
     <string name="custom_info_set_date_time">日時を設定</string>
     <string name="custom_info_desc">選んだ時刻に、プロンプトへのAIの回答をホームに表示</string>
     <string name="settings_ai_api_key_required_message">この機能にはAIプロバイダーのAPIキーが必要です。</string>
+    <string name="settings_ai_api_key_required_title">APIキーが必要です</string>
     <string name="settings_ai_api_key_setup_action">キーを設定</string>
     <string name="custom_info_repeat_never">繰り返さない</string>
     <string name="custom_info_repeat_every">繰り返し間隔</string>

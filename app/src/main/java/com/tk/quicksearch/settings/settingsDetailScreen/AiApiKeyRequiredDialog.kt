@@ -15,6 +15,7 @@ internal fun AiApiKeyRequiredDialog(
 ) {
     AppAlertDialog(
         onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.settings_ai_api_key_required_title)) },
         text = { Text(stringResource(R.string.settings_ai_api_key_required_message)) },
         confirmButton = {
             TextButton(onClick = {

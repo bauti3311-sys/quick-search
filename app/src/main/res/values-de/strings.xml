@@ -839,6 +839,7 @@
     <string name="custom_info_set_date_time">Datum und Uhrzeit festlegen</string>
     <string name="custom_info_desc">KI-Antworten auf deine Prompts auf dem Startbildschirm, zu den von dir gewählten Zeiten</string>
     <string name="settings_ai_api_key_required_message">Diese Funktion erfordert einen AI-Anbieter-API-Schlüssel.</string>
+    <string name="settings_ai_api_key_required_title">API-Schlüssel erforderlich</string>
     <string name="settings_ai_api_key_setup_action">Schlüssel einrichten</string>
     <string name="custom_info_repeat_never">Keine Wiederholung</string>
     <string name="custom_info_repeat_every">Wiederholen alle</string>

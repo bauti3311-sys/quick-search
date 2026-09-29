@@ -116,6 +116,8 @@ enum class AppSettingsToggleKey {
     HOME_TEXT_COLOR,
     APPS_PER_ROW,
     APP_RESULT_ROWS,
+    CURRENCY_CONVERTER,
+    WORLD_CLOCK,
     DICTIONARY,
     WEATHER,
 }
@@ -130,10 +132,11 @@ data class AppSettingResult(
     val destination: AppSettingsDestination? = null,
     val toggleKey: AppSettingsToggleKey? = null,
 ) {
+    // TOGGLE rows may also carry a destination; see isNavigationToggle.
     init {
         require(
             (action == AppSettingResultAction.NAVIGATE && destination != null && toggleKey == null) ||
-                (action == AppSettingResultAction.TOGGLE && toggleKey != null && destination == null),
+                (action == AppSettingResultAction.TOGGLE && toggleKey != null),
         ) {
             "AppSettingResult action metadata is invalid for id=$id"
         }
@@ -144,4 +147,8 @@ data class AppSettingResult(
 
     val isNavigateAction: Boolean
         get() = action == AppSettingResultAction.NAVIGATE
+
+    /** A toggle row whose body opens [destination], like navigation+toggle rows in Settings. */
+    val isNavigationToggle: Boolean
+        get() = isToggleAction && destination != null
 }

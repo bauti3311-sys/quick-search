@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -25,6 +26,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.scale
@@ -233,7 +235,7 @@ internal fun AppSettingResultRow(
                 indication = null,
                 enabled = !isBlockedByLauncher && !isBackupSetting,
                 onClick = {
-                    if (setting.isNavigateAction) {
+                    if (setting.isNavigateAction || setting.isNavigationToggle) {
                         hapticConfirm(view)()
                         onClick(setting)
                     } else if (!isAppsPerRowSetting && !isAppResultRowsSetting && !setting.hasInlineControl) {
@@ -241,7 +243,7 @@ internal fun AppSettingResultRow(
                         onToggle(setting, !checked)
                     }
                 },
-                role = if (setting.isToggleAction && !isAppsPerRowSetting && !isAppResultRowsSetting && !setting.hasInlineControl) Role.Switch else null,
+                role = if (setting.isToggleAction && !setting.isNavigationToggle && !isAppsPerRowSetting && !isAppResultRowsSetting && !setting.hasInlineControl) Role.Switch else null,
             )
 
     Row(
@@ -364,6 +366,19 @@ internal fun AppSettingResultRow(
         } else if (isBackupSetting || setting.hasInlineControl) {
             Unit
         } else if (setting.isToggleAction) {
+            if (setting.isNavigationToggle) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = Icons.Rounded.ChevronRight,
+                        contentDescription = stringResource(R.string.desc_navigate_forward),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    VerticalDivider(
+                        modifier = Modifier.height(24.dp).padding(start = 8.dp),
+                        color = MaterialTheme.colorScheme.outlineVariant,
+                    )
+                }
+            }
             Switch(
                 checked = checked,
                 onCheckedChange = { enabled ->

@@ -151,6 +151,8 @@ internal fun SearchViewModel.applySettingsCommand(command: SettingsCommand) {
                 AppSettingsToggleKey.DEVICE_THEME -> setDeviceThemeEnabled(command.enabled)
                 AppSettingsToggleKey.AMOLED_THEME -> setAmoledThemeEnabled(command.enabled)
                 AppSettingsToggleKey.USE_SYSTEM_FONT -> setUseSystemFont(command.enabled)
+                AppSettingsToggleKey.CURRENCY_CONVERTER -> setCurrencyConverterEnabled(command.enabled)
+                AppSettingsToggleKey.WORLD_CLOCK -> setWorldClockEnabled(command.enabled)
                 AppSettingsToggleKey.DICTIONARY -> setDictionaryEnabled(command.enabled)
                 AppSettingsToggleKey.WEATHER -> setWeatherEnabled(command.enabled)
                 AppSettingsToggleKey.APPS_PER_ROW,
@@ -253,8 +255,11 @@ internal fun SearchUiState.isAppSettingToggleEnabled(toggleKey: AppSettingsToggl
         AppSettingsToggleKey.DEVICE_THEME -> deviceThemeEnabled
         AppSettingsToggleKey.AMOLED_THEME -> amoledThemeEnabled
         AppSettingsToggleKey.USE_SYSTEM_FONT -> useSystemFont
-        AppSettingsToggleKey.DICTIONARY -> dictionaryEnabled
-        AppSettingsToggleKey.WEATHER -> weatherEnabled
+        AppSettingsToggleKey.CURRENCY_CONVERTER -> currencyConverterEnabled
+        // AI-backed tools read as off without an API key, matching the Tools settings page.
+        AppSettingsToggleKey.WORLD_CLOCK -> worldClockEnabled && hasApiKey
+        AppSettingsToggleKey.DICTIONARY -> dictionaryEnabled && hasApiKey
+        AppSettingsToggleKey.WEATHER -> weatherEnabled && hasApiKey
         AppSettingsToggleKey.APPS_PER_ROW,
         AppSettingsToggleKey.APP_RESULT_ROWS,
         AppSettingsToggleKey.FONT_SIZE,

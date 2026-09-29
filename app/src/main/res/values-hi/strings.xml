@@ -839,6 +839,7 @@
     <string name="custom_info_set_date_time">तारीख और समय सेट करें</string>
     <string name="custom_info_desc">आपके चुने समय पर होम पर आपके प्रॉम्प्ट के AI जवाब</string>
     <string name="settings_ai_api_key_required_message">इस फ़ीचर के लिए AI provider API key आवश्यक है।</string>
+    <string name="settings_ai_api_key_required_title">API key आवश्यक है</string>
     <string name="settings_ai_api_key_setup_action">Key सेट करें</string>
     <string name="custom_info_repeat_never">दोहराया नहीं जाता</string>
     <string name="custom_info_repeat_every">दोहराने का अंतराल</string>

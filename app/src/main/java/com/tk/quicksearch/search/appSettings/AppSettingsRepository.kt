@@ -103,14 +103,7 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_at_a_glance_title,
                 descriptionRes = R.string.settings_at_a_glance_desc,
                 destination = AppSettingsDestination.AT_A_GLANCE,
-                keywords = listOf("today", "calendar", "events", "alarm", "reminders", "home", "media", "music", "playback", "birthday", "charging", "battery", "low battery", "timer", "stopwatch", "storage", "low storage", "disk space", "progress", "ongoing notifications", "live updates", "ride", "delivery", "download", "missed", "calls", "ongoing call", "otp", "one-time password", "verification code", "2fa", "sms code", "do not disturb", "dnd", "airplane", "flight", "hotspot", "tethering", "wifi", "wi-fi", "sign in", "captive portal", "hotel wifi", "flashlight", "torch", "weather", "temperature", "forecast", "weather alerts", "workout", "exercise", "fitness", "google health", "fitbit", "samsung health", "tomorrow"),
-            )
-            addNavigation(
-                id = "app_settings_custom_info",
-                titleRes = R.string.custom_info_title,
-                descriptionRes = R.string.custom_info_desc,
-                destination = AppSettingsDestination.AT_A_GLANCE,
-                keywords = listOf("ai", "prompt", "scheduled", "daily", "briefing", "recurring", "at a glance"),
+                keywords = listOf("today", "calendar", "events", "alarm", "reminders", "home", "media", "music", "playback", "birthday", "charging", "battery", "low battery", "timer", "stopwatch", "storage", "low storage", "disk space", "progress", "ongoing notifications", "live updates", "ride", "delivery", "download", "missed", "calls", "ongoing call", "otp", "one-time password", "verification code", "2fa", "sms code", "do not disturb", "dnd", "airplane", "flight", "hotspot", "tethering", "wifi", "wi-fi", "sign in", "captive portal", "hotel wifi", "flashlight", "torch", "weather", "temperature", "forecast", "weather alerts", "workout", "exercise", "fitness", "google health", "fitbit", "samsung health", "tomorrow", "custom info", "ai", "prompt", "scheduled", "daily", "briefing", "recurring"),
             )
             if (isTaskerInstalled()) {
                 addNavigation(
@@ -454,29 +447,25 @@ class AppSettingsRepository(
             addToggle(
                 id = "app_toggle_unit_converter",
                 titleRes = R.string.unit_converter_info_title,
-                descriptionRes = R.string.unit_converter_toggle_action_desc,
-                toggleKey = AppSettingsToggleKey.UNIT_CONVERTER,
-                keywords = listOf("conversion"),
-            )
-            addNavigation(
-                id = "app_nav_unit_converter_info",
-                titleRes = R.string.unit_converter_info_title,
                 descriptionRes = R.string.date_calculator_toggle_desc,
+                toggleKey = AppSettingsToggleKey.UNIT_CONVERTER,
                 destination = AppSettingsDestination.UNIT_CONVERTER_INFO,
                 keywords = listOf("conversion", "examples"),
             )
             addToggle(
                 id = "app_toggle_date_calculator",
                 titleRes = R.string.date_calculator_info_title,
-                descriptionRes = R.string.date_calculator_toggle_action_desc,
-                toggleKey = AppSettingsToggleKey.DATE_CALCULATOR,
-            )
-            addNavigation(
-                id = "app_nav_date_calculator_info",
-                titleRes = R.string.date_calculator_info_title,
                 descriptionRes = R.string.date_calculator_toggle_desc,
+                toggleKey = AppSettingsToggleKey.DATE_CALCULATOR,
                 destination = AppSettingsDestination.DATE_CALCULATOR_INFO,
                 keywords = listOf("examples"),
+            )
+            addToggle(
+                id = "app_toggle_currency_converter",
+                titleRes = R.string.currency_converter_toggle_title,
+                descriptionRes = R.string.currency_converter_toggle_desc,
+                toggleKey = AppSettingsToggleKey.CURRENCY_CONVERTER,
+                keywords = listOf("currency", "exchange rate", "money"),
             )
             addToggle(
                 id = "app_toggle_color_visualizer",
@@ -484,6 +473,13 @@ class AppSettingsRepository(
                 descriptionRes = R.string.color_visualizer_toggle_desc,
                 toggleKey = AppSettingsToggleKey.COLOR_VISUALIZER,
                 keywords = listOf("color", "colour", "hex", "rgb"),
+            )
+            addToggle(
+                id = "app_toggle_world_clock",
+                titleRes = R.string.world_clock_toggle_title,
+                descriptionRes = R.string.world_clock_toggle_desc,
+                toggleKey = AppSettingsToggleKey.WORLD_CLOCK,
+                keywords = listOf("time zone", "timezone"),
             )
             addToggle(
                 id = "app_toggle_dictionary",
@@ -716,6 +712,7 @@ class AppSettingsRepository(
         titleRes: Int,
         descriptionRes: Int? = null,
         toggleKey: AppSettingsToggleKey,
+        destination: AppSettingsDestination? = null,
         keywords: List<String> = emptyList(),
     ) {
         add(
@@ -725,6 +722,7 @@ class AppSettingsRepository(
                 description = descriptionRes?.let(context::getString),
                 keywords = keywords,
                 action = AppSettingResultAction.TOGGLE,
+                destination = destination,
                 toggleKey = toggleKey,
             ),
         )
