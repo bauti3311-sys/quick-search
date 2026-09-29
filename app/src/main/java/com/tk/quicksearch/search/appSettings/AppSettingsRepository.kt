@@ -131,11 +131,18 @@ class AppSettingsRepository(
                 )
             }
             addNavigation(
-                id = "app_settings_backup_restore",
-                titleRes = R.string.settings_backup_restore_title,
-                descriptionRes = R.string.settings_backup_restore_desc,
-                destination = AppSettingsDestination.BACKUP_RESTORE,
-                keywords = listOf("Backup", "Import", "Export"),
+                id = "app_settings_export_settings",
+                titleRes = R.string.settings_backup_export_title,
+                descriptionRes = R.string.settings_backup_export_desc,
+                destination = AppSettingsDestination.EXPORT_SETTINGS,
+                keywords = listOf("backup", "save"),
+            )
+            addNavigation(
+                id = "app_settings_import_settings",
+                titleRes = R.string.setup_import_button,
+                descriptionRes = R.string.settings_backup_import_warning_message,
+                destination = AppSettingsDestination.IMPORT_SETTINGS,
+                keywords = listOf("backup", "restore"),
             )
             addNavigation(
                 id = "app_settings_launch_options",
@@ -360,6 +367,19 @@ class AppSettingsRepository(
                 titleRes = R.string.settings_all_quick_search_features,
                 descriptionRes = R.string.settings_all_quick_search_features_desc,
                 destination = AppSettingsDestination.FEATURES_LIST,
+            )
+            addNavigation(
+                id = "app_settings_release_notes",
+                titleRes = R.string.settings_release_notes_title,
+                descriptionRes = R.string.settings_release_notes_desc,
+                destination = AppSettingsDestination.RELEASE_NOTES,
+                keywords = listOf("what's new", "changelog", "update", "version"),
+            )
+            addNavigation(
+                id = "app_settings_app_language",
+                titleRes = R.string.settings_app_language_title,
+                destination = AppSettingsDestination.APP_LANGUAGE,
+                keywords = listOf("locale", "translation", "translate"),
             )
             addNavigation(
                 id = "app_settings_create_note",

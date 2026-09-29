@@ -976,6 +976,8 @@
     <string name="release_notes_title_no_version">Quick Search – Versionshinweise</string>
     <string name="settings_backup_export_api_key_warning_message">Fortfahren auf eigene Gefahr. Die exportierten API-Schlüssel sind nicht verschlüsselt und können von jedem eingesehen werden, der Zugriff auf die Sicherungsdatei hat.</string>
     <string name="settings_backup_export_button">Exportieren</string>
+    <string name="settings_backup_export_title">Einstellungen exportieren</string>
+    <string name="settings_backup_export_desc">Einstellungen in einer Sicherungsdatei speichern</string>
     <string name="settings_backup_export_failed">Einstellungen konnten nicht exportiert werden.</string>
     <string name="settings_backup_export_option_pinned_items_title">Angeheftete Elemente</string>
     <string name="settings_backup_export_option_api_keys">API-Schlüssel</string>

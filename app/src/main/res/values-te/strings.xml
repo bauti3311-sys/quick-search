@@ -976,6 +976,8 @@
     <string name="release_notes_title_no_version">Quick Search రిలీజ్ నోట్స్</string>
     <string name="settings_backup_export_api_key_warning_message">మీ స్వంత రిస్క్‌తోనే కొనసాగండి. ఎగుమతి చేసిన API కీలు ఎన్‌క్రిప్ట్ చేయబడవు మరియు మీ బ్యాకప్ ఫైల్‌కు యాక్సెస్ ఉన్న ఎవరైనా వాటిని యాక్సెస్ చేయవచ్చు.</string>
     <string name="settings_backup_export_button">ఎగుమతి చేయి</string>
+    <string name="settings_backup_export_title">సెట్టింగ్‌లను ఎగుమతి చేయండి</string>
+    <string name="settings_backup_export_desc">మీ సెట్టింగ్‌లను బ్యాకప్ ఫైల్‌లో సేవ్ చేయండి</string>
     <string name="settings_backup_export_failed">సెట్టింగ్‌లను ఎగుమతి చేయడం సాధ్యపడలేదు.</string>
     <string name="settings_backup_export_option_pinned_items_title">పిన్ చేసిన అంశాలు</string>
     <string name="settings_backup_export_option_api_keys">API కీలు</string>

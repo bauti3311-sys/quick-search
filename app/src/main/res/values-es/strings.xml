@@ -976,6 +976,8 @@
     <string name="release_notes_title_no_version">Notas de la versión de Quick Search</string>
     <string name="settings_backup_export_api_key_warning_message">Procede bajo tu propio riesgo. Las claves API exportadas no están encriptadas y cualquier persona con acceso al archivo de respaldo podría verlas.</string>
     <string name="settings_backup_export_button">Exportar</string>
+    <string name="settings_backup_export_title">Exportar ajustes</string>
+    <string name="settings_backup_export_desc">Guarda tus ajustes en un archivo de copia de seguridad</string>
     <string name="settings_backup_export_failed">No se pudieron exportar los ajustes.</string>
     <string name="settings_backup_export_option_pinned_items_title">Elementos fijados</string>
     <string name="settings_backup_export_option_api_keys">Claves API</string>

@@ -996,6 +996,8 @@
 <string name="release_notes_title_no_version">Примечания к релизу Quick Search</string>
 <string name="settings_backup_export_api_key_warning_message">Вы действуете на свой страх и риск. Экспортируемые API-ключи не зашифрованы и могут быть доступны любому, у кого есть доступ к вашему файлу резервной копии.</string>
 <string name="settings_backup_export_button">Экспорт</string>
+<string name="settings_backup_export_title">Экспортировать настройки</string>
+<string name="settings_backup_export_desc">Сохранить настройки в файл резервной копии</string>
 <string name="settings_backup_export_failed">Не удалось экспортировать настройки.</string>
 <string name="settings_backup_export_option_pinned_items_title">Закрепленные элементы</string>
 <string name="settings_backup_export_option_api_keys">API-ключи</string>

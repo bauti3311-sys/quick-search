@@ -141,6 +141,22 @@ internal fun rememberRouteSettingActions(
                 activeDialog.value = AppSettingRouteDialog.AI_MODEL
                 return@appSettingClick
             }
+            if (destination == AppSettingsDestination.EXPORT_SETTINGS) {
+                activeDialog.value = AppSettingRouteDialog.EXPORT_SETTINGS
+                return@appSettingClick
+            }
+            if (destination == AppSettingsDestination.IMPORT_SETTINGS) {
+                activeDialog.value = AppSettingRouteDialog.IMPORT_SETTINGS
+                return@appSettingClick
+            }
+            if (destination == AppSettingsDestination.APP_LANGUAGE) {
+                activeDialog.value = AppSettingRouteDialog.APP_LANGUAGE
+                return@appSettingClick
+            }
+            if (destination == AppSettingsDestination.RELEASE_NOTES) {
+                viewModel.showReleaseNotes()
+                return@appSettingClick
+            }
             destination.toGestureSettingTargetOrNull()?.let { target ->
                 activeGestureDialog.value = target
                 return@appSettingClick

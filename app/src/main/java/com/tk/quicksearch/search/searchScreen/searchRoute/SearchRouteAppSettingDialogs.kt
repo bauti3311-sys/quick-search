@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
 import com.tk.quicksearch.search.core.SearchUiState
 import com.tk.quicksearch.search.core.SearchViewModel
 import com.tk.quicksearch.search.appSettings.AppSettingsDestination
@@ -13,7 +14,11 @@ import com.tk.quicksearch.settings.settingsDetailScreen.GestureSettingsDialogs
 import com.tk.quicksearch.settings.settingsDetailScreen.PriorityReorderDialog
 import com.tk.quicksearch.settings.settingsDetailScreen.rememberGestureSettingsState
 import com.tk.quicksearch.settings.shared.SettingsCommand
+import com.tk.quicksearch.settings.settingsScreen.AppLanguagePickerDialog
+import com.tk.quicksearch.settings.settingsScreen.SettingsBackupFlow
+import com.tk.quicksearch.settings.settingsScreen.SettingsBackupRequest
 import com.tk.quicksearch.settings.shared.applySettingsCommand
+import com.tk.quicksearch.shared.util.AppLanguageManager
 import com.tk.quicksearch.shared.featureFlags.FeatureFlags
 import com.tk.quicksearch.tools.aiSearch.ModelPickerDialog
 
@@ -23,6 +28,9 @@ internal enum class AppSettingRouteDialog {
     APP_SUGGESTION_TABS,
     API_KEY_REQUIRED,
     AI_MODEL,
+    APP_LANGUAGE,
+    EXPORT_SETTINGS,
+    IMPORT_SETTINGS,
 }
 
 @Composable
@@ -85,8 +93,36 @@ internal fun AppSettingRouteDialogs(
                 configuredProviderIds = uiState.llmApiKeyLast4ByProvider.keys,
             )
         }
-        null -> Unit
+        AppSettingRouteDialog.APP_LANGUAGE -> {
+            val context = LocalContext.current
+            val languageOptions = remember(context) { AppLanguageManager.getAvailableLanguages(context) }
+            AppLanguagePickerDialog(
+                selectedLanguageTag = AppLanguageManager.getSelectedLanguageTag(context),
+                languageOptions = languageOptions,
+                onDismiss = onDismiss,
+                onLanguageSelected = { languageTag ->
+                    onDismiss()
+                    AppLanguageManager.setAppLanguage(context, languageTag)
+                },
+            )
+        }
+        AppSettingRouteDialog.EXPORT_SETTINGS,
+        AppSettingRouteDialog.IMPORT_SETTINGS,
+        null,
+        -> Unit
     }
+
+    // Composed outside the dialog switch so the import picker result survives dismissal.
+    SettingsBackupFlow(
+        request =
+            when (activeDialog.value) {
+                AppSettingRouteDialog.EXPORT_SETTINGS -> SettingsBackupRequest.EXPORT
+                AppSettingRouteDialog.IMPORT_SETTINGS -> SettingsBackupRequest.IMPORT
+                else -> null
+            },
+        onRequestHandled = onDismiss,
+        onSettingsImported = viewModel::onSettingsImported,
+    )
 
     settingActions.activeGestureDialog.value?.let { target ->
         // Keyed so tapping another gesture row starts a fresh dialog chain.

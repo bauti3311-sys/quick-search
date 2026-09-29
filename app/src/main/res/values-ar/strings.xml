@@ -977,6 +977,8 @@
     <string name="release_notes_title_no_version">ملاحظات إصدار Quick Search</string>
     <string name="settings_backup_export_api_key_warning_message">المضي قدماً على مسؤوليتك الخاصة. مفاتيح API المصدرة لن تكون مشفرة ويمكن لأي شخص لديه وصول لملف النسخ الاحتياطي رؤيتها.</string>
     <string name="settings_backup_export_button">تصدير</string>
+    <string name="settings_backup_export_title">تصدير الإعدادات</string>
+    <string name="settings_backup_export_desc">احفظ إعداداتك في ملف نسخة احتياطية</string>
     <string name="settings_backup_export_failed">تعذر تصدير الإعدادات.</string>
     <string name="settings_backup_export_option_pinned_items_title">العناصر المثبتة</string>
     <string name="settings_backup_export_option_api_keys">مفاتيح API</string>

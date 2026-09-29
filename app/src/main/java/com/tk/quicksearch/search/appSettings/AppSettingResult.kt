@@ -65,7 +65,10 @@ enum class AppSettingsDestination {
     GESTURE_OPEN_KEYBOARD,
     GESTURE_CLOSE_KEYBOARD,
     AI_MODEL,
-    BACKUP_RESTORE,
+    EXPORT_SETTINGS,
+    IMPORT_SETTINGS,
+    APP_LANGUAGE,
+    RELEASE_NOTES,
 }
 
 enum class AppSettingsToggleKey {

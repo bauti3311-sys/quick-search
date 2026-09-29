@@ -28,6 +28,7 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.Alignment
@@ -51,9 +52,9 @@ import com.tk.quicksearch.search.searchScreen.components.ExpandableResultsCard
 import com.tk.quicksearch.search.searchScreen.components.topPredictedRowContainer
 import com.tk.quicksearch.search.searchScreen.components.topPredictedRowContentPadding
 import com.tk.quicksearch.search.searchScreen.components.rememberQueryHighlightedText
-import com.tk.quicksearch.settings.settingsScreen.SettingsBackupButtons
 import com.tk.quicksearch.shared.ui.theme.AppColors
 import com.tk.quicksearch.shared.ui.theme.DesignTokens
+import com.tk.quicksearch.shared.util.AppLanguageManager
 import com.tk.quicksearch.shared.util.hapticConfirm
 import com.tk.quicksearch.shared.util.isDefaultHomeApp
 import com.tk.quicksearch.shared.util.hapticToggle
@@ -209,7 +210,6 @@ internal fun AppSettingResultRow(
     val isWebSuggestionsToggle = setting.toggleKey == AppSettingsToggleKey.WEB_SUGGESTIONS
     val isAppsPerRowSetting = setting.toggleKey == AppSettingsToggleKey.APPS_PER_ROW
     val isAppResultRowsSetting = setting.toggleKey == AppSettingsToggleKey.APP_RESULT_ROWS
-    val isBackupSetting = setting.destination == AppSettingsDestination.BACKUP_RESTORE
     val context = LocalContext.current
     val isDefaultLauncher = context.isDefaultHomeApp()
     val isOverlayBlockedByLauncher =
@@ -220,6 +220,10 @@ internal fun AppSettingResultRow(
     val effectiveDescription =
         if (isBlockedByLauncher) {
             stringResource(R.string.settings_overlay_mode_desc_launcher_blocked)
+        } else if (setting.destination == AppSettingsDestination.APP_LANGUAGE) {
+            val selectedLanguageLabel =
+                remember(context) { AppLanguageManager.getSelectedLanguageLabel(context) }
+            stringResource(R.string.settings_app_language_desc, selectedLanguageLabel)
         } else {
             setting.description
         }
@@ -233,7 +237,7 @@ internal fun AppSettingResultRow(
             .combinedClickable(
                 interactionSource = null,
                 indication = null,
-                enabled = !isBlockedByLauncher && !isBackupSetting,
+                enabled = !isBlockedByLauncher,
                 onClick = {
                     if (setting.isNavigateAction || setting.isNavigationToggle) {
                         hapticConfirm(view)()
@@ -290,13 +294,6 @@ internal fun AppSettingResultRow(
                     },
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
-                )
-            }
-
-            if (isBackupSetting) {
-                SettingsBackupButtons(
-                    onSettingsImported = LocalOnSettingsImported.current,
-                    modifier = Modifier.fillMaxWidth().padding(top = 8.dp, end = 6.dp),
                 )
             }
 
@@ -370,7 +367,7 @@ internal fun AppSettingResultRow(
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(end = 6.dp),
             )
-        } else if (isBackupSetting || setting.hasInlineControl) {
+        } else if (setting.hasInlineControl) {
             Unit
         } else if (setting.isToggleAction) {
             if (setting.isNavigationToggle) {
