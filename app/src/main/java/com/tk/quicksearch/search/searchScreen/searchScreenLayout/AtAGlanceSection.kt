@@ -27,7 +27,7 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
 /**
  * One row of the home At a Glance card. Today's calendar events are hosted by the calendar card
  * itself; every other glanceable source (ongoing calls, one-time codes, timers, alarm, reminders, missed calls,
- * battery, Wi-Fi sign-in, progress notifications, workouts, weather, birthdays, tomorrow's events, Custom Info,
+ * App notifications, battery, Wi-Fi sign-in, progress notifications, workouts, weather, birthdays, tomorrow's events, Custom Info,
  * Do Not Disturb, airplane mode, hotspot, flashlight, storage, and future ones) contributes rows here.
  * Rows sit inside the card's inset and follow CalendarEventRow: 7dp before a 24dp icon, then 12dp
  * to the text.
@@ -62,6 +62,7 @@ internal fun rememberAtAGlanceItems(
     val hotspot = rememberHotspotGlance(enabled)
     val tomorrowEvents = rememberTomorrowEventsGlance(enabled)
     val customInfo = rememberCustomInfoGlance(enabled)
+    val appNotifications = rememberAppNotificationsGlance(enabled, excludedKeys = setOfNotNull(notifications.otp?.key))
     // Most time-critical first: live and expiring items, then things due soon, then what needs a
     // look, then today's and tomorrow's context, and the passive device states last.
     val groups =
@@ -96,6 +97,18 @@ internal fun rememberAtAGlanceItems(
                     AtAGlanceItem(key = "missed-calls") { MissedCallsRow(calls, notifications.dismissMissedCalls) }
                 },
             ),
+            appNotifications?.let { glance ->
+                glance.visible.map { notification ->
+                    AtAGlanceItem(key = "app-notification-${notification.key}") {
+                        AppNotificationRow(notification, glance.nowMillis)
+                    }
+                } +
+                    listOfNotNull(
+                        glance.takeIf { it.hiddenCount > 0 }?.let {
+                            AtAGlanceItem(key = "app-notifications-more") { ShowMoreAppNotificationsRow(it) }
+                        },
+                    )
+            }.orEmpty(),
             listOfNotNull(battery.lowBattery?.let { AtAGlanceItem(key = "low-battery") { LowBatteryRow(it) } }),
             listOfNotNull(wifiSignIn?.let { AtAGlanceItem(key = "wifi-sign-in") { WifiSignInRow(it) } }),
             notifications.progress.map { progress ->

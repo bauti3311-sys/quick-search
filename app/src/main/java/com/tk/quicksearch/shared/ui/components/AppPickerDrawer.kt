@@ -15,7 +15,10 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.Android
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Close
@@ -37,6 +40,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -51,12 +55,16 @@ import com.tk.quicksearch.shared.ui.theme.DesignTokens
  *
  * @param autoFocus Focuses the field and opens the keyboard once the drawer has opened. Use it
  *   when the list is empty until the user types.
+ * @param onSubmit Turns the field into an entry field: it shows an add icon instead of the search
+ *   icon, uses [DesignTokens.ShapeLarge] corners instead of a pill, and the keyboard's Done key
+ *   submits the typed text.
  */
 class AppPickerDrawerSearch(
     val query: TextFieldValue,
     val onQueryChange: (TextFieldValue) -> Unit,
     val placeholder: String? = null,
     val autoFocus: Boolean = false,
+    val onSubmit: ((String) -> Unit)? = null,
 )
 
 /**
@@ -67,6 +75,7 @@ class AppPickerDrawerSearch(
  * With a [search] field the drawer opens at a fixed height so it doesn't jump while results
  * change; without one it wraps short lists.
  *
+ * @param titleIcon Shown before [title], such as the app's icon.
  * @param header Shown between the search field and [content], such as filter chips or a note.
  * @param footer Pinned below [content], such as an option that applies to the whole list.
  * @param onDismissStarted Called as soon as the drawer starts closing.
@@ -79,6 +88,7 @@ fun AppPickerDrawer(
     search: AppPickerDrawerSearch? = null,
     dismissOnClickOutside: Boolean = true,
     onDismissStarted: (() -> Unit)? = null,
+    titleIcon: (@Composable () -> Unit)? = null,
     header: (@Composable ColumnScope.() -> Unit)? = null,
     footer: (@Composable ColumnScope.() -> Unit)? = null,
     content: @Composable BoxScope.(dismiss: () -> Unit) -> Unit,
@@ -132,6 +142,7 @@ fun AppPickerDrawer(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
             ) {
+                titleIcon?.invoke()
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
@@ -174,12 +185,16 @@ private fun AppPickerDrawerSearchField(
         value = search.query,
         onValueChange = search.onQueryChange,
         modifier = Modifier.fillMaxWidth().focusRequester(focusRequester),
-        shape = RoundedCornerShape(50.dp),
+        shape = if (search.onSubmit != null) DesignTokens.ShapeLarge else RoundedCornerShape(50.dp),
         leadingIcon = {
-            Icon(
-                imageVector = Icons.Rounded.Search,
-                contentDescription = stringResource(R.string.common_search),
-            )
+            if (search.onSubmit != null) {
+                Icon(imageVector = Icons.Rounded.Add, contentDescription = null)
+            } else {
+                Icon(
+                    imageVector = Icons.Rounded.Search,
+                    contentDescription = stringResource(R.string.common_search),
+                )
+            }
         },
         trailingIcon = {
             if (search.query.text.isNotBlank()) {
@@ -203,6 +218,11 @@ private fun AppPickerDrawerSearchField(
                 }
             },
         singleLine = true,
+        keyboardOptions =
+            if (search.onSubmit != null) KeyboardOptions(imeAction = ImeAction.Done) else KeyboardOptions.Default,
+        keyboardActions =
+            search.onSubmit?.let { submit -> KeyboardActions(onDone = { submit(search.query.text) }) }
+                ?: KeyboardActions.Default,
         colors =
             dialogTextFieldColors().copy(
                 focusedIndicatorColor = Color.Transparent,

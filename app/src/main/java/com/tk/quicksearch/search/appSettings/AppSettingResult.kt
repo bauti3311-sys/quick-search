@@ -19,6 +19,7 @@ enum class AppSettingsDestination {
     SEARCH_ENGINES,
     TOOLS,
     AT_A_GLANCE,
+    APP_NOTIFICATIONS,
     TASKER_INTEGRATION,
     LAUNCH_OPTIONS,
     EDGE_GESTURE,
@@ -131,6 +132,7 @@ enum class AppSettingsToggleKey {
     WORLD_CLOCK,
     DICTIONARY,
     WEATHER,
+    APP_NOTIFICATIONS,
 }
 
 data class AppSettingResult(

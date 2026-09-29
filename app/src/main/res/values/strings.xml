@@ -611,7 +611,7 @@
          Notes
          ============================================================================ -->
     <string name="app_settings_search_create_note_desc">Start a new note in the editor</string>
-    <string name="app_settings_search_create_note_title">Create note</string>
+    <string name="app_settings_search_create_note_title">Create Note</string>
     <string name="notes_body_hint">Write your note here</string>
     <string name="notes_create_note_cta">New Note</string>
     <string name="notes_delete_confirm_message">This note will be permanently deleted.</string>
@@ -875,6 +875,32 @@
     <string name="settings_at_a_glance_workouts_title">Workouts</string>
     <string name="settings_at_a_glance_workouts_desc">Workout live status from Google Health and Samsung Health</string>
     <string name="settings_at_a_glance_weather_desc">Current conditions and alerts from your weather app\'s notifications</string>
+    <string name="settings_at_a_glance_app_notifications_title">App Notifications</string>
+    <string name="settings_at_a_glance_app_notifications_desc">Notifications based on selected apps or keywords</string>
+    <string name="settings_at_a_glance_app_notifications_summary">Apps: %1$d · Keywords: %2$d</string>
+    <string name="app_notifications_intro">Matching notifications will show up in At a Glance until you dismiss them</string>
+    <string name="app_notifications_any_app">Any App</string>
+    <string name="app_notifications_add_app">Add App</string>
+    <string name="app_notifications_all_from_app">All notifications</string>
+    <string name="app_notifications_no_matches">No recent notifications matched your criteria</string>
+    <string name="app_notifications_remove_app">Remove %1$s</string>
+    <string name="app_notifications_keyword_placeholder">Add any word or phrase</string>
+    <string name="app_notifications_keywords_intro">Notifications containing these words or phrases will appear in home screen</string>
+    <string name="app_notifications_keywords_intro_app">Notifications from %1$s containing these words or phrases will appear in home screen</string>
+    <string name="app_notifications_want_all">I want all notifications</string>
+    <string name="app_notifications_add_keyword">Add “%1$s”</string>
+    <string name="app_notifications_recent_matches">Recent Matches</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d hr</item>
+        <item quantity="other">%d hrs</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">Choose App</string>
+    <string name="app_notifications_search_apps">Search apps</string>
+    <string name="home_app_notifications_more">Show %1$d more</string>
     <string name="settings_at_a_glance_dnd_desc">When Do Not Disturb is on</string>
     <string name="settings_at_a_glance_airplane_desc">When airplane mode is on</string>
     <string name="settings_at_a_glance_hotspot_desc">When your hotspot is on</string>

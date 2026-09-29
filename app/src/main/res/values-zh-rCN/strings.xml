@@ -866,6 +866,30 @@
     <string name="settings_at_a_glance_workouts_title">锻炼</string>
     <string name="settings_at_a_glance_workouts_desc">来自 Google Health 和 Samsung Health 的锻炼实时状态</string>
     <string name="settings_at_a_glance_weather_desc">来自天气应用通知的当前天气和预警</string>
+    <string name="settings_at_a_glance_app_notifications_title">应用通知</string>
+    <string name="settings_at_a_glance_app_notifications_desc">基于所选应用或关键词的通知</string>
+    <string name="settings_at_a_glance_app_notifications_summary">应用：%1$d · 关键词：%2$d</string>
+    <string name="app_notifications_intro">匹配的通知会显示在“一览”中，直到你将其关闭</string>
+    <string name="app_notifications_any_app">任意应用</string>
+    <string name="app_notifications_add_app">添加应用</string>
+    <string name="app_notifications_all_from_app">所有通知</string>
+    <string name="app_notifications_no_matches">没有符合条件的近期通知</string>
+    <string name="app_notifications_remove_app">移除%1$s</string>
+    <string name="app_notifications_keyword_placeholder">添加任意字词或短语</string>
+    <string name="app_notifications_keywords_intro">包含这些字词或短语的通知将显示在主屏幕上</string>
+    <string name="app_notifications_keywords_intro_app">来自 %1$s 且包含这些字词或短语的通知将显示在主屏幕上</string>
+    <string name="app_notifications_want_all">我想要所有通知</string>
+    <string name="app_notifications_add_keyword">添加“%1$s”</string>
+    <string name="app_notifications_recent_matches">最近匹配</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="other">%d分钟</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="other">%d小时</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">选择应用</string>
+    <string name="app_notifications_search_apps">搜索应用</string>
+    <string name="home_app_notifications_more">再显示 %1$d 条</string>
     <string name="settings_at_a_glance_dnd_desc">开启请勿打扰时</string>
     <string name="settings_at_a_glance_airplane_desc">开启飞行模式时</string>
     <string name="settings_at_a_glance_hotspot_desc">开启热点时</string>

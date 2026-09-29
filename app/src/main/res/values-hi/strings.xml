@@ -876,6 +876,32 @@
     <string name="settings_at_a_glance_workouts_title">वर्कआउट</string>
     <string name="settings_at_a_glance_workouts_desc">Google Health और Samsung Health से वर्कआउट की लाइव स्थिति</string>
     <string name="settings_at_a_glance_weather_desc">आपके मौसम ऐप की सूचनाओं से मौजूदा मौसम और अलर्ट</string>
+    <string name="settings_at_a_glance_app_notifications_title">ऐप सूचनाएं</string>
+    <string name="settings_at_a_glance_app_notifications_desc">चुने गए ऐप्स या कीवर्ड के आधार पर सूचनाएँ</string>
+    <string name="settings_at_a_glance_app_notifications_summary">ऐप्स: %1$d · कीवर्ड: %2$d</string>
+    <string name="app_notifications_intro">मेल खाने वाली सूचनाएँ एक नज़र में तब तक दिखेंगी जब तक आप उन्हें खारिज नहीं करते</string>
+    <string name="app_notifications_any_app">कोई भी ऐप</string>
+    <string name="app_notifications_add_app">ऐप जोड़ें</string>
+    <string name="app_notifications_all_from_app">सभी सूचनाएं</string>
+    <string name="app_notifications_no_matches">कोई भी हाल की सूचना आपके मानदंडों से मेल नहीं खाई</string>
+    <string name="app_notifications_remove_app">%1$s हटाएं</string>
+    <string name="app_notifications_keyword_placeholder">कोई भी शब्द या वाक्यांश जोड़ें</string>
+    <string name="app_notifications_keywords_intro">इन शब्दों या वाक्यांशों वाली सूचनाएँ होम स्क्रीन पर दिखेंगी</string>
+    <string name="app_notifications_keywords_intro_app">%1$s की इन शब्दों या वाक्यांशों वाली सूचनाएँ होम स्क्रीन पर दिखेंगी</string>
+    <string name="app_notifications_want_all">मुझे सभी सूचनाएं चाहिए</string>
+    <string name="app_notifications_add_keyword">“%1$s” जोड़ें</string>
+    <string name="app_notifications_recent_matches">हाल के मिलान</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d मिनट</item>
+        <item quantity="other">%d मिनट</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d घंटा</item>
+        <item quantity="other">%d घंटे</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">ऐप चुनें</string>
+    <string name="app_notifications_search_apps">ऐप्स खोजें</string>
+    <string name="home_app_notifications_more">%1$d और दिखाएं</string>
     <string name="settings_at_a_glance_dnd_desc">जब डू नॉट डिस्टर्ब चालू हो</string>
     <string name="settings_at_a_glance_airplane_desc">जब विमान मोड चालू हो</string>
     <string name="settings_at_a_glance_hotspot_desc">जब आपका हॉटस्पॉट चालू हो</string>

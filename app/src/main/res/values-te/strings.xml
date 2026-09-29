@@ -876,6 +876,32 @@
     <string name="settings_at_a_glance_workouts_title">వర్కౌట్‌లు</string>
     <string name="settings_at_a_glance_workouts_desc">Google Health మరియు Samsung Health నుండి వర్కౌట్ లైవ్ స్థితి</string>
     <string name="settings_at_a_glance_weather_desc">మీ వాతావరణ యాప్ నోటిఫికేషన్‌ల నుండి ప్రస్తుత పరిస్థితులు మరియు హెచ్చరికలు</string>
+    <string name="settings_at_a_glance_app_notifications_title">యాప్ నోటిఫికేషన్‌లు</string>
+    <string name="settings_at_a_glance_app_notifications_desc">ఎంచుకున్న యాప్‌లు లేదా కీవర్డ్‌ల ఆధారంగా నోటిఫికేషన్‌లు</string>
+    <string name="settings_at_a_glance_app_notifications_summary">యాప్‌లు: %1$d · కీవర్డ్‌లు: %2$d</string>
+    <string name="app_notifications_intro">సరిపోలే నోటిఫికేషన్‌లు మీరు తీసివేసే వరకు ఒక్క చూపులో కనిపిస్తాయి</string>
+    <string name="app_notifications_any_app">ఏ యాప్ అయినా</string>
+    <string name="app_notifications_add_app">యాప్ జోడించండి</string>
+    <string name="app_notifications_all_from_app">అన్ని నోటిఫికేషన్‌లు</string>
+    <string name="app_notifications_no_matches">మీ ప్రమాణాలకు సరిపోలే ఇటీవలి నోటిఫికేషన్‌లు ఏవీ లేవు</string>
+    <string name="app_notifications_remove_app">%1$sను తీసివేయండి</string>
+    <string name="app_notifications_keyword_placeholder">ఏదైనా పదం లేదా పదబంధం జోడించండి</string>
+    <string name="app_notifications_keywords_intro">ఈ పదాలు లేదా పదబంధాలు ఉన్న నోటిఫికేషన్‌లు హోమ్ స్క్రీన్‌లో కనిపిస్తాయి</string>
+    <string name="app_notifications_keywords_intro_app">ఈ పదాలు లేదా పదబంధాలు ఉన్న %1$s నోటిఫికేషన్‌లు హోమ్ స్క్రీన్‌లో కనిపిస్తాయి</string>
+    <string name="app_notifications_want_all">నాకు అన్ని నోటిఫికేషన్‌లు కావాలి</string>
+    <string name="app_notifications_add_keyword">“%1$s” జోడించండి</string>
+    <string name="app_notifications_recent_matches">ఇటీవలి సరిపోలికలు</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d నిమి</item>
+        <item quantity="other">%d నిమి</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d గం</item>
+        <item quantity="other">%d గం</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">యాప్‌ను ఎంచుకోండి</string>
+    <string name="app_notifications_search_apps">యాప్‌లను వెతకండి</string>
+    <string name="home_app_notifications_more">మరో %1$d చూపించు</string>
     <string name="settings_at_a_glance_dnd_desc">అభ్యంతర పెట్టవద్దు ఆన్‌లో ఉన్నప్పుడు</string>
     <string name="settings_at_a_glance_airplane_desc">ఏరోప్లేన్ మోడ్ ఆన్‌లో ఉన్నప్పుడు</string>
     <string name="settings_at_a_glance_hotspot_desc">మీ హాట్‌స్పాట్ ఆన్‌లో ఉన్నప్పుడు</string>

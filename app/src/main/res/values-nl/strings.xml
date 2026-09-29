@@ -909,6 +909,32 @@
     <string name="settings_at_a_glance_workouts_title">Workouts</string>
     <string name="settings_at_a_glance_workouts_desc">Livestatus van je workout uit Google Health en Samsung Health</string>
     <string name="settings_at_a_glance_weather_desc">Huidige omstandigheden en waarschuwingen uit de meldingen van je weer-app</string>
+    <string name="settings_at_a_glance_app_notifications_title">App-meldingen</string>
+    <string name="settings_at_a_glance_app_notifications_desc">Meldingen op basis van geselecteerde apps of trefwoorden</string>
+    <string name="settings_at_a_glance_app_notifications_summary">Apps: %1$d · Trefwoorden: %2$d</string>
+    <string name="app_notifications_intro">Overeenkomende meldingen worden getoond in In één oogopslag totdat je ze sluit</string>
+    <string name="app_notifications_any_app">Elke app</string>
+    <string name="app_notifications_add_app">App toevoegen</string>
+    <string name="app_notifications_all_from_app">Alle meldingen</string>
+    <string name="app_notifications_no_matches">Geen recente meldingen komen overeen met je criteria</string>
+    <string name="app_notifications_remove_app">%1$s verwijderen</string>
+    <string name="app_notifications_keyword_placeholder">Voeg een woord of zin toe</string>
+    <string name="app_notifications_keywords_intro">Meldingen met deze woorden of zinnen verschijnen op het startscherm</string>
+    <string name="app_notifications_keywords_intro_app">Meldingen van %1$s met deze woorden of zinnen verschijnen op het startscherm</string>
+    <string name="app_notifications_want_all">Ik wil alle meldingen</string>
+    <string name="app_notifications_add_keyword">“%1$s” toevoegen</string>
+    <string name="app_notifications_recent_matches">Recente overeenkomsten</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d uur</item>
+        <item quantity="other">%d uur</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">App kiezen</string>
+    <string name="app_notifications_search_apps">Apps zoeken</string>
+    <string name="home_app_notifications_more">Nog %1$d tonen</string>
     <string name="settings_at_a_glance_dnd_desc">Als Niet storen aan staat</string>
     <string name="settings_at_a_glance_airplane_desc">Als vliegtuigmodus aan staat</string>
     <string name="settings_at_a_glance_hotspot_desc">Als je hotspot aan staat</string>

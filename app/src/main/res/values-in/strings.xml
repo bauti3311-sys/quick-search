@@ -880,6 +880,30 @@
     <string name="settings_at_a_glance_workouts_title">Olahraga</string>
     <string name="settings_at_a_glance_workouts_desc">Status langsung olahraga dari Google Health dan Samsung Health</string>
     <string name="settings_at_a_glance_weather_desc">Kondisi saat ini dan peringatan dari notifikasi aplikasi cuaca</string>
+    <string name="settings_at_a_glance_app_notifications_title">Notifikasi aplikasi</string>
+    <string name="settings_at_a_glance_app_notifications_desc">Notifikasi berdasarkan aplikasi atau kata kunci yang dipilih</string>
+    <string name="settings_at_a_glance_app_notifications_summary">Aplikasi: %1$d · Kata kunci: %2$d</string>
+    <string name="app_notifications_intro">Notifikasi yang cocok akan muncul di Sekilas hingga Anda menutupnya</string>
+    <string name="app_notifications_any_app">Aplikasi apa pun</string>
+    <string name="app_notifications_add_app">Tambah aplikasi</string>
+    <string name="app_notifications_all_from_app">Semua notifikasi</string>
+    <string name="app_notifications_no_matches">Tidak ada notifikasi terbaru yang cocok dengan kriteria Anda</string>
+    <string name="app_notifications_remove_app">Hapus %1$s</string>
+    <string name="app_notifications_keyword_placeholder">Tambahkan kata atau frasa apa pun</string>
+    <string name="app_notifications_keywords_intro">Notifikasi yang berisi kata atau frasa ini akan muncul di layar utama</string>
+    <string name="app_notifications_keywords_intro_app">Notifikasi dari %1$s yang berisi kata atau frasa ini akan muncul di layar utama</string>
+    <string name="app_notifications_want_all">Saya ingin semua notifikasi</string>
+    <string name="app_notifications_add_keyword">Tambahkan “%1$s”</string>
+    <string name="app_notifications_recent_matches">Kecocokan terbaru</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="other">%d mnt</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="other">%d jam</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">Pilih aplikasi</string>
+    <string name="app_notifications_search_apps">Cari aplikasi</string>
+    <string name="home_app_notifications_more">Tampilkan %1$d lagi</string>
     <string name="settings_at_a_glance_dnd_desc">Saat Jangan Ganggu aktif</string>
     <string name="settings_at_a_glance_airplane_desc">Saat Mode Pesawat aktif</string>
     <string name="settings_at_a_glance_hotspot_desc">Saat hotspot Anda aktif</string>

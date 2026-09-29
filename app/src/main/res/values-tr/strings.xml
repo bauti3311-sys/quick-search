@@ -875,6 +875,32 @@
     <string name="settings_at_a_glance_workouts_title">Antrenmanlar</string>
     <string name="settings_at_a_glance_workouts_desc">Google Health ve Samsung Health\'ten canlı antrenman durumu</string>
     <string name="settings_at_a_glance_weather_desc">Hava durumu uygulamanızın bildirimlerinden anlık durum ve uyarılar</string>
+    <string name="settings_at_a_glance_app_notifications_title">Uygulama bildirimleri</string>
+    <string name="settings_at_a_glance_app_notifications_desc">Seçili uygulamalara veya anahtar kelimelere göre bildirimler</string>
+    <string name="settings_at_a_glance_app_notifications_summary">Uygulamalar: %1$d · Anahtar kelimeler: %2$d</string>
+    <string name="app_notifications_intro">Eşleşen bildirimler siz kapatana kadar Bir Bakışta bölümünde görünür</string>
+    <string name="app_notifications_any_app">Herhangi bir uygulama</string>
+    <string name="app_notifications_add_app">Uygulama ekle</string>
+    <string name="app_notifications_all_from_app">Tüm bildirimler</string>
+    <string name="app_notifications_no_matches">Ölçütlerinize uyan yakın tarihli bildirim yok</string>
+    <string name="app_notifications_remove_app">%1$s kaldır</string>
+    <string name="app_notifications_keyword_placeholder">Herhangi bir kelime veya ifade ekleyin</string>
+    <string name="app_notifications_keywords_intro">Bu kelimeleri veya ifadeleri içeren bildirimler ana ekranda görünür</string>
+    <string name="app_notifications_keywords_intro_app">%1$s uygulamasından bu kelimeleri veya ifadeleri içeren bildirimler ana ekranda görünür</string>
+    <string name="app_notifications_want_all">Tüm bildirimleri istiyorum</string>
+    <string name="app_notifications_add_keyword">“%1$s” ekle</string>
+    <string name="app_notifications_recent_matches">Son eşleşmeler</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d dk</item>
+        <item quantity="other">%d dk</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d sa</item>
+        <item quantity="other">%d sa</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">Uygulama seç</string>
+    <string name="app_notifications_search_apps">Uygulama ara</string>
+    <string name="home_app_notifications_more">%1$d tane daha göster</string>
     <string name="settings_at_a_glance_dnd_desc">Rahatsız etmeyin açıkken</string>
     <string name="settings_at_a_glance_airplane_desc">Uçak modu açıkken</string>
     <string name="settings_at_a_glance_hotspot_desc">Hotspot açıkken</string>

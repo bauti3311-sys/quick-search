@@ -896,6 +896,36 @@
     <string name="settings_at_a_glance_workouts_title">Тренировки</string>
     <string name="settings_at_a_glance_workouts_desc">Статус тренировки в реальном времени из Google Health и Samsung Health</string>
     <string name="settings_at_a_glance_weather_desc">Текущая погода и предупреждения из уведомлений приложения погоды</string>
+    <string name="settings_at_a_glance_app_notifications_title">Уведомления приложений</string>
+    <string name="settings_at_a_glance_app_notifications_desc">Уведомления по выбранным приложениям или ключевым словам</string>
+    <string name="settings_at_a_glance_app_notifications_summary">Приложения: %1$d · Ключевые слова: %2$d</string>
+    <string name="app_notifications_intro">Подходящие уведомления будут показываться в разделе «Кратко», пока вы их не закроете</string>
+    <string name="app_notifications_any_app">Любое приложение</string>
+    <string name="app_notifications_add_app">Добавить приложение</string>
+    <string name="app_notifications_all_from_app">Все уведомления</string>
+    <string name="app_notifications_no_matches">Нет недавних уведомлений, соответствующих вашим условиям</string>
+    <string name="app_notifications_remove_app">Удалить %1$s</string>
+    <string name="app_notifications_keyword_placeholder">Добавьте любое слово или фразу</string>
+    <string name="app_notifications_keywords_intro">Уведомления с этими словами или фразами появятся на главном экране</string>
+    <string name="app_notifications_keywords_intro_app">Уведомления от %1$s с этими словами или фразами появятся на главном экране</string>
+    <string name="app_notifications_want_all">Показывать все уведомления</string>
+    <string name="app_notifications_add_keyword">Добавить «%1$s»</string>
+    <string name="app_notifications_recent_matches">Недавние совпадения</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d мин</item>
+        <item quantity="few">%d мин</item>
+        <item quantity="many">%d мин</item>
+        <item quantity="other">%d мин</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d ч</item>
+        <item quantity="few">%d ч</item>
+        <item quantity="many">%d ч</item>
+        <item quantity="other">%d ч</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">Выберите приложение</string>
+    <string name="app_notifications_search_apps">Поиск приложений</string>
+    <string name="home_app_notifications_more">Показать ещё %1$d</string>
     <string name="settings_at_a_glance_dnd_desc">Когда включен режим «Не беспокоить»</string>
     <string name="settings_at_a_glance_airplane_desc">Когда включен режим полета</string>
     <string name="settings_at_a_glance_hotspot_desc">Когда включена точка доступа</string>

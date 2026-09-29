@@ -876,6 +876,32 @@
     <string name="settings_at_a_glance_workouts_title">Προπονήσεις</string>
     <string name="settings_at_a_glance_workouts_desc">Ζωντανή κατάσταση προπόνησης από το Google Health και το Samsung Health</string>
     <string name="settings_at_a_glance_weather_desc">Τρέχουσες συνθήκες και ειδοποιήσεις από τις ειδοποιήσεις της εφαρμογής καιρού</string>
+    <string name="settings_at_a_glance_app_notifications_title">Ειδοποιήσεις εφαρμογών</string>
+    <string name="settings_at_a_glance_app_notifications_desc">Ειδοποιήσεις βάσει επιλεγμένων εφαρμογών ή λέξεων-κλειδιών</string>
+    <string name="settings_at_a_glance_app_notifications_summary">Εφαρμογές: %1$d · Λέξεις-κλειδιά: %2$d</string>
+    <string name="app_notifications_intro">Οι ειδοποιήσεις που ταιριάζουν θα εμφανίζονται στη Με μια ματιά μέχρι να τις απορρίψετε</string>
+    <string name="app_notifications_any_app">Οποιαδήποτε εφαρμογή</string>
+    <string name="app_notifications_add_app">Προσθήκη εφαρμογής</string>
+    <string name="app_notifications_all_from_app">Όλες οι ειδοποιήσεις</string>
+    <string name="app_notifications_no_matches">Καμία πρόσφατη ειδοποίηση δεν ταιριάζει με τα κριτήριά σας</string>
+    <string name="app_notifications_remove_app">Κατάργηση %1$s</string>
+    <string name="app_notifications_keyword_placeholder">Προσθέστε οποιαδήποτε λέξη ή φράση</string>
+    <string name="app_notifications_keywords_intro">Οι ειδοποιήσεις που περιέχουν αυτές τις λέξεις ή φράσεις θα εμφανίζονται στην αρχική οθόνη</string>
+    <string name="app_notifications_keywords_intro_app">Οι ειδοποιήσεις από %1$s που περιέχουν αυτές τις λέξεις ή φράσεις θα εμφανίζονται στην αρχική οθόνη</string>
+    <string name="app_notifications_want_all">Θέλω όλες τις ειδοποιήσεις</string>
+    <string name="app_notifications_add_keyword">Προσθήκη «%1$s»</string>
+    <string name="app_notifications_recent_matches">Πρόσφατες αντιστοιχίες</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d λεπ.</item>
+        <item quantity="other">%d λεπ.</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d ώρα</item>
+        <item quantity="other">%d ώρες</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">Επιλογή εφαρμογής</string>
+    <string name="app_notifications_search_apps">Αναζήτηση εφαρμογών</string>
+    <string name="home_app_notifications_more">Εμφάνιση %1$d ακόμη</string>
     <string name="settings_at_a_glance_dnd_desc">Όταν είναι ενεργό το Μην ενοχλείτε</string>
     <string name="settings_at_a_glance_airplane_desc">Όταν είναι ενεργή η λειτουργία πτήσης</string>
     <string name="settings_at_a_glance_hotspot_desc">Όταν είναι ενεργό το hotspot σας</string>

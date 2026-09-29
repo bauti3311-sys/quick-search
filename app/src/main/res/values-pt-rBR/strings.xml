@@ -876,6 +876,32 @@
     <string name="settings_at_a_glance_workouts_title">Treinos</string>
     <string name="settings_at_a_glance_workouts_desc">Status ao vivo do treino no Google Health e no Samsung Health</string>
     <string name="settings_at_a_glance_weather_desc">Condições atuais e alertas das notificações do seu app de clima</string>
+    <string name="settings_at_a_glance_app_notifications_title">Notificações de apps</string>
+    <string name="settings_at_a_glance_app_notifications_desc">Notificações com base em apps ou palavras-chave selecionados</string>
+    <string name="settings_at_a_glance_app_notifications_summary">Apps: %1$d · Palavras-chave: %2$d</string>
+    <string name="app_notifications_intro">Notificações correspondentes aparecerão em Visão rápida até você dispensá-las</string>
+    <string name="app_notifications_any_app">Qualquer app</string>
+    <string name="app_notifications_add_app">Adicionar app</string>
+    <string name="app_notifications_all_from_app">Todas as notificações</string>
+    <string name="app_notifications_no_matches">Nenhuma notificação recente corresponde aos seus critérios</string>
+    <string name="app_notifications_remove_app">Remover %1$s</string>
+    <string name="app_notifications_keyword_placeholder">Adicione qualquer palavra ou frase</string>
+    <string name="app_notifications_keywords_intro">Notificações com estas palavras ou frases aparecerão na tela inicial</string>
+    <string name="app_notifications_keywords_intro_app">Notificações de %1$s com estas palavras ou frases aparecerão na tela inicial</string>
+    <string name="app_notifications_want_all">Quero todas as notificações</string>
+    <string name="app_notifications_add_keyword">Adicionar “%1$s”</string>
+    <string name="app_notifications_recent_matches">Correspondências recentes</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d h</item>
+        <item quantity="other">%d h</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">Escolher app</string>
+    <string name="app_notifications_search_apps">Pesquisar apps</string>
+    <string name="home_app_notifications_more">Mostrar mais %1$d</string>
     <string name="settings_at_a_glance_dnd_desc">Quando o Não perturbe estiver ativado</string>
     <string name="settings_at_a_glance_airplane_desc">Quando o modo avião estiver ativado</string>
     <string name="settings_at_a_glance_hotspot_desc">Quando o roteador Wi-Fi estiver ativado</string>

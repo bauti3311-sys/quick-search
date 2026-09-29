@@ -877,6 +877,32 @@
     <string name="settings_at_a_glance_workouts_title">التمارين</string>
     <string name="settings_at_a_glance_workouts_desc">الحالة المباشرة للتمرين من Google Health وSamsung Health</string>
     <string name="settings_at_a_glance_weather_desc">الأحوال الحالية والتنبيهات من إشعارات تطبيق الطقس</string>
+    <string name="settings_at_a_glance_app_notifications_title">إشعارات التطبيقات</string>
+    <string name="settings_at_a_glance_app_notifications_desc">إشعارات حسب التطبيقات أو الكلمات المفتاحية المحددة</string>
+    <string name="settings_at_a_glance_app_notifications_summary">التطبيقات: %1$d · الكلمات المفتاحية: %2$d</string>
+    <string name="app_notifications_intro">ستظهر الإشعارات المطابقة في «نظرة سريعة» حتى تتجاهلها</string>
+    <string name="app_notifications_any_app">أي تطبيق</string>
+    <string name="app_notifications_add_app">إضافة تطبيق</string>
+    <string name="app_notifications_all_from_app">كل الإشعارات</string>
+    <string name="app_notifications_no_matches">لا توجد إشعارات حديثة تطابق معاييرك</string>
+    <string name="app_notifications_remove_app">إزالة %1$s</string>
+    <string name="app_notifications_keyword_placeholder">أضف أي كلمة أو عبارة</string>
+    <string name="app_notifications_keywords_intro">ستظهر الإشعارات التي تحتوي على هذه الكلمات أو العبارات في الشاشة الرئيسية</string>
+    <string name="app_notifications_keywords_intro_app">ستظهر إشعارات %1$s التي تحتوي على هذه الكلمات أو العبارات في الشاشة الرئيسية</string>
+    <string name="app_notifications_want_all">أريد كل الإشعارات</string>
+    <string name="app_notifications_add_keyword">إضافة “%1$s”</string>
+    <string name="app_notifications_recent_matches">المطابقات الأخيرة</string>
+    <plurals name="app_notifications_age_minutes">
+        <item quantity="one">%d د</item>
+        <item quantity="other">%d د</item>
+    </plurals>
+    <plurals name="app_notifications_age_hours">
+        <item quantity="one">%d س</item>
+        <item quantity="other">%d س</item>
+    </plurals>
+    <string name="app_notifications_choose_apps">اختيار تطبيق</string>
+    <string name="app_notifications_search_apps">البحث في التطبيقات</string>
+    <string name="home_app_notifications_more">عرض %1$d أخرى</string>
     <string name="settings_at_a_glance_dnd_desc">عند تفعيل عدم الإزعاج</string>
     <string name="settings_at_a_glance_airplane_desc">عند تفعيل وضع الطائرة</string>
     <string name="settings_at_a_glance_hotspot_desc">عند تفعيل نقطة الاتصال</string>
