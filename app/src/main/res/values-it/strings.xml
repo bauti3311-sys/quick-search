@@ -931,6 +931,7 @@
     <string name="settings_direct_search_how_to">Ottieni una chiave API gratuita</string>
     <string name="settings_direct_search_model_label">Modello</string>
     <string name="settings_select_model">Seleziona modello</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">Il modello selezionato non è disponibile. Scegli un altro modello nelle impostazioni.</string>
     <string name="settings_loading_models">Caricamento modelli…</string>
     <string name="settings_direct_search_personal_context">Contesto personale</string>
@@ -1335,8 +1336,10 @@
     <string name="home_turn_off">Disattiva</string>
     <string name="settings_tavily_title">Tavily per la ricerca web</string>
     <string name="settings_tavily_desc">Aggiungi una chiave API Tavily per abilitare la ricerca web nei modelli che non la supportano.</string>
-    <string name="settings_tavily_mode_always">Usa sempre Tavily per la ricerca web</string>
-    <string name="settings_tavily_mode_when_unsupported">Usa solo quando il modello non supporta la ricerca web</string>
+    <string name="settings_tavily_mode_always">Sempre</string>
+    <string name="settings_tavily_mode_when_unsupported">Come riserva</string>
+    <string name="settings_tavily_mode_always_desc">Usato per la ricerca web con tutti i modelli.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">Usato solo quando il modello selezionato non può cercare sul web.</string>
     <string name="settings_weather_no_web_search_warning">Meteo richiede risultati web. Scegli un modello che supporta la ricerca web o aggiungi una chiave API Tavily in Configurazione chiave API.</string>
     <string name="tavily_search_failed_toast">Ricerca web Tavily non riuscita. Risposta senza risultati web.</string>
     <string name="search_hint_reminders">Cerca promemoria…</string>

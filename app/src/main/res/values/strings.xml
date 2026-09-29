@@ -936,6 +936,7 @@
     <string name="settings_direct_search_how_to">Get Free API Key</string>
     <string name="settings_direct_search_model_label">Model</string>
     <string name="settings_select_model">Select Model</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">Selected model isn\'t available. Please choose another model in settings.</string>
     <string name="settings_loading_models">Loading Models...</string>
     <string name="settings_direct_search_personal_context">Personal Context</string>
@@ -950,8 +951,10 @@
     <string name="settings_gemini_api_key_paste_hint">Tap to paste the key</string>
     <string name="settings_tavily_title">Tavily for Web Search</string>
     <string name="settings_tavily_desc">Add Tavily API key to add web search support for models that don\u2019t support it.</string>
-    <string name="settings_tavily_mode_always">Always use Tavily for web search</string>
-    <string name="settings_tavily_mode_when_unsupported">Use only when the model does not support web search</string>
+    <string name="settings_tavily_mode_always">Always</string>
+    <string name="settings_tavily_mode_when_unsupported">As fallback</string>
+    <string name="settings_tavily_mode_always_desc">Used for web search with every model.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">Used only when the selected model can’t search the web.</string>
     <string name="settings_weather_no_web_search_warning">Weather needs web results. Pick a model that supports web search, or add a Tavily API key under API Key Setup.</string>
     <string name="tavily_search_failed_toast">Tavily web search failed. Answering without web results.</string>
     <string name="settings_gemini_api_key_reset">Reset Key</string>

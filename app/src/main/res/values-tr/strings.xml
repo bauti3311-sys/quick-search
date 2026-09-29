@@ -931,6 +931,7 @@
 <string name="settings_direct_search_how_to">Ücretsiz API anahtarı al</string>
 <string name="settings_direct_search_model_label">Model</string>
 <string name="settings_select_model">Model seç</string>
+<string name="settings_ai_model_with_provider">%1$s · %2$s</string>
 <string name="ai_error_selected_model_unavailable">Seçilen model kullanılamıyor. Lütfen ayarlardan başka bir model seçin.</string>
 <string name="settings_loading_models">Modeller yükleniyor…</string>
 <string name="settings_direct_search_personal_context">Kişisel bağlam</string>
@@ -1335,8 +1336,10 @@
     <string name="home_turn_off">Kapat</string>
     <string name="settings_tavily_title">Web Araması için Tavily</string>
     <string name="settings_tavily_desc">Web aramasını desteklemeyen modellere web araması eklemek için Tavily API anahtarı ekleyin.</string>
-    <string name="settings_tavily_mode_always">Web araması için her zaman Tavily kullan</string>
-    <string name="settings_tavily_mode_when_unsupported">Yalnızca model web aramasını desteklemediğinde kullan</string>
+    <string name="settings_tavily_mode_always">Her zaman</string>
+    <string name="settings_tavily_mode_when_unsupported">Yedek olarak</string>
+    <string name="settings_tavily_mode_always_desc">Her modelde web araması için kullanılır.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">Yalnızca seçili model web’de arama yapamadığında kullanılır.</string>
     <string name="settings_weather_no_web_search_warning">Hava Durumu web sonuçlarına ihtiyaç duyar. Web aramasını destekleyen bir model seçin veya API Anahtarı Kurulumu bölümünden Tavily API anahtarı ekleyin.</string>
     <string name="tavily_search_failed_toast">Tavily web araması başarısız oldu. Web sonuçları olmadan yanıtlanıyor.</string>
     <string name="search_hint_reminders">Hatırlatıcılarda ara…</string>

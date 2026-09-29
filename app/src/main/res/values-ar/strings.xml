@@ -933,6 +933,7 @@
     <string name="settings_direct_search_how_to">احصل على مفتاح API مجاناً</string>
     <string name="settings_direct_search_model_label">النموذج</string>
     <string name="settings_select_model">اختيار نموذج</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">النموذج المحدد غير متاح. يُرجى اختيار نموذج آخر من الإعدادات.</string>
     <string name="settings_loading_models">جارٍ تحميل النماذج…</string>
     <string name="settings_direct_search_personal_context">السياق الشخصي</string>
@@ -1338,8 +1339,10 @@
     <string name="home_turn_off">إيقاف</string>
     <string name="settings_tavily_title">Tavily للبحث على الويب</string>
     <string name="settings_tavily_desc">أضف مفتاح Tavily API لإضافة دعم البحث على الويب للنماذج التي لا تدعمه.</string>
-    <string name="settings_tavily_mode_always">استخدم Tavily دائمًا للبحث على الويب</string>
-    <string name="settings_tavily_mode_when_unsupported">استخدمه فقط عندما لا يدعم النموذج البحث على الويب</string>
+    <string name="settings_tavily_mode_always">دائمًا</string>
+    <string name="settings_tavily_mode_when_unsupported">كبديل احتياطي</string>
+    <string name="settings_tavily_mode_always_desc">يُستخدم للبحث على الويب مع كل النماذج.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">يُستخدم فقط عندما لا يستطيع النموذج المحدد البحث على الويب.</string>
     <string name="settings_weather_no_web_search_warning">يحتاج الطقس إلى نتائج من الويب. اختر نموذجًا يدعم البحث على الويب، أو أضف مفتاح Tavily API في إعداد مفتاح API.</string>
     <string name="tavily_search_failed_toast">فشل البحث على الويب عبر Tavily. تتم الإجابة بدون نتائج الويب.</string>
     <string name="search_hint_reminders">البحث في التذكيرات…</string>

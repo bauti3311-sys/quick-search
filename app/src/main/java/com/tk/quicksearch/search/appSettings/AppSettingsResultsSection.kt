@@ -1,6 +1,5 @@
 package com.tk.quicksearch.search.appSettings
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.combinedClickable
@@ -18,8 +17,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ChevronRight
 import androidx.compose.material.icons.rounded.Refresh
-import androidx.compose.material3.AssistChip
-import androidx.compose.material3.AssistChipDefaults
+import androidx.compose.material.icons.rounded.UnfoldMore
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -298,10 +296,7 @@ internal fun AppSettingResultRow(
             }
 
             if (setting.hasInlineControl) {
-                AppSettingInlineControlContent(
-                    setting = setting,
-                    onOpenSettingPage = { onClick(setting) },
-                )
+                AppSettingInlineControlContent(setting = setting)
             }
 
             if (isWebSuggestionsToggle && checked) {
@@ -321,38 +316,17 @@ internal fun AppSettingResultRow(
                 horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
                 modifier = Modifier.padding(end = 6.dp),
             ) {
-                AssistChip(
-                    onClick = {
-                        hapticToggle(view)()
-                        onAppSettingPhoneAppGridColumnsChange(4)
-                    },
-                    label = { Text(stringResource(R.string.settings_app_columns_4)) },
-                    shape = DesignTokens.ShapeFull,
-                    border = BorderStroke(
-                        if (fourSelected) 1.5.dp else 1.dp,
-                        if (fourSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.5f) else MaterialTheme.colorScheme.outlineVariant,
-                    ),
-                    colors = AssistChipDefaults.assistChipColors(
-                        containerColor = Color.Transparent,
-                        labelColor = if (fourSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
-                    ),
+                AppSettingChoiceChip(
+                    label = stringResource(R.string.settings_app_columns_4),
+                    selected = fourSelected,
+                    onClick = { onAppSettingPhoneAppGridColumnsChange(4) },
+                    showCheck = false,
                 )
-                val fiveSelected = !fourSelected
-                AssistChip(
-                    onClick = {
-                        hapticToggle(view)()
-                        onAppSettingPhoneAppGridColumnsChange(5)
-                    },
-                    label = { Text(stringResource(R.string.settings_app_columns_5)) },
-                    shape = DesignTokens.ShapeFull,
-                    border = BorderStroke(
-                        if (fiveSelected) 1.5.dp else 1.dp,
-                        if (fiveSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.5f) else MaterialTheme.colorScheme.outlineVariant,
-                    ),
-                    colors = AssistChipDefaults.assistChipColors(
-                        containerColor = Color.Transparent,
-                        labelColor = if (fiveSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
-                    ),
+                AppSettingChoiceChip(
+                    label = stringResource(R.string.settings_app_columns_5),
+                    selected = !fourSelected,
+                    onClick = { onAppSettingPhoneAppGridColumnsChange(5) },
+                    showCheck = false,
                 )
             }
         } else if (isAppResultRowsSetting) {
@@ -361,6 +335,13 @@ internal fun AppSettingResultRow(
                 onSelectRowCount = onAppSettingAppResultRowCountChange,
             )
         } else if (setting.destination == AppSettingsDestination.AI_MODEL) {
+            Icon(
+                imageVector = Icons.Rounded.UnfoldMore,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(end = 6.dp),
+            )
+        } else if (setting.id == THEME_MODE_SETTING_ID) {
             Icon(
                 imageVector = Icons.Rounded.ChevronRight,
                 contentDescription = stringResource(R.string.desc_navigate_forward),
@@ -421,28 +402,16 @@ private fun AppResultRowsChips(
     selectedRowCount: Int,
     onSelectRowCount: (Int) -> Unit,
 ) {
-    val view = LocalView.current
     Row(
         horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
         modifier = Modifier.padding(end = 6.dp),
     ) {
         listOf(1, 2).forEach { rowCount ->
-            val selected = selectedRowCount == rowCount
-            AssistChip(
-                onClick = {
-                    hapticToggle(view)()
-                    onSelectRowCount(rowCount)
-                },
-                label = { Text(rowCount.toString()) },
-                shape = DesignTokens.ShapeFull,
-                border = BorderStroke(
-                        if (selected) 1.5.dp else 1.dp,
-                        if (selected) MaterialTheme.colorScheme.primary.copy(alpha = 0.5f) else MaterialTheme.colorScheme.outlineVariant,
-                    ),
-                colors = AssistChipDefaults.assistChipColors(
-                    containerColor = Color.Transparent,
-                    labelColor = if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
-                ),
+            AppSettingChoiceChip(
+                label = rowCount.toString(),
+                selected = selectedRowCount == rowCount,
+                onClick = { onSelectRowCount(rowCount) },
+                showCheck = false,
             )
         }
     }

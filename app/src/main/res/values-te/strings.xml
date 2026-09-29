@@ -932,6 +932,7 @@
     <string name="settings_direct_search_how_to">ఉచిత API కీని పొందండి</string>
     <string name="settings_direct_search_model_label">మోడల్</string>
     <string name="settings_select_model">మోడల్‌ను ఎంచుకోండి</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">ఎంచుకున్న మోడల్ అందుబాటులో లేదు. సెట్టింగ్‌లలో మరొక మోడల్‌ను ఎంచుకోండి.</string>
     <string name="settings_loading_models">మోడల్‌లు లోడ్ అవుతున్నాయి…</string>
     <string name="settings_direct_search_personal_context">వ్యక్తిగత సందర్భం (Personal Context)</string>
@@ -1336,8 +1337,10 @@
     <string name="home_turn_off">ఆఫ్ చేయండి</string>
     <string name="settings_tavily_title">వెబ్ సెర్చ్ కోసం Tavily</string>
     <string name="settings_tavily_desc">వెబ్ సెర్చ్‌కు మద్దతు లేని మోడల్‌లకు వెబ్ సెర్చ్ జోడించడానికి Tavily API కీని జోడించండి.</string>
-    <string name="settings_tavily_mode_always">వెబ్ సెర్చ్ కోసం ఎల్లప్పుడూ Tavily ఉపయోగించండి</string>
-    <string name="settings_tavily_mode_when_unsupported">మోడల్ వెబ్ సెర్చ్‌కు మద్దతు ఇవ్వనప్పుడు మాత్రమే ఉపయోగించండి</string>
+    <string name="settings_tavily_mode_always">ఎల్లప్పుడూ</string>
+    <string name="settings_tavily_mode_when_unsupported">బ్యాకప్‌గా</string>
+    <string name="settings_tavily_mode_always_desc">ప్రతి మోడల్‌తో వెబ్ సెర్చ్ కోసం ఉపయోగించబడుతుంది.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">ఎంచుకున్న మోడల్ వెబ్ సెర్చ్ చేయలేనప్పుడు మాత్రమే ఉపయోగించబడుతుంది.</string>
     <string name="settings_weather_no_web_search_warning">వాతావరణానికి వెబ్ ఫలితాలు అవసరం. వెబ్ సెర్చ్‌కు మద్దతు ఇచ్చే మోడల్‌ను ఎంచుకోండి, లేదా API కీ సెటప్‌లో Tavily API కీని జోడించండి.</string>
     <string name="tavily_search_failed_toast">Tavily వెబ్ సెర్చ్ విఫలమైంది. వెబ్ ఫలితాలు లేకుండా సమాధానం ఇస్తోంది.</string>
     <string name="search_hint_reminders">రిమైండర్‌లను వెతకండి…</string>

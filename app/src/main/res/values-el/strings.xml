@@ -932,6 +932,7 @@
     <string name="settings_direct_search_how_to">Λάβετε δωρεάν κλειδί API</string>
     <string name="settings_direct_search_model_label">Μοντέλο</string>
     <string name="settings_select_model">Επιλογή μοντέλου</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">Το επιλεγμένο μοντέλο δεν είναι διαθέσιμο. Επιλέξτε άλλο μοντέλο στις ρυθμίσεις.</string>
     <string name="settings_loading_models">Φόρτωση μοντέλων…</string>
     <string name="settings_direct_search_personal_context">Προσωπικό πλαίσιο</string>
@@ -1336,8 +1337,10 @@
     <string name="home_turn_off">Απενεργοποίηση</string>
     <string name="settings_tavily_title">Tavily για αναζήτηση ιστού</string>
     <string name="settings_tavily_desc">Προσθέστε κλειδί API του Tavily για υποστήριξη αναζήτησης ιστού σε μοντέλα που δεν την υποστηρίζουν.</string>
-    <string name="settings_tavily_mode_always">Να χρησιμοποιείται πάντα το Tavily για αναζήτηση ιστού</string>
-    <string name="settings_tavily_mode_when_unsupported">Χρήση μόνο όταν το μοντέλο δεν υποστηρίζει αναζήτηση ιστού</string>
+    <string name="settings_tavily_mode_always">Πάντα</string>
+    <string name="settings_tavily_mode_when_unsupported">Ως εφεδρεία</string>
+    <string name="settings_tavily_mode_always_desc">Χρησιμοποιείται για αναζήτηση ιστού με κάθε μοντέλο.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">Χρησιμοποιείται μόνο όταν το επιλεγμένο μοντέλο δεν μπορεί να κάνει αναζήτηση ιστού.</string>
     <string name="settings_weather_no_web_search_warning">Ο Καιρός χρειάζεται αποτελέσματα ιστού. Επίλεξε μοντέλο που υποστηρίζει αναζήτηση ιστού ή πρόσθεσε κλειδί API Tavily στη Ρύθμιση κλειδιού API.</string>
     <string name="tavily_search_failed_toast">Η αναζήτηση ιστού Tavily απέτυχε. Απάντηση χωρίς αποτελέσματα ιστού.</string>
     <string name="search_hint_reminders">Αναζήτηση υπενθυμίσεων…</string>

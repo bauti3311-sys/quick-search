@@ -1,15 +1,11 @@
 package com.tk.quicksearch.search.appSettings
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.material3.AssistChip
-import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
@@ -23,7 +19,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.stringResource
@@ -34,7 +29,6 @@ import com.tk.quicksearch.search.core.BackgroundSource
 import com.tk.quicksearch.search.core.HomeTextColor
 import com.tk.quicksearch.search.data.preferences.UiPreferences
 import com.tk.quicksearch.settings.appearanceSettings.FONT_SIZE_STEPS
-import com.tk.quicksearch.shared.ui.theme.DesignTokens
 import com.tk.quicksearch.shared.ui.theme.LocalAppIsDarkTheme
 import com.tk.quicksearch.shared.util.WallpaperUtils
 import com.tk.quicksearch.shared.util.hapticToggle
@@ -73,10 +67,7 @@ internal val AppSettingResult.hasInlineControl: Boolean
             destination == AppSettingsDestination.AI_MODEL
 
 @Composable
-internal fun AppSettingInlineControlContent(
-    setting: AppSettingResult,
-    onOpenSettingPage: () -> Unit,
-) {
+internal fun AppSettingInlineControlContent(setting: AppSettingResult) {
     val controls = LocalAppSettingInlineControls.current
     when {
         setting.toggleKey == AppSettingsToggleKey.FONT_SIZE ->
@@ -85,7 +76,7 @@ internal fun AppSettingInlineControlContent(
             IconSizeInlineSlider(controls.appIconSizeStep, controls.onAppIconSizeStepChange)
         setting.toggleKey == AppSettingsToggleKey.HOME_TEXT_COLOR -> HomeTextColorInlineChips(controls)
         setting.id == THEME_MODE_SETTING_ID ->
-            ThemeModeInlineChips(controls, onMoreClick = onOpenSettingPage)
+            ThemeModeInlineChips(controls)
         setting.id == TOP_MATCHES_COUNT_SETTING_ID ->
             TopMatchesCountInlineSlider(controls.topMatchesLimit, controls.onTopMatchesLimitChange)
         setting.destination == AppSettingsDestination.AI_MODEL -> AiModelInlineContent(controls.aiModel)
@@ -220,83 +211,49 @@ private fun HomeTextColorInlineChips(controls: AppSettingInlineControls) {
     }
     val selected = controls.homeTextColorOverride ?: wallpaperDefaultColor
     InlineChipRow {
-        InlineChip(
+        AppSettingChoiceChip(
             label = stringResource(R.string.widget_text_icon_color_white),
             selected = selected == HomeTextColor.WHITE,
             onClick = { controls.onHomeTextColorChange(HomeTextColor.WHITE) },
+            compact = true,
+            modifier = Modifier.weight(1f),
         )
-        InlineChip(
+        AppSettingChoiceChip(
             label = stringResource(R.string.widget_text_icon_color_black),
             selected = selected == HomeTextColor.BLACK,
             onClick = { controls.onHomeTextColorChange(HomeTextColor.BLACK) },
+            compact = true,
+            modifier = Modifier.weight(1f),
         )
     }
 }
 
 @Composable
-private fun ThemeModeInlineChips(
-    controls: AppSettingInlineControls,
-    onMoreClick: () -> Unit,
-) {
+private fun ThemeModeInlineChips(controls: AppSettingInlineControls) {
     InlineChipRow {
         listOf(
             AppThemeMode.LIGHT to R.string.common_theme_light,
             AppThemeMode.DARK to R.string.common_theme_dark,
             AppThemeMode.SYSTEM to R.string.common_theme_system,
         ).forEach { (mode, labelRes) ->
-            InlineChip(
+            AppSettingChoiceChip(
                 label = stringResource(labelRes),
                 selected = controls.appThemeMode == mode,
                 onClick = { controls.onAppThemeModeChange(mode) },
+                compact = true,
+                modifier = Modifier.weight(1f),
             )
         }
-        InlineChip(
-            label = stringResource(R.string.action_expand_more),
-            selected = false,
-            onClick = onMoreClick,
-        )
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+/** One line of equal-width compact chips. */
 @Composable
-private fun InlineChipRow(content: @Composable () -> Unit) {
-    FlowRow(
-        modifier = Modifier.padding(top = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(DesignTokens.SpacingSmall),
+private fun InlineChipRow(content: @Composable RowScope.() -> Unit) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         content()
     }
-}
-
-@Composable
-private fun InlineChip(
-    label: String,
-    selected: Boolean,
-    onClick: () -> Unit,
-) {
-    val view = LocalView.current
-    AssistChip(
-        onClick = {
-            hapticToggle(view)()
-            onClick()
-        },
-        label = { Text(label) },
-        shape = DesignTokens.ShapeFull,
-        border =
-            BorderStroke(
-                if (selected) 1.5.dp else 1.dp,
-                if (selected) {
-                    MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
-                } else {
-                    MaterialTheme.colorScheme.outlineVariant
-                },
-            ),
-        colors =
-            AssistChipDefaults.assistChipColors(
-                containerColor = Color.Transparent,
-                labelColor =
-                    if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
-            ),
-    )
 }

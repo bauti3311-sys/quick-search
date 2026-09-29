@@ -82,8 +82,6 @@ fun AiProviderSettingsSection(
                         availableModels = activeLlmAvailableModels,
                         availableModelsByProvider = availableLlmModelsByProvider,
                         configuredProviderIds = apiKeyLast4ByProvider.keys,
-                        modelLabel =
-                                stringResource(R.string.settings_direct_search_model_label),
                         thinkingLabel =
                                 stringResource(R.string.settings_direct_search_thinking_label),
                         webSearchLabel =

@@ -922,6 +922,7 @@
     <string name="settings_direct_search_how_to">获取免费 API 密钥</string>
     <string name="settings_direct_search_model_label">模型</string>
     <string name="settings_select_model">选择模型</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">所选模型不可用。请在设置中选择其他模型。</string>
     <string name="settings_loading_models">正在加载模型…</string>
     <string name="settings_direct_search_personal_context">个人背景信息</string>
@@ -1326,8 +1327,10 @@
     <string name="home_turn_off">关闭</string>
     <string name="settings_tavily_title">用于网页搜索的 Tavily</string>
     <string name="settings_tavily_desc">添加 Tavily API 密钥，为不支持网页搜索的模型添加网页搜索功能。</string>
-    <string name="settings_tavily_mode_always">始终使用 Tavily 进行网页搜索</string>
-    <string name="settings_tavily_mode_when_unsupported">仅在模型不支持网页搜索时使用</string>
+    <string name="settings_tavily_mode_always">始终</string>
+    <string name="settings_tavily_mode_when_unsupported">作为备用</string>
+    <string name="settings_tavily_mode_always_desc">所有模型都使用它进行网页搜索。</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">仅在所选模型无法进行网页搜索时使用。</string>
     <string name="settings_weather_no_web_search_warning">天气需要网页结果。请选择支持网页搜索的模型，或在“API 密钥设置”中添加 Tavily API 密钥。</string>
     <string name="tavily_search_failed_toast">Tavily 网页搜索失败，将在没有网页结果的情况下回答。</string>
     <string name="search_hint_reminders">搜索提醒…</string>

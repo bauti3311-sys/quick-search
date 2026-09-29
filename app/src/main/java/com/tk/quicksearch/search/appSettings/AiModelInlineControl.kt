@@ -1,6 +1,5 @@
 package com.tk.quicksearch.search.appSettings
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -8,8 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.CheckBox
-import androidx.compose.material.icons.rounded.CheckBoxOutlineBlank
+import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material3.Icon
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -19,13 +17,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.tk.quicksearch.R
+import com.tk.quicksearch.settings.shared.aiProviderDisplayName
 import com.tk.quicksearch.settings.shared.rememberTavilyKeyState
 import com.tk.quicksearch.shared.ui.theme.DesignTokens
 import com.tk.quicksearch.shared.util.hapticToggle
@@ -49,7 +47,7 @@ data class AiModelInlineState(
     val onRefreshModels: () -> Unit = {},
 )
 
-/** Mirrors the model card in AI provider settings: selected model, then Thinking / Web Search pills. */
+/** Mirrors the model card in AI provider settings: selected model and provider, then Thinking / Web Search chips. */
 @Composable
 internal fun AiModelInlineContent(state: AiModelInlineState) {
     LaunchedEffect(Unit) { state.onRefreshModels() }
@@ -63,7 +61,16 @@ internal fun AiModelInlineContent(state: AiModelInlineState) {
             else -> stringResource(R.string.settings_select_model)
         }
     Text(
-        text = selectedModelLabel,
+        text =
+            if (selectedModel != null) {
+                stringResource(
+                    R.string.settings_ai_model_with_provider,
+                    selectedModel.displayName,
+                    aiProviderDisplayName(state.providerId),
+                )
+            } else {
+                selectedModelLabel
+            },
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         maxLines = 1,
@@ -113,35 +120,26 @@ private fun CompactCheckChip(
         modifier =
             Modifier
                 .clip(DesignTokens.ShapeFull)
-                .background(
-                    if (checked) MaterialTheme.colorScheme.primary.copy(alpha = 0.12f) else Color.Transparent,
-                ).border(
-                    BorderStroke(
-                        1.dp,
-                        if (checked) {
-                            MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
-                        } else {
-                            MaterialTheme.colorScheme.outlineVariant
-                        },
-                    ),
-                    DesignTokens.ShapeFull,
-                ).toggleable(value = checked, role = Role.Checkbox) { value ->
+                .background(AppSettingChipStyle.containerColor(checked))
+                .border(AppSettingChipStyle.border(checked), DesignTokens.ShapeFull).toggleable(value = checked, role = Role.Checkbox) { value ->
                     hapticToggle(view)()
                     onCheckedChange(value)
                 }.padding(horizontal = 12.dp, vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
-        Icon(
-            imageVector = if (checked) Icons.Rounded.CheckBox else Icons.Rounded.CheckBoxOutlineBlank,
-            contentDescription = null,
-            tint = if (checked) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.size(16.dp),
-        )
+        if (checked) {
+            Icon(
+                imageVector = Icons.Rounded.Check,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(16.dp),
+            )
+        }
         Text(
             text = label,
             style = MaterialTheme.typography.labelSmall,
-            color = if (checked) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
+            color = AppSettingChipStyle.labelColor(checked),
         )
     }
 }

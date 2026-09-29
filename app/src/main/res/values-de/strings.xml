@@ -932,6 +932,7 @@
     <string name="settings_direct_search_how_to">Kostenlosen API-Schlüssel erhalten</string>
     <string name="settings_direct_search_model_label">Modell</string>
     <string name="settings_select_model">Modell auswählen</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">Das ausgewählte Modell ist nicht verfügbar. Bitte wähle in den Einstellungen ein anderes Modell aus.</string>
     <string name="settings_loading_models">Modelle werden geladen…</string>
     <string name="settings_direct_search_personal_context">Persönlicher Kontext</string>
@@ -1336,8 +1337,10 @@
     <string name="home_turn_off">Ausschalten</string>
     <string name="settings_tavily_title">Tavily für die Websuche</string>
     <string name="settings_tavily_desc">Füge einen Tavily-API-Schlüssel hinzu, um Modellen ohne Websuche eine Websuche zu ermöglichen.</string>
-    <string name="settings_tavily_mode_always">Immer Tavily für die Websuche verwenden</string>
-    <string name="settings_tavily_mode_when_unsupported">Nur verwenden, wenn das Modell keine Websuche unterstützt</string>
+    <string name="settings_tavily_mode_always">Immer</string>
+    <string name="settings_tavily_mode_when_unsupported">Als Fallback</string>
+    <string name="settings_tavily_mode_always_desc">Wird bei jedem Modell für die Websuche verwendet.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">Wird nur verwendet, wenn das gewählte Modell keine Websuche unterstützt.</string>
     <string name="settings_weather_no_web_search_warning">Wetter benötigt Webergebnisse. Wähle ein Modell, das Websuche unterstützt, oder füge unter „API-Schlüssel einrichten“ einen Tavily-API-Schlüssel hinzu.</string>
     <string name="tavily_search_failed_toast">Tavily-Websuche fehlgeschlagen. Antwort ohne Webergebnisse.</string>
     <string name="search_hint_reminders">Erinnerungen durchsuchen…</string>

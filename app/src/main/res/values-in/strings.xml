@@ -936,6 +936,7 @@
     <string name="settings_direct_search_how_to">Dapatkan Kunci API Gratis</string>
     <string name="settings_direct_search_model_label">Model</string>
     <string name="settings_select_model">Pilih model</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">Model yang dipilih tidak tersedia. Pilih model lain di setelan.</string>
     <string name="settings_loading_models">Memuat model…</string>
     <string name="settings_direct_search_personal_context">Konteks Pribadi</string>
@@ -1334,8 +1335,10 @@
     <string name="home_turn_off">Nonaktifkan</string>
     <string name="settings_tavily_title">Tavily untuk Penelusuran Web</string>
     <string name="settings_tavily_desc">Tambahkan kunci API Tavily untuk menambahkan penelusuran web pada model yang tidak mendukungnya.</string>
-    <string name="settings_tavily_mode_always">Selalu gunakan Tavily untuk penelusuran web</string>
-    <string name="settings_tavily_mode_when_unsupported">Gunakan hanya jika model tidak mendukung penelusuran web</string>
+    <string name="settings_tavily_mode_always">Selalu</string>
+    <string name="settings_tavily_mode_when_unsupported">Sebagai cadangan</string>
+    <string name="settings_tavily_mode_always_desc">Digunakan untuk penelusuran web dengan semua model.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">Hanya digunakan jika model yang dipilih tidak dapat menelusuri web.</string>
     <string name="settings_weather_no_web_search_warning">Cuaca memerlukan hasil web. Pilih model yang mendukung penelusuran web, atau tambahkan kunci API Tavily di Penyiapan Kunci API.</string>
     <string name="tavily_search_failed_toast">Penelusuran web Tavily gagal. Menjawab tanpa hasil web.</string>
     <string name="search_hint_reminders">Cari pengingat…</string>

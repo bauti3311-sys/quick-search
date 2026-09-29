@@ -243,7 +243,6 @@ fun CustomToolEditorScreen(
                 availableModels = selectedProviderModels,
                 availableModelsByProvider = availableModelsByProvider,
                 configuredProviderIds = configuredProviderIds,
-                modelLabel = stringResource(R.string.settings_direct_search_model_label),
                 thinkingLabel = stringResource(R.string.settings_direct_search_thinking_label),
                 webSearchLabel = stringResource(R.string.settings_direct_search_grounding_label),
                 thinkingEnabled = thinkingEnabled,

@@ -932,6 +932,7 @@
     <string name="settings_direct_search_how_to">Obtener clave API gratuita</string>
     <string name="settings_direct_search_model_label">Modelo</string>
     <string name="settings_select_model">Seleccionar modelo</string>
+    <string name="settings_ai_model_with_provider">%1$s · %2$s</string>
     <string name="ai_error_selected_model_unavailable">El modelo seleccionado no está disponible. Elige otro modelo en los ajustes.</string>
     <string name="settings_loading_models">Cargando modelos…</string>
     <string name="settings_direct_search_personal_context">Contexto personal</string>
@@ -1336,8 +1337,10 @@
     <string name="home_turn_off">Desactivar</string>
     <string name="settings_tavily_title">Tavily para búsqueda web</string>
     <string name="settings_tavily_desc">Añade una clave de API de Tavily para dar búsqueda web a los modelos que no la admiten.</string>
-    <string name="settings_tavily_mode_always">Usar siempre Tavily para la búsqueda web</string>
-    <string name="settings_tavily_mode_when_unsupported">Usar solo cuando el modelo no admita búsqueda web</string>
+    <string name="settings_tavily_mode_always">Siempre</string>
+    <string name="settings_tavily_mode_when_unsupported">Como respaldo</string>
+    <string name="settings_tavily_mode_always_desc">Se usa para la búsqueda web con todos los modelos.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">Solo se usa cuando el modelo seleccionado no puede buscar en la web.</string>
     <string name="settings_weather_no_web_search_warning">El clima necesita resultados web. Elige un modelo que admita búsqueda web o añade una clave API de Tavily en Configuración de clave API.</string>
     <string name="tavily_search_failed_toast">La búsqueda web de Tavily falló. Respondiendo sin resultados web.</string>
     <string name="search_hint_reminders">Buscar recordatorios…</string>

@@ -952,6 +952,7 @@
 <string name="settings_direct_search_how_to">Получить бесплатный API-ключ</string>
 <string name="settings_direct_search_model_label">Модель</string>
 <string name="settings_select_model">Выберите модель</string>
+<string name="settings_ai_model_with_provider">%1$s · %2$s</string>
 <string name="ai_error_selected_model_unavailable">Выбранная модель недоступна. Выберите другую модель в настройках.</string>
 <string name="settings_loading_models">Загрузка моделей…</string>
 <string name="settings_direct_search_personal_context">Персональный контекст</string>
@@ -1356,8 +1357,10 @@
     <string name="home_turn_off">Выключить</string>
     <string name="settings_tavily_title">Tavily для веб-поиска</string>
     <string name="settings_tavily_desc">Добавьте API-ключ Tavily, чтобы добавить веб-поиск моделям, которые его не поддерживают.</string>
-    <string name="settings_tavily_mode_always">Всегда использовать Tavily для веб-поиска</string>
-    <string name="settings_tavily_mode_when_unsupported">Использовать, только если модель не поддерживает веб-поиск</string>
+    <string name="settings_tavily_mode_always">Всегда</string>
+    <string name="settings_tavily_mode_when_unsupported">Как запасной</string>
+    <string name="settings_tavily_mode_always_desc">Используется для веб-поиска со всеми моделями.</string>
+    <string name="settings_tavily_mode_when_unsupported_desc">Используется, только если выбранная модель не умеет искать в интернете.</string>
     <string name="settings_weather_no_web_search_warning">Погоде нужны результаты из интернета. Выберите модель с поддержкой веб-поиска или добавьте API-ключ Tavily в разделе «Настройка API-ключа».</string>
     <string name="tavily_search_failed_toast">Веб-поиск Tavily не удался. Ответ без результатов из интернета.</string>
     <string name="search_hint_reminders">Поиск напоминаний…</string>

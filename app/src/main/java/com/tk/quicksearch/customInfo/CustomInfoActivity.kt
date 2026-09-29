@@ -312,7 +312,6 @@ private fun CustomInfoEditor(
                     availableModels = modelsByProvider[providerId].orEmpty(),
                     availableModelsByProvider = modelsByProvider,
                     configuredProviderIds = configuredIds,
-                    modelLabel = stringResource(R.string.settings_direct_search_model_label),
                     thinkingLabel = stringResource(R.string.settings_direct_search_thinking_label),
                     webSearchLabel = stringResource(R.string.settings_direct_search_grounding_label),
                     thinkingEnabled = thinking,
