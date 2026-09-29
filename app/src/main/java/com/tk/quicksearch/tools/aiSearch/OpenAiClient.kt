@@ -82,7 +82,8 @@ class OpenAiClient(
                             )
                         }
                         val deduped = models.distinctBy { it.id }
-                        deduped.sortedBy { it.displayName.lowercase() }
+                        val picker = if (filterForOpenAiPicker) OpenAiModelCatalog.pickerModels(deduped) else deduped
+                        picker.sortedBy { it.displayName.lowercase() }
                     } finally {
                         connection.disconnect()
                     }

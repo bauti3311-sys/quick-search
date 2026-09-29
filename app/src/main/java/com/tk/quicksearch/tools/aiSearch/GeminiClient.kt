@@ -113,7 +113,7 @@ class GeminiClient(
                     } while (!pageToken.isNullOrBlank())
 
                     val deduped = models.distinctBy { it.id }
-                    deduped.sortedBy { it.displayName.lowercase() }
+                    GeminiModelCatalog.pickerModels(deduped).sortedBy { it.displayName.lowercase() }
                 }
             }
 
