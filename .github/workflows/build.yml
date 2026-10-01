@@ -1,0 +1,32 @@
+name: Compilar APK Spotlight
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Dar permisos de ejecucion
+        run: chmod +x gradlew
+
+      - name: Compilar APK
+        run: ./gradlew assembleStandardDebug --no-daemon
+
+      - name: Subir APK descargable
+        uses: actions/upload-artifact@v4
+        with:
+          name: Spotlight-Tablet-APK
+          path: app/build/outputs/apk/standard/debug/*.apk
