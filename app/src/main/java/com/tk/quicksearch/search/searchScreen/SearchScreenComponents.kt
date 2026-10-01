@@ -2,9 +2,28 @@ package com.tk.quicksearch.search.searchScreen
 
 // Re-export all components from their respective files for backward compatibility
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.tk.quicksearch.search.core.SearchToolType
 import com.tk.quicksearch.shared.ui.theme.DesignTokens
 
@@ -54,7 +73,7 @@ internal fun UsagePermissionCard(
 internal fun InfoBanner(message: String) =
     com.tk.quicksearch.search.searchScreen.components.InfoBanner(message)
 
-// Search Field
+// Search Field - SPOTLIGHT MACOS REDESIGN (Pill + 5 Circular Buttons)
 @Composable
 internal fun PersistentSearchBar(
     query: String,
@@ -102,53 +121,148 @@ internal fun PersistentSearchBar(
     transparentBackground: Boolean = false,
     cornerRadius: androidx.compose.ui.unit.Dp = com.tk.quicksearch.shared.ui.theme.DesignTokens.Spacing28,
     modifier: Modifier = Modifier,
-) = com.tk.quicksearch.search.searchScreen.components.PersistentSearchBar(
-    query = query,
-    selectRetainedQuery = selectRetainedQuery,
-    onSelectRetainedQueryHandled = onSelectRetainedQueryHandled,
-    onQueryChange = onQueryChange,
-    onClearQuery = onClearQuery,
-    onSettingsClick = onSettingsClick,
-    showSettingsIcon = showSettingsIcon,
-    dismissKeyboardBeforeSettingsClick = dismissKeyboardBeforeSettingsClick,
-    enabledTargets = enabledTargets,
-    shortcutCodes = shortcutCodes,
-    shortcutEnabled = shortcutEnabled,
-    triggerWords = triggerWords,
-    isSearchEngineAliasSuffixEnabled = isSearchEngineAliasSuffixEnabled,
-    onSearchAction = onSearchAction,
-    onMoveTopResultSelectionUp = onMoveTopResultSelectionUp,
-    onMoveTopResultSelectionDown = onMoveTopResultSelectionDown,
-    shouldUseNumberKeyboard = shouldUseNumberKeyboard,
-    detectedShortcutTarget = detectedShortcutTarget,
-    detectedAliasSearchSection = detectedAliasSearchSection,
-    isCurrencyConverterAliasMode = isCurrencyConverterAliasMode,
-    isWorldClockAliasMode = isWorldClockAliasMode,
-    isDictionaryAliasMode = isDictionaryAliasMode,
-    isWeatherAliasMode = isWeatherAliasMode,
-    detectedCustomToolId = detectedCustomToolId,
-    detectedTaskerIntentId = detectedTaskerIntentId,
-    activeToolType = activeToolType,
-    isCalculatorMode = isCalculatorMode,
-    placeholderText = placeholderText,
-    showWelcomeAnimation = showWelcomeAnimation,
-    showWallpaperBackground = showWallpaperBackground,
-    opaqueBackground = opaqueBackground,
-    forceRestingOutline = forceRestingOutline,
-    autoFocusOnStart = autoFocusOnStart,
-    releaseFocusOnLeave = releaseFocusOnLeave,
-    restoreKeyboardOnEnter = restoreKeyboardOnEnter,
-    onRestoreKeyboardHandled = onRestoreKeyboardHandled,
-    startupSurfaceReady = startupSurfaceReady,
-    onClearDetectedShortcut = onClearDetectedShortcut,
-    onSectionSelected = onSectionSelected,
-    onWelcomeAnimationCompleted = onWelcomeAnimationCompleted,
-    onPressWhileKeyboardClosed = onPressWhileKeyboardClosed,
-    focusRequester = focusRequester,
-    transparentBackground = transparentBackground,
-    cornerRadius = cornerRadius,
-    modifier = modifier,
-)
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 6.dp, vertical = 2.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        // Cápsula central (Pill) con bordes redondeados estilo Spotlight
+        Box(
+            modifier = Modifier.weight(1f)
+        ) {
+            com.tk.quicksearch.search.searchScreen.components.PersistentSearchBar(
+                query = query,
+                selectRetainedQuery = selectRetainedQuery,
+                onSelectRetainedQueryHandled = onSelectRetainedQueryHandled,
+                onQueryChange = onQueryChange,
+                onClearQuery = onClearQuery,
+                onSettingsClick = onSettingsClick,
+                showSettingsIcon = false, // Lo movemos al botón circular de la derecha
+                dismissKeyboardBeforeSettingsClick = dismissKeyboardBeforeSettingsClick,
+                enabledTargets = enabledTargets,
+                shortcutCodes = shortcutCodes,
+                shortcutEnabled = shortcutEnabled,
+                triggerWords = triggerWords,
+                isSearchEngineAliasSuffixEnabled = isSearchEngineAliasSuffixEnabled,
+                onSearchAction = onSearchAction,
+                onMoveTopResultSelectionUp = onMoveTopResultSelectionUp,
+                onMoveTopResultSelectionDown = onMoveTopResultSelectionDown,
+                shouldUseNumberKeyboard = shouldUseNumberKeyboard,
+                detectedShortcutTarget = detectedShortcutTarget,
+                detectedAliasSearchSection = detectedAliasSearchSection,
+                isCurrencyConverterAliasMode = isCurrencyConverterAliasMode,
+                isWorldClockAliasMode = isWorldClockAliasMode,
+                isDictionaryAliasMode = isDictionaryAliasMode,
+                isWeatherAliasMode = isWeatherAliasMode,
+                detectedCustomToolId = detectedCustomToolId,
+                detectedTaskerIntentId = detectedTaskerIntentId,
+                activeToolType = activeToolType,
+                isCalculatorMode = isCalculatorMode,
+                placeholderText = "Spotlight Search",
+                showWelcomeAnimation = showWelcomeAnimation,
+                showWallpaperBackground = showWallpaperBackground,
+                opaqueBackground = false,
+                forceRestingOutline = true,
+                autoFocusOnStart = autoFocusOnStart,
+                releaseFocusOnLeave = releaseFocusOnLeave,
+                restoreKeyboardOnEnter = restoreKeyboardOnEnter,
+                onRestoreKeyboardHandled = onRestoreKeyboardHandled,
+                startupSurfaceReady = startupSurfaceReady,
+                onClearDetectedShortcut = onClearDetectedShortcut,
+                onSectionSelected = onSectionSelected,
+                onWelcomeAnimationCompleted = onWelcomeAnimationCompleted,
+                onPressWhileKeyboardClosed = onPressWhileKeyboardClosed,
+                focusRequester = focusRequester,
+                transparentBackground = true,
+                cornerRadius = 50.dp,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+
+        // Fila de los 5 botones circulares adyacentes de tu HTML
+        SpotlightSideButtons(
+            onSettingsClick = onSettingsClick,
+            onQueryChange = onQueryChange
+        )
+    }
+}
+
+@Composable
+private fun SpotlightSideButtons(
+    onSettingsClick: () -> Unit,
+    onQueryChange: (String) -> Unit
+) {
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        // 1. Apps [ A ]
+        SpotlightCirclePill(
+            text = "A",
+            isAccent = false,
+            onClick = { onQueryChange("apps ") }
+        )
+
+        // 2. Archivos [ 📁 ]
+        SpotlightCirclePill(
+            text = "📁",
+            isAccent = false,
+            onClick = { onQueryChange("files ") }
+        )
+
+        // 3. Acciones / Layers [ 🥞 ]
+        SpotlightCirclePill(
+            text = "🥞",
+            isAccent = false,
+            onClick = { onQueryChange("actions ") }
+        )
+
+        // 4. Portapapeles [ 📄 ]
+        SpotlightCirclePill(
+            text = "📄",
+            isAccent = false,
+            onClick = { onQueryChange("") }
+        )
+
+        // 5. Ajustes / Paleta [ ⚙️ ]
+        SpotlightCirclePill(
+            text = "⚙️",
+            isAccent = true,
+            onClick = onSettingsClick
+        )
+    }
+}
+
+@Composable
+private fun SpotlightCirclePill(
+    text: String,
+    isAccent: Boolean,
+    onClick: () -> Unit
+) {
+    val bgColor = if (isAccent) Color(0xFF007AFF).copy(alpha = 0.25f) else Color.White.copy(alpha = 0.12f)
+    val borderColor = if (isAccent) Color(0xFF007AFF) else Color.White.copy(alpha = 0.22f)
+
+    Box(
+        modifier = Modifier
+            .size(46.dp)
+            .shadow(4.dp, CircleShape)
+            .clip(CircleShape)
+            .background(bgColor)
+            .border(1.dp, borderColor, CircleShape)
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = text,
+            fontSize = 17.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
+    }
+}
 
 // Pills
 @Composable
